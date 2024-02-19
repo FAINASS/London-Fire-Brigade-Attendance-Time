@@ -377,8 +377,8 @@ def main():
     ###############################################################################################################################################
     st.title(" ")
     st.write("---")
-    st.subheader("5. Avez-vous obtenu de meilleurs résultats ? 😊")
-    st.write("Notre modèle a été entraîné sur les données de 2015 à 2022. ")
+    st.subheader("5. Paramètres et performances de notre modèle ")
+    st.write("En utilisant les données de 2015 à 2022, nous avons entraîné le modèle suivant : ")
     
     st.write(" ")
     st.write("Pré-traitement des données : ")
