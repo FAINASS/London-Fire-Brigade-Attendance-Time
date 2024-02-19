@@ -410,6 +410,7 @@ def main():
     st.image(image,use_column_width=True)
     
     st.subheader(" ")
+    st.write("Analyse des résidus : ")
     image = Image.open('Analyse_résidus.png')
     st.image(image,use_column_width=True)
     st.markdown("Analyse des résidus : Dans 80% des cas, l'erreur des prédictions de notre modèle se situe entre -1 min 28 sec et <span style='background-color: #90ee90; color: black'>1 min 22 sec</span>.", unsafe_allow_html=True)
