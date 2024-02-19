@@ -82,7 +82,7 @@ def main():
     min_year = df['DateOfCall'].dt.year.min()
     max_year = df['DateOfCall'].dt.year.max()
     
-    start_year, end_year = my_expander.slider("Date Of Call", min_year, max_year, (2020, 2022))
+    start_year, end_year = my_expander.slider("Date Of Call", min_year, max_year, (2021, 2022))
     
 
     if selected_boroughs == "Tous":
