@@ -83,7 +83,7 @@ def main():
     df = df[(df['YearOfTheCall'] >= start_year) & (df['YearOfTheCall'] <= end_year)]
     
     st.subheader("0. Choix d'un modèle")
-    model_type = st.selectbox("Choisir un modèle :", ['XGBRegressor','LGBMRegressor','Ridge'])
+    model_type = st.selectbox("Choisir un modèle :", ['Ridge','XGBRegressor','LGBMRegressor'])
     
     if model_type == "LGBMRegressor":
         df = df[["IncidentGroupType", "BoroughName","WardName","HourOfCall","PropertyType","DeployedFromStationName","Distance","ResourceCode",
