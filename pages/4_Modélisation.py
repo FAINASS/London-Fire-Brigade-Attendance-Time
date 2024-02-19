@@ -157,8 +157,7 @@ def main():
     st.subheader(" ")
     
     if model_type == 'LinearRegression':
-    # Création du modèle LinearRegression
-    model = LinearRegression()
+        model = LinearRegression()
 
     elif model_type == 'SGDRegressor':
         # Hyperparamètres pour SGDRegressor
