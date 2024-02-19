@@ -17,7 +17,7 @@ st.set_page_config(
 
 @st.cache_data
 def load_data(file):
-    data = pd.read_csv(file,nrows=15)
+    data = pd.read_csv(file,nrows=10)
     return data
 
 def add_logo():
@@ -41,8 +41,6 @@ def main():
     
     add_logo()
     st.header("📥 Collecte des données")
-
-
     titres_onglets = ['Incidents', 'Mobilisations']
     onglet1, onglet2 = st.tabs(titres_onglets)
       
@@ -53,6 +51,7 @@ def main():
         """, unsafe_allow_html=True)
         
         st.markdown("[Source des données](https://data.london.gov.uk/dataset/london-fire-brigade-incident-records)")
+        
         st.write(" ") 
         st.write("Le dataset des incidents comporte 1 580 629 lignes et {} colonnes.".format(incident.shape[1]))
         
@@ -71,8 +70,6 @@ def main():
         st.write("Le dataset des mobilisations comporte 2 167 042 lignes et {} colonnes.".format(mobilisation.shape[1]))
         mobilisation = load_data("LFB Mobilisation data.csv")
         st.write(mobilisation)
-       
-      
 
 if __name__ == "__main__":
     main()
