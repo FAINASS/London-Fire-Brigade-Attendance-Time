@@ -17,7 +17,7 @@ st.set_page_config(
 
 @st.cache_data
 def load_data(file):
-    data = pd.read_csv(file,nrows=9)
+    data = pd.read_csv(file)
     return data
 
 def add_logo():
@@ -66,7 +66,7 @@ def main():
         st.markdown("[Source des données](https://data.london.gov.uk/dataset/london-fire-brigade-mobilisation-records)")
 
         st.write(" ") 
-        st.write("Le dataset des mobilisations comporte 2 167 042 lignes et {} colonnes.".format(mobilisation.shape[1]))
+
         mobilisation = load_data("LFB Mobilisation data.csv")
         st.write(mobilisation)
 
