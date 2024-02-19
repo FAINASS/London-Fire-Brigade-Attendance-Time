@@ -356,7 +356,7 @@ def main():
     importances_df = importances_df.sort_values(by="Importance", ascending=True).tail(10)
     
     # Tracé d'un graphique à barres horizontales
-    fig, ax = plt.subplots(figsize=(16,10))
+    fig, ax = plt.subplots(figsize=(16,6.5))
     plt.grid(visible=True, linewidth=0.5)
     plt.barh(y=importances_df["Features"], width=importances_df["Importance"], color="skyblue")
     plt.xlabel("Average impact on model output")
