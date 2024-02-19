@@ -89,7 +89,8 @@ def main():
         random_index = selected_columns.sample(n=1).index[0]
         st.session_state['incident'] = selected_columns.iloc[random_index]
         placeholder.table(st.session_state['incident'].to_frame())
-        
+
+    st.table(st.session_state['incident'].to_frame().style.set_caption("Incident à prédire").background_gradient(cmap='coolwarm'))
     st.markdown("---")
     
     st.title(" ")
