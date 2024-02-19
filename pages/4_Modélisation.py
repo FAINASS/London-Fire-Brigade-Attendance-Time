@@ -106,8 +106,7 @@ def main():
     
     ###############################################################################################################################################
     
-    st.write(" ")
-    
+    st.subheader(" ")
     st.subheader("1. Pré-traitement des données")
     
     my_expander = st.sidebar.expander("**PRÉTRAITER LES DONNÉES**",expanded=False)
