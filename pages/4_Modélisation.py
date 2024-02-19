@@ -279,7 +279,7 @@ def main():
     st.subheader(" ")
     st.subheader("3. Visualisation graphique des prédictions")
 
-    @st.cache
+  
     
     # Entraînement du modèle sur les données d'entraînement
     model_pipeline.fit(X_train, y_train)
