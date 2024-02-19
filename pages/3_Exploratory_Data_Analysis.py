@@ -535,6 +535,7 @@ def main():
     st.subheader("7. Temps de réponse en fonction des variables quantitatives ")
     
     st.write(" ")
+    st.write("Analyse des corrélations")
     df.drop(["index"],axis=1,inplace=True)
     
     fig, ax = plt.subplots(figsize=(12, 6))
