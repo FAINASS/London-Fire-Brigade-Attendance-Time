@@ -34,7 +34,8 @@ def add_logo():
 
 def main():
     
-    add_logo()
+    add_logo() 
+    
     st.header("🚒 La London Fire Brigade")
         
     st.markdown("""
