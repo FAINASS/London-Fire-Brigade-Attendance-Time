@@ -53,6 +53,7 @@ def main():
     st.subheader("Objectifs 2023 - 2029")
     
     st.write("La LFB s’est fixée deux objectifs majeurs :")
+    
     df2 = pd.DataFrame({
         'Objectifs': ['Arrivée sur un lieu d\'un incident', 'Envoi d\'une seconde équipe en assistance'],
         'Temps': ['6 minutes (360 sec) en moyenne', '8 minutes (480 sec) après le signalement']
@@ -61,6 +62,7 @@ def main():
     st.dataframe(df2.style.applymap(lambda x: 'background-color : lightblue'))
     
     """, unsafe_allow_html=True)
+    
     st.write(" ")
     st.header("🎯 Enjeux du projet")
         
