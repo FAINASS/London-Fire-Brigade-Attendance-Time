@@ -134,7 +134,7 @@ def main():
     
     
     st.title(" ")
-    st.markdown("Légende : 🔴 Lieu de l'incident 🟢 Caserne déployée")
+    st.markdown("Légende : 🔴 Lieu de l'incident 🔵 Caserne déployée")
 
     df_filtered = df[df['DeployedFromStationName'].isin(station)]
 
@@ -143,7 +143,7 @@ def main():
     
     nearest_station = df_filtered.loc[min_distance_index, 'DeployedFromStationName']
     
-    m = folium.Map(location=[lat_ward, lon_ward], zoom_start=10,zoom_control=False)
+    m = folium.Map(location=[lat_ward, lon_ward], zoom_start=10)
     
     folium.Marker(
         location=[lat_ward, lon_ward],
