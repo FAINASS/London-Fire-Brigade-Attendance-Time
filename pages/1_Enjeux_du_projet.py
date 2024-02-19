@@ -62,9 +62,11 @@ def main():
     
     st.write(" ")
     st.header("🎯 Enjeux du projet")
-        
+
+    st.write(" ")
     st.markdown("""
     Notre objectif est de prédire le temps de réponse des sapeurs-pompiers de Londres à partir des données de 2009 à 2023. 
+    
     Nous visons un coefficient de détermination (R²) supérieur à 70% et nous cherchons à obtenir une erreur quadratique moyenne (RMSE) inférieure à 1 minute.
     """, unsafe_allow_html=True)
         
