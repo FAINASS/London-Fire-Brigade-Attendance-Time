@@ -51,7 +51,7 @@ def main():
         """, unsafe_allow_html=True)
         
         st.markdown("[Source des données](https://data.london.gov.uk/dataset/london-fire-brigade-incident-records)")
-        
+        st.write(f"Le dataset des incidents comporte 1 580 629 lignes et {incident.shape[1]} colonnes.")
         st.write(" ") 
         
         incident = load_data("LFB Incident data.csv")
@@ -66,7 +66,7 @@ def main():
         st.markdown("[Source des données](https://data.london.gov.uk/dataset/london-fire-brigade-mobilisation-records)")
 
         st.write(" ") 
-
+        st.write(f"Le dataset des mobilisations comporte 2 167 042 lignes et {mobilisation.shape[1]} colonnes.")
         mobilisation = load_data("LFB Mobilisation data.csv")
         st.write(mobilisation)
 
