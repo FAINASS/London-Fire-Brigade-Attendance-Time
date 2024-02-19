@@ -152,7 +152,7 @@ def main():
     
     folium.Marker(
         location=[lat_station, lon_station],
-        icon=folium.Icon(color="green"),
+        icon=folium.Icon(color="blue"),
     ).add_to(m)
     
     html = branca.element.Figure()
