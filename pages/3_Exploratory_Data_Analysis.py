@@ -153,7 +153,7 @@ def main():
     
     selected_col = st.selectbox('Sélectionnez une variable',col_var)
     
-    fig,ax= plt.subplots(figsize=(16,6))
+    fig,ax= plt.subplots(figsize=(16,5))
     
     ax = df[selected_col].value_counts()[:5].plot(kind="bar",color=["skyblue"])
     ax.set_title(selected_col)
