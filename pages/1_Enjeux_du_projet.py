@@ -49,8 +49,7 @@ def main():
     | Nombre total d'employés | <span style='color:lightblue'>5 992</span> |
     | Nombre de sapeurs-pompiers professionnels | <span style='color:lightblue'>5 096</span> |
     | Nombre de casernes de pompiers | <span style='color:lightblue'>103</span> |
-    
-    Créée il y a presque deux siècles, la London Fire Brigade (LFB) est également composée d’une brigade fluviale.
+
     
     Le temps de réponse des casernes lors d’une urgence est un facteur majeur pour la limitation des dégâts à la fois physique et matériel. 
     
