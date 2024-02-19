@@ -174,7 +174,7 @@ def main():
        max_depth = my_expander2.slider('Max Depth', min_value=1, max_value=12, value=3)
        n_estimators = my_expander2.slider('N_estimators', min_value=100, max_value=1200, value=685)
 
-       model = XGBRegressor(colsample_bytree =colsample_bytree,  
+       model = XGBRegressor(
        max_depth = max_depth,  
        n_estimators = n_estimators, 
        random_state=0)
