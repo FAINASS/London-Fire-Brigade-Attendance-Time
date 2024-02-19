@@ -48,7 +48,7 @@ def main():
         'Statistiques': ['Rang mondial', 'Nombre total d\'employés', 'Nombre de sapeurs-pompiers professionnels', 'Nombre de casernes de pompiers'],
         'Valeurs': ['5ème', '5 992', '5 096', '103']
     })
-    
+    df1.set_index('Statistiques', inplace=True)
     st.dataframe(df1)
     st.write("")
     
@@ -59,6 +59,7 @@ def main():
         'Temps': ['6 minutes (360 sec) en moyenne', '8 minutes (480 sec) après le signalement']
     })
     
+    df2.set_index('Objectifs', inplace=True)
     st.dataframe(df2)
     
     st.write(" ")
