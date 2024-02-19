@@ -68,15 +68,6 @@ def main():
     Nous visons un coefficient de détermination (R²) supérieur à 70% et nous cherchons à obtenir une erreur quadratique moyenne (RMSE) inférieure à 1 minute.
     """, unsafe_allow_html=True)
         
-    st.write(" ")
-    st.header("🔍 Démarche utilisée")
-        
-    etapes = ["Collecte des données", "Exploratory Data Analysis", "Modélisation","Test et validation","Conclusion"]
-    emojis = ['📥', '📊', '🏋️', '✅']
-        
-    timeline = ' ➡️ '.join(f'{emoji} {etape}' for emoji, etape in zip(emojis, etapes))
-        
-    st.write(timeline)
 
 if __name__ == "__main__":
     main()
