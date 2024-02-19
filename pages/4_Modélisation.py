@@ -214,7 +214,8 @@ def main():
         ('preprocessor', preprocessor),
         ('estimator', model)
         ])
-    
+
+    @st.cache
     def evaluation(model):
 
         """
