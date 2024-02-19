@@ -54,7 +54,7 @@ def main():
     st.write("La LFB s’est fixée deux objectifs majeurs :")
     
     df2 = pd.DataFrame({
-        'Objectifs': ['Arrivée sur un lieu d\'un incident', 'Envoi d\'une seconde équipe en assistance'],
+        'Objectifs': ['Arriver sur un lieu d\'un incident', 'Envoyer une seconde équipe en assistance'],
         'Temps': ['6 minutes (360 sec) en moyenne', '8 minutes (480 sec) après le signalement']
     })
     
