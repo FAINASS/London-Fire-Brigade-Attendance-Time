@@ -43,7 +43,7 @@ def main():
 
     #### La LFB en quelques chiffres
 
-    | Statistiques | Valeurs |
+    | <span style='color:#8B0000'>Statistiques</span> | <span style='color:#8B0000'>Valeurs</span> |
     | --- | --- |
     | Rang mondial | <span style='color:lightblue'>5ème</span> |
     | Nombre total d'employés | <span style='color:lightblue'>5 992</span> |
