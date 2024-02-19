@@ -52,7 +52,7 @@ def main():
         
         st.write(" ")
         incident = load_data("LFB Incident data.csv")
-        st.write(f"Ce dataset comporte 1 580 629 lignes et {incident.shape[1]} colonnes.")
+        st.write(f"Il comporte 1 580 629 lignes et {incident.shape[1]} colonnes.")
         st.write("")
         st.markdown("[Source des données](https://data.london.gov.uk/dataset/london-fire-brigade-incident-records)")
         st.write(incident)
@@ -65,7 +65,7 @@ def main():
 
         st.write(" ")
         mobilisation = load_data("LFB Mobilisation data.csv")
-        st.write(f"Ce dataset comporte 2 167 042 lignes et {mobilisation.shape[1]} colonnes.")
+        st.write(f"Il comporte 2 167 042 lignes et {mobilisation.shape[1]} colonnes.")
         st.write(" ")
         st.markdown("[Source des données](https://data.london.gov.uk/dataset/london-fire-brigade-mobilisation-records)")
         st.write(mobilisation)
