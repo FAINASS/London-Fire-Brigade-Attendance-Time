@@ -46,7 +46,7 @@ def main():
     Le temps de réponse des casernes lors d’une urgence est un facteur majeur pour la limitation des dégâts à la fois physique et matériel. La LFB s’est donc fixé comme objectif d'arriver sur un lieu d'un incident dans un temps inférieur à <span style='color:lightblue'>6 minutes (360 sec)</span> en moyenne, et d'envoyer une seconde équipe en assistance, si nécessaire, dans les <span style='color:lightblue'> 8 premières minutes (480 sec)</span> après le signalement.
     """, unsafe_allow_html=True)
 
-    st.subheader(" ")
+    st.write(" ")
     
     st.header("🎯 Enjeux du projet")
     
@@ -55,7 +55,7 @@ def main():
     coefficient de détermination (R²) > à 70% et une erreur quadratique moyenne (RMSE) < à 1 minute.
     """)
     
-    st.subheader(" ")
+    st.write(" ")
     
     st.header("🔍 Démarche utilisée")
     
