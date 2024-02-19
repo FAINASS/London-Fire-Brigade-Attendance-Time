@@ -55,7 +55,7 @@ def main():
         
         incident = load_data("LFB Incident data.csv")
         st.write(f"Le dataset des incidents comporte 1 580 629 lignes et {incident.shape[1]} colonnes.")
-        St.write("")
+        st.write("")
         st.write(incident)
        
         
