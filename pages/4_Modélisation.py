@@ -404,22 +404,18 @@ def main():
     st.write("Performances de notre modèle : ")
     score = pd.DataFrame([ 0.53, 0.5, 1.27, 1.32], index=['R² Train','R² Test', 'RMSE Train', 'RMSE Test']).T
     st.dataframe(score)
+    st.subheader("Features Importances :")
+    image_features = Image.open('model_featuresImportances.png')
+    st.image(image_features, width=300)  # Ajustez la valeur de la largeur selon vos préférences
     
-    st.subheader(" ")
-    st.write("Features Importances : ")
-    image = Image.open('model_featuresImportances.png')
-    st.image(image,use_column_width=False)
-    
-    st.subheader(" ")
-    st.write("Analyse des résidus : ")
-    image = Image.open('Analyse_résidus.png')
-    st.image(image,use_column_width=False)
+    st.subheader("Analyse des résidus :")
+    image_residus = Image.open('Analyse_résidus.png')
+    st.image(image_residus, width=300)  # Ajustez la valeur de la largeur selon vos préférences
     st.markdown("Analyse des résidus : Dans 80% des cas, l'erreur des prédictions de notre modèle se situe entre -1 min 28 sec et <span style='background-color: #90ee90; color: black'>1 min 22 sec</span>.", unsafe_allow_html=True)
     
-    st.subheader(" ")
-    st.write("Interprétabilité globale (impact des variables sur plusieurs prédictions) : ")
-    image = Image.open('model_Shap.png')
-    st.image(image,use_column_width=False)
+    st.subheader("Interprétabilité globale (impact des variables sur plusieurs prédictions) :")
+    image_shap = Image.open('model_Shap.png')
+    st.image(image_shap, width=300)  # Ajustez la valeur de la largeur selon vos préférences
 
 if __name__ == "__main__":
     main()
