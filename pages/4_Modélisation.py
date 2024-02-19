@@ -18,7 +18,8 @@ from sklearn.impute import SimpleImputer
 from sklearn.compose import ColumnTransformer, make_column_selector
 from sklearn.pipeline import Pipeline
 
-from sklearn.linear_model import Ridge, LinearRegression
+from sklearn.linear_model import Ridge
+from xgboost import XGBRegressor
 
 from sklearn.metrics import mean_squared_error
 from sklearn.inspection import permutation_importance
