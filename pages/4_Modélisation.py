@@ -171,14 +171,14 @@ def main():
         alpha = my_expander2.slider('Alpha', min_value=1.0, max_value=50.0, value=9.372353071731432)
         fit_intercept = my_expander2.checkbox('Inclure l\'interception', value=True)
     
-        model = Lasso(alpha=alpha, fit_intercept=fit_intercept, normalize=normalize, random_state=0)
+        model = Lasso(alpha=alpha, fit_intercept=fit_intercept)
 
     elif model_type == 'ElasticNet':
         alpha = my_expander2.slider('Alpha', min_value=1.0, max_value=50.0, value=9.372353071731432)
         l1_ratio = my_expander2.slider('L1 Ratio', min_value=0.0, max_value=1.0, value=0.5)
         fit_intercept = my_expander2.checkbox('Inclure l\'interception', value=True)
     
-        model = ElasticNet(alpha=alpha, l1_ratio=l1_ratio, fit_intercept=fit_intercept, normalize=normalize, random_state=0)
+        model = ElasticNet(alpha=alpha, l1_ratio=l1_ratio, fit_intercept=fit_intercept)
     
     else:
         # Modèle Ridge
@@ -186,7 +186,7 @@ def main():
         solver = my_expander2.selectbox('Solver', ['auto', 'svd', 'cholesky', 'lsqr', 'sparse_cg', 'sag', 'saga'])
         fit_intercept = my_expander2.checkbox('Inclure l\'interception', value=True)
     
-        model = Ridge(alpha=alpha, solver=solver, fit_intercept=fit_intercept, random_state=0)
+        model = Ridge(alpha=alpha, solver=solver, fit_intercept=fit_intercept)
     
 
     model_pipeline = Pipeline(steps=[
