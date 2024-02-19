@@ -81,7 +81,7 @@ def main():
 
     st.subheader(" ")
     st.subheader("0. Choix d'un modèle")
-    model_type = st.selectbox("Choisir un modèle :", ['Ridge','XGBRegressor','LGBMRegressor'])
+    model_type = st.selectbox("Choisir un modèle :", ['ElasticNet','Ridge','Lasso'])
     
     if model_type == "LGBMRegressor":
         df = df[["IncidentGroupType", "BoroughName","WardName","HourOfCall","PropertyType","DeployedFromStationName","Distance","ResourceCode",
