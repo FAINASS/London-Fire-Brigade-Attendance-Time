@@ -72,36 +72,25 @@ def main():
     df = load_data("df_Predictions.csv")
     
     st.subheader("0. Incident à prédire")
-    # Sélection des colonnes pertinentes
-    selected_columns = df[["IncidentGroupType", "PropertyType", "BoroughName", "WardName", "DeployedFromStationName",
-                           "Distance", "HourOfCall", "NumStationsWithPumpsAttending",
-                           "SecondPumpArrivingDeployedFromStation", "AttendanceTime"]]
+    selected_columns = df[["IncidentGroupType", "PropertyType", "BoroughName", "WardName", "DeployedFromStationName","Distance",
+                           "HourOfCall", "NumStationsWithPumpsAttending","SecondPumpArrivingDeployedFromStation", "AttendanceTime"]]
     
-    # Filtrage des données
-    df = df.drop(df[(df['NumStationsWithPumpsAttending'] > 1) &    
-                    (df['SecondPumpArrivingDeployedFromStation'] != "No Second Pump delopyed")].index)
-    
-    # Création d'un espace réservé pour le tableau
+    df = df.drop(df[(df['NumStationsWithPumpsAttending'] > 1) & (df['SecondPumpArrivingDeployedFromStation'] != "No Second Pump delopyed")].index)
+
     placeholder = st.empty()
     
-    # Vérification si 'incident' est déjà dans session_state
+    # Vérifier si 'incident' est déjà dans session_state
     if 'incident' not in st.session_state:
         st.session_state['incident'] = selected_columns.iloc[88530]
     
-    # Affichage du tableau avec en-tête de colonne en gras et alignement du texte à gauche
-    st.table(st.session_state['incident'].to_frame().style.set_caption("Incident à prédire")
-             .set_table_styles([{"selector": "th", "props": [("font-weight", "bold")]}])
-             .set_properties(**{'text-align': 'left'}))
+    placeholder.table(st.session_state['incident'].to_frame())
     
-    # Bouton pour générer un autre incident
     if st.button('Générer un autre incident'):
         random_index = selected_columns.sample(n=1).index[0]
         st.session_state['incident'] = selected_columns.iloc[random_index]
         placeholder.table(st.session_state['incident'].to_frame())
-    
-    # Ligne de séparation
+        
     st.markdown("---")
-    st.title(" ")
     
     st.subheader("1. Type d'incident")
     col1, col2 = st.columns(2) 
