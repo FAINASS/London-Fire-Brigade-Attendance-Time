@@ -53,7 +53,6 @@ def main():
         st.markdown("[Source des données](https://data.london.gov.uk/dataset/london-fire-brigade-incident-records)")
         
         st.write(" ") 
-        st.write("Le dataset des incidents comporte 1 580 629 lignes et {} colonnes.".format(incident.shape[1]))
         
         incident = load_data("LFB Incident data.csv")
         st.write(incident)
