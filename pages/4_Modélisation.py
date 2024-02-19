@@ -177,13 +177,13 @@ def main():
     
     
     if model_type == 'XGBRegressor':
-    colsample_bytree = my_expander2.slider('Colsample bytree', min_value=0.1, max_value=1.0, value=0.7746831999163204)
-    learning_rate = my_expander2.slider('Learning rate', min_value=0.1, max_value=1.0, value=0.0624207548570334)
-    max_depth = my_expander2.slider('Max Depth', min_value=1, max_value=12, value=3)
-    min_child_weight = my_expander2.slider('Min child weight', min_value=1, max_value=5, value=1)
-    n_estimators = my_expander2.slider('N_estimators', min_value=100, max_value=1200, value=685)
+        colsample_bytree = my_expander2.slider('Colsample bytree', min_value=0.1, max_value=1.0, value=0.7746831999163204)
+        learning_rate = my_expander2.slider('Learning rate', min_value=0.1, max_value=1.0, value=0.0624207548570334)
+        max_depth = my_expander2.slider('Max Depth', min_value=1, max_value=12, value=3)
+        min_child_weight = my_expander2.slider('Min child weight', min_value=1, max_value=5, value=1)
+        n_estimators = my_expander2.slider('N_estimators', min_value=100, max_value=1200, value=685)
     
-    model = XGBRegressor(colsample_bytree=colsample_bytree,
+        model = XGBRegressor(colsample_bytree=colsample_bytree,
                          learning_rate=learning_rate,
                          max_depth=max_depth,
                          min_child_weight=min_child_weight,
@@ -195,8 +195,8 @@ def main():
         learning_rate = my_expander2.slider('Learning rate', min_value=0.1, max_value=1.0, value=0.19789386803938744)
         max_depth = my_expander2.slider('Max Depth', min_value=1, max_value=12, value=3)
         min_child_weight = my_expander2.slider('Min child weight', min_value=1, max_value=5, value=3)
-
         n_estimators = my_expander2.slider('N_estimators', min_value=100, max_value=1200, value=441)
+        
         model = LGBMRegressor(colsample_bytree=colsample_bytree,
                               learning_rate=learning_rate,
                               max_depth=max_depth,
@@ -207,14 +207,14 @@ def main():
 
     else :
         alpha = my_expander2.slider('Alpha', min_value=1.0, max_value=50.0, value=9.372353071731432)
+        
         model = Ridge(alpha=alpha)
         
     
-        model_pipeline = Pipeline(steps=[
-            ('preprocessor', preprocessor),
-            ('estimator', model)
+    model_pipeline = Pipeline(steps=[
+        ('preprocessor', preprocessor),
+        ('estimator', model)
         ])
-
     
     def evaluation(model):
 
