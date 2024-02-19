@@ -41,18 +41,27 @@ def main():
     st.markdown("""
     La brigade des pompiers de Londres est le service d'incendie et de sauvetage le plus actif du Royaume-Uni. 
 
-    C'est le <span style='color:lightblue'>cinquième</span> plus grand corps de sapeurs-pompiers dans le monde avec <span style='color:lightblue'>5 992 employés</span> dont <span style='color:lightblue'>5 096 sapeurs-pompiers professionnels</span>. 
+    #### Statistiques
+
+    | Statistiques | Valeurs |
+    | --- | --- |
+    | Rang mondial | <span style='color:lightblue'>5ème</span> |
+    | Nombre total d'employés | <span style='color:lightblue'>5 992</span> |
+    | Nombre de sapeurs-pompiers professionnels | <span style='color:lightblue'>5 096</span> |
+    | Nombre de casernes de pompiers | <span style='color:lightblue'>103</span> |
     
-    Créée il y a presque deux siècles, la London Fire Brigade (LFB) est composée de <span style='color:lightblue'>103 casernes de pompiers</span> et d’une brigade fluviale.
+    Créée il y a presque deux siècles, la London Fire Brigade (LFB) est également composée d’une brigade fluviale.
     
     Le temps de réponse des casernes lors d’une urgence est un facteur majeur pour la limitation des dégâts à la fois physique et matériel. 
     
-    ### Objectifs de la LFB
+    #### Objectifs 
     
     La LFB s’est fixée deux objectifs majeurs :
     
-    1. Arriver sur un lieu d'un incident dans un temps inférieur à <span style='color:lightblue'>6 minutes (360 sec)</span> en moyenne.
-    2. Envoyer une seconde équipe en assistance, si nécessaire, dans les <span style='color:lightblue'> 8 premières minutes (480 sec)</span> après le signalement.
+    | Objectifs | Temps |
+    | --- | --- |
+    | Arrivée sur un lieu d'un incident | <span style='color:lightblue'>6 minutes (360 sec)</span> en moyenne |
+    | Envoi d'une seconde équipe en assistance | <span style='color:lightblue'>8 minutes (480 sec)</span> après le signalement |
     """, unsafe_allow_html=True)
     
     st.write(" ")
