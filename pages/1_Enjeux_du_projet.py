@@ -43,7 +43,7 @@ def main():
 
     #### La LFB en quelques chiffres
 
-    | <span style='color:#8B0000'>Statistiques</span> | <span style='color:#8B0000'>Valeurs</span> |
+    | <span style='background-color:#8B0000; color:white'>Statistiques</span> | <span style='background-color:#8B0000; color:white'>Valeurs</span> |
     | --- | --- |
     | Rang mondial | <span style='color:lightblue'>5ème</span> |
     | Nombre total d'employés | <span style='color:lightblue'>5 992</span> |
@@ -62,7 +62,7 @@ def main():
     
     La LFB s’est fixée deux objectifs majeurs :
     
-    | Objectifs | Temps |
+    | <span style='background-color:#8B0000; color:white'>Objectifs</span> | <span style='background-color:#8B0000; color:white'>Temps</span> |
     | --- | --- |
     | Arrivée sur un lieu d'un incident | <span style='color:lightblue'>6 minutes (360 sec)</span> en moyenne |
     | Envoi d'une seconde équipe en assistance | <span style='color:lightblue'>8 minutes (480 sec)</span> après le signalement |
