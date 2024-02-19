@@ -474,7 +474,7 @@ def main():
     
     # Mettre à jour la mise en page de la carte
     fig.update_layout(title='London Borough Attendance Time')
-    fig.update_layout(mapbox_zoom=8.7, mapbox_center = {"lat": 51.490065, "lon": -0.119092})
+    fig.update_layout(mapbox_zoom=8.7, mapbox_center = {"lat": 51.490065, "lon": -0.119092},dragmode=False)
     fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
     
 
