@@ -409,13 +409,13 @@ def main():
     st.write("Features Importances :")
     image_features = Image.open('model_featuresImportances.png')
     st.image(image_features, width=1200)  # Ajustez la valeur de la largeur selon vos préférences
-    st.write("")
+    st.header("")
     
     st.write("Analyse des résidus :")
     image_residus = Image.open('Analyse_résidus.png')
     st.image(image_residus, width=1200)  # Ajustez la valeur de la largeur selon vos préférences
     st.markdown("Analyse des résidus : Dans 80% des cas, l'erreur des prédictions de notre modèle se situe entre -1 min 28 sec et <span style='background-color: #90ee90; color: black'>1 min 22 sec</span>.", unsafe_allow_html=True)
-    st.write("")
+    st.header("")
     
     st.write("Interprétabilité globale (impact des variables sur plusieurs prédictions) :")
     image_shap = Image.open('model_Shap.png')
