@@ -408,18 +408,18 @@ def main():
     st.subheader(" ")
     st.write("Features Importances : ")
     image = Image.open('model_featuresImportances.png')
-    st.image(image,use_column_width=True)
+    st.image(image,use_column_width=False)
     
     st.subheader(" ")
     st.write("Analyse des résidus : ")
     image = Image.open('Analyse_résidus.png')
-    st.image(image,use_column_width=True)
+    st.image(image,use_column_width=False)
     st.markdown("Analyse des résidus : Dans 80% des cas, l'erreur des prédictions de notre modèle se situe entre -1 min 28 sec et <span style='background-color: #90ee90; color: black'>1 min 22 sec</span>.", unsafe_allow_html=True)
     
     st.subheader(" ")
     st.write("Interprétabilité globale (impact des variables sur plusieurs prédictions) : ")
     image = Image.open('model_Shap.png')
-    st.image(image,use_column_width=True)
+    st.image(image,use_column_width=False)
 
 if __name__ == "__main__":
     main()
