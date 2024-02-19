@@ -88,7 +88,7 @@ def main():
     model_type = st.selectbox("Choisir un modèle :", ['Ridge','XGBRegressor','LGBMRegressor'])
     
     if model_type == "LGBMRegressor":
-    columns_to_keep = ["IncidentGroupType", "BoroughName", "WardName", "HourOfCall", "PropertyType",
+        columns_to_keep = ["IncidentGroupType", "BoroughName", "WardName", "HourOfCall", "PropertyType",
                        "DeployedFromStationName", "Distance", "ResourceCode", "LatitudeIncident",
                        "LongitudeIncident", "LatitudeStation", "LongitudeStation",
                        "SecondPumpArrivingDeployedFromStation", "AttendanceTime"]
