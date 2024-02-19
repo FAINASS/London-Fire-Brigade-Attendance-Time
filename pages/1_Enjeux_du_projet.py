@@ -41,7 +41,7 @@ def main():
     st.markdown("""
     La brigade des pompiers de Londres est le service d'incendie et de sauvetage le plus actif du Royaume-Uni. 
 
-    #### Statistiques
+    #### La LFB en quelques chiffres
 
     | Statistiques | Valeurs |
     | --- | --- |
@@ -58,7 +58,7 @@ def main():
     st.write(" ") 
     
     st.markdown("""
-    #### Objectifs 
+    #### Objectifs 2023 - 2029
     
     La LFB s’est fixée deux objectifs majeurs :
     
