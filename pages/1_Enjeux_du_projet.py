@@ -51,7 +51,9 @@ def main():
     | Nombre de casernes de pompiers | <span style='color:lightblue'>103</span> |
 
     
-    \nLe temps de réponse des casernes lors d’une urgence est un facteur majeur pour la limitation des dégâts à la fois physique et matériel. 
+    
+    
+    Le temps de réponse des casernes lors d’une urgence est un facteur majeur pour la limitation des dégâts à la fois physique et matériel. 
     
     #### Objectifs 
     
