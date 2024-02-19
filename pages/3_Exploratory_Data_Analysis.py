@@ -467,16 +467,6 @@ def main():
                         hover_name="BoroughName", # Nom de la zone survolée
                         color_continuous_scale="Temps",# Échelle de couleur
                         range_color=[3.8, 5.8])
-
-    # Disable zooming, dragging, and scrolling
-    fig.update_layout(
-        mapbox=dict(
-            zoom=1,  # Zoom level
-            center=dict(lat=51.5074, lon=0.1278),  # Center the map to these coordinates
-        ),
-        uirevision='no scroll'  # Disable scrolling
-    )
-    
     
     # Mettre à jour la carte pour qu'elle s'adapte aux emplacements des incidents
     fig.update_geos(fitbounds="locations", visible=False)
