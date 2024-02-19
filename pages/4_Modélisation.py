@@ -88,16 +88,21 @@ def main():
     model_type = st.selectbox("Choisir un modèle :", ['Ridge','XGBRegressor','LGBMRegressor'])
     
     if model_type == "LGBMRegressor":
-        df = df[["IncidentGroupType", "BoroughName","WardName","HourOfCall","PropertyType","DeployedFromStationName","Distance","ResourceCode",
-         "LatitudeIncident","LongitudeIncident","LatitudeStation","LongitudeStation","SecondPumpArrivingDeployedFromStation","AttendanceTime"]]
+    columns_to_keep = ["IncidentGroupType", "BoroughName", "WardName", "HourOfCall", "PropertyType",
+                       "DeployedFromStationName", "Distance", "ResourceCode", "LatitudeIncident",
+                       "LongitudeIncident", "LatitudeStation", "LongitudeStation",
+                       "SecondPumpArrivingDeployedFromStation", "AttendanceTime"]
+    elif model_type == "XGBRegressor":
+        columns_to_keep = ["IncidentGroupType", "BoroughName", "WardName", "HourOfCall", "PropertyType",
+                           "DeployedFromStationName", "Distance", "NumStationsWithPumpsAttending",
+                           "LatitudeIncident", "LongitudeIncident", "LatitudeStation", "LongitudeStation",
+                           "SecondPumpArrivingDeployedFromStation", "AttendanceTime"]
+    else:
+        columns_to_keep = ["Distance", "DeployedFromStationName", "WardName", "LongitudeStation",
+                           "LongitudeIncident", "ResourceCode", "BoroughName", "WeekOfTheCall",
+                           "MonthOfTheCall", "Region", "MomentOfTheDay", "PropertyType", "AttendanceTime"]
     
-    elif model_type == "XGBRegressor" :
-        df = df[["IncidentGroupType", "BoroughName","WardName","HourOfCall","PropertyType","DeployedFromStationName","Distance","NumStationsWithPumpsAttending",
-                 "LatitudeIncident","LongitudeIncident","LatitudeStation","LongitudeStation","SecondPumpArrivingDeployedFromStation","AttendanceTime"]]
-    else :
-        df = df[["Distance","DeployedFromStationName","WardName","LongitudeStation","LongitudeIncident","ResourceCode","BoroughName","WeekOfTheCall","MonthOfTheCall",
-    "Region","MomentOfTheDay","PropertyType","AttendanceTime"]]
- 
+    df = df[columns_to_keep]
 
     # Séparation des features (X) et de la variable cible (y)
     X = df.drop('AttendanceTime', axis=1)
