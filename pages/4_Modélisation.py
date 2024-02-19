@@ -170,7 +170,6 @@ def main():
     if model_type == 'Lasso':
         alpha = my_expander2.slider('Alpha', min_value=1.0, max_value=50.0, value=9.372353071731432)
         fit_intercept = my_expander2.checkbox('Inclure l\'interception', value=True)
-        normalize = my_expander2.checkbox('Normaliser les variables d\'entrée', value=False)
     
         model = Lasso(alpha=alpha, fit_intercept=fit_intercept, normalize=normalize, random_state=0)
 
@@ -178,7 +177,6 @@ def main():
         alpha = my_expander2.slider('Alpha', min_value=1.0, max_value=50.0, value=9.372353071731432)
         l1_ratio = my_expander2.slider('L1 Ratio', min_value=0.0, max_value=1.0, value=0.5)
         fit_intercept = my_expander2.checkbox('Inclure l\'interception', value=True)
-        normalize = my_expander2.checkbox('Normaliser les variables d\'entrée', value=False)
     
         model = ElasticNet(alpha=alpha, l1_ratio=l1_ratio, fit_intercept=fit_intercept, normalize=normalize, random_state=0)
     
