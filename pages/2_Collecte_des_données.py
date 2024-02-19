@@ -50,8 +50,9 @@ def main():
         Le premier jeu de données fourni contient les détails de chaque incident traité depuis janvier 2009. Des informations sont fournies sur la date et le lieu de l'incident ainsi que sur le type d'incident traité.    
         """, unsafe_allow_html=True)
         
+        st.write(" ")
         incident = load_data("LFB Incident data.csv")
-        st.write(f"Le dataset des incidents comporte 1 580 629 lignes et {incident.shape[1]} colonnes.")
+        st.write(f"Ce dataset comporte 1 580 629 lignes et {incident.shape[1]} colonnes.")
         st.write("")
         st.markdown("[Source des données](https://data.london.gov.uk/dataset/london-fire-brigade-incident-records)")
         st.write(incident)
@@ -61,9 +62,10 @@ def main():
         st.markdown("""
         Le second jeu de données contient les détails de chaque camion de pompiers envoyé sur les lieux d'un incident depuis janvier 2009. Des informations sont fournies sur l'appareil mobilisé, son lieu de déploiement et les heures d'arrivée sur les lieux de l'incident.             
         """, unsafe_allow_html=True)
-        
+
+        st.write(" ")
         mobilisation = load_data("LFB Mobilisation data.csv")
-        st.write(f"Le dataset des mobilisations comporte 2 167 042 lignes et {mobilisation.shape[1]} colonnes.")
+        st.write(f"Ce dataset comporte 2 167 042 lignes et {mobilisation.shape[1]} colonnes.")
         st.write(" ")
         st.markdown("[Source des données](https://data.london.gov.uk/dataset/london-fire-brigade-mobilisation-records)")
         st.write(mobilisation)
