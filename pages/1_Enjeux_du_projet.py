@@ -6,7 +6,7 @@ This is a temporary script file.
 """
 
 import streamlit as st
-
+import pandas as pd
 
 #Configurer l'affichage en mode Wide
 st.set_page_config(
@@ -49,7 +49,7 @@ def main():
         'Valeurs': ['5ème', '5 992', '5 096', '103']
     })
     
-    st.dataframe(df1)
+    st.dataframe(df1.style.applymap(lambda x: 'background-color : lightblue'))
     
     st.subheader("Objectifs 2023 - 2029")
     
@@ -60,7 +60,7 @@ def main():
         'Temps': ['6 minutes (360 sec) en moyenne', '8 minutes (480 sec) après le signalement']
     })
     
-    st.dataframe(df2)
+    st.dataframe(df2.style.applymap(lambda x: 'background-color : lightblue'))
     
     st.write(" ")
     st.header("🎯 Enjeux du projet")
