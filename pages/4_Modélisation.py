@@ -202,12 +202,12 @@ def main():
     
 
     else :  # Ridge
-        alpha = st.slider('Alpha', min_value=1.0, max_value=50.0, value=9.372353071731432)
-        solver = st.selectbox('Solver', ['auto', 'svd', 'cholesky', 'lsqr', 'sparse_cg', 'sag', 'saga'])
-        fit_intercept = st.checkbox('Inclure l\'interception', value=True)
+        alpha = my_expander2.slider('Alpha', min_value=1.0, max_value=50.0, value=9.372353071731432)
+        solver = my_expander2.selectbox('Solver', ['auto', 'svd', 'cholesky', 'lsqr', 'sparse_cg', 'sag', 'saga'])
+        fit_intercept = my_expander2.checkbox('Inclure l\'interception', value=True)
         
         # Créez votre modèle Ridge avec les hyperparamètres spécifiés
-        model = Ridge(alpha=alpha, solver=solver, fit_intercept=fit_intercept, normalize=normalize)
+        model = Ridge(alpha=alpha, solver=solver, fit_intercept=fit_intercept)
     
 
     model_pipeline = Pipeline(steps=[
