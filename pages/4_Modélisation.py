@@ -279,7 +279,12 @@ def main():
     st.subheader(" ")
     st.subheader("3. Visualisation graphique des prédictions")
     
-        
+    # Entraînement du modèle sur les données d'entraînement
+    model_pipeline.fit(X_train, y_train)
+    
+    # Prédiction des valeurs de test
+    y_test_pred_model = model_pipeline.predict(X_test)
+    
     # Sélection de la plage de données
     début, fin = st.slider('Sélectionnez une plage de données', min_value=0, max_value=500, value=(0, 50))
     x_ax = range(len(y_test))[début:fin]
