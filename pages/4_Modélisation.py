@@ -18,10 +18,7 @@ from sklearn.impute import SimpleImputer
 from sklearn.compose import ColumnTransformer, make_column_selector
 from sklearn.pipeline import Pipeline
 
-from sklearn.linear_model import Ridge
-
-from lightgbm import LGBMRegressor
-from xgboost import XGBRegressor
+from sklearn.linear_model import Ridge, Lasso, ElasticNet
 
 from sklearn.metrics import mean_squared_error
 from sklearn.inspection import permutation_importance
@@ -170,44 +167,28 @@ def main():
     st.subheader(" ")
     
     
-    if model_type == 'XGBRegressor':
-       colsample_bytree = my_expander2.slider('Colsample bytree', min_value=0.1, max_value=1.0, value=0.7746831999163204)
-       learning_rate = my_expander2.slider('Learning rate', min_value=0.1, max_value=1.0, value=0.0624207548570334)
-       max_depth = my_expander2.slider('Max Depth', min_value=1, max_value=12, value=3)
-       min_child_weight = my_expander2.slider('Min child weight', min_value=1, max_value=5, value=1)
-       n_estimators = my_expander2.slider('N_estimators', min_value=100, max_value=1200, value=685)
-
-       model = XGBRegressor(colsample_bytree =colsample_bytree,  
-       learning_rate = learning_rate,  
-       max_depth = max_depth,  
-       min_child_weight = min_child_weight, 
-       n_estimators = n_estimators, 
-       random_state=0)
-        
-        
-    elif model_type == 'LGBMRegressor':
-       colsample_bytree = my_expander2.slider('Colsample bytree', min_value=0.1, max_value=1.0, value=0.9194586567111567)
-       learning_rate = my_expander2.slider('Learning rate', min_value=0.1, max_value=1.0, value=0.19789386803938744)
-       max_depth = my_expander2.slider('Max Depth', min_value=1, max_value=12, value=3)
-       min_child_weight = my_expander2.slider('Min child weight', min_value=1, max_value=5, value=3)
-       n_estimators = my_expander2.slider('N_estimators', min_value=100, max_value=1200, value=441)
-      
-       model = LGBMRegressor(colsample_bytree = colsample_bytree,
-       learning_rate=learning_rate,
-       max_depth=max_depth, 
-       min_child_weight = min_child_weight, 
-       n_estimators=n_estimators, 
-       verbose=-100, 
-       random_state=0)
+    if model_type == 'Lasso':
+        alpha = my_expander2.slider('Alpha', min_value=1.0, max_value=50.0, value=9.372353071731432)
+        fit_intercept = my_expander2.checkbox('Inclure l\'interception', value=True)
+        normalize = my_expander2.checkbox('Normaliser les variables d\'entrée', value=False)
     
+        model = Lasso(alpha=alpha, fit_intercept=fit_intercept, normalize=normalize, random_state=0)
 
-    else :  # Ridge
+    elif model_type == 'ElasticNet':
+        alpha = my_expander2.slider('Alpha', min_value=1.0, max_value=50.0, value=9.372353071731432)
+        l1_ratio = my_expander2.slider('L1 Ratio', min_value=0.0, max_value=1.0, value=0.5)
+        fit_intercept = my_expander2.checkbox('Inclure l\'interception', value=True)
+        normalize = my_expander2.checkbox('Normaliser les variables d\'entrée', value=False)
+    
+        model = ElasticNet(alpha=alpha, l1_ratio=l1_ratio, fit_intercept=fit_intercept, normalize=normalize, random_state=0)
+    
+    else:
+        # Modèle Ridge
         alpha = my_expander2.slider('Alpha', min_value=1.0, max_value=50.0, value=9.372353071731432)
         solver = my_expander2.selectbox('Solver', ['auto', 'svd', 'cholesky', 'lsqr', 'sparse_cg', 'sag', 'saga'])
         fit_intercept = my_expander2.checkbox('Inclure l\'interception', value=True)
-        
-        # Créez votre modèle Ridge avec les hyperparamètres spécifiés
-        model = Ridge(alpha=alpha, solver=solver, fit_intercept=fit_intercept)
+    
+        model = Ridge(alpha=alpha, solver=solver, fit_intercept=fit_intercept, random_state=0)
     
 
     model_pipeline = Pipeline(steps=[
