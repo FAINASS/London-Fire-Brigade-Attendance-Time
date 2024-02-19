@@ -81,7 +81,8 @@ def main():
     start_year, end_year = expander.slider("Date of Call", min_year, max_year, (2022, 2022))
     
     df = df[(df['YearOfTheCall'] >= start_year) & (df['YearOfTheCall'] <= end_year)]
-    
+
+    st.subheader(" ")
     st.subheader("0. Choix d'un modèle")
     model_type = st.selectbox("Choisir un modèle :", ['Ridge','XGBRegressor','LGBMRegressor'])
     
