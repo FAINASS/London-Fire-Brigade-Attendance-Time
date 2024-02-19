@@ -466,6 +466,9 @@ def main():
                         mapbox_style="carto-positron", # Style de la carte
                         hover_name="BoroughName", # Nom de la zone survolée
                         color_continuous_scale="Temps",# Échelle de couleur
+                        zoom_control=False,
+                        scrollWheelZoom=False,
+                        dragging=False,
                         range_color=[3.8, 5.8])
     
     
