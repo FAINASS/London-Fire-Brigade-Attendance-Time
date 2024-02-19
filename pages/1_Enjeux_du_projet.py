@@ -43,32 +43,28 @@ def main():
 
     #### La LFB en quelques chiffres
 
-    | Statistiques | Valeurs |
-    | --- | --- |
-    | Rang mondial | <span style='color:lightblue'>5ème</span> |
-    | Nombre total d'employés | <span style='color:lightblue'>5 992</span> |
-    | Nombre de sapeurs-pompiers professionnels | <span style='color:lightblue'>5 096</span> |
-    | Nombre de casernes de pompiers | <span style='color:lightblue'>103</span> |
-    """, unsafe_allow_html=True)
+    # Création du DataFrame pour le premier tableau
+    df1 = pd.DataFrame({
+        'Statistiques': ['Rang mondial', 'Nombre total d\'employés', 'Nombre de sapeurs-pompiers professionnels', 'Nombre de casernes de pompiers'],
+        'Valeurs': ['5ème', '5 992', '5 096', '103']
+    })
     
-    st.subheader(" ") 
-
-    st.write("Le temps de réponse des casernes lors d’une urgence est un facteur majeur pour la limitation des dégâts à la fois physique et matériel. ")
+    # Affichage du DataFrame
+    st.dataframe(df1.style.applymap(lambda x: 'background-color : lightblue'))
     
-    st.write(" ") 
+    st.subheader("Objectifs 2023 - 2029")
     
-    st.markdown("""
-    #### Objectifs 2023 - 2029
+    st.write("La LFB s’est fixée deux objectifs majeurs :")
     
-    La LFB s’est fixée deux objectifs majeurs :
+    # Création du DataFrame pour le deuxième tableau
+    df2 = pd.DataFrame({
+        'Objectifs': ['Arrivée sur un lieu d\'un incident', 'Envoi d\'une seconde équipe en assistance'],
+        'Temps': ['6 minutes (360 sec) en moyenne', '8 minutes (480 sec) après le signalement']
+    })
     
-    | Objectifs | Temps |
-    | --- | --- |
-    | Arrivée sur un lieu d'un incident | <span style='color:lightblue'>6 minutes (360 sec)</span> en moyenne |
-    | Envoi d'une seconde équipe en assistance | <span style='color:lightblue'>8 minutes (480 sec)</span> après le signalement |
-
-     """, unsafe_allow_html=True)
-
+    # Affichage du DataFrame
+    st.dataframe(df2.style.applymap(lambda x: 'background-color : lightblue'))
+    
     st.write(" ")
     st.header("🎯 Enjeux du projet")
         
