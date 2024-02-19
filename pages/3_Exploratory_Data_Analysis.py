@@ -105,7 +105,7 @@ def main():
     st.write(" ")
     
     df = df.reset_index(drop=True)
-    st.write(df.head(7))
+    st.write(df.head(9))
 
     st.subheader(" ")
     
