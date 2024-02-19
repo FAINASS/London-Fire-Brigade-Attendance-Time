@@ -143,7 +143,7 @@ def main():
     
     nearest_station = df_filtered.loc[min_distance_index, 'DeployedFromStationName']
     
-    m = folium.Map(location=[lat_ward, lon_ward], zoom_start=10)
+    m = folium.Map(location=[lat_ward, lon_ward], zoom_start=10,zoom_control=False,scrollWheelZoom=False,dragging=False)
     
     folium.Marker(
         location=[lat_ward, lon_ward],
