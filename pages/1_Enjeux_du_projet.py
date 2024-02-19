@@ -42,27 +42,22 @@ def main():
     La brigade des pompiers de Londres est le service d'incendie et de sauvetage le plus actif du Royaume-Uni. 
 
     #### La LFB en quelques chiffres
-
-    # Création du DataFrame pour le premier tableau
+    
     df1 = pd.DataFrame({
         'Statistiques': ['Rang mondial', 'Nombre total d\'employés', 'Nombre de sapeurs-pompiers professionnels', 'Nombre de casernes de pompiers'],
         'Valeurs': ['5ème', '5 992', '5 096', '103']
     })
     
-    # Affichage du DataFrame
     st.dataframe(df1.style.applymap(lambda x: 'background-color : lightblue'))
     
     st.subheader("Objectifs 2023 - 2029")
     
     st.write("La LFB s’est fixée deux objectifs majeurs :")
-    
-    # Création du DataFrame pour le deuxième tableau
     df2 = pd.DataFrame({
         'Objectifs': ['Arrivée sur un lieu d\'un incident', 'Envoi d\'une seconde équipe en assistance'],
         'Temps': ['6 minutes (360 sec) en moyenne', '8 minutes (480 sec) après le signalement']
     })
-    
-    # Affichage du DataFrame
+
     st.dataframe(df2.style.applymap(lambda x: 'background-color : lightblue'))
     
     st.write(" ")
@@ -70,7 +65,6 @@ def main():
         
     st.markdown("""
     Notre objectif est de prédire le temps de réponse des sapeurs-pompiers de Londres à partir des données de 2009 à 2023. 
-    
     Nous viserons un coefficient de détermination (R²) > à 70% et une erreur quadratique moyenne (RMSE) < à 1 minute.
     """)
         
