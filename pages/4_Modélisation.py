@@ -112,9 +112,9 @@ def main():
     my_expander = st.sidebar.expander("**PRÉTRAITER LES DONNÉES**",expanded=False)
     my_expander2 = st.sidebar.expander("**RÉGLER LES HYPERPARAMÈTRES**",expanded=True)
     
-    encoder_type = my_expander.selectbox("Type d'encodeur", ['OrdinalEncoder','OneHotEncoder'])
+    encoder_type = my_expander.selectbox("Type d'encodeur", ['OneHotEncoder','OrdinalEncoder'])
     
-    scaler_type = my_expander.selectbox('Type de normalisateur', ['RobustScaler','StandardScaler','MinMaxScaler'])
+    scaler_type = my_expander.selectbox('Type de normalisateur', ['StandardScaler','MinMaxScaler','RobustScaler'])
     
     st.markdown(f"<div style='text-align: left; color: black; background-color: #ff9800; padding: 10px; border-radius: 5px;'>⚠️ Sur la période de {start_year} à {end_year}, vous avez pré-traité les données avec un {encoder_type} et un {scaler_type}.</div>", unsafe_allow_html=True)
     st.subheader(" ")
