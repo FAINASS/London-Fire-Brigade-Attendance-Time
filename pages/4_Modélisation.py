@@ -168,8 +168,7 @@ def main():
     
     if model_type == 'LinearRegression':
         fit_intercept = my_expander2.checkbox('Inclure l\'interception', value=True)
-        positive = my_expander2.checkbox('Régression positive', value=False)  
-        model = LinearRegression(fit_intercept=fit_intercept,positive=positive)
+        model = LinearRegression(fit_intercept=fit_intercept)
     
     else:
         alpha = my_expander2.slider('Alpha', min_value=1.0, max_value=50.0, value=9.372353071731432)
