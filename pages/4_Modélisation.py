@@ -113,7 +113,7 @@ def main():
     my_expander = st.sidebar.expander("**PRÉTRAITER LES DONNÉES**",expanded=False)
     my_expander2 = st.sidebar.expander("**RÉGLER LES HYPERPARAMÈTRES**",expanded=True)
     
-    encoder_type = my_expander.selectbox("Type d'encodeur", ['OneHotEncoder','OrdinalEncoder'])
+    encoder_type = my_expander.selectbox("Type d'encodeur", ['OrdinalEncoder','OneHotEncoder'])
     
     scaler_type = my_expander.selectbox('Type de normalisateur', ['StandardScaler','MinMaxScaler','RobustScaler'])
     
