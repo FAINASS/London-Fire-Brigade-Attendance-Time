@@ -37,7 +37,8 @@ def main():
     add_logo() 
     
     st.header("🚒 La London Fire Brigade")
-        
+
+    st.write(" ")
     st.markdown("""
     La brigade des pompiers de Londres est le service d'incendie et de sauvetage le plus actif du Royaume-Uni. 
     
