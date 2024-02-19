@@ -49,11 +49,15 @@ def main():
     | Nombre total d'employés | <span style='color:lightblue'>5 992</span> |
     | Nombre de sapeurs-pompiers professionnels | <span style='color:lightblue'>5 096</span> |
     | Nombre de casernes de pompiers | <span style='color:lightblue'>103</span> |
+    """, unsafe_allow_html=True)
+    
+    st.write(" ") 
 
-    <br>
-    Le temps de réponse des casernes lors d’une urgence est un facteur majeur pour la limitation des dégâts à la fois physique et matériel. 
-
-
+    st.write("Le temps de réponse des casernes lors d’une urgence est un facteur majeur pour la limitation des dégâts à la fois physique et matériel. ")
+    
+    st.write(" ") 
+    
+    st.markdown("""
     #### Objectifs 
     
     La LFB s’est fixée deux objectifs majeurs :
@@ -62,8 +66,9 @@ def main():
     | --- | --- |
     | Arrivée sur un lieu d'un incident | <span style='color:lightblue'>6 minutes (360 sec)</span> en moyenne |
     | Envoi d'une seconde équipe en assistance | <span style='color:lightblue'>8 minutes (480 sec)</span> après le signalement |
-    """, unsafe_allow_html=True)
-    
+
+     """, unsafe_allow_html=True)
+
     st.write(" ")
     st.header("🎯 Enjeux du projet")
         
