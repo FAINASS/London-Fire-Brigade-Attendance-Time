@@ -71,7 +71,7 @@ def main():
     
     
     df = load_data("df_EnrichiModelisation.csv")
-    df = df.sample(3)
+    df = df.sample(10)
 
     all_years = df["YearOfTheCall"].unique().tolist()
     
