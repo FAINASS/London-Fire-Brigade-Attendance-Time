@@ -97,6 +97,13 @@ def main():
         df = df[["Distance","DeployedFromStationName","WardName","LongitudeStation","LongitudeIncident","ResourceCode","BoroughName","WeekOfTheCall","MonthOfTheCall",
     "Region","MomentOfTheDay","PropertyType","AttendanceTime"]]
  
+
+    # Séparation des features (X) et de la variable cible (y)
+    X = df.drop('AttendanceTime', axis=1)
+    y = df['AttendanceTime']
+    
+    # Séparation des données d'entraînement et de test
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, shuffle=False)
     
     ###############################################################################################################################################
     
@@ -204,12 +211,7 @@ def main():
         ('estimator', model)
     ])
     
-     # Séparation des features (X) et de la variable cible (y)
-    X = df.drop('AttendanceTime', axis=1)
-    y = df['AttendanceTime']
-    
-    # Séparation des données d'entraînement et de test
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, shuffle=False)
+
     
     def evaluation(model):
 
