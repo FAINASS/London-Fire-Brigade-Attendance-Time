@@ -169,7 +169,7 @@ def main():
     
     else:
         alpha = my_expander2.slider('Alpha', min_value=1.0, max_value=50.0, value=9.372353071731432)
-        solver = my_expander2.selectbox('Solver', ['auto', 'svd', 'cholesky', 'lsqr', 'sparse_cg', 'sag', 'saga'])
+        solver = my_expander2.selectbox('Solver', ['auto', 'lsqr', 'sparse_cg', 'sag'])
         fit_intercept = my_expander2.checkbox('Inclure l\'interception', value=True)
         model = Ridge(alpha=alpha, solver=solver, fit_intercept=fit_intercept)
 
