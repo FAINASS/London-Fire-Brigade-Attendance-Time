@@ -83,7 +83,7 @@ def main():
 
     st.subheader(" ")
     st.subheader("0. Choix d'un modèle")
-    model_type = st.selectbox("Choisir un modèle :", ['ElasticNet','Ridge','Lasso'])
+    model_type = st.selectbox("Choisir un modèle :", ['LinearRegression','PolynomialRegression','SVR','Ridge'])
     
     if model_type == "LGBMRegressor":
         df = df[["IncidentGroupType", "BoroughName","WardName","HourOfCall","PropertyType","DeployedFromStationName","Distance","ResourceCode",
@@ -183,7 +183,6 @@ def main():
         model = SVR(C=C, epsilon=epsilon)
     
     else:
-        # Modèle Ridge (vous pouvez également utiliser LinearRegression ici)
         alpha = my_expander2.slider('Alpha', min_value=1.0, max_value=50.0, value=9.372353071731432)
         solver = my_expander2.selectbox('Solver', ['auto', 'svd', 'cholesky', 'lsqr', 'sparse_cg', 'sag', 'saga'])
         fit_intercept = my_expander2.checkbox('Inclure l\'interception', value=True)
