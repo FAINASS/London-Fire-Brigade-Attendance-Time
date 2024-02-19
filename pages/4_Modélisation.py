@@ -212,8 +212,6 @@ def main():
         ('estimator', model)
     ])
 
-     # Entraînement du modèle sur les données d'entraînement
-    model.fit(X_train, y_train)
     
     def evaluation(model):
 
@@ -224,7 +222,10 @@ def main():
     
         # Récupération du nom de l'algorithme à partir du modèle
         algoname = str(model["estimator"]).split("(")[0]
-    
+
+        # Entraînement du modèle sur les données d'entraînement
+        model.fit(X_train, y_train)
+        
         # Prédiction sur les données d'entraînement et de test
         y_train_pred = model.predict(X_train)
         y_test_pred = model.predict(X_test)
