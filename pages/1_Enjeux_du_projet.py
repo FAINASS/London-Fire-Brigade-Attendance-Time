@@ -41,12 +41,11 @@ def main():
     st.markdown("""
     La brigade des pompiers de Londres est le service d'incendie et de sauvetage le plus actif du Royaume-Uni. 
     
-    C'est le <span style='color:lightblue'>cinquième</span> plus grand corps de sapeurs-pompiers dans le monde avec <span style='color:lightblue'>5 992 employés</span> dont <span style='color:lightblue'>5 096 sapeurs-pompiers professionnels</span>.
+    C'est le <span style='color:lightblue'>cinquième</span> plus grand corps de sapeurs-pompiers dans le monde avec <span style='color:lightblue'>5 992 employés</span> dont <span style='color:lightblue'>5 096 sapeurs-pompiers professionnels</span>. Créée il y a presque deux siècles, la London Fire Brigade (LFB) est composée de <span style='color:lightblue'>103 casernes de pompiers</span> et d’une brigade fluviale.
     
-    Créée il y a presque deux siècles, la London Fire Brigade (LFB) est composée de <span style='color:lightblue'>103 casernes de pompiers</span> et d’une brigade fluviale.
+    Le temps de réponse des casernes lors d’une urgence est un facteur majeur pour la limitation des dégâts à la fois physique et matériel. 
     
-    Le temps de réponse des casernes lors d’une urgence est un facteur majeur pour la limitation des dégâts à la fois physique et matériel. La LFB s’est donc fixé comme deux objectifs majeurs :
-    
+    La LFB s’est donc fixé comme deux objectifs majeurs :
     
     - Arriver sur un lieu d'un incident dans un temps inférieur à <span style='color:lightblue'>6 minutes (360 sec)</span> en moyenne
             
