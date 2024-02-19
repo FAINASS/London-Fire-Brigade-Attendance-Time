@@ -18,13 +18,15 @@ from sklearn.impute import SimpleImputer
 from sklearn.compose import ColumnTransformer, make_column_selector
 from sklearn.pipeline import Pipeline
 
-from sklearn.linear_model import Ridge, Lasso, ElasticNet
+from sklearn.linear_model import Ridge, LinearRegression
+from sklearn.svm import SVR
+from sklearn.preprocessing import PolynomialFeatures
+from sklearn.pipeline import make_pipeline
 
 from sklearn.metrics import mean_squared_error
 from sklearn.inspection import permutation_importance
 
 from PIL import Image
-
 
 
 #Configurer l'affichage en mode Wide
@@ -167,27 +169,26 @@ def main():
     st.subheader(" ")
     
     
-    if model_type == 'Lasso':
-        alpha = my_expander2.slider('Alpha', min_value=1.0, max_value=50.0, value=9.372353071731432)
+    if model_type == 'LinearRegression':
         fit_intercept = my_expander2.checkbox('Inclure l\'interception', value=True)
-    
-        model = Lasso(alpha=alpha, fit_intercept=fit_intercept)
+        model = LinearRegression(fit_intercept=fit_intercept)
 
-    elif model_type == 'ElasticNet':
-        alpha = my_expander2.slider('Alpha', min_value=1.0, max_value=50.0, value=9.372353071731432)
-        l1_ratio = my_expander2.slider('L1 Ratio', min_value=0.0, max_value=1.0, value=0.5)
-        fit_intercept = my_expander2.checkbox('Inclure l\'interception', value=True)
+    elif model_type == 'PolynomialRegression':
+        degree = my_expander2.slider('Degré du polynôme', min_value=1, max_value=10, value=2)
+        model = make_pipeline(PolynomialFeatures(degree), LinearRegression())
     
-        model = ElasticNet(alpha=alpha, l1_ratio=l1_ratio, fit_intercept=fit_intercept)
+    elif model_type == 'SVR':
+        C = my_expander2.slider('Paramètre C', min_value=0.1, max_value=10.0, value=1.0)
+        epsilon = my_expander2.slider('Paramètre epsilon', min_value=0.01, max_value=1.0, value=0.1)
+        model = SVR(C=C, epsilon=epsilon)
     
     else:
-        # Modèle Ridge
+        # Modèle Ridge (vous pouvez également utiliser LinearRegression ici)
         alpha = my_expander2.slider('Alpha', min_value=1.0, max_value=50.0, value=9.372353071731432)
         solver = my_expander2.selectbox('Solver', ['auto', 'svd', 'cholesky', 'lsqr', 'sparse_cg', 'sag', 'saga'])
         fit_intercept = my_expander2.checkbox('Inclure l\'interception', value=True)
-    
         model = Ridge(alpha=alpha, solver=solver, fit_intercept=fit_intercept)
-    
+
 
     model_pipeline = Pipeline(steps=[
         ('preprocessor', preprocessor),
