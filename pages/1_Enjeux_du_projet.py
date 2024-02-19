@@ -52,7 +52,9 @@ def main():
 
     <br>
     Le temps de réponse des casernes lors d’une urgence est un facteur majeur pour la limitation des dégâts à la fois physique et matériel. 
-    
+
+    <br>
+    <br>
     #### Objectifs 
     
     La LFB s’est fixée deux objectifs majeurs :
