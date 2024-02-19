@@ -159,7 +159,7 @@ def main():
     elif model_type == 'SGDRegressor':
         # Hyperparamètres pour SGDRegressor
         alpha = my_expander2.slider('Alpha', min_value=0.0001, max_value=1.0, value=0.01)
-        learning_rate = my_expander2.selectbox('Learning rate', min_value=0.01, max_value=1.0, value=0.06)
+        learning_rate = my_expander2.slider('Learning rate', min_value=0.01, max_value=1.0, value=0.06)
         max_iter = my_expander2.slider('Max iterations', min_value=100, max_value=10000, value=1000)
     
         # Création du modèle SGDRegressor
