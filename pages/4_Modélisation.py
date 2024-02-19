@@ -18,12 +18,16 @@ from sklearn.impute import SimpleImputer
 from sklearn.compose import ColumnTransformer, make_column_selector
 from sklearn.pipeline import Pipeline
 
-from sklearn.linear_model import Ridge, LinearRegression, SGDRegressor
+from sklearn.linear_model import Ridge
+
+from lightgbm import LGBMRegressor
+from xgboost import XGBRegressor
 
 from sklearn.metrics import mean_squared_error
 from sklearn.inspection import permutation_importance
 
 from PIL import Image
+
 
 
 #Configurer l'affichage en mode Wide
@@ -80,8 +84,20 @@ def main():
 
     st.subheader(" ")
     st.subheader("0. Choix d'un modèle")
-    model_type = st.selectbox("Choisir un modèle :", ['Ridge','LinearRegression', 'SGDRegressor'])
+    model_type = st.selectbox("Choisir un modèle :", ['XGBRegressor','LGBMRegressor','Ridge'])
     
+    if model_type == "LGBMRegressor":
+        df = df[["IncidentGroupType", "BoroughName","WardName","HourOfCall","PropertyType","DeployedFromStationName","Distance","ResourceCode",
+         "LatitudeIncident","LongitudeIncident","LatitudeStation","LongitudeStation","SecondPumpArrivingDeployedFromStation","AttendanceTime"]]
+    
+    elif model_type == "XGBRegressor" :
+        df = df[["IncidentGroupType", "BoroughName","WardName","HourOfCall","PropertyType","DeployedFromStationName","Distance","NumStationsWithPumpsAttending",
+                 "LatitudeIncident","LongitudeIncident","LatitudeStation","LongitudeStation","SecondPumpArrivingDeployedFromStation","AttendanceTime"]]
+    else :
+        df = df[["Distance","DeployedFromStationName","WardName","LongitudeStation","LongitudeIncident","ResourceCode","BoroughName","WeekOfTheCall","MonthOfTheCall",
+    "Region","MomentOfTheDay","PropertyType","AttendanceTime"]]
+ 
+
     # Séparation des features (X) et de la variable cible (y)
     X = df.drop('AttendanceTime', axis=1)
     y = df['AttendanceTime']
@@ -153,27 +169,50 @@ def main():
     st.subheader("2. Performances du modèle")
     st.subheader(" ")
     
-    if model_type == 'LinearRegression':
-        model = LinearRegression()
+    
+    if model_type == 'XGBRegressor':
+       colsample_bytree = my_expander2.slider('Colsample bytree', min_value=0.1, max_value=1.0, value=0.7746831999163204)
+       learning_rate = my_expander2.slider('Learning rate', min_value=0.1, max_value=1.0, value=0.0624207548570334)
+       max_depth = my_expander2.slider('Max Depth', min_value=1, max_value=12, value=3)
+       min_child_weight = my_expander2.slider('Min child weight', min_value=1, max_value=5, value=1)
+       n_estimators = my_expander2.slider('N_estimators', min_value=100, max_value=1200, value=685)
 
-    elif model_type == 'SGDRegressor':
-        # Hyperparamètres pour SGDRegressor
-        alpha = my_expander2.slider('Alpha', min_value=0.0001, max_value=1.0, value=0.01)
-        max_iter = my_expander2.slider('Max iterations', min_value=100, max_value=10000, value=1000)
+       model = XGBRegressor(colsample_bytree =colsample_bytree,  
+       learning_rate = learning_rate,  
+       max_depth = max_depth,  
+       min_child_weight = min_child_weight, 
+       n_estimators = n_estimators, 
+       random_state=0)
+        
+        
+    elif model_type == 'LGBMRegressor':
+       colsample_bytree = my_expander2.slider('Colsample bytree', min_value=0.1, max_value=1.0, value=0.9194586567111567)
+       learning_rate = my_expander2.slider('Learning rate', min_value=0.1, max_value=1.0, value=0.19789386803938744)
+       max_depth = my_expander2.slider('Max Depth', min_value=1, max_value=12, value=3)
+       min_child_weight = my_expander2.slider('Min child weight', min_value=1, max_value=5, value=3)
+       n_estimators = my_expander2.slider('N_estimators', min_value=100, max_value=1200, value=441)
+      
+       model = LGBMRegressor(colsample_bytree = colsample_bytree,
+       learning_rate=learning_rate,
+       max_depth=max_depth, 
+       min_child_weight = min_child_weight, 
+       n_estimators=n_estimators, 
+       verbose=-100, 
+       random_state=0)
     
-        # Création du modèle SGDRegressor
-        model = SGDRegressor(alpha=alpha, max_iter=max_iter, random_state=0)
-    
+
     else :  # Ridge
         alpha = my_expander2.slider('Alpha', min_value=1.0, max_value=50.0, value=9.372353071731432)
         model = Ridge(alpha=alpha)
-        
     
+
     model_pipeline = Pipeline(steps=[
         ('preprocessor', preprocessor),
         ('estimator', model)
-        ])
+    ])
+    
 
+    
     def evaluation(model):
 
         """
@@ -183,10 +222,10 @@ def main():
     
         # Récupération du nom de l'algorithme à partir du modèle
         algoname = str(model["estimator"]).split("(")[0]
-
+    
         # Entraînement du modèle sur les données d'entraînement
         model.fit(X_train, y_train)
-        
+    
         # Prédiction sur les données d'entraînement et de test
         y_train_pred = model.predict(X_train)
         y_test_pred = model.predict(X_test)
@@ -236,8 +275,9 @@ def main():
     
     st.subheader(" ")
     st.subheader("3. Visualisation graphique des prédictions")
-
-    # Entraînement du modèle sur les données d'entraînement
+    
+    
+     # Entraînement du modèle sur les données d'entraînement
     model_pipeline.fit(X_train, y_train)
     
     # Prédiction des valeurs de test
