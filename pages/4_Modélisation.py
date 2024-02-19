@@ -195,7 +195,6 @@ def main():
                               random_state=0)
 
     else :
-        model_type == 'XGBRegressor':
         colsample_bytree = my_expander2.slider('Colsample bytree', min_value=0.1, max_value=1.0, value=0.7746831999163204)
         learning_rate = my_expander2.slider('Learning rate', min_value=0.1, max_value=1.0, value=0.0624207548570334)
         max_depth = my_expander2.slider('Max Depth', min_value=1, max_value=12, value=3)
