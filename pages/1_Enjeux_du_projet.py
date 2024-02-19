@@ -40,8 +40,9 @@ def main():
         
     st.markdown("""
     La brigade des pompiers de Londres est le service d'incendie et de sauvetage le plus actif du Royaume-Uni. 
-
+    
     #### La LFB en quelques chiffres
+    """)
     
     df1 = pd.DataFrame({
         'Statistiques': ['Rang mondial', 'Nombre total d\'employés', 'Nombre de sapeurs-pompiers professionnels', 'Nombre de casernes de pompiers'],
@@ -58,10 +59,8 @@ def main():
         'Objectifs': ['Arrivée sur un lieu d\'un incident', 'Envoi d\'une seconde équipe en assistance'],
         'Temps': ['6 minutes (360 sec) en moyenne', '8 minutes (480 sec) après le signalement']
     })
-
-    st.dataframe(df2.style.applymap(lambda x: 'background-color : lightblue'))
     
-    """, unsafe_allow_html=True)
+    st.dataframe(df2.style.applymap(lambda x: 'background-color : lightblue'))
     
     st.write(" ")
     st.header("🎯 Enjeux du projet")
