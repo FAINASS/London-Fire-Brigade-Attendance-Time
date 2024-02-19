@@ -50,8 +50,7 @@ def main():
     })
     
     st.dataframe(df1)
-
-    st.subheader("Objectifs 2023 - 2029")
+    st.write("")
     
     st.write("La LFB s’est fixée deux objectifs majeurs :")
     
