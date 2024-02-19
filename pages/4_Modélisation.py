@@ -82,13 +82,10 @@ def main():
     st.subheader("0. Choix d'un modèle")
     model_type = st.selectbox("Choisir un modèle :", ['LinearRegression','Ridge'])
     
-    if model_type == "LGBMRegressor":
-        df = df[["IncidentGroupType", "BoroughName","WardName","HourOfCall","PropertyType","DeployedFromStationName","Distance","ResourceCode",
-         "LatitudeIncident","LongitudeIncident","LatitudeStation","LongitudeStation","SecondPumpArrivingDeployedFromStation","AttendanceTime"]]
+    if model_type == "Ridge":
+        df = df[["Distance","DeployedFromStationName","WardName","LongitudeStation","LongitudeIncident","ResourceCode","BoroughName","WeekOfTheCall","MonthOfTheCall",
+    "Region","MomentOfTheDay","PropertyType","AttendanceTime"]]
     
-    elif model_type == "XGBRegressor" :
-        df = df[["IncidentGroupType", "BoroughName","WardName","HourOfCall","PropertyType","DeployedFromStationName","Distance","NumStationsWithPumpsAttending",
-                 "LatitudeIncident","LongitudeIncident","LatitudeStation","LongitudeStation","SecondPumpArrivingDeployedFromStation","AttendanceTime"]]
     else :
         df = df[["Distance","DeployedFromStationName","WardName","LongitudeStation","LongitudeIncident","ResourceCode","BoroughName","WeekOfTheCall","MonthOfTheCall",
     "Region","MomentOfTheDay","PropertyType","AttendanceTime"]]
