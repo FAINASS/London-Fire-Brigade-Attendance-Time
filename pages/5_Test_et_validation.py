@@ -117,7 +117,7 @@ def main():
     df_filtreWards = df_filtreBoroughs[df_filtreBoroughs['WardName'] == selected_wards]
     
     station = sorted(df_filtreWards['DeployedFromStationName'].unique().tolist())
-    selected_station= col5.selectbox("Première caserne déployée:", station, index=station.index(st.session_state['incident']['DeployedFromStationName']),disabled=True)
+    selected_station= col5.selectbox("Première caserne déployée:", station, index=station.index(st.session_state['incident']['DeployedFromStationName']))
     
  
     ###############################################################################################################################################
