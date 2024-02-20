@@ -177,6 +177,7 @@ def main():
     
     secondPump = sorted(df['SecondPumpArrivingDeployedFromStation'].unique().tolist())
     selected_secondPump = col8.selectbox("Deuxième caserne déployée:", secondPump, index=secondPump.index(st.session_state['incident']['SecondPumpArrivingDeployedFromStation']))
+    
     ###############################################################################################################################################
 
     st.write(" ")
