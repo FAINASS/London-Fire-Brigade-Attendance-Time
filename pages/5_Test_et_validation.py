@@ -214,13 +214,11 @@ def main():
     try:
         st.header(" ")
         prediction = model.predict(X)[0]
-        
-        secondes_total = abs(prediction) * 60
-        
+
         counter = st.empty()
-        for i in np.arange(0, secondes_total, 0.1): 
-            minutes, secondes = divmod(i, 60)
-            counter.markdown(f"<h3 style='text-align: center; color: White;'>Le temps de réponse estimé est {secondes_total:.2f} secondes soit : <span style='color: Orange;'>{int(minutes)}</span> minute(s) et <span style='color: Orange;'>{int(secondes)}</span> seconde(s).</h3>", unsafe_allow_html=True)
+        for i in np.arange(0, prediction, 0.1): 
+            minutes, secondes = divmod(i * 60, 60)
+            counter.markdown(f"<h3 style='text-align: center; color: White;'>Le temps de réponse estimé est {prediction:.2f} soit : <span style='color: Orange;'>{int(minutes)}</span> minute(s) et <span style='color: Orange;'>{int(secondes)}</span> seconde(s).</h3>", unsafe_allow_html=True)
             time.sleep(0.05)
             
         difference = prediction - st.session_state['incident']['AttendanceTime'] 
