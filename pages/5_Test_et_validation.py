@@ -101,7 +101,7 @@ def main():
     
     
     propertyType = sorted(df['PropertyType'].unique().tolist())
-    selected_property = col2.selectbox("Type d'emplacement:", propertyType, index=propertyType.index(st.session_state['incident']['PropertyType']),,disabled=True)
+    selected_property = col2.selectbox("Type d'emplacement:", propertyType, index=propertyType.index(st.session_state['incident']['PropertyType']),disabled=True)
     
     
     st.subheader(" ")
