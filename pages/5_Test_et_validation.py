@@ -101,7 +101,7 @@ def main():
     
     
     propertyType = sorted(df['PropertyType'].unique().tolist())
-    selected_property = col2.selectbox("Type d'emplacement:", propertyType, index=propertyType.index(st.session_state['incident']['PropertyType']))
+    selected_property = col2.selectbox("Type d'emplacement:", propertyType, index=propertyType.index(st.session_state['incident']['PropertyType']),,disabled=True)
     
     
     st.subheader(" ")
@@ -112,11 +112,11 @@ def main():
     selected_boroughs = col3.selectbox("Arrondissement:", boroughs, index=boroughs.index(st.session_state['incident']['BoroughName']),disabled=True)
     df_filtreBoroughs = df[df['BoroughName'] == selected_boroughs]
     
-    wards = sorted(df['WardName'].unique().tolist())
-    selected_wards= col4.selectbox("Quartier:", wards, index=wards.index(st.session_state['incident']['WardName']))
-    df_filtreWards = df[df['WardName'] == selected_wards]
+    wards = sorted(df_filtreBoroughs['WardName'].unique().tolist())
+    selected_wards= col4.selectbox("Quartier:", wards, index=wards.index(st.session_state['incident']['WardName']),,disabled=True)
+    df_filtreWards = df_filtreBoroughs[df_filtreBoroughs['WardName'] == selected_wards]
     
-    station = sorted(df['DeployedFromStationName'].unique().tolist())
+    station = sorted(selected_wards['DeployedFromStationName'].unique().tolist())
     selected_station= col5.selectbox("Première caserne déployée:", station, index=station.index(st.session_state['incident']['DeployedFromStationName']))
     
  
