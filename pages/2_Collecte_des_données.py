@@ -37,6 +37,7 @@ def add_logo():
         unsafe_allow_html=True,
     )
 
+## Supprimer l'espace vide en haut de la page
 st.markdown("""
         <style>
                .block-container {
