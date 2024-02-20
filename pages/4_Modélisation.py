@@ -384,7 +384,7 @@ def main():
     with st.expander("Explications",expanded=True):
          st.write("""
                 Quelques points clés :
-                - Distance : C’est la caractéristique qui a le plus grand impact sur le modèle.
+                - Distance : C’est la variable qui a le plus grand impact sur le modèle.
                 - DeployedFromStationName et WardName : Ces deux variables ont également un impact significatif sur le modèle, bien que moins que "Distance".
                 - Les autres variables comme LongitudeIncident, LatitudeIncident, HourOfCall, etc., ont un impact moindre sur le modèle.
                 """)
