@@ -603,7 +603,6 @@ def main():
     corr, _ = spearmanr(data_dist["Distance"], data_dist["AttendanceTime"])
     ax.set_title("Coefficient de corrélation = {:.2f}".format(corr), fontsize=14)
     st.pyplot(fig)
-          
     
 if __name__ == "__main__":
     main()
