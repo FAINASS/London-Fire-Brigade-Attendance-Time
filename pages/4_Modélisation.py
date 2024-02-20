@@ -167,7 +167,7 @@ def main():
 
         df_transformed = pd.DataFrame(array_transformed, columns=feature_names)
     
-    st.dataframe(df_transformed.head(6))
+    st.dataframe(df_transformed.head(7))
     
     
     ###############################################################################################################################################
