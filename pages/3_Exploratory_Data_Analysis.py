@@ -57,7 +57,7 @@ def add_logo():
 st.markdown("""
 <style>
     .block-container:not(.stSelectbox) {
-        padding-top: 1rem;
+        padding-top: 0;  /* Ajustez cette valeur pour supprimer la marge supérieure */
         padding-bottom: 0rem;
         padding-left: 5rem;
         padding-right: 5rem;
