@@ -40,7 +40,7 @@ st.markdown("""
 .block-container
 {
     padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding-bottom: 2rem;
     margin-top: 0rem;
 }
 
