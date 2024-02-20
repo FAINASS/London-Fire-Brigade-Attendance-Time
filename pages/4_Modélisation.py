@@ -200,7 +200,7 @@ def main():
     # Calcul des métriques d'évaluation
     Train_score = round(model_pipeline.score(X_train, y_train), 2)
     Train_RMSE= round(mean_squared_error(y_train, y_train_pred, squared=False), 3)
-    Test_score= round(model.score(X_test, y_test), 2)
+    Test_score= round(model_pipeline .score(X_test, y_test), 2)
     Test_RMSE= round(mean_squared_error(y_test, y_test_pred, squared=False), 3)
     
     data_score_after = pd.DataFrame({
