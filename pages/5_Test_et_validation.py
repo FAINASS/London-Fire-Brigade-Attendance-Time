@@ -223,8 +223,8 @@ def main():
             counter.markdown(f"<h3 style='text-align: center; color: White;'>Le temps de réponse estimé est {prediction:.2f} soit : <span style='color: Orange;'>{int(minutes)}</span> minute(s) et <span style='color: Orange;'>{int(secondes)}</span> seconde(s).</h3>", unsafe_allow_html=True)
             time.sleep(0.05)
 
-        difference = st.session_state['incident']['AttendanceTime'] - prediction
-        st.write(difference)
+        difference = prediction - st.session_state['incident']['AttendanceTime'] 
+        st.write(f"Nous avons une erreur de prédiction de : {difference} min")
     
     except UnboundLocalError:
         st.write('')
