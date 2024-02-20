@@ -17,8 +17,9 @@ st.set_page_config(
 
 st.markdown("""
 <style>
-.appview-container .main .block-container{{
-        padding-top: {padding_top}rem;    }}
+.appview-container .main .block-container {{
+    padding-top: 0; 
+}}
 </style>
 """, unsafe_allow_html=True)
 
