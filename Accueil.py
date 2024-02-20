@@ -49,7 +49,5 @@ def main():
     st.markdown("<h5 style='text-align: center; color: white;'>Auteurs: Falonne Landrine MEFOTIE -  Faiz NASSER ALI </h5>",
                 unsafe_allow_html=True)
     
-
-
 if __name__ == "__main__":
     main()
