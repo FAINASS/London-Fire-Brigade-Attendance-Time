@@ -341,7 +341,7 @@ def main():
     st.pyplot(plt)
     with st.expander("Explications",expanded=True):
         st.write("""
-        Ce graphique illustre les dix caractéristiques les plus influentes du modèle et leur effet sur la prédiction.
+        Ce graphique illustre les dix caractéristiques les plus influentes de votre modèle et leur effet sur la prédiction.
         """)
     
     ###############################################################################################################################################
