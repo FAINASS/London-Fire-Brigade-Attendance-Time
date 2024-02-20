@@ -14,6 +14,10 @@ st.set_page_config(
     initial_sidebar_state="expanded",
     page_title = "Temps de Réponse de la Brigade des Pompiers de Londres")
 
+<style>
+.appview-container .main .block-container{{
+        padding-top: {padding_top}rem;    }}
+</style>
 
 def add_logo():
     st.markdown(
