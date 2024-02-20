@@ -43,6 +43,18 @@ def haversine_distance(lat1, lon1, lat2, lon2):
     res = r * (2 * np.arctan2(np.sqrt(a), np.sqrt(1 - a)))
     return np.round(res, 2)
 
+## Supprimer l'espace vide en haut de la page
+st.markdown("""
+        <style>
+               .block-container {
+                    padding-top: 1rem;
+                    padding-bottom: 0rem;
+                    padding-left: 5rem;
+                    padding-right: 5rem;
+                }
+        </style>
+        """, unsafe_allow_html=True)
+
 
 def add_logo():
     st.markdown(
