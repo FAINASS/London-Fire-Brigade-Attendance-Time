@@ -177,7 +177,7 @@ def main():
     
     if selected_NumPump == 1:
         secondPump = sorted(df['SecondPumpArrivingDeployedFromStation'].unique().tolist())
-        selected_secondPump = col8.selectbox("Deuxième caserne déployée:", secondPump, index=secondPump.index(1))
+        selected_secondPump = col8.selectbox("Deuxième caserne déployée:", secondPump, index=secondPump.index("No Second pump Deloyed"))
     
     else:  
         secondPump = sorted(df['SecondPumpArrivingDeployedFromStation'].unique().tolist())
