@@ -89,7 +89,8 @@ def main():
         random_index = selected_columns.sample(n=1).index[0]
         st.session_state['incident'] = selected_columns.iloc[random_index]
         placeholder.table(st.session_state['incident'].to_frame())
-        
+
+    st.write ("Pour démarrer la prédiction, il suffit de cliquer sur le bouton ‘Prédire’ en bas de la page.")
     st.markdown("---")
     
     st.subheader("1. Type d'incident")
@@ -118,7 +119,6 @@ def main():
     
     station = sorted(df_filtreWards['DeployedFromStationName'].unique().tolist())
     selected_station= col5.selectbox("Première caserne déployée:", station, index=station.index(st.session_state['incident']['DeployedFromStationName']))
-    
  
     ###############################################################################################################################################
 
