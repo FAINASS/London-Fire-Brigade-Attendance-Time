@@ -17,9 +17,17 @@ st.set_page_config(
 
 st.markdown("""
 <style>
-.appview-container .main .block-container {
-    padding-top: **{padding_top}rem**;
-}
+    }}
+        .reportview-container .main .block-container{{
+        max-width: {percentage_width_main}%;
+        padding-top: {1}rem;
+        padding-right: {1}rem;
+        padding-left: {1}rem;
+        padding-bottom: {1}rem;
+    }}
+
+        .uploadedFile {{display: none}}
+        footer {{visibility: hidden;}}
 </style>
 """, unsafe_allow_html=True)
 
