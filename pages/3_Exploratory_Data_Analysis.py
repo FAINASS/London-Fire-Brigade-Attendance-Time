@@ -25,6 +25,7 @@ st.set_page_config(
     initial_sidebar_state="expanded",
     page_title = "Temps de Réponse de la Brigade des Pompiers de Londres")
 
+## Supprimer l'espace vide en haut de la page
 st.markdown("""
 <style>
 
