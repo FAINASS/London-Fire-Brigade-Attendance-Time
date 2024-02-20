@@ -219,7 +219,8 @@ def main():
         counter = st.empty()
         # Boucle pour mettre à jour le compteur
         for i in np.arange(0, prediction, 0.1): 
-            minutes, secondes = divmod(i * 60, 60)
+            secondes = abs(prediction)
+            minutes, secondes = divmod(i * 60)
             counter.markdown(f"<h3 style='text-align: center; color: White;'>Le temps de réponse estimé est {prediction:.2f} soit : <span style='color: Orange;'>{int(minutes)}</span> minute(s) et <span style='color: Orange;'>{int(secondes)}</span> seconde(s).</h3>", unsafe_allow_html=True)
             time.sleep(0.05)
 
