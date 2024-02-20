@@ -32,7 +32,7 @@ st.markdown("""
 .block-container
 {
     padding-top: 1rem;
-    padding-bottom: 2rem;
+    padding-bottom: 5rem;
     margin-top: 0rem;
 }
 
