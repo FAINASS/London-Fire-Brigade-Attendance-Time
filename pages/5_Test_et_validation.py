@@ -90,6 +90,7 @@ def main():
         st.session_state['incident'] = selected_columns.iloc[random_index]
         placeholder.table(st.session_state['incident'].to_frame())
 
+    st.write ("")
     st.write ("Pour démarrer la prédiction, il suffit de cliquer sur le bouton ‘Prédire’ en bas de la page.")
     st.markdown("---")
     
