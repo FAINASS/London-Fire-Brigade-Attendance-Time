@@ -33,6 +33,7 @@ st.set_page_config(
     initial_sidebar_state="expanded",
     page_title = "Temps de Réponse de la Brigade des Pompiers de Londres")
 
+## Supprimer l'espace vide en haut de la page
 st.markdown("""
 <style>
 
@@ -45,8 +46,6 @@ st.markdown("""
 
 </style>
 """, unsafe_allow_html=True)
-
-st.set_option('deprecation.showPyplotGlobalUse', False)
 
 @st.cache_data
 def load_data(file):
@@ -69,18 +68,6 @@ def add_logo():
         """,
         unsafe_allow_html=True,
     )
-
-## Supprimer l'espace vide en haut de la page
-st.markdown("""
-        <style>
-               .block-container {
-                    padding-top: 1rem;
-                    padding-bottom: 0rem;
-                    padding-left: 5rem;
-                    padding-right: 5rem;
-                }
-        </style>
-        """, unsafe_allow_html=True)
 
 
 def main():
