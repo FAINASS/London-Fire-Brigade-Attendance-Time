@@ -373,7 +373,6 @@ def main():
     st.write("Features Importances :")
     image_features = Image.open('model_featuresImportances.png')
     st.image(image_features,use_column_width=True)
-    
     with st.expander("Explications",expanded=True):
          st.write("""
                 Ce graphique montre l’impact moyen de différentes caractéristiques sur la sortie du modèle. Voici quelques points clés :
@@ -386,7 +385,8 @@ def main():
     st.write("Analyse des résidus :")
     image_residus = Image.open('Analyse_résidus.png')
     st.image(image_residus,use_column_width=True)
-    st.markdown("Analyse des résidus : Dans 80% des cas, l'erreur des prédictions de notre modèle se situe entre -1 min 28 sec et <span style='background-color: #90ee90; color: black'>1 min 22 sec</span>.", unsafe_allow_html=True)
+    with st.expander("Explications",expanded=True):
+        st.markdown("Analyse des résidus : Dans 80% des cas, l'erreur des prédictions de notre modèle se situe entre -1 min 28 sec et <span style='background-color: #90ee90; color: black'>1 min 22 sec</span>.", unsafe_allow_html=True)
     st.header("")
     
     st.write("Interprétabilité globale (impact des variables sur plusieurs prédictions) :")
