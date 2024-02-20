@@ -117,7 +117,7 @@ def main():
     df_filtreWards = df_filtreBoroughs[df_filtreBoroughs['WardName'] == selected_wards]
     
     station = sorted(df_filtreWards['DeployedFromStationName'].unique().tolist())
-    selected_station= col5.selectbox("Première caserne déployée:", station, index=station.index(st.session_state['incident']['DeployedFromStationName']))
+    selected_station= col5.selectbox("Première caserne déployée:", station, index=station.index(st.session_state['incident']['DeployedFromStationName']),disabled=True)
     
  
     ###############################################################################################################################################
@@ -170,13 +170,13 @@ def main():
     col6,col7,col8 = st.columns(3)
 
     Hour = list(np.arange(0.0, 24.0, 1.0))
-    selectedHour = col6.selectbox("Heure de l'appel:", Hour, index=Hour.index(st.session_state['incident']['HourOfCall']))
+    selectedHour = col6.selectbox("Heure de l'appel:", Hour, index=Hour.index(st.session_state['incident']['HourOfCall']),disabled=True)
      
     NumPump = list(np.arange(1.0,21.0,1.0))
-    selected_NumPump = col7.selectbox("Nombre de caserne engagée:", NumPump, index=NumPump.index(st.session_state['incident']['NumStationsWithPumpsAttending']))
+    selected_NumPump = col7.selectbox("Nombre de caserne engagée:", NumPump, index=NumPump.index(st.session_state['incident']['NumStationsWithPumpsAttending']),disabled=True)
     
     secondPump = sorted(df['SecondPumpArrivingDeployedFromStation'].unique().tolist())
-    selected_secondPump = col8.selectbox("Deuxième caserne déployée:", secondPump, index=secondPump.index(st.session_state['incident']['SecondPumpArrivingDeployedFromStation']))
+    selected_secondPump = col8.selectbox("Deuxième caserne déployée:", secondPump, index=secondPump.index(st.session_state['incident']['SecondPumpArrivingDeployedFromStation']),disabled=True)
     
     ###############################################################################################################################################
 
