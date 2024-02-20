@@ -301,10 +301,10 @@ def main():
         st.write("""
         Ce graphique est une représentation visuelle de l'analyse des résidus. Voici quelques points clés :
         - La concentration dense de points bleus indique la distribution des résidus.
-        - Ligne pointillée rouge : Cette ligne représente le niveau de 0 résidu
-        - Lignes jaune : Ces lignes représentent l'interquatile de "80% des résidus présents"
+        - Ligne pointillée rouge : Cette ligne représente le point de référence où il n’y a aucun résidu
+        - Lignes jaune : Ces lignes représentent l'interquatile de 80% des résidus 
         """)
-        st.write(f"""Ce graphique montre que dans 80% des cas, l'erreur des prédictions de votre modèle se situe entre {convert_to_min_sec(quantiles[0])} et {convert_to_min_sec(quantiles[1])}.
+        st.write(f"""Avec votre modèle, dans 80% des cas, l'erreur des prédictions se situe entre {convert_to_min_sec(quantiles[0])} et {convert_to_min_sec(quantiles[1])}.
                  """)
         
     ###############################################################################################################################################
