@@ -342,7 +342,7 @@ def main():
     st.title(" ")
     st.write("---")
     st.subheader("5. Paramètres et performances de notre modèle ")
-     st.write("En utilisant les données de 2015 à 2022, nous avons entraîné le modèle XGBRegressor avec : ")
+    st.write("En utilisant les données de 2015 à 2022, nous avons entraîné le modèle XGBRegressor avec : ")
     
     st.write(" ")
     st.write("Pré-traitement des données : ")
