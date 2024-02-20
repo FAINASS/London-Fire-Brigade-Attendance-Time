@@ -301,8 +301,8 @@ def main():
         st.write("""
         Ce graphique est une représentation visuelle de l'analyse des résidus. Voici quelques points clés :
         - La concentration dense de points bleus indique la distribution des résidus.
-        - Ligne pointillée rouge : Cette ligne représente le point de référence où il n’y a aucun résidu
-        - Lignes jaune : Ces lignes représentent l'interquatile de 80% des résidus 
+        - Ligne pointillée représente le point de référence où il n’y a aucun résidu
+        - Les lignes jaune représentent l'interquatile de 80% des résidus 
         """)
         st.write(f"""Avec votre modèle, dans 80% des cas, l'erreur des prédictions se situe entre {convert_to_min_sec(quantiles[0])} et {convert_to_min_sec(quantiles[1])}.
                  """)
@@ -395,6 +395,7 @@ def main():
     with st.expander("Explications",expanded=True):
          st.write("""
          Dans 80% des cas, l'erreur des prédictions de notre modèle se situe entre -1 min 28 sec et 1 min 22 sec. 
+         
          Cela signifie que lorsque le modèle prédit 6 minutes,il existe une probabilité de 80 % que la valeur réelle se situe entre 4 minutes 38 secondes et 7 minutes 28 secondes.
         """)  
     st.header("")
