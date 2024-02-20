@@ -53,10 +53,10 @@ def add_logo():
         unsafe_allow_html=True,
     )
 
-## Supprimer l'espace vide en haut de la page
+## Supprimer l'espace vide en haut de la page sans affecter les selectbox
 st.markdown("""
 <style>
-    .block-container {
+    .block-container:not(.stSelectbox) {
         padding-top: 1rem;
         padding-bottom: 0rem;
         padding-left: 5rem;
