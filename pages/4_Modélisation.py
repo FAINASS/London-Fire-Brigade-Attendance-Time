@@ -397,7 +397,7 @@ def main():
          st.write("""
          Dans 80% des cas, l'erreur des prédictions de notre modèle se situe entre -1 min 28 sec et 1 min 22 sec. 
          
-         Cela signifie que lorsque le modèle prédit 6 minutes,il existe une probabilité de 80 % que la valeur réelle se situe entre 4 minutes 38 secondes et 7 minutes 28 secondes.
+         Cela signifie que lorsque le modèle prédit 6 minutes, il existe une probabilité de 80 % que la valeur réelle se situe entre 4 minutes 38 secondes et 7 minutes 28 secondes.
         """)  
     st.header("")
     
