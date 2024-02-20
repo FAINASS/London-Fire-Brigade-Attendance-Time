@@ -298,6 +298,12 @@ def main():
     st.pyplot()
     
     with st.expander("Explications",expanded=True):
+        st.write("""
+        Ce graphique est une représentation visuelle de l'analyse des résidus. Voici quelques points clés :
+        - La concentration dense de points bleus indique la distribution des résidus.
+        - Ligne pointillée rouge : Cette ligne représente le niveau de 0 résidu
+        - Lignes jaune : Ces lignes représentent l'interquatile de "80% des résidus présents"
+        """)
         st.write(f"""Ce graphique montre que dans 80% des cas, l'erreur des prédictions de votre modèle se situe entre {convert_to_min_sec(quantiles[0])} et {convert_to_min_sec(quantiles[1])}.
                  """)
         
@@ -386,13 +392,7 @@ def main():
     image_residus = Image.open('Analyse_résidus.png')
     st.image(image_residus,use_column_width=True)
     with st.expander("Explications",expanded=True):
-        st.write("""
-        Ce graphique est une représentation visuelle de l'analyse des résidus. Voici quelques points clés :
-        - La concentration dense de points bleus indique la distribution des résidus.
-        - Ligne pointillée rouge : Cette ligne représente le niveau de 0 résidu
-        - Lignes jaune : Ces lignes représentent l'interquatile de "80% des résidus présents"
-        """)
-        st.markdown("Dans 80% des cas, l'erreur des prédictions de notre modèle se situe entre -1 min 28 sec et <span style='background-color: #90ee90; color: black'>1 min 22 sec</span>.", unsafe_allow_html=True)
+         st.markdown("Dans 80% des cas, l'erreur des prédictions de notre modèle se situe entre -1 min 28 sec et <span style='background-color: #90ee90; color: black'>1 min 22 sec</span>.", unsafe_allow_html=True)
     st.header("")
     
     st.write("Interprétabilité globale (impact des variables sur plusieurs prédictions) :")
