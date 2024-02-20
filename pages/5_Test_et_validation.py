@@ -91,7 +91,7 @@ def main():
         placeholder.table(st.session_state['incident'].to_frame())
 
     st.write ("")
-    st.write ("Pour obtenir la prédiction, il suffit de cliquer sur le bouton "Prédire" en bas de la page.")
+    st.write ("Pour obtenir la prédiction, il suffit de cliquer sur le bouton 'Prédire' en bas de la page.")
     st.markdown("---")
     
     st.subheader("1. Type d'incident")
