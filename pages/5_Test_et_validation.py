@@ -75,7 +75,7 @@ def main():
     selected_columns = df[["IncidentGroupType", "PropertyType", "BoroughName", "WardName", "DeployedFromStationName","Distance",
                            "HourOfCall", "NumStationsWithPumpsAttending","SecondPumpArrivingDeployedFromStation", "AttendanceTime"]]
     
-    df = df.drop(df[(df['NumStationsWithPumpsAttending'] > 1) & (df['SecondPumpArrivingDeployedFromStation'] != "No Second Pump deployed")].index)
+    df = df.drop(df[(df['NumStationsWithPumpsAttending'] > 1) & (df['SecondPumpArrivingDeployedFromStation'] != "No Second pump deployed")].index)
 
     placeholder = st.empty()
     
@@ -177,7 +177,7 @@ def main():
     
     if selected_NumPump == 1:
         secondPump = sorted(df['SecondPumpArrivingDeployedFromStation'].unique().tolist())
-        selected_secondPump = col8.selectbox("Deuxième caserne déployée:", secondPump, index=secondPump.index("No Second pump Deloyed"))
+        selected_secondPump = col8.selectbox("Deuxième caserne déployée:", secondPump, index=secondPump.index("No Second pump deployed"))
     
     else:  
         secondPump = sorted(df['SecondPumpArrivingDeployedFromStation'].unique().tolist())
