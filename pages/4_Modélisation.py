@@ -301,8 +301,8 @@ def main():
         st.write("""
         Ce graphique est une représentation visuelle de l'analyse des résidus. Voici quelques points clés :
         - La concentration dense de points bleus indique la distribution des résidus.
-        - Ligne pointillée représente le point de référence où il n’y a aucun résidu
-        - Les lignes jaune représentent l'interquatile de 80% des résidus 
+        - La ligne pointillée rouge représente le point de référence où il n’y a aucun résidu
+        - Les lignes jaunes représentent l'interquatile de 80% des résidus 
         """)
         st.write(f"""Avec votre modèle, dans 80% des cas, l'erreur des prédictions se situe entre {convert_to_min_sec(quantiles[0])} et {convert_to_min_sec(quantiles[1])}.
                  """)
@@ -341,7 +341,7 @@ def main():
     st.pyplot(plt)
     with st.expander("Explications",expanded=True):
         st.write("""
-        ce graphique illustre comment différentes caractéristiques affectent les prédictions du modèle. Plus la barre est longue, plus l’impact de cette caractéristique est important. 
+        Ce graphique illustre comment les différentes caractéristiques affectent les prédictions du modèle. Plus la barre est longue, plus l’impact de cette caractéristique est important. 
         Vous pouvez y voir les dix caractéristiques les plus influentes et leur effet sur les prédictions.
         """)
     
