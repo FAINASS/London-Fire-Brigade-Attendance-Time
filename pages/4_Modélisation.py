@@ -373,11 +373,14 @@ def main():
     st.write("Features Importances :")
     image_features = Image.open('model_featuresImportances.png')
     st.image(image_features,use_column_width=True)
+    
     with st.expander("Explications",expanded=True):
-        st.write(f"""Ce graphique montre l’impact moyen de différentes caractéristiques sur la sortie du modèle. Voici quelques points clés :
-                    - Distance : C’est la caractéristique qui a le plus grand impact sur le modèle. Plus la barre est longue, plus l’impact est important. Ici, "Distance" a le plus grand impact.
-                    - DeployedFromStationName et WardName : Ces deux caractéristiques ont également un impact significatif sur le modèle, bien que moins que "Distance".
-                    - Les autres caractéristiques comme LongitudeIncident, LatitudeIncident, HourOfCall, etc., ont un impact moindre sur le modèle. """)
+         st.write("""
+                Ce graphique montre l’impact moyen de différentes caractéristiques sur la sortie du modèle. Voici quelques points clés :
+                - Distance : C’est la caractéristique qui a le plus grand impact sur le modèle. Plus la barre est longue, plus l’impact est important. Ici, "Distance" a le plus grand impact.
+                - DeployedFromStationName et WardName : Ces deux caractéristiques ont également un impact significatif sur le modèle, bien que moins que "Distance".
+                - Les autres caractéristiques comme LongitudeIncident, LatitudeIncident, HourOfCall, etc., ont un impact moindre sur le modèle.
+                """)
     st.header("")
     
     st.write("Analyse des résidus :")
