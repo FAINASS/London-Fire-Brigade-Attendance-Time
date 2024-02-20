@@ -224,7 +224,7 @@ def main():
             time.sleep(0.05)
 
         difference = prediction - st.session_state['incident']['AttendanceTime'] 
-        st.write(f"Nous avons une erreur de prédiction de : {difference} min")
+        st.markdown(f"<h3 style='text-align: center;'> Nous avons une erreur de prédiction de : {difference:.2f} min</h3>", unsafe_allow_html=True)
     
     except UnboundLocalError:
         st.write('')
