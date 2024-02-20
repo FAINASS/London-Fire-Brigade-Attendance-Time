@@ -190,35 +190,25 @@ def main():
         ('estimator', model)
     ])
     
-
+    # Entraînement du modèle sur les données d'entraînement
+    model_pipeline.fit(X_train, y_train)
     
-    def evaluation(model):
-
-        """
-        Cette fonction évalue un modèle de régression avant l'optimisation de ses hyperparamètres.
+    # Prédiction sur les données d'entraînement et de test
+    y_train_pred = model_pipeline.predict(X_train)
+    y_test_pred = model_pipeline.predict(X_test)
     
-        """
+    # Calcul des métriques d'évaluation
+    Train_score = round(model_pipeline.score(X_train, y_train), 2)
+    Train_RMSE= round(mean_squared_error(y_train, y_train_pred, squared=False), 3)
+    Test_score= round(model.score(X_test, y_test), 2)
+    Test_RMSE= round(mean_squared_error(y_test, y_test_pred, squared=False), 3)
     
-        # Récupération du nom de l'algorithme à partir du modèle
-        algoname = str(model["estimator"]).split("(")[0]
-    
-        # Entraînement du modèle sur les données d'entraînement
-        model.fit(X_train, y_train)
-    
-        # Prédiction sur les données d'entraînement et de test
-        y_train_pred = model.predict(X_train)
-        y_test_pred = model.predict(X_test)
-    
-        # Calcul des métriques d'évaluation
-        Train_score = round(model.score(X_train, y_train), 2)
-        Train_RMSE= round(mean_squared_error(y_train, y_train_pred, squared=False), 3)
-        Test_score= round(model.score(X_test, y_test), 2)
-        Test_RMSE= round(mean_squared_error(y_test, y_test_pred, squared=False), 3)
-
-        return algoname, Train_score, Test_score, Train_RMSE, Test_RMSE
-    
-    score = [evaluation(model_pipeline)]  
-    data_score_after = pd.DataFrame(score, columns=['Model','R² Train','R² Test', 'Train RMSE', 'Test RMSE'])
+    data_score_after = pd.DataFrame({
+    'Model': [str(model_pipeline["estimator"]).split("(")[0]],
+    'R² Train': [Train_score],
+    'R² Test': [Test_score],
+    'Train RMSE': [Train_RMSE],
+    'Test RMSE': [Test_RMSE] })
     
     st.write(data_score_after)
     
@@ -256,12 +246,6 @@ def main():
     st.subheader("3. Visualisation graphique des prédictions")
     
     
-     # Entraînement du modèle sur les données d'entraînement
-    model_pipeline.fit(X_train, y_train)
-    
-    # Prédiction des valeurs de test
-    y_test_pred_model = model_pipeline.predict(X_test)
-    
     # Sélection de la plage de données
     début, fin = st.slider('Sélectionnez une plage de données', min_value=0, max_value=500, value=(0, 50))
     x_ax = range(len(y_test))[début:fin]
@@ -270,7 +254,7 @@ def main():
     fig, ax = plt.subplots(figsize=(16,6.5))
     
     ax.plot(x_ax, y_test[début:fin], label="original", c="blue", linewidth=1, marker="o", markersize=6)
-    ax.plot(x_ax, y_test_pred_model[début:fin], label="prédiction", c="orange", linewidth=2, marker="o", markersize=6)
+    ax.plot(x_ax, y_test_pred[début:fin], label="prédiction", c="orange", linewidth=2, marker="o", markersize=6)
     
     ax.set_title("Prédictions avec le modèle : " + str(model_pipeline.named_steps['estimator']).split("(")[0], fontsize=14)
     ax.legend(loc='best')
