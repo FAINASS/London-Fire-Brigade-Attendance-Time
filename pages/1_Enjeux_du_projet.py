@@ -16,19 +16,7 @@ st.set_page_config(
     page_title = "Temps de Réponse de la Brigade des Pompiers de Londres")
 
 st.markdown("""
-<style>
-    }}
-        .reportview-container .main .block-container{{
-        max-width: {percentage_width_main}%;
-        padding-top: {1}rem;
-        padding-right: {1}rem;
-        padding-left: {1}rem;
-        padding-bottom: {1}rem;
-    }}
-
-        .uploadedFile {{display: none}}
-        footer {{visibility: hidden;}}
-</style>
+<style> .appview-container .main .block-container{{ padding-top: {padding_top}rem; }} </style>
 """, unsafe_allow_html=True)
 
 def add_logo():
