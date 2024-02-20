@@ -175,13 +175,8 @@ def main():
     NumPump = list(np.arange(1.0,21.0,1.0))
     selected_NumPump = col7.selectbox("Nombre de caserne engagée:", NumPump, index=NumPump.index(st.session_state['incident']['NumStationsWithPumpsAttending']))
     
-    if selected_NumPump == 1:
-        secondPump = sorted(df['SecondPumpArrivingDeployedFromStation'].unique().tolist())
-        selected_secondPump = col8.selectbox("Deuxième caserne déployée:", secondPump, index=secondPump.index("No Second pump deployed"))
-    
-    else:  
-        secondPump = sorted(df['SecondPumpArrivingDeployedFromStation'].unique().tolist())
-        selected_secondPump = col8.selectbox("Deuxième caserne déployée:", secondPump, index=secondPump.index(st.session_state['incident']['SecondPumpArrivingDeployedFromStation']))
+    secondPump = sorted(df['SecondPumpArrivingDeployedFromStation'].unique().tolist())
+    selected_secondPump = col8.selectbox("Deuxième caserne déployée:", secondPump, index=secondPump.index(st.session_state['incident']['SecondPumpArrivingDeployedFromStation']))
     ###############################################################################################################################################
 
     st.write(" ")
