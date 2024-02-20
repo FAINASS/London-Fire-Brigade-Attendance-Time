@@ -110,7 +110,7 @@ def main():
     
     boroughs = sorted(df['BoroughName'].unique().tolist())
     selected_boroughs = col3.selectbox("Arrondissement:", boroughs, index=boroughs.index(st.session_state['incident']['BoroughName']),disabled=True)
-    df_filtreBoroughs = df_filtreIncidents[df_filtreIncidents['BoroughName'] == selected_boroughs]
+    df_filtreBoroughs = df[df['BoroughName'] == selected_boroughs]
     
     wards = sorted(df_filtreBoroughs['WardName'].unique().tolist())
     selected_wards= col4.selectbox("Quartier:", wards, index=wards.index(st.session_state['incident']['WardName']))
