@@ -93,7 +93,7 @@ def main():
     
     st.subheader("0. Préparation des données")
     
-    st.write("Après avoir fusionné et nettoyé les deux jeux de données, nous avons obtenu le jeu de données suivant.")
+    st.write("Après avoir fusionné et réorganisé les deux jeux de données, nous avons obtenu le jeu de données suivant.")
     
     st.write(" ")
     
