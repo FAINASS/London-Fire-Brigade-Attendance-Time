@@ -70,7 +70,6 @@ def main():
     
     Nous visons un coefficient de détermination (R²) supérieur à 70% et nous cherchons à obtenir une erreur quadratique moyenne (RMSE) inférieure à 1 minute.
     """, unsafe_allow_html=True)
-        
 
 if __name__ == "__main__":
     main()
