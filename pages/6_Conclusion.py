@@ -139,6 +139,5 @@ def main():
     pour s'assurer qu'elle améliore réellement les performances.
     """)
     
-
 if __name__ == "__main__":
     main()
