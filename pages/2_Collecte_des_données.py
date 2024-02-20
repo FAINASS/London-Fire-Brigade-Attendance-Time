@@ -17,7 +17,7 @@ st.set_page_config(
 
 @st.cache_data
 def load_data(file):
-    data = pd.read_csv(file,nrows=8)
+    data = pd.read_csv(file,nrows=9)
     return data
 
 def add_logo():
