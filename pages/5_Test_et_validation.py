@@ -96,7 +96,7 @@ def main():
     col1, col2 = st.columns(2) 
     
     IncidentGroupType = sorted(df['IncidentGroupType'].unique().tolist())
-    selected_incidents = col1.selectbox("Catégorie d'incident:", IncidentGroupType, index=IncidentGroupType.index(st.session_state['incident']['IncidentGroupType']))
+    selected_incidents = col1.selectbox("Catégorie d'incident:", IncidentGroupType, index=IncidentGroupType.index(st.session_state['incident']['IncidentGroupType']),disabled=True)
     df_filtreIncidents = df[df['IncidentGroupType'] == selected_incidents]
     
     
