@@ -342,6 +342,7 @@ def main():
     with st.expander("Explications",expanded=True):
         st.write("""
         Ce graphique illustre comment les différentes caractéristiques affectent les prédictions du modèle. Plus la barre est longue, plus l’impact de cette caractéristique est important. 
+        
         Vous pouvez y voir les dix caractéristiques les plus influentes et leur effet sur les prédictions.
         """)
     
