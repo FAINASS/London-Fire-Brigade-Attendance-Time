@@ -341,9 +341,9 @@ def main():
     st.pyplot(plt)
     with st.expander("Explications",expanded=True):
         st.write("""
-        Ce graphique illustre comment les différentes caractéristiques affectent les prédictions du modèle. Plus la barre est longue, plus l’impact de cette caractéristique est important. 
+        Ce graphique illustre comment les différentes variables affectent les prédictions du modèle. Plus la barre est longue, plus l’impact de cette caractéristique est important. 
         
-        Vous pouvez y voir les dix caractéristiques les plus influentes et leur effet sur les prédictions.
+        Vous pouvez y voir les dix variables les plus influentes et leur effet sur les prédictions.
         """)
     
     ###############################################################################################################################################
@@ -385,8 +385,8 @@ def main():
          st.write("""
                 Quelques points clés :
                 - Distance : C’est la caractéristique qui a le plus grand impact sur le modèle.
-                - DeployedFromStationName et WardName : Ces deux caractéristiques ont également un impact significatif sur le modèle, bien que moins que "Distance".
-                - Les autres caractéristiques comme LongitudeIncident, LatitudeIncident, HourOfCall, etc., ont un impact moindre sur le modèle.
+                - DeployedFromStationName et WardName : Ces deux variables ont également un impact significatif sur le modèle, bien que moins que "Distance".
+                - Les autres variables comme LongitudeIncident, LatitudeIncident, HourOfCall, etc., ont un impact moindre sur le modèle.
                 """)
     st.header("")
     
@@ -406,7 +406,7 @@ def main():
     st.image(image_shap,use_column_width=True)
     with st.expander("Explications",expanded=True):
          st.write("""
-             Ce graphique SHAP illustre comment différentes caractéristiques influencent les prédictions d’un modèle. 
+             Ce graphique SHAP illustre comment les différentes variables influencent les prédictions d’un modèle. 
              Les points rouges correspondent à des valeurs élevées de la variable, tandis que les points bleus correspondent à des valeurs basses. 
     
              Voici ce que nous pouvons déduire de notre modèle :
