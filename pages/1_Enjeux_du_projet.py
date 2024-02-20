@@ -8,13 +8,6 @@ This is a temporary script file.
 import streamlit as st
 import pandas as pd
 
-st.markdown("""
-<style>
-.appview-container .main .block-container {
-    padding-top: **{padding_top}rem**;
-}
-</style>
-""", unsafe_allow_html=True)
 
 #Configurer l'affichage en mode Wide
 st.set_page_config(
@@ -22,6 +15,13 @@ st.set_page_config(
     initial_sidebar_state="expanded",
     page_title = "Temps de Réponse de la Brigade des Pompiers de Londres")
 
+st.markdown("""
+<style>
+.appview-container .main .block-container {
+    padding-top: **{padding_top}rem**;
+}
+</style>
+""", unsafe_allow_html=True)
 
 def add_logo():
     st.markdown(
