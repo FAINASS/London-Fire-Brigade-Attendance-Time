@@ -406,14 +406,11 @@ def main():
     st.image(image_shap,use_column_width=True)
     with st.expander("Explications",expanded=True):
          st.write("""
-        Ce graphique SHAP illustre comment différentes caractéristiques influencent les prédictions d’un modèle. 
-        Les points rouges correspondent à des valeurs élevées de la variable, tandis que les points bleus correspondent à des valeurs basses. 
-        
-        Voici ce que nous pouvons déduire de notre modèle :
-        -  Distance : Plus la distance est courte, plus le temps de réponse est rapide.
-        - Variable “SecondPumpArrivingDeployedFromStation” : Lorsque cette variable a la valeur “No Second pump deployed”, le temps de réponse est plus long que s’il y avait un second camion de pompiers déployé.
-
-         
+             Ce graphique SHAP illustre comment différentes caractéristiques influencent les prédictions d’un modèle. Les points rouges correspondent à des valeurs élevées de la variable, tandis que les points bleus correspondent à des valeurs basses. 
+    
+            Voici ce que nous pouvons déduire de notre modèle :
+            -  Distance : Plus la distance est courte, plus le temps de réponse est rapide.
+            - Variable “SecondPumpArrivingDeployedFromStation” : Lorsque cette variable a la valeur “No Second pump deployed”, le temps de réponse est plus long que s’il y avait un second camion de pompiers déployé.      
         """)  
 
 
