@@ -90,7 +90,8 @@ def main():
                            "HourOfCall", "NumStationsWithPumpsAttending","SecondPumpArrivingDeployedFromStation", "AttendanceTime"]]
     
     df = df.drop(df[(df['NumStationsWithPumpsAttending'] > 1) & (df['SecondPumpArrivingDeployedFromStation'] != "No Second pump deployed")].index)
-
+    df.drop(24754, inplace=True)
+    
     placeholder = st.empty()
     
     # Vérifier si 'incident' est déjà dans session_state
