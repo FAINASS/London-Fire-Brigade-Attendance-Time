@@ -254,10 +254,10 @@ def main():
                     - Max_depth : c’est comme déterminer combien de questions vous voulez poser avant de faire une prédiction. 
                     Plus vous posez de questions, plus vous pouvez obtenir de détails, mais vous risquez aussi de vous perdre dans les détails.
 
-                    - Min_child_weight : C’est comme déterminer combien d’informations vous avez besoin avant de poser une nouvelle question. 
+                    - Min_child_weight : c’est comme déterminer combien d’informations vous avez besoin avant de poser une nouvelle question. 
                     Plus vous avez besoin d’informations, moins vous posez de questions, ce qui peut rendre votre modèle plus simple et plus facile à comprendre.
 
-                    - N_estimators : C’est le nombre de fois que vous voulez répéter le processus d’apprentissage. 
+                    - N_estimators : c’est le nombre de fois que vous voulez répéter le processus d’apprentissage. 
                     Plus vous répétez, plus vous pouvez apprendre de choses, mais cela peut aussi prendre plus de temps et être plus compliqué.
 
                   """)
