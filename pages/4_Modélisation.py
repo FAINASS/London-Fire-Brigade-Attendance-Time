@@ -19,6 +19,8 @@ from sklearn.compose import ColumnTransformer, make_column_selector
 from sklearn.pipeline import Pipeline
 
 from sklearn.linear_model import Ridge
+
+from lightgbm import LGBMRegressor
 from xgboost import XGBRegressor
 
 from sklearn.metrics import mean_squared_error
@@ -27,25 +29,16 @@ from sklearn.inspection import permutation_importance
 from PIL import Image
 
 
+
 #Configurer l'affichage en mode Wide
 st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded",
     page_title = "Temps de Réponse de la Brigade des Pompiers de Londres")
 
-## Supprimer l'espace vide en haut de la page
-st.markdown("""
-<style>
 
-.block-container
-{
-    padding-top: 1rem;
-    padding-bottom: 5rem;
-    margin-top: 0rem;
-}
+st.set_option('deprecation.showPyplotGlobalUse', False)
 
-</style>
-""", unsafe_allow_html=True)
 
 @st.cache_data
 def load_data(file):
@@ -69,7 +62,6 @@ def add_logo():
         unsafe_allow_html=True,
     )
 
-
 def main():
     
     add_logo()
@@ -86,23 +78,24 @@ def main():
     max_year = max(all_years)
     
     expander = st.sidebar.expander("**CHOISIR UNE PÉRIODE**",expanded=False)
-    start_year, end_year = expander.slider("Date of Call", min_year, max_year, (2022, 2022))
+    start_year, end_year = expander.slider("Date of Call", min_year, max_year, (2021, 2022))
     
     df = df[(df['YearOfTheCall'] >= start_year) & (df['YearOfTheCall'] <= end_year)]
-
-    st.subheader(" ")
-    st.subheader("0. Choix d'un modèle")
-    model_type = st.selectbox("Choisir un modèle :", ['Ridge','XGBRegressor'])
     
-    if model_type == "XGBRegressor" :
+    st.subheader("0. Choix d'un modèle")
+    model_type = st.selectbox("Choisir un modèle :", ['XGBRegressor','LGBMRegressor','Ridge'])
+    
+    if model_type == "LGBMRegressor":
+        df = df[["IncidentGroupType", "BoroughName","WardName","HourOfCall","PropertyType","DeployedFromStationName","Distance","ResourceCode",
+         "LatitudeIncident","LongitudeIncident","LatitudeStation","LongitudeStation","SecondPumpArrivingDeployedFromStation","AttendanceTime"]]
+    
+    elif model_type == "XGBRegressor" :
         df = df[["IncidentGroupType", "BoroughName","WardName","HourOfCall","PropertyType","DeployedFromStationName","Distance","NumStationsWithPumpsAttending",
                  "LatitudeIncident","LongitudeIncident","LatitudeStation","LongitudeStation","SecondPumpArrivingDeployedFromStation","AttendanceTime"]]
-    
     else :
         df = df[["Distance","DeployedFromStationName","WardName","LongitudeStation","LongitudeIncident","ResourceCode","BoroughName","WeekOfTheCall","MonthOfTheCall",
     "Region","MomentOfTheDay","PropertyType","AttendanceTime"]]
  
-
     # Séparation des features (X) et de la variable cible (y)
     X = df.drop('AttendanceTime', axis=1)
     y = df['AttendanceTime']
@@ -112,15 +105,16 @@ def main():
     
     ###############################################################################################################################################
     
-    st.subheader(" ")
+    st.write(" ")
+    
     st.subheader("1. Pré-traitement des données")
     
     my_expander = st.sidebar.expander("**PRÉTRAITER LES DONNÉES**",expanded=False)
     my_expander2 = st.sidebar.expander("**RÉGLER LES HYPERPARAMÈTRES**",expanded=True)
     
-    encoder_type = my_expander.selectbox("Type d'encodeur", ['OneHotEncoder','OrdinalEncoder'])
+    encoder_type = my_expander.selectbox("Type d'encodeur", ['OrdinalEncoder','OneHotEncoder'])
     
-    scaler_type = my_expander.selectbox('Type de normalisateur', ['StandardScaler','MinMaxScaler','RobustScaler'])
+    scaler_type = my_expander.selectbox('Type de normalisateur', ['RobustScaler','StandardScaler','MinMaxScaler'])
     
     st.markdown(f"<div style='text-align: left; color: black; background-color: #ff9800; padding: 10px; border-radius: 5px;'>⚠️ Sur la période de {start_year} à {end_year}, vous avez pré-traité les données avec un {encoder_type} et un {scaler_type}.</div>", unsafe_allow_html=True)
     st.subheader(" ")
@@ -167,7 +161,7 @@ def main():
 
         df_transformed = pd.DataFrame(array_transformed, columns=feature_names)
     
-    st.dataframe(df_transformed.head(7))
+    st.dataframe(df_transformed.head(6))
     
     
     ###############################################################################################################################################
@@ -176,11 +170,11 @@ def main():
     
     
     if model_type == 'XGBRegressor':
-       colsample_bytree = my_expander2.slider('Colsample bytree', min_value=0.1, max_value=1.0, value=0.7746831999163204)
-       learning_rate = my_expander2.slider('Learning rate', min_value=0.1, max_value=1.0, value=0.0624207548570334)
-       max_depth = my_expander2.slider('Max Depth', min_value=1, max_value=12, value=1)
+       colsample_bytree = my_expander2.slider('Colsample bytree', min_value=0.1, max_value=1.0, value=0.2)
+       learning_rate = my_expander2.slider('Learning rate', min_value=0.1, max_value=1.0, value=0.02)
+       max_depth = my_expander2.slider('Max Depth', min_value=1, max_value=12, value=2)
        min_child_weight = my_expander2.slider('Min child weight', min_value=1, max_value=5, value=1)
-       n_estimators = my_expander2.slider('N_estimators', min_value=100, max_value=1200, value=300)
+       n_estimators = my_expander2.slider('N_estimators', min_value=100, max_value=1200, value=200)
 
        model = XGBRegressor(colsample_bytree =colsample_bytree,  
        learning_rate = learning_rate,  
@@ -188,38 +182,62 @@ def main():
        min_child_weight = min_child_weight, 
        n_estimators = n_estimators, 
        random_state=0)
+        
+        
+    elif model_type == 'LGBMRegressor':
+       colsample_bytree = my_expander2.slider('Colsample bytree', min_value=0.1, max_value=1.0, value=0.5)
+       learning_rate = my_expander2.slider('Learning rate', min_value=0.1, max_value=1.0, value=0.2)
+       max_depth = my_expander2.slider('Max Depth', min_value=1, max_value=12, value=3)
+       min_child_weight = my_expander2.slider('Min child weight', min_value=1, max_value=5, value=1)
+       n_estimators = my_expander2.slider('N_estimators', min_value=100, max_value=1200, value=105)
+      
+       model = LGBMRegressor(colsample_bytree = colsample_bytree,
+       learning_rate=learning_rate,
+       max_depth=max_depth, 
+       min_child_weight = min_child_weight, 
+       n_estimators=n_estimators, 
+       verbose=-100, 
+       random_state=0)
     
-    else:
-        alpha = my_expander2.slider('Alpha', min_value=1.0, max_value=50.0, value=9.372353071731432)
-        solver = my_expander2.selectbox('Solver', ['auto', 'lsqr', 'sparse_cg', 'sag'])
-        fit_intercept = my_expander2.checkbox('Inclure l\'interception', value=True)
-        model = Ridge(alpha=alpha, solver=solver, fit_intercept=fit_intercept)
 
+    else :  # Ridge
+        alpha = my_expander2.slider('Alpha', min_value=1.0, max_value=50.0, value=9.0)
+        model = Ridge(alpha=alpha)
+    
 
     model_pipeline = Pipeline(steps=[
         ('preprocessor', preprocessor),
         ('estimator', model)
     ])
     
-    # Entraînement du modèle sur les données d'entraînement
-    model_pipeline.fit(X_train, y_train)
     
-    # Prédiction sur les données d'entraînement et de test
-    y_train_pred = model_pipeline.predict(X_train)
-    y_test_pred = model_pipeline.predict(X_test)
+    def evaluation(model):
+
+        """
+        Cette fonction évalue un modèle de régression avant l'optimisation de ses hyperparamètres.
     
-    # Calcul des métriques d'évaluation
-    Train_score = round(model_pipeline.score(X_train, y_train), 2)
-    Train_RMSE= round(mean_squared_error(y_train, y_train_pred, squared=False), 3)
-    Test_score= round(model_pipeline .score(X_test, y_test), 2)
-    Test_RMSE= round(mean_squared_error(y_test, y_test_pred, squared=False), 3)
+        """
     
-    data_score_after = pd.DataFrame({
-    'Model': [str(model_pipeline["estimator"]).split("(")[0]],
-    'R² Train': [Train_score],
-    'R² Test': [Test_score],
-    'Train RMSE': [Train_RMSE],
-    'Test RMSE': [Test_RMSE] })
+        # Récupération du nom de l'algorithme à partir du modèle
+        algoname = str(model["estimator"]).split("(")[0]
+    
+        # Entraînement du modèle sur les données d'entraînement
+        model.fit(X_train, y_train)
+    
+        # Prédiction sur les données d'entraînement et de test
+        y_train_pred = model.predict(X_train)
+        y_test_pred = model.predict(X_test)
+    
+        # Calcul des métriques d'évaluation
+        Train_score = round(model.score(X_train, y_train), 2)
+        Train_RMSE= round(mean_squared_error(y_train, y_train_pred, squared=False), 3)
+        Test_score= round(model.score(X_test, y_test), 2)
+        Test_RMSE= round(mean_squared_error(y_test, y_test_pred, squared=False), 3)
+
+        return algoname, Train_score, Test_score, Train_RMSE, Test_RMSE
+    
+    score = [evaluation(model_pipeline)]  
+    data_score_after = pd.DataFrame(score, columns=['Model','R² Train','R² Test', 'Train RMSE', 'Test RMSE'])
     
     st.write(data_score_after)
     
@@ -257,6 +275,12 @@ def main():
     st.subheader("3. Visualisation graphique des prédictions")
     
     
+     # Entraînement du modèle sur les données d'entraînement
+    model_pipeline.fit(X_train, y_train)
+    
+    # Prédiction des valeurs de test
+    y_test_pred_model = model_pipeline.predict(X_test)
+    
     # Sélection de la plage de données
     début, fin = st.slider('Sélectionnez une plage de données', min_value=0, max_value=500, value=(0, 50))
     x_ax = range(len(y_test))[début:fin]
@@ -265,7 +289,7 @@ def main():
     fig, ax = plt.subplots(figsize=(16,6.5))
     
     ax.plot(x_ax, y_test[début:fin], label="original", c="blue", linewidth=1, marker="o", markersize=6)
-    ax.plot(x_ax, y_test_pred[début:fin], label="prédiction", c="orange", linewidth=2, marker="o", markersize=6)
+    ax.plot(x_ax, y_test_pred_model[début:fin], label="prédiction", c="orange", linewidth=2, marker="o", markersize=6)
     
     ax.set_title("Prédictions avec le modèle : " + str(model_pipeline.named_steps['estimator']).split("(")[0], fontsize=14)
     ax.legend(loc='best')
@@ -309,13 +333,7 @@ def main():
     st.pyplot()
     
     with st.expander("Explications",expanded=True):
-        st.write("""
-        Ce graphique est une représentation visuelle de l'analyse des résidus. Voici quelques points clés :
-        - La concentration dense de points bleus indique la distribution des résidus.
-        - La ligne pointillée rouge représente le point de référence où il n’y a aucun résidu
-        - Les lignes jaunes représentent l'interquatile de 80% des résidus 
-        """)
-        st.write(f"""Avec votre modèle, dans 80% des cas, l'erreur des prédictions se situe entre {convert_to_min_sec(quantiles[0])} et {convert_to_min_sec(quantiles[1])}.
+        st.write(f"""Ce graphique montre que dans 80% des cas, l'erreur des prédictions de votre modèle se situe entre {convert_to_min_sec(quantiles[0])} et {convert_to_min_sec(quantiles[1])}.
                  """)
         
     ###############################################################################################################################################
@@ -337,7 +355,7 @@ def main():
     importances_df = importances_df.sort_values(by="Importance", ascending=True).tail(10)
     
     # Tracé d'un graphique à barres horizontales
-    fig, ax = plt.subplots(figsize=(16,8))
+    fig, ax = plt.subplots(figsize=(16,10))
     plt.grid(visible=True, linewidth=0.5)
     plt.barh(y=importances_df["Features"], width=importances_df["Importance"], color="skyblue")
     plt.xlabel("Average impact on model output")
@@ -352,16 +370,14 @@ def main():
     st.pyplot(plt)
     with st.expander("Explications",expanded=True):
         st.write("""
-        Ce graphique illustre comment les différentes variables affectent les prédictions du modèle. Plus la barre est longue, plus l’impact de cette caractéristique est important. 
-        
-        Vous pouvez y voir les dix variables les plus influentes et leur effet sur les prédictions.
+        Ce graphique illustre les dix caractéristiques les plus influentes du modèle et leur effet sur la prédiction.
         """)
     
     ###############################################################################################################################################
     st.title(" ")
     st.write("---")
-    st.subheader("5. Paramètres et performances de notre modèle ")
-    st.write("En utilisant les données de 2015 à 2022, nous avons entraîné le modèle XGBRegressor avec : ")
+    st.subheader("5. Avez-vous obtenu de meilleurs résultats ? 😊")
+    st.write("Notre modèle a été entraîné sur les données de 2015 à 2022. ")
     
     st.write(" ")
     st.write("Pré-traitement des données : ")
@@ -387,43 +403,21 @@ def main():
     st.write("Performances de notre modèle : ")
     score = pd.DataFrame([ 0.53, 0.5, 1.27, 1.32], index=['R² Train','R² Test', 'RMSE Train', 'RMSE Test']).T
     st.dataframe(score)
-    st.write("")
     
-    st.write("Features Importances :")
-    image_features = Image.open('model_featuresImportances.png')
-    st.image(image_features,use_column_width=True)
-    with st.expander("Explications",expanded=True):
-         st.write("""
-                Quelques points clés :
-                - Distance : C’est la variable qui a le plus grand impact sur le modèle.
-                - DeployedFromStationName et WardName : Ces deux variables ont également un impact significatif sur le modèle, bien que moins que "Distance".
-                - Les autres variables comme LongitudeIncident, LatitudeIncident, HourOfCall, etc., ont un impact moindre sur le modèle.
-                """)
-    st.header("")
+    st.subheader(" ")
+    st.write("Features Importances : ")
+    image = Image.open('model_featuresImportances.png')
+    st.image(image,use_column_width=True)
     
-    st.write("Analyse des résidus :")
-    image_residus = Image.open('Analyse_résidus.png')
-    st.image(image_residus,use_column_width=True)
-    with st.expander("Explications",expanded=True):
-         st.write("""
-         Dans 80% des cas, l'erreur des prédictions de notre modèle se situe entre -1 min 28 sec et 1 min 22 sec. 
-         
-         Cela signifie que lorsque le modèle prédit 6 minutes, il existe une probabilité de 80 % que la valeur réelle se situe entre 4 minutes 38 secondes et 7 minutes 28 secondes.
-        """)  
-    st.header("")
+    st.subheader(" ")
+    st.markdown("Analyse des résidus : Dans 80% des cas, l'erreur des prédictions de notre modèle se situe entre -1 min 28 sec et <span style='background-color: #90ee90; color: black'>1 min 22 sec</span>.", unsafe_allow_html=True)
+    image = Image.open('Analyse_résidus.png')
+    st.image(image,use_column_width=True)
     
-    st.write("Interprétabilité globale (impact des variables sur plusieurs prédictions) :")
-    image_shap = Image.open('model_Shap.png')
-    st.image(image_shap,use_column_width=True)
-    with st.expander("Explications",expanded=True):
-         st.write("""
-             Ce graphique SHAP illustre comment les différentes variables influencent les prédictions d’un modèle. 
-             Les points rouges correspondent à des valeurs élevées de la variable, tandis que les points bleus correspondent à des valeurs basses. 
-    
-             Voici ce que nous pouvons déduire de notre modèle :
-              -  Distance : Plus la distance est courte, plus le temps de réponse est rapide.
-              - Variable "SecondPumpArrivingDeployedFromStation" : Lorsque cette variable a la valeur "No Second pump deployed", le temps de réponse est plus long que s’il y avait un second camion de pompiers déployé.      
-        """)  
-        
+    st.subheader(" ")
+    st.write("Interprétabilité globale (impact des variables sur plusieurs prédictions) : ")
+    image = Image.open('model_Shap.png')
+    st.image(image,use_column_width=True)
+
 if __name__ == "__main__":
     main()

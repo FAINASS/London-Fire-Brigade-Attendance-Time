@@ -43,18 +43,6 @@ def haversine_distance(lat1, lon1, lat2, lon2):
     res = r * (2 * np.arctan2(np.sqrt(a), np.sqrt(1 - a)))
     return np.round(res, 2)
 
-## Supprimer l'espace vide en haut de la page
-st.markdown("""
-        <style>
-               .block-container {
-                    padding-top: 1rem;
-                    padding-bottom: 5rem;
-                    padding-left: 5rem;
-                    padding-right: 5rem;
-                }
-        </style>
-        """, unsafe_allow_html=True)
-
 
 def add_logo():
     st.markdown(
@@ -87,13 +75,13 @@ def main():
     selected_columns = df[["IncidentGroupType", "PropertyType", "BoroughName", "WardName", "DeployedFromStationName","Distance",
                            "HourOfCall", "NumStationsWithPumpsAttending","SecondPumpArrivingDeployedFromStation", "AttendanceTime"]]
     
-    df = df.drop(df[(df['NumStationsWithPumpsAttending'] > 1) & (df['SecondPumpArrivingDeployedFromStation'] != "No Second pump deployed")].index)
+    df = df.drop(df[(df['NumStationsWithPumpsAttending'] > 1) & (df['SecondPumpArrivingDeployedFromStation'] != "No Second Pump delopyed")].index)
 
     placeholder = st.empty()
     
     # Vérifier si 'incident' est déjà dans session_state
     if 'incident' not in st.session_state:
-        st.session_state['incident'] = selected_columns.iloc[88530]
+        st.session_state['incident'] = selected_columns.iloc[38840]
     
     placeholder.table(st.session_state['incident'].to_frame())
     
@@ -101,21 +89,21 @@ def main():
         random_index = selected_columns.sample(n=1).index[0]
         st.session_state['incident'] = selected_columns.iloc[random_index]
         placeholder.table(st.session_state['incident'].to_frame())
-
-    st.write ("")
-    st.write ("Pour obtenir la prédiction, il suffit de cliquer sur le bouton 'Prédire' en bas de la page.")
+        
     st.markdown("---")
+    
+    st.title(" ")
     
     st.subheader("1. Type d'incident")
     col1, col2 = st.columns(2) 
     
     IncidentGroupType = sorted(df['IncidentGroupType'].unique().tolist())
-    selected_incidents = col1.selectbox("Catégorie d'incident:", IncidentGroupType, index=IncidentGroupType.index(st.session_state['incident']['IncidentGroupType']),disabled=True)
+    selected_incidents = col1.selectbox("Catégorie d'incident:", IncidentGroupType, index=IncidentGroupType.index(st.session_state['incident']['IncidentGroupType']))
     df_filtreIncidents = df[df['IncidentGroupType'] == selected_incidents]
     
     
     propertyType = sorted(df['PropertyType'].unique().tolist())
-    selected_property = col2.selectbox("Type d'emplacement:", propertyType, index=propertyType.index(st.session_state['incident']['PropertyType']),disabled=True)
+    selected_property = col2.selectbox("Type d'emplacement:", propertyType, index=propertyType.index(st.session_state['incident']['PropertyType']))
     
     
     st.subheader(" ")
@@ -123,15 +111,16 @@ def main():
     col3, col4,col5 = st.columns(3) 
     
     boroughs = sorted(df['BoroughName'].unique().tolist())
-    selected_boroughs = col3.selectbox("Arrondissement:", boroughs, index=boroughs.index(st.session_state['incident']['BoroughName']),disabled=True)
+    selected_boroughs = col3.selectbox("Arrondissement:", boroughs, index=boroughs.index(st.session_state['incident']['BoroughName']))
     df_filtreBoroughs = df[df['BoroughName'] == selected_boroughs]
     
     wards = sorted(df_filtreBoroughs['WardName'].unique().tolist())
-    selected_wards= col4.selectbox("Quartier:", wards, index=wards.index(st.session_state['incident']['WardName']),disabled=True)
+    selected_wards= col4.selectbox("Quartier:", wards, index=wards.index(st.session_state['incident']['WardName']))
     df_filtreWards = df_filtreBoroughs[df_filtreBoroughs['WardName'] == selected_wards]
     
     station = sorted(df_filtreWards['DeployedFromStationName'].unique().tolist())
     selected_station= col5.selectbox("Première caserne déployée:", station, index=station.index(st.session_state['incident']['DeployedFromStationName']))
+    
  
     ###############################################################################################################################################
 
@@ -145,7 +134,7 @@ def main():
     
     
     st.title(" ")
-    st.markdown("Légende : 🔴 Lieu de l'incident 🔵 Caserne déployée")
+    st.markdown("Légende : 🔴 Lieu de l'incident 🟢 Caserne déployée")
 
     df_filtered = df[df['DeployedFromStationName'].isin(station)]
 
@@ -154,7 +143,7 @@ def main():
     
     nearest_station = df_filtered.loc[min_distance_index, 'DeployedFromStationName']
     
-    m = folium.Map(location=[lat_ward, lon_ward], zoom_start=10,zoom_control=False,scrollWheelZoom=False,dragging=False)
+    m = folium.Map(location=[lat_ward, lon_ward], zoom_start=10)
     
     folium.Marker(
         location=[lat_ward, lon_ward],
@@ -163,7 +152,7 @@ def main():
     
     folium.Marker(
         location=[lat_station, lon_station],
-        icon=folium.Icon(color="blue"),
+        icon=folium.Icon(color="green"),
     ).add_to(m)
     
     html = branca.element.Figure()
@@ -183,14 +172,15 @@ def main():
     col6,col7,col8 = st.columns(3)
 
     Hour = list(np.arange(0.0, 24.0, 1.0))
-    selectedHour = col6.selectbox("Heure de l'appel:", Hour, index=Hour.index(st.session_state['incident']['HourOfCall']),disabled=True)
+    selectedHour = col6.selectbox("Heure de l'appel:", Hour, index=Hour.index(st.session_state['incident']['HourOfCall']))
      
     NumPump = list(np.arange(1.0,21.0,1.0))
-    selected_NumPump = col7.selectbox("Nombre de caserne engagée:", NumPump, index=NumPump.index(st.session_state['incident']['NumStationsWithPumpsAttending']),disabled=True)
+    selected_NumPump = col7.selectbox("Nombre de caserne engagée:", NumPump, index=NumPump.index(st.session_state['incident']['NumStationsWithPumpsAttending']))
+    
     
     secondPump = sorted(df['SecondPumpArrivingDeployedFromStation'].unique().tolist())
-    selected_secondPump = col8.selectbox("Deuxième caserne déployée:", secondPump, index=secondPump.index(st.session_state['incident']['SecondPumpArrivingDeployedFromStation']),disabled=True)
-    
+    selected_secondPump = col8.selectbox("Deuxième caserne déployée:", secondPump, index=secondPump.index(st.session_state['incident']['SecondPumpArrivingDeployedFromStation']))
+        
     ###############################################################################################################################################
 
     st.write(" ")
@@ -227,19 +217,16 @@ def main():
     try:
         st.header(" ")
         prediction = model.predict(X)[0]
-        secondes = abs(prediction) * 60
-        minutes, secondes = divmod(secondes, 60)
-        st.markdown(f"<h3 style='text-align: center; color: White;'>Le temps de réponse estimé est {prediction:.2f} soit : <span style='color: Orange;'>{int(minutes)}</span> minute(s) et <span style='color: Orange;'>{int(secondes)}</span> seconde(s).</h3>", unsafe_allow_html=True)
-
-         
-        if st.session_state['incident']['DeployedFromStationName'] == selected_station :
-            difference = prediction - st.session_state['incident']['AttendanceTime'] 
-            secondes = abs(difference) * 60
-            minutes, secondes = divmod(secondes, 60)
-            st.markdown(f"<h3 style='text-align: center; font-size: 20px;'><i>Nous avons une erreur de prédiction de : {minutes:.0f} minute(s) et {secondes:.0f} seconde(s)</i></h3>", unsafe_allow_html=True)
-    
+        
+        # Créer un emplacement vide
+        counter = st.empty()
+        # Boucle pour mettre à jour le compteur
+        for i in np.arange(0, prediction, 0.1): 
+            minutes, secondes = divmod(i * 60, 60)
+            counter.markdown(f"<h3 style='text-align: center; color: White;'>Le temps de réponse estimé est {prediction:.2f} soit : <span style='color: Orange;'>{int(minutes)}</span> minute(s) et <span style='color: Orange;'>{int(secondes)}</span> seconde(s).</h3>", unsafe_allow_html=True)
+            time.sleep(0.05)
+        
     except UnboundLocalError:
         st.write('')
-        
 if __name__ == "__main__":
     main()
