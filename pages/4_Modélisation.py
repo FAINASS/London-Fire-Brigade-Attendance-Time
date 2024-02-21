@@ -196,12 +196,11 @@ def main():
 
     with st.expander("Aide pour le prétraitement des données", expanded=False):
             st.markdown("""
-                Les algorithmes de machine learning ont souvent des exigences spécifiques sur le format des données. 
-                Par exemple, ils peuvent nécessiter que toutes les variables soient numériques. Le prétraitement permet de transformer les données pour qu’elles soient compatibles avec ces exigences.
+                Les algorithmes de machine learning peuvent nécessiter que toutes les variables soient numériques. Le prétraitement permet de transformer les données pour qu’elles soient compatibles avec ces exigences.
                 
                 ######   
                 
-                ##### Types d’encodeurs
+                ##### Choix d'un type d’encodeur
                 Ordinal Encoder : 
                 - C’est donner un numéro à chaque élément d’une liste. Par exemple, dans une liste de fruits, on pourrait dire que la Pomme est le numéro 1, la Banane le numéro 2.
                     
@@ -211,7 +210,7 @@ def main():
 
                 ######   
                 
-                ##### Type de normalisateurs
+                ##### Choix d'un type de normalisateur
                 MinMaxScaler :
                 - Imaginez que vous avez une échelle de 1 à 100, mais vos données sont comprises entre 200 et 300. Le MinMaxScaler va simplement "recalibrer" vos données pour qu’elles soient comprises entre 1 et 100.
                 
