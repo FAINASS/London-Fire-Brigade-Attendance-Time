@@ -316,8 +316,8 @@ def main():
     # Création du graphique
     fig, ax = plt.subplots(figsize=(16,6.5))
     
-    ax.plot(x_ax, y_test[début:fin], label="original", c="blue", linewidth=1, marker="o", markersize=6)
-    ax.plot(x_ax, y_test_pred[début:fin], label="prédiction", c="orange", linewidth=2, marker="o", markersize=6)
+    ax.plot(x_ax, y_test[début:fin], label="Valeur réelle", c="blue", linewidth=1, marker="o", markersize=6)
+    ax.plot(x_ax, y_test_pred[début:fin], label="Valeur prédite", c="orange", linewidth=2, marker="o", markersize=6)
     
     ax.set_title("Prédictions avec le modèle : " + str(model_pipeline.named_steps['estimator']).split("(")[0], fontsize=14)
     ax.legend(loc='best')
