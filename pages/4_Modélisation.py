@@ -235,14 +235,14 @@ def main():
             
                 st.markdown("""
                     Le réglage des hyperparamètres peut aider à améliorer les performances de votre modèle.
-                    - Alpha : C’est le paramètre de régularisation. Il contrôle la complexité du modèle. Une valeur élevée réduit la complexité du modèle.
-                    Une valeur rend le modèle plus complexe, ce qui peut conduire à un surapprentissage si elle est trop faible.
+                    - Alpha : le paramètre alpha dans le modèle de régression Ridge est un régulateur qui joue un rôle crucial dans le contrôle de la complexité du modèle. 
+                    Un alpha élevé simplifie le modèle, tandis qu’une valeur plus basse le rend plus complexe, risquant ainsi un surapprentissage si elle est trop faible.
 
-                    - Solver : C’est l’algorithme utilisé pour effectuer la régression. Différents solveurs peuvent être plus efficaces pour différents types de données. 
-                    Par exemple, "auto" laisse le modèle décider du meilleur solveur à utiliser en fonction du type de données.
+                    - Solver : le solver est l’algorithme employé pour réaliser la régression. Selon le type de données, certains solveurs peuvent être plus performants que d’autres. 
+                    Par exemple, en réglant le solver sur "auto", le modèle choisira lui-même le solveur le plus adapté.
 
-                    - intercept : C’est le terme constant dans la régression linéaire. Si fit_intercept=True, le modèle tentera de déterminer la meilleure valeur pour l’interception. Si fit_intercept=False, le modèle supposera que les données sont déjà centrées et ne calculera pas l’interception.
-
+                    - fit_intercept : il s’agit du terme constant de la régression linéaire. Si la case fit_intercept est cochée, le modèle essaiera de trouver la meilleure valeur pour l'ordonnée à l'origine. 
+                    En revanche, si la case fit_intercept n'est pas cochée, le modèle présumera que les données sont déjà centrées et n’effectuera pas de calcul pour l'ordonnée à l'origine.
                   """)
     
 ########################################################################################################################################################################################################################## 
