@@ -291,8 +291,6 @@ def main():
     ])
 
     
-
-    
     # Entraînement du modèle sur les données d'entraînement
     model_pipeline.fit(X_train, y_train)
     
@@ -455,35 +453,15 @@ def main():
     st.write("---")
     
 ########################################################################################################################################################################################################################## 
-    st.subheader("6. [Modèle retenu] - XGBRegressor")
-    st.write("Entraînement sur les données de 2015 à 2022")
-    
+    st.subheader("6. [Modèle retenu] - XGBRegressor")    
     st.write(" ")
-    st.write("Pré-traitement des données : ")
-    preprocessing= {
-    "Type d'encoder": "OneHotEncoder",
-    'Type de normalisateur': "StandardScaler"}
-    df_preprocessing = pd.DataFrame(list(preprocessing.items()), columns=['Paramètres', 'Valeurs'])
-    st.dataframe(df_preprocessing)
-    
-    st.write(" ")
-    st.write("Réglage des hyperparamètres :")
-    hyperparameters = {
-    'colsample_bytree': 0.7746831999163204,
-    'learning_rate': 0.0624207548570334,
-    'max_depth': 6,
-    'min_child_weight': 1,
-    'n_estimators': 685}
-    
-    df_hyperparameters = pd.DataFrame(list(hyperparameters.items()), columns=['Hyperparamètres', 'Valeurs'])
-    st.dataframe(df_hyperparameters)
-
 
     image_shap = Image.open('processus_modelisation.png')
     st.image(image_shap,use_column_width=True)
+    st.write("Ce modèle a été entraîné sur des données allant de 2015 à 2022.")
     
     st.write("")
-    st.write("Performances de notre modèle : ")
+    st.write("Voici les performances atteintes :")  
     score = pd.DataFrame([ 0.53, 0.5, 1.27, 1.32], index=['R² Train','R² Test', 'RMSE Train', 'RMSE Test']).T
     st.dataframe(score)
     st.write("")
