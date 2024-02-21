@@ -5,6 +5,7 @@ Spyder Editor
 This is a temporary script file.
 """
 
+# Importation des bibliothèques nécessaires
 import streamlit as st
 import pandas as pd
 import matplotlib.patches as mpatches
@@ -18,37 +19,37 @@ import plotly.express as px
 from scipy.stats import spearmanr
 from PIL import Image
 
-
-#Configurer l'affichage en mode Wide
+# Configuration de la page de l'application Streamlit
 st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded",
     page_title = "Temps de Réponse de la Brigade des Pompiers de Londres")
 
-## Supprimer l'espace vide en haut de la page
+# Suppression de l'espace vide en haut de la page
 st.markdown("""
 <style>
-
 .block-container
 {
     padding-top: 1rem;
     padding-bottom: 5rem;
     margin-top: 0rem;
 }
-
 </style>
 """, unsafe_allow_html=True)
 
+# Fonction pour charger les données
 @st.cache_data
 def load_data(file):
     data = pd.read_csv(file)
     return data
 
+# Fonction pour charger le fichier JSON
 @st.cache_resource
 def load_json():
     london_borough = json.load(open('london_boroughs.json',"r"))
     return london_borough
 
+# Fonction pour ajouter le logo
 def add_logo():
     st.markdown(
         """
@@ -60,96 +61,76 @@ def add_logo():
                 padding-top: 80px;
                 background-position: 40px 20px;
                 margin-top: 4px;
-
             }
         """,
         unsafe_allow_html=True,
     )
+    
+def main(): 
+    
+    add_logo()  # Ajout du logo à la barre latérale
 
-def main():
+    st.header("📊 Exploratory Data Analysis")  
     
-    add_logo()
-    st.header("📊 Exploratory Data Analysis")
-    st.write("L'objectif de cette étape est de comprendre au maximum les données dont on dispose pour définir une stratégie de modélisation.")
-    
-    st.write(" ")
-    
-   
-    ############################################################################################################################################### 
-
+    # Chargement des données
     df = load_data("df_NettoyageOK.csv")
     
-
+    # Remplacement des noms de boroughs pour une meilleure uniformité
     df["BoroughName"].replace(to_replace =["Kingston upon thames","Waltham forest","Richmond upon thames" ,"Hammersmith and fulham","Kensington and chelsea",
-                                                 "Tower hamlets","Barking and dagenham","City of london"],value=["Kingston upon Thames","Waltham Forest",
-                                                                                                                 "Richmond upon Thames","Hammersmith and Fulham",
-                                                                                                                 "Kensington and Chelsea","Tower Hamlets","Barking and Dagenham","City of London"],inplace=True)
+                                                     "Tower hamlets","Barking and dagenham","City of london"],value=["Kingston upon Thames","Waltham Forest",
+                                                                                                                     "Richmond upon Thames","Hammersmith and Fulham",
+                                                                                                                     "Kensington and Chelsea","Tower Hamlets","Barking and Dagenham","City of London"],inplace=True)
+    
+    # Création d'un menu déroulant pour le filtrage des données
     my_expander = st.sidebar.expander("**FILTRER LES DONNÉES**",expanded=True)
-    
     borough = ["Tous"] + sorted(df["BoroughName"].unique().tolist())
-    
     selected_boroughs = my_expander.selectbox('Borough Name', borough, index=borough.index("Tous"))
     
+    # Conversion de la colonne 'DateOfCall' en datetime
     df['DateOfCall'] = pd.to_datetime(df['DateOfCall'])
     
+    # Création d'un slider pour le filtrage des données par année
     min_year = df['DateOfCall'].dt.year.min()
     max_year = df['DateOfCall'].dt.year.max()
-    
     start_year, end_year = my_expander.slider("Date Of Call", min_year, max_year, (2021, 2022))
     
-
+    # Application des filtres sélectionnés
     if selected_boroughs == "Tous":
         df = df[(df['DateOfCall'].dt.year >= start_year) & (df['DateOfCall'].dt.year <= end_year)]
     else:
         df = df[(df['BoroughName'] == selected_boroughs) & (df['DateOfCall'].dt.year >= start_year) & (df['DateOfCall'].dt.year <= end_year)]
     
-    
-    st.subheader("0. Préparation des données")
-    
-    st.write("Après avoir fusionné et réorganisé les deux jeux de données, nous avons obtenu le jeu de données suivant.")
-    
-    st.write(" ")
-    
-    if selected_boroughs == "Tous":
-        st.markdown(f"<div style='text-align: left; color: black; background-color: #ff9800; padding: 10px; border-radius: 5px;'>⚠️ Vous avez appliqué un filtre sur tous les arrondissements. Les données affichées couvrent la période de {start_year} à {end_year}.</div>", unsafe_allow_html=True)
-    else:
-        st.markdown(f"<div style='text-align: left; color: black; background-color: #ff9800; padding: 10px; border-radius: 5px;'>⚠️ Vous avez appliqué un filtre sur {selected_boroughs}. Les données affichées sont pour la période de {start_year} à {end_year}.</div>", unsafe_allow_html=True)
-    
-    st.write(" ")
-    
+    # Affichage des données filtrées
     df = df.reset_index(drop=True)
     st.write(df.head(10))
+    st.subheader("")
 
-    st.subheader(" ")
-    
-    ############################################################################################################################################### 
-    st.subheader("1. Informations générales")
+    st.subheader("1. Informations générales")  
     
     nombre_de_lignes = df.shape[0]
     nombre_de_variables_numeriques = df.select_dtypes(include=[np.number]).shape[1]
     nombre_de_variables_categorielles = df.select_dtypes(include=['object']).shape[1]
     nombre_de_doublons = df.duplicated().sum()
     nombre_de_valeurs_manquantes = df.isna().sum().sum()
-    
-    ## Séparateur de milliers avec un espace
-    nombre_de_lignes = "{:,}".format(nombre_de_lignes).replace(",", " ")
-    
+        
+    nombre_de_lignes = "{:,}".format(nombre_de_lignes).replace(",", " ")  # Formatage du nombre de lignes
+        
+    # Préparation des données pour l'affichage
     data = {"Nombre d'incidents": [nombre_de_lignes],
-            'Nombre de variables qualitatives': [nombre_de_variables_categorielles],
-            'Nombre de variables quantitatives': [nombre_de_variables_numeriques],
-            'Nombre de doublons': [nombre_de_doublons],
-            'Nombre de valeurs manquantes': [nombre_de_valeurs_manquantes]}
-    
+                'Nombre de variables qualitatives': [nombre_de_variables_categorielles],
+                'Nombre de variables quantitatives': [nombre_de_variables_numeriques],
+                'Nombre de doublons': [nombre_de_doublons],
+                'Nombre de valeurs manquantes': [nombre_de_valeurs_manquantes]}
+        
     df_stats = pd.DataFrame(data)
-    df_stats = df_stats.style.set_properties(**{'text-align': 'left'})
+    df_stats = df_stats.style.set_properties(**{'text-align': 'left'})  # Alignement à gauche
     df_stats_html = df_stats.to_html()
-    st.markdown(df_stats_html, unsafe_allow_html=True)
-    
+    st.markdown(df_stats_html, unsafe_allow_html=True)  # Affichage des statistiques
+        
     st.title(" ")
-    st.write(" ")
-    
-   ############################################################################################################################################### 
-    
+    st.write(" ")       
+
+
     st.subheader("2. Distribution des variables qualitatives (TOP 5)")
     
     def split_int_cat (data):
