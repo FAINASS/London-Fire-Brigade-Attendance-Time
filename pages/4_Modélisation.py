@@ -477,6 +477,10 @@ def main():
     
     df_hyperparameters = pd.DataFrame(list(hyperparameters.items()), columns=['Hyperparamètres', 'Valeurs'])
     st.dataframe(df_hyperparameters)
+
+
+    image_shap = Image.open('processus_modelisation.png')
+    st.image(image_shap,use_column_width=True)
     
     st.write("")
     st.write("Performances de notre modèle : ")
