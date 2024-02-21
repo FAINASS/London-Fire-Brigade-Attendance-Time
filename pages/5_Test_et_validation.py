@@ -89,7 +89,7 @@ def main():
     selected_columns = df[["IncidentGroupType", "PropertyType", "BoroughName", "WardName", "DeployedFromStationName","Distance",
                            "HourOfCall", "NumStationsWithPumpsAttending","SecondPumpArrivingDeployedFromStation", "AttendanceTime"]]
     
-    selected_columns = selected_columns.drop(selected_columns[(selected_columns['NumStationsWithPumpsAttending'] > 1) & (selected_columns['SecondPumpArrivingDeployedFromStation'] != "No Second pump deployed")].index)
+    df = df.drop(df[(df['NumStationsWithPumpsAttending'] > 1) & (df['SecondPumpArrivingDeployedFromStation'] != "No Second pump deployed")].index)
     placeholder = st.empty()
     
     # Vérifier si 'incident' est déjà dans session_state
