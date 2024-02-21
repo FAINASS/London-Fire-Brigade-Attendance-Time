@@ -294,7 +294,7 @@ def main():
                     - Solver : le solver est l’algorithme employé pour réaliser la régression. Selon le type de données, certains solveurs peuvent être plus performants que d’autres. 
                     Par exemple, en réglant le solver sur "auto", le modèle choisira lui-même le solveur le plus adapté.
 
-                    - fit_intercept : il s’agit du terme constant de la régression linéaire. Si la case fit_intercept est cochée, le modèle essaiera de trouver la meilleure valeur pour l'ordonnée à l'origine. 
+                    - Fit_intercept : il s’agit du terme constant de la régression linéaire. Si la case fit_intercept est cochée, le modèle essaiera de trouver la meilleure valeur pour l'ordonnée à l'origine. 
                     En revanche, si la case fit_intercept n'est pas cochée, le modèle présumera que les données sont déjà centrées et n’effectuera pas de calcul pour l'ordonnée à l'origine.
                   """)
             
