@@ -280,6 +280,21 @@ def main():
             
                 st.markdown("""
                     Le réglage des hyperparamètres peut aider à améliorer les performances de votre modèle.
+                    - Colsample_bytree : imaginez que vous ayez une grande liste de caractéristiques (comme la taille, le poids, l’âge, etc.) pour prédire quelque chose. 
+                    Ce paramètre détermine combien de ces caractéristiques sont prises en compte.
+
+                    - Learning_rate : c’est comme le rythme d’apprentissage. Un rythme plus lent signifie que le modèle apprend plus lentement, mais il est plus prudent et fait moins d’erreurs. 
+                    Un rythme plus rapide signifie que le modèle apprend plus vite, mais il peut faire plus d’erreurs.
+
+                    - Max_depth : c’est comme déterminer combien de questions vous voulez poser avant de faire une prédiction. 
+                    Plus vous posez de questions, plus vous pouvez obtenir de détails, mais vous risquez aussi de vous perdre dans les détails.
+
+                    - Min_child_weight : C’est comme déterminer combien d’informations vous avez besoin avant de poser une nouvelle question. 
+                    Plus vous avez besoin d’informations, moins vous posez de questions, ce qui peut rendre votre modèle plus simple et plus facile à comprendre.
+
+                    - N_estimators : C’est le nombre de fois que vous voulez répéter le processus d’apprentissage. 
+                    Plus vous répétez, plus vous pouvez apprendre de choses, mais cela peut aussi prendre plus de temps et être plus compliqué.
+
                   """)
 
     else :
