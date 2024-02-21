@@ -223,7 +223,7 @@ def main():
               """)
 
     if model_type == "XGBRegressor" :
-         with st.expander("Aide pour le prétraitement des données", expanded=False):
+         with st.expander("Aide pour le réglage des hyperparamètres", expanded=False):
             
                 st.markdown("""
                     Le réglage des hyperparamètres peut aider à améliorer les performances de votre modèle.
@@ -235,7 +235,14 @@ def main():
             
                 st.markdown("""
                     Le réglage des hyperparamètres peut aider à améliorer les performances de votre modèle.
-                    
+                    - Alpha : C’est le paramètre de régularisation. Il contrôle la complexité du modèle. Une valeur élevée réduit la complexité du modèle.
+                    Une valeur rend le modèle plus complexe, ce qui peut conduire à un surapprentissage si elle est trop faible.
+
+                    - Solver : C’est l’algorithme utilisé pour effectuer la régression. Différents solveurs peuvent être plus efficaces pour différents types de données. 
+                    Par exemple, "auto" laisse le modèle décider du meilleur solveur à utiliser en fonction du type de données.
+
+                    - intercept : C’est le terme constant dans la régression linéaire. Si fit_intercept=True, le modèle tentera de déterminer la meilleure valeur pour l’interception. Si fit_intercept=False, le modèle supposera que les données sont déjà centrées et ne calculera pas l’interception.
+
                   """)
     
 ########################################################################################################################################################################################################################## 
@@ -260,7 +267,7 @@ def main():
     else:
         alpha = my_expander2.slider('Alpha', min_value=1.0, max_value=50.0, value=9.372353071731432)
         solver = my_expander2.selectbox('Solver', ['auto', 'lsqr', 'sparse_cg', 'sag'])
-        fit_intercept = my_expander2.checkbox('Intercept', value=True)
+        fit_intercept = my_expander2.checkbox('fit_intercept', value=True)
         model = Ridge(alpha=alpha, solver=solver, fit_intercept=fit_intercept)
 
 
