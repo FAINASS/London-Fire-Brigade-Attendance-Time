@@ -203,23 +203,23 @@ def main():
                 ######   
                 ##### Choix d'un type d’encodeur
                 - Ordinal Encoder : 
-                C’est donner un numéro à chaque élément d’une liste. Par exemple, dans une liste d’interventions, l’incendie serait le numéro 1, le sauvetage le numéro 2.
+                c’est donner un numéro à chaque élément d’une liste. Par exemple, dans une liste d’interventions, l’incendie serait le numéro 1, le sauvetage le numéro 2.
                     
                 - One-Hot Encoder :
-                Pour ce type d’encodeur, une colonne est créée pour chaque type d’intervention. Si l’intervention est présente, un 1 est mis dans cette colonne, si elle n’est pas présente, un 0 est mis. 
+                pour ce type d’encodeur, une colonne est créée pour chaque type d’intervention. Si l’intervention est présente, un 1 est mis dans cette colonne, si elle n’est pas présente, un 0 est mis. 
                 Par exemple, pour "Incendie", on aurait : Incendie (1) Sauvetage (0) soit 10.
 
                 ######   
                 
                 ##### Choix d'un type de normalisateur
                 - MinMaxScaler :
-                Imaginez que vous avez une échelle de 1 à 100, mais vos données sont comprises entre 200 et 300. Le MinMaxScaler va simplement "recalibrer" vos données pour qu’elles soient comprises entre 1 et 100.
+                imaginez que vous avez une échelle de 1 à 100, mais vos données sont comprises entre 200 et 300. Le MinMaxScaler va simplement "recalibrer" vos données pour qu’elles soient comprises entre 1 et 100.
                 
                 - StandardScaler :
-                Imaginez que vous mesurez la taille de personnes en centimètres et en pouces. Il serait difficile de les comparer directement car elles sont sur des échelles différentes. Le StandardScaler convertit toutes les mesures dans une "langue commune" (comme convertir toutes les mesures en centimètres), ce qui rend la comparaison plus facile.
+                imaginez que vous mesurez la taille de personnes en centimètres et en pouces. Il serait difficile de les comparer directement car elles sont sur des échelles différentes. Le StandardScaler convertit toutes les mesures dans une "langue commune" (comme convertir toutes les mesures en centimètres), ce qui rend la comparaison plus facile.
 
                 - RobustScaler :
-                Imaginez que vous mesurez le poids de plusieurs objets, dont un éléphant. Le poids de l’éléphant est une valeur aberrante et peut fausser vos résultats. Le RobustScaler réduit l’impact de ces valeurs aberrantes en se concentrant sur la majorité des données, ce qui donne une meilleure représentation générale.
+                maginez que vous mesurez le poids de plusieurs objets, dont un éléphant. Le poids de l’éléphant est une valeur aberrante et peut fausser vos résultats. Le RobustScaler réduit l’impact de ces valeurs aberrantes en se concentrant sur la majorité des données, ce qui donne une meilleure représentation générale.
               """)
 
     
