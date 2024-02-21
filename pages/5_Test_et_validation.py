@@ -148,7 +148,7 @@ def main():
     st.title(" ")
     st.markdown("Légende : 🔴 Lieu de l'incident 🔵 Caserne déployée")
 
-    df_filtered = df[df['DeployedFromStationName'].isin(boroughs)]
+    df_filtered = df[df['DeployedFromStationName'].isin(station)]
     st.write(df_filtreBoroughs.shape[0])
     st.write(df_filtreWards.shape[0])
     st.write(station_data.shape[0])
