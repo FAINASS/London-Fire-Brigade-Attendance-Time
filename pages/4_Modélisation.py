@@ -259,7 +259,7 @@ def main():
                     Plus vous avez besoin d’informations, moins vous posez de questions, ce qui peut rendre votre modèle plus simple et 
                     plus facile à comprendre.
 
-                    - N_estimators : C’est le nombre de fois que vous voulez répéter le processus d’apprentissage. 
+                    - N_estimators : c’est le nombre de fois que vous voulez répéter le processus d’apprentissage. 
                     Plus vous répétez, plus vous pouvez apprendre, mais cela peut aussi prendre plus de temps et rendre le processus plus complexe.
                   """)
     
@@ -269,18 +269,19 @@ def main():
         fit_intercept = my_expander2.checkbox('fit_intercept', value=True)
         model = Ridge(alpha=alpha, solver=solver, fit_intercept=fit_intercept)
         
-        with st.expander("Aide pour le prétraitement des données", expanded=False):
+        with st.expander("Comprendre le réglage des hyperparamètres", expanded=False):
             
                 st.markdown("""
                     Le réglage des hyperparamètres peut aider à améliorer les performances de votre modèle.
-                    - Alpha : le paramètre alpha est un régulateur qui joue un rôle crucial dans le contrôle de la complexité du modèle. 
-                    Un alpha élevé simplifie le modèle, tandis qu’une valeur plus basse le rend plus complexe, risquant ainsi un surapprentissage si elle est trop faible.
+                    - Alpha : c’est comme un gardien qui contrôle la complexité de votre modèle. Un alpha élevé rend le modèle plus simple, 
+                    tandis qu’un alpha faible le rend plus complexe, ce qui peut conduire à un surapprentissage si la valeur est trop faible.
 
-                    - Solver : le solver est l’algorithme employé pour réaliser la régression. Selon le type de données, certains solveurs peuvent être plus performants que d’autres. 
-                    Par exemple, en réglant le solver sur "auto", le modèle choisira lui-même le solveur le plus adapté.
+                    - Solver : c’est l’algorithme utilisé pour effectuer la régression. Selon le type de données, certains solveurs peuvent être 
+                    plus efficaces que d’autres. Par exemple, en réglant le solver sur “auto”, le modèle choisira lui-même le solver le plus adapté.
 
-                    - Fit_intercept : il s’agit du terme constant de la régression linéaire. Si la case fit_intercept est cochée, le modèle essaiera de trouver la meilleure valeur pour l'ordonnée à l'origine. 
-                    En revanche, si la case fit_intercept n'est pas cochée, le modèle présumera que les données sont déjà centrées et n’effectuera pas de calcul pour l'ordonnée à l'origine.
+                    - Fit_intercept : c’est le terme constant de la régression linéaire. Si vous cochez la case fit_intercept, 
+                    le modèle essaiera de trouver la meilleure valeur pour l’ordonnée à l’origine. En revanche, si vous ne cochez pas la case 
+                    fit_intercept, le modèle supposera que les données sont déjà centrées et n’effectuera pas de calcul pour l’ordonnée à l’origine.
                   """)
 
 
