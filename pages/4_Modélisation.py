@@ -199,6 +199,8 @@ def main():
                 Les algorithmes de machine learning ont souvent des exigences spécifiques sur le format des données. 
                 Par exemple, ils peuvent nécessiter que toutes les variables soient numériques. Le prétraitement permet de transformer les données pour qu’elles soient compatibles avec ces exigences.
                 
+                ######   
+                
                 ##### Types d’encodeurs
                 Ordinal Encoder : 
                 - C’est donner un numéro à chaque élément d’une liste. Par exemple, dans une liste de fruits, on pourrait dire que la Pomme est le numéro 1, la Banane le numéro 2.
@@ -207,6 +209,8 @@ def main():
                 - Avec ce type d'encodeur on crée une colonne pour chaque fruit. Si le fruit est présent, on met un 1 dans cette colonne, s'il n’est pas présent, on met un 0. 
                 - Par exemple, si vous avez "Pomme", on aurait : Pomme (1) Banane (0) soit 10.
 
+                ######   
+                
                 ##### Type de normalisateurs
                 MinMaxScaler :
                 - Imaginez que vous avez une échelle de 1 à 100, mais vos données sont comprises entre 200 et 300. Le MinMaxScaler va simplement "recalibrer" vos données pour qu’elles soient comprises entre 1 et 100.
