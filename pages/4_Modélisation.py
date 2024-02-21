@@ -236,17 +236,6 @@ def main():
                 st.markdown("""
                     Le réglage des hyperparamètres peut aider à améliorer les performances de votre modèle.
                     
-                     - Alpha :
-                     Pensez à alpha comme à un contrôle de la maturité des fruits. Un alpha élevé signifie que vous êtes très strict sur la maturité des fruits que vous acceptez - seuls les fruits très mûrs passent. 
-                     Un alpha faible signifie que vous êtes plus indulgent et acceptez des fruits moins mûrs.
-
-                     - Solver :
-                     Le “solver” est comme la méthode que vous utilisez pour trier les fruits. Il existe différentes méthodes pour trier les fruits (par couleur, par taille, par poids, etc.), et chacune a ses propres avantages. 
-                     A noter, certaines méthodes sont plus rapides, d’autres sont plus précises.
-
-                     - Intercept :
-                     Imaginez que vous avez un panier de fruits. L’interception est comme le nombre de pommes que vous avez déjà dans le panier avant de commencer à ajouter d’autres fruits. 
-                     Même si vous n’ajoutez aucun autre fruit (c’est-à-dire que toutes les variables sont à zéro), vous avez toujours un certain nombre de pommes dans votre panier (c’est-à-dire l’interception).
                   """)
     
 ########################################################################################################################################################################################################################## 
