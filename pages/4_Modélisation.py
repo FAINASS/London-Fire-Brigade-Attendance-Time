@@ -227,7 +227,6 @@ def main():
     st.subheader("2. Performances de votre modèle")
     st.subheader(" ")
     
-    
     if model_type == 'XGBRegressor':
        colsample_bytree = my_expander2.slider('Colsample bytree', min_value=0.1, max_value=1.0, value=0.7746831999163204)
        learning_rate = my_expander2.slider('Learning rate', min_value=0.1, max_value=1.0, value=0.0624207548570334)
@@ -241,18 +240,56 @@ def main():
        min_child_weight = min_child_weight, 
        n_estimators = n_estimators, 
        random_state=0)
+        
+       with st.expander("Aide pour le réglage des hyperparamètres", expanded=False):
+            
+                st.markdown("""
+                    Le réglage des hyperparamètres peut aider à améliorer les performances de votre modèle.
+                    - Colsample_bytree : imaginez que vous ayez une grande liste de caractéristiques (comme la taille, le poids, l’âge, etc.) pour prédire quelque chose. 
+                    Ce paramètre détermine combien de ces caractéristiques sont prises en compte.
+
+                    - Learning_rate : c’est comme le rythme d’apprentissage. Un rythme plus lent signifie que le modèle apprend plus lentement, mais il est plus prudent et fait moins d’erreurs. 
+                    Un rythme plus rapide signifie que le modèle apprend plus vite, mais il peut faire plus d’erreurs.
+
+                    - Max_depth : c’est comme déterminer combien de questions vous voulez poser avant de faire une prédiction. 
+                    Plus vous posez de questions, plus vous pouvez obtenir de détails, mais vous risquez aussi de vous perdre dans les détails.
+
+                    - Min_child_weight : C’est comme déterminer combien d’informations vous avez besoin avant de poser une nouvelle question. 
+                    Plus vous avez besoin d’informations, moins vous posez de questions, ce qui peut rendre votre modèle plus simple et plus facile à comprendre.
+
+                    - N_estimators : C’est le nombre de fois que vous voulez répéter le processus d’apprentissage. 
+                    Plus vous répétez, plus vous pouvez apprendre de choses, mais cela peut aussi prendre plus de temps et être plus compliqué.
+
+                  """)
     
     else:
         alpha = my_expander2.slider('Alpha', min_value=1.0, max_value=50.0, value=9.372353071731432)
         solver = my_expander2.selectbox('Solver', ['auto', 'lsqr', 'sparse_cg', 'sag'])
         fit_intercept = my_expander2.checkbox('fit_intercept', value=True)
         model = Ridge(alpha=alpha, solver=solver, fit_intercept=fit_intercept)
+        
+        with st.expander("Aide pour le prétraitement des données", expanded=False):
+            
+                st.markdown("""
+                    Le réglage des hyperparamètres peut aider à améliorer les performances de votre modèle.
+                    - Alpha : le paramètre alpha dans le modèle de régression Ridge est un régulateur qui joue un rôle crucial dans le contrôle de la complexité du modèle. 
+                    Un alpha élevé simplifie le modèle, tandis qu’une valeur plus basse le rend plus complexe, risquant ainsi un surapprentissage si elle est trop faible.
+
+                    - Solver : le solver est l’algorithme employé pour réaliser la régression. Selon le type de données, certains solveurs peuvent être plus performants que d’autres. 
+                    Par exemple, en réglant le solver sur "auto", le modèle choisira lui-même le solveur le plus adapté.
+
+                    - Fit_intercept : il s’agit du terme constant de la régression linéaire. Si la case fit_intercept est cochée, le modèle essaiera de trouver la meilleure valeur pour l'ordonnée à l'origine. 
+                    En revanche, si la case fit_intercept n'est pas cochée, le modèle présumera que les données sont déjà centrées et n’effectuera pas de calcul pour l'ordonnée à l'origine.
+                  """)
 
 
     model_pipeline = Pipeline(steps=[
         ('preprocessor', preprocessor),
         ('estimator', model)
     ])
+
+    
+
     
     # Entraînement du modèle sur les données d'entraînement
     model_pipeline.fit(X_train, y_train)
@@ -273,45 +310,6 @@ def main():
     'R² Test': [Test_score],
     'Train RMSE': [Train_RMSE],
     'Test RMSE': [Test_RMSE] })
-
-    
-    if model_type == "XGBRegressor" :
-         with st.expander("Aide pour le réglage des hyperparamètres", expanded=False):
-            
-                st.markdown("""
-                    Le réglage des hyperparamètres peut aider à améliorer les performances de votre modèle.
-                    - Colsample_bytree : imaginez que vous ayez une grande liste de caractéristiques (comme la taille, le poids, l’âge, etc.) pour prédire quelque chose. 
-                    Ce paramètre détermine combien de ces caractéristiques sont prises en compte.
-
-                    - Learning_rate : c’est comme le rythme d’apprentissage. Un rythme plus lent signifie que le modèle apprend plus lentement, mais il est plus prudent et fait moins d’erreurs. 
-                    Un rythme plus rapide signifie que le modèle apprend plus vite, mais il peut faire plus d’erreurs.
-
-                    - Max_depth : c’est comme déterminer combien de questions vous voulez poser avant de faire une prédiction. 
-                    Plus vous posez de questions, plus vous pouvez obtenir de détails, mais vous risquez aussi de vous perdre dans les détails.
-
-                    - Min_child_weight : C’est comme déterminer combien d’informations vous avez besoin avant de poser une nouvelle question. 
-                    Plus vous avez besoin d’informations, moins vous posez de questions, ce qui peut rendre votre modèle plus simple et plus facile à comprendre.
-
-                    - N_estimators : C’est le nombre de fois que vous voulez répéter le processus d’apprentissage. 
-                    Plus vous répétez, plus vous pouvez apprendre de choses, mais cela peut aussi prendre plus de temps et être plus compliqué.
-
-                  """)
-
-    else :
-        
-        with st.expander("Aide pour le prétraitement des données", expanded=False):
-            
-                st.markdown("""
-                    Le réglage des hyperparamètres peut aider à améliorer les performances de votre modèle.
-                    - Alpha : le paramètre alpha dans le modèle de régression Ridge est un régulateur qui joue un rôle crucial dans le contrôle de la complexité du modèle. 
-                    Un alpha élevé simplifie le modèle, tandis qu’une valeur plus basse le rend plus complexe, risquant ainsi un surapprentissage si elle est trop faible.
-
-                    - Solver : le solver est l’algorithme employé pour réaliser la régression. Selon le type de données, certains solveurs peuvent être plus performants que d’autres. 
-                    Par exemple, en réglant le solver sur "auto", le modèle choisira lui-même le solveur le plus adapté.
-
-                    - Fit_intercept : il s’agit du terme constant de la régression linéaire. Si la case fit_intercept est cochée, le modèle essaiera de trouver la meilleure valeur pour l'ordonnée à l'origine. 
-                    En revanche, si la case fit_intercept n'est pas cochée, le modèle présumera que les données sont déjà centrées et n’effectuera pas de calcul pour l'ordonnée à l'origine.
-                  """)
             
     st.write(data_score_after)
     
