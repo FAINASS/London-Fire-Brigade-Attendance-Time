@@ -194,9 +194,8 @@ def main():
     
     st.dataframe(df_transformed.head(7))
 
-    with st.expander("Aide pour le prétraitement des données", expanded=True):
+    with st.expander("Aide pour le prétraitement des données", expanded=False):
             st.markdown("""
-                #######   
                 Les algorithmes de machine learning ont souvent des exigences spécifiques sur le format des données. 
                 Par exemple, ils peuvent nécessiter que toutes les variables soient numériques. Le prétraitement permet de transformer les données pour qu’elles soient compatibles avec ces exigences.
                 
