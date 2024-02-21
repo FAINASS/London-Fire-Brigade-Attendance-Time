@@ -105,7 +105,8 @@ def main():
         df = df[["Distance","DeployedFromStationName","WardName","LongitudeStation","LongitudeIncident","ResourceCode","BoroughName","WeekOfTheCall","MonthOfTheCall",
     "Region","MomentOfTheDay","PropertyType","AttendanceTime"]]
 
-        st.markdown("""
+        with st.expander("Explications", expanded=True):
+            
             La **régression Ridge** est une méthode utilisée en statistiques pour prédire des données. Elle fonctionne un peu comme une recette de cuisine : on a plusieurs ingrédients (les données d'entrée) et on veut obtenir un plat délicieux (la prédiction). 
             
             Cependant, parfois, certains ingrédients peuvent prendre le dessus et gâcher le plat. Pour éviter cela, la régression Ridge pénalise les ingrédients trop dominants, c'est-à-dire qu'elle réduit leur importance dans la recette. 
