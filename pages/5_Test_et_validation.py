@@ -77,6 +77,8 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 
 def main():
     
+    def main():
+    
     add_logo()
     
     st.header("✅ Test et validation")
@@ -90,11 +92,12 @@ def main():
                            "HourOfCall", "NumStationsWithPumpsAttending","SecondPumpArrivingDeployedFromStation", "AttendanceTime"]]
     
     df = df.drop(df[(df['NumStationsWithPumpsAttending'] > 1) & (df['SecondPumpArrivingDeployedFromStation'] != "No Second pump deployed")].index)
+
     placeholder = st.empty()
     
     # Vérifier si 'incident' est déjà dans session_state
     if 'incident' not in st.session_state:
-        st.session_state['incident'] = selected_columns.iloc[24754]
+        st.session_state['incident'] = selected_columns.iloc[88530]
     
     placeholder.table(st.session_state['incident'].to_frame())
     
@@ -120,8 +123,6 @@ def main():
     
     
     st.subheader(" ")
-    
-########################################################################################################################################################################################################################## 
     st.subheader("2. Géolocalisation")
     col3, col4,col5 = st.columns(3) 
     
@@ -133,9 +134,11 @@ def main():
     selected_wards= col4.selectbox("Quartier:", wards, index=wards.index(st.session_state['incident']['WardName']),disabled=True)
     df_filtreWards = df_filtreBoroughs[df_filtreBoroughs['WardName'] == selected_wards]
     
-    station = sorted(df_filtreBoroughs['DeployedFromStationName'].unique().tolist())
+    station = sorted(df_filtreWards['DeployedFromStationName'].unique().tolist())
     selected_station= col5.selectbox("Première caserne déployée:", station, index=station.index(st.session_state['incident']['DeployedFromStationName']))
  
+    ###############################################################################################################################################
+
     station_data = df[df['DeployedFromStationName'] == selected_station]
     lat_station = station_data['LatitudeStation'].median()
     lon_station = station_data['LongitudeStation'].median()
@@ -242,8 +245,6 @@ def main():
     except UnboundLocalError:
         st.write('')
     
-
-        
     
 if __name__ == "__main__":
     main()
