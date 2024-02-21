@@ -78,8 +78,6 @@ def main():
 
     st.write(" ")
     st.markdown("""
-    #### Prédiction du temps de réponse des sapeurs-pompiers de Londres 🚒🔥
-
     Nous utilisons une décennie de données, de **2009 à 2023**, pour prédire le temps de réponse des sapeurs-pompiers de Londres. Notre objectif est ambitieux mais réalisable :
 
     - Nous visons un **coefficient de détermination (R²) supérieur à 70%**. Cela signifie que notre modèle expliquerait plus de 70% de la variabilité dans les temps de réponse.
