@@ -272,7 +272,7 @@ def main():
             
                 st.markdown("""
                     Le réglage des hyperparamètres peut aider à améliorer les performances de votre modèle.
-                    - Alpha : le paramètre alpha dans le modèle de régression Ridge est un régulateur qui joue un rôle crucial dans le contrôle de la complexité du modèle. 
+                    - Alpha : le paramètre alpha est un régulateur qui joue un rôle crucial dans le contrôle de la complexité du modèle. 
                     Un alpha élevé simplifie le modèle, tandis qu’une valeur plus basse le rend plus complexe, risquant ainsi un surapprentissage si elle est trop faible.
 
                     - Solver : le solver est l’algorithme employé pour réaliser la régression. Selon le type de données, certains solveurs peuvent être plus performants que d’autres. 
