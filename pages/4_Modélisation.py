@@ -223,6 +223,11 @@ def main():
               """)
 
     if model_type == "XGBRegressor" :
+         with st.expander("Aide pour le prétraitement des données", expanded=False):
+            
+                st.markdown("""
+                    Le réglage des hyperparamètres peut aider à améliorer les performances de votre modèle.
+                  """)
 
     else :
         
