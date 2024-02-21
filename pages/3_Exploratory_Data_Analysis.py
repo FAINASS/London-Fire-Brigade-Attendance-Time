@@ -105,6 +105,7 @@ def main():
     st.write(df.head(10))
     st.subheader("")
 
+############################################################################################################################################################################################################################    
     st.subheader("1. Informations générales")  
     
     nombre_de_lignes = df.shape[0]
@@ -130,42 +131,46 @@ def main():
     st.title(" ")
     st.write(" ")       
 
+############################################################################################################################################################################################################################
+    st.subheader("2. Distribution des variables qualitatives (TOP 5)") 
 
-    st.subheader("2. Distribution des variables qualitatives (TOP 5)")
-    
+    # Fonction pour séparer les variables numériques et catégorielles
     def split_int_cat (data):
         int_var = data.select_dtypes(include = np.number)
         cat_var = data.select_dtypes(exclude=np.number)
         return int_var, cat_var
-
-    int_var = split_int_cat(df)[0] # Sélectionne les variables numériques
-    cat_var = split_int_cat(df)[1] # Sélectionne les variables catégorielles
     
+    # Sélection des variables
+    int_var = split_int_cat(df)[0]
+    cat_var = split_int_cat(df)[1]
     
+    # Liste des colonnes catégorielles
     col_var = list(cat_var.columns[1:])
     col_var.append("DateOfCall")
     
+    # Sélection d'une variable par l'utilisateur
     selected_col = st.selectbox('Sélectionnez une variable',col_var)
     
+    # Création du graphique
     fig,ax= plt.subplots(figsize=(16,5))
-    
     ax = df[selected_col].value_counts()[:5].plot(kind="bar",color=["skyblue"])
     ax.set_title(selected_col)
     
+    # Rotation des étiquettes si nécessaire
     if selected_col =="PropertyType" or selected_col =="AddressQualifier" :
         plt.xticks(rotation=25)
-    
     else:
         plt.xticks(rotation=0)
-
+    
+    # Ajout des pourcentages sur le graphique
     for c in ax.containers:
         labels = [f'{h/df[selected_col].count()*100:0.1f}%' if (h := v.get_height()) > 0 else '' for v in c]
         ax.bar_label(c,labels=labels, label_type='edge')
     
+    # Affichage du graphique
     st.pyplot(fig)
     
     st.header(" ")
-    
     
     # Calcul de la fréquence des retards par catégorie
     x = df.DelayCodeDescription.value_counts(normalize=True).drop(["No Delay"]).index
@@ -190,34 +195,36 @@ def main():
     # Affichage du graphique
     st.plotly_chart(fig,use_container_width=True)
     
+    # Explications
     with st.expander("Explications",expanded=True):
         st.write("""
         - En grande partie, les retards sont dus à la circulation routière et aux travaux. 
         """)
-        
+    
     st.subheader(" ")
-    ############################################################################################################################################### 
+
+ ############################################################################################################################################################################################################################   ############################################################################################################################################### 
+    st.subheader("3. Distribution des variables quantitatives")  
     
-    st.subheader("3. Distribution des variables quantitatives")
-    col_int = int_var.columns
+    col_int = int_var.columns  
     
+    # Sélection d'une variable par l'utilisateur
     col = st.selectbox('Sélectionnez une variable', col_int,index=0)
+    
+    # Création du graphique
     plt.figure(figsize=(16,4))
     meanprops={"marker":"x","markerfacecolor":"red", "markeredgecolor":"black"}
     sns.boxplot(x=df[col], showmeans=True, meanprops=meanprops, color="skyblue")
     
+    # Affichage du graphique et de la moyenne
     st.pyplot(plt)
     st.write("La moyenne de la variable {} est {}".format(col,df[col].mean().round(2)))
-        
+    
     st.header(" ")
     
-    ###############################################################################################################################################
-    
-    # Calcul Q1 et Q3
+    # Calcul des quartiles et de l'IQR
     Q1 = df["AttendanceTime"].quantile(0.25)
     Q3 = df["AttendanceTime"].quantile(0.75)
-    
-    # Calcul IQR (Inter Quartile Range)
     IQR = Q3 - Q1
     
     # Définition des limites pour les outliers
@@ -227,53 +234,58 @@ def main():
     # Filtrage des valeurs qui sont dans l'intervalle [borne_inf, borne_sup]
     df = df[(df["AttendanceTime"] >= borne_inf) & (df["AttendanceTime"] <= borne_sup)]   
     
+    # Message d'avertissement
     variable = "AttendanceTime"
     st.markdown(f"<div style='text-align: center; color: black; background-color: antiquewhite; padding: 10px; border-radius: 5px;'>⚠️ Avant de procéder aux analyses suivantes, nous avons éliminé les valeurs aberrantes de la variable {variable}.</div>", unsafe_allow_html=True)    
     
     st.title(" ")
     st.write("")
     
-    ############################################################################################################################################### 
+    # Objectif de la LFB
     st.markdown("<h5>L’objectif de la LFB est d’assurer l’arrivée des premiers secours en moins de <span style='color: red; font-weight: bold;'>6 minutes</span>. Les graphiques suivants nous permettront de contrôler si cet objectif est atteint.</h5>", unsafe_allow_html=True)
+
+############################################################################################################################################################################################################################
+    st.write("--------------------------------------------------------------------------------------------------------------")  # Séparateur
+    st.subheader("4. Répartition des valeurs de la variable cible")  # Sous-titre
     
-    st.write("--------------------------------------------------------------------------------------------------------------")
-    st.subheader("4. Répartition des valeurs de la variable cible")
-    
-   # Création des intervalles
+    # Création des intervalles
     bins = pd.cut(df["AttendanceTime"], 10)
     
+    # Définition des couleurs en fonction de l'objectif de la LFB
     colors = ['lightcoral' if (interval.right > 6) else 'skyblue' for interval in bins.cat.categories]
     
+    # Création du graphique
     fig, ax = plt.subplots(figsize=(16,6))
     ax = bins.value_counts(sort=False).plot(kind='bar', color=colors)
     
+    # Calcul des pourcentages
     total_percentage = 0
     red_percentage = 0
-    
     for c in ax.containers:
         heights = [v.get_height() for v in c]
         percentages = [h/df["AttendanceTime"].count()*100 for h in heights]
         total_percentage += sum(percentages)
         red_percentage += sum(p for p, color in zip(percentages, colors) if color == 'lightcoral')
     
+    # Ajout des pourcentages sur le graphique
     for c in ax.containers:
         labels = [f'{p:0.1f}%' if (p := h/df["AttendanceTime"].count()*100) > 0 else '' for h in heights]
         ax.bar_label(c, labels=labels, label_type='edge')
     
     plt.xticks(rotation=0)
-
     plt.title("Répartition des valeurs de la variable AttendanceTime", fontsize=14)
-
+    
+    # Légende
     red_patch = mpatches.Patch(color='lightcoral', label='Valeurs au-delà des objectifs de la LFB')
     plt.legend(handles=[red_patch])
     
+    # Affichage du graphique et du pourcentage d'interventions au-delà de l'objectif
     st.pyplot(fig)
-    
     st.write(f"Dans près de {red_percentage/total_percentage*100:.2f} % des interventions, la LFB ne parvient pas à respecter son objectif d’une arrivée en moins de 6 minutes.")
-
-    st.subheader(" ")
-    ############################################################################################################################################### 
     
+    st.subheader(" ")
+
+############################################################################################################################################################################################################################   
     st.subheader("5. Temps de réponse en fonction des variables qualitatives")
     columns = cat_var.drop(["DateOfCall"],axis=1).columns
     
@@ -308,14 +320,16 @@ def main():
     
     st.pyplot(plt)
     
-    ############################################################################################################################################### 
+    st.header(" ")  # Séparateur
+    st.write ("Ajout d'une nouvelle variable : SAISON")  
     
-    st.header(" ")
-    st.write ("Ajout d'une nouvelle variable : SAISON")
-    
+    # Réinitialisation de l'index du DataFrame
     df = df.reset_index()
+    
+    # Conversion de la colonne "DateOfCall" en datetime
     df["DateOfCall"]= pd.to_datetime(df["DateOfCall"])
     
+    # Définition des saisons
     Saison = {
        "Spring" : [3,4,5],
         "Summer" : [6,7,8],
@@ -335,16 +349,18 @@ def main():
     # Récupération de la saison
     df["Saison"]= df["MonthOfTheCall"].map(argcontains)
     
+    # Calcul des médianes par saison
     medians = df.groupby('Saison')['AttendanceTime'].median()
     
+    # Identification des saisons avec les médianes les plus élevées et les plus basses
     highest_season = medians.idxmax()
     lowest_season = medians.idxmin()
     
+    # Définition de la palette de couleurs
     palette = {season: 'lightcoral' if season == highest_season else 'limegreen' if season == lowest_season else 'lavender' for season in df['Saison'].unique()}
     
-    
+    # Création du graphique
     plt.figure(figsize=(16,6))
-
     for season in df['Saison'].unique():
         subset = df[df['Saison'] == season]
         if season == highest_season or season == lowest_season:
@@ -352,44 +368,61 @@ def main():
         else:
             sns.lineplot(data=subset, x="DayOfTheCall", y="AttendanceTime", hue="Saison", errorbar=None, marker=".", estimator=np.median, palette=palette)
     
-    #plt.axhline(y=6, color='r', linestyle='--',  linewidth=1,label='Seuil supérieur')
+    # Définition des limites de l'axe des y
     min_median = medians.min()
     max_median = medians.max()
     plt.ylim(min_median - 1, max_median + 1)
     
+    # Titre et étiquettes de l'axe des x
     plt.title("AttendanceTime en fonction du JOUR ET SAISON",fontsize=14)
     plt.xticks([0,1,2,3,4,5,6], ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'])
+    
+    # Légende
     plt.legend(fontsize=12)
+    
+    # Affichage du graphique
     st.pyplot(plt)
     plt.tight_layout()
+
+    st.header(" ")  # Séparateur
+    st.write("Ajout d'une nouvelle variable : Moment de la journée") 
     
-    ############################################################################################################################################### 
-    
-    st.header(" ")
-    st.write("Ajout d'une nouvelle variable : Moment de la journée")
-    
+    # Définition des labels pour les moments de la journée
     labels = ["Late Night", "Early Morning", "Morning", "Afternoon", "Early Evening", "Late Evening"]
+    
+    # Création de la nouvelle variable "MomentOfTheDay"
     df["MomentOfTheDay"] = pd.cut(df["HourOfCall"], bins = [-1, 3, 6, 12, 18, 21, 24], labels = labels,right=True)
     
+    # Calcul des médianes par moment de la journée
     medians = df.groupby('MomentOfTheDay')['AttendanceTime'].median()
     
+    # Identification des moments de la journée avec les médianes les plus élevées et les plus basses
     highest_Hour= medians.idxmax()
     lowest_Hour = medians.idxmin()
     
+    # Définition de la palette de couleurs
     palette = {MomentOfTheDay: 'lightcoral' if MomentOfTheDay == highest_Hour else 'limegreen' if MomentOfTheDay == lowest_Hour else 'lavender' for MomentOfTheDay in df['MomentOfTheDay'].unique()}
-    
+        
+    # Création du graphique
     fig,ax = plt.subplots(figsize=(16,6))
     barplot = sns.barplot(data=df, x="MomentOfTheDay",y="AttendanceTime",estimator='median',palette=palette)
     ax.set_title("AttendanceTime en fonction de MomentOfTheDay",fontsize=14)
     
+    # Ajout des médianes sur le graphique
     for container in barplot.containers:
         ax.bar_label(container, fmt='%.2f', padding=3)
     
+    # Ligne de référence pour l'objectif de 6 minutes
     plt.axhline(y=6, color='r', linestyle='--',  linewidth=1,label='Seuil supérieur')
+    
+    # Légende
     plt.legend()
+    
+    # Affichage du graphique
     st.pyplot(plt)
     plt.tight_layout()
-    
+
+    # Explications sur les moments de la journée
     with st.expander("Explications"):
         st.write("""
         - Late Night : 00:00 à 02:59,
@@ -399,61 +432,72 @@ def main():
         - Early Evening : 18:00 à 20:59
         - Late Evening : 21:00 à 23:59.
         """)
-        
+
     st.header(" ")
     
-    ############################################################################################################################################### 
-    
-    st.subheader("6. Temps de réponse en fonction de la zone géographique")
-    
+############################################################################################################################################################################################################################
+    st.subheader("6. Temps de réponse en fonction de la zone géographique") 
+
     st.write(" ")
-   
-    st.write ("AttendanceTime en fonction de l'arrondissement")
+    st.write ("AttendanceTime en fonction de l'arrondissement")  
+    
+    # Chargement des données
     data = load_data("df_SampleDistanceOK.csv")
     
+    # Remplacement des noms d'arrondissements pour une meilleure correspondance
     data["BoroughName"].replace(to_replace =["Kingston Upon Thames","Waltham forest","Richmond Upon Thames" ,"Hammersmith And Fulham","Kensington And Chelsea",
-                                                 "Tower Hamletss","Barking And Dagenham","City Of London"],value=["Kingston upon Thames","Waltham Forest",
-                                                                                                                 "Richmond upon Thames","Hammersmith and Fulham","Kensington and Chelsea",
-                                                                                                                 "Tower Hamlets","Barking and Dagenham","City of London"],inplace=True)
-                                                                                                                                                                                                                             
+                                             "Tower Hamletss","Barking And Dagenham","City Of London"],value=["Kingston upon Thames","Waltham Forest",
+                                                                                                             "Richmond upon Thames","Hammersmith and Fulham","Kensington and Chelsea",
+                                                                                                             "Tower Hamlets","Barking and Dagenham","City of London"],inplace=True)
+    
+    # Conversion de la colonne "DateOfCall" en datetime
     data["DateOfCall"] = pd.to_datetime(data["DateOfCall"])
     
+    # Filtrage des données en fonction des arrondissements sélectionnés et de la plage de dates
     if selected_boroughs == "Tous":
         data = data[(data['DateOfCall'].dt.year >= start_year) & (data['DateOfCall'].dt.year <= end_year)]
     else:
         data = data[(data['BoroughName'] == selected_boroughs) & (data['DateOfCall'].dt.year >= start_year) & (data['DateOfCall'].dt.year <= end_year)]
     
+    # Préparation des données pour la cartographie
     dataset_carto = data[["BoroughName","AttendanceTime","LatitudeStation","LongitudeStation","LatitudeIncident","LongitudeIncident","DeployedFromStationName"]]
     
+    # Échantillonnage des données si nécessaire
     sample_size = min(200000, len(dataset_carto))
     dataset_carto = dataset_carto.sample(sample_size)
     
+    # Chargement des données géographiques des arrondissements de Londres
     london_borough = json.load(open('london_boroughs.json',"r"))
     
+    # Calcul des médianes par arrondissement pour la cartographie
     df_carto_Incident = dataset_carto.groupby("BoroughName").agg({"AttendanceTime": np.median,
                                               "LatitudeIncident": np.median,
                                               "LongitudeIncident":np.median}).reset_index()
     
+    # Remplacement des noms d'arrondissements pour une meilleure correspondance
     df_carto_Incident["BoroughName"].replace(to_replace =["Kingston Upon Thames","Waltham Forestt","Richmond Upon Thames" ,"Hammersmith And Fulham","Kensington And Chelsea",
-                                                 "Tower Hamletss","Barking And Dagenham","City Of London"],value=["Kingston upon Thames","Waltham Forest",
-                                                                                                                 "Richmond upon Thames","Hammersmith and Fulham",
-                                                                                                                 "Kensington and Chelsea","Tower Hamlets","Barking and Dagenham","City of London"],inplace=True)
-                                                                                                                                                                                                                             # Initialisation d'un dictionnaire vide pour stocker les correspondances entre les noms et les identifiants des arrondissements
+                                             "Tower Hamletss","Barking And Dagenham","City Of London"],value=["Kingston upon Thames","Waltham Forest",
+                                                                                                             "Richmond upon Thames","Hammersmith and Fulham","Kensington and Chelsea",
+                                                                                                             "Tower Hamlets","Barking and Dagenham","City of London"],inplace=True)
+    
+    # Initialisation d'un dictionnaire vide pour stocker les correspondances entre les noms et les identifiants des arrondissements
     borough_name_map = {}
     
+    # Boucle pour remplir le dictionnaire
     for feature in london_borough["features"]:
-    
       try :
         feature["id"] = feature["properties"]["id"]
-
         borough_name_map[feature["properties"]["name"]]=feature["id"]
-    
       except :
         print("error")
     
-
+    st.write(" ")
+    st.write ("AttendanceTime en fonction de l'arrondissement")  
+    
+    # Mapping des noms d'arrondissements aux identifiants
     df_carto_Incident["id"]=df_carto_Incident["BoroughName"].apply(lambda x : borough_name_map[x])
     
+    # Création de la carte choroplèthe
     fig = px.choropleth_mapbox(df_carto_Incident,locations="id", # Identifiant de l'emplacement
                         geojson=london_borough, # Données géographiques
                         color="AttendanceTime", # Données de couleur
@@ -462,24 +506,23 @@ def main():
                         color_continuous_scale="Temps",# Échelle de couleur
                         range_color=[3.8, 5.8])
     
-    # Mettre à jour la carte pour qu'elle s'adapte aux emplacements des incidents
+    # Mise à jour de la carte pour qu'elle s'adapte aux emplacements des incidents
     fig.update_geos(fitbounds="locations", visible=False)
     
-    # Mettre à jour la mise en page de la carte
+    # Mise à jour de la mise en page de la carte
     fig.update_layout(title='London Borough Attendance Time')
     fig.update_layout(mapbox_zoom=8.7, mapbox_center = {"lat": 51.490065, "lon": -0.119092})
     fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
     
-
+    # Affichage de la carte
     st.plotly_chart(fig, use_container_width=True)
     
-    ###############################################################################################################################################   
-    
+    # Ajout d'une nouvelle variable si tous les arrondissements sont sélectionnés
     if selected_boroughs == "Tous" : 
         st.write(" ")
         st.write ("Ajout d'une nouvelle variable : RÉGION")
-        
-     
+    
+        # Définition des régions
         Region = {
             "Center": ["Camden","Islington","Westminster","Lambeth","Southwark","Kensington and Chelsea","City of London"],
             "East" : ["Hackney","Waltham Forest","Redbridge","Tower Hamlets","Lewisham","Greenwich","Bexley","Barking and Dagenham","Havering","Newham"],
@@ -487,116 +530,141 @@ def main():
             "South" : ["Wandsworth","Kingston upon Thames","Merton","Sutton","Croydon","Bromley"],
             "West" :["Hammersmith and Fulham","Brent","Ealing","Richmond upon Thames","Hounslow","Harrow","Hillingdon"]
         }
-         
+    
+        # Fonction pour faire du mapping
         def argcontains(item):
              for i, v in Region.items():
                  if item in v:
                      return i
-         
+    
+        # Mapping des noms d'arrondissements aux régions
         df["Region"]= df["BoroughName"].map(argcontains)
-         
+    
+        # Calcul des médianes par région
         medians = df.groupby('Region')['AttendanceTime'].median()
-         
+    
+        # Identification des régions avec les médianes les plus élevées et les plus basses
         highest_region = medians.idxmax()
         lowest_region = medians.idxmin()
-         
+    
+        # Définition de la palette de couleurs
         palette = {region: 'lightcoral' if region == highest_region else 'limegreen' if region == lowest_region else 'lavender' for region in df['Region'].unique()}
-         
+    
+        # Création du graphique
         fig,ax = plt.subplots(figsize=(16,6))
         barplot = sns.barplot(data=df, x="Region",y="AttendanceTime",estimator=np.median,palette=palette)
         ax.set_title("AttendanceTime en fonction de la Région",fontsize=14)
-        
+    
+        # Ajout des médianes sur le graphique
         for container in barplot.containers:
             ax.bar_label(container, fmt='%.2f', padding=3)
-        
+    
+        # Ligne de référence pour l'objectif de 6 minutes
         plt.axhline(y=6, color='r', linestyle='--',  linewidth=1,label='Seuil supérieur')
+    
+        # Légende
         plt.legend()
+    
+        # Affichage du graphique
         st.pyplot(plt)
         plt.tight_layout()
     
+    # Affichage de l'image de la carte de Londres
     image = Image.open('carte_londres.png')
-    
     expander = st.expander("Explications",expanded=True)
-    
     with expander:
-         st.image(image, caption='Carte de Londres', width=300,use_column_width=False)
-         
+    st.image(image, caption='Carte de Londres', width=300,use_column_width=False)
+    
     st.header(" ")
     
-    ############################################################################################################################################### 
-    
-    st.subheader("7. Temps de réponse en fonction des variables quantitatives ")
+############################################################################################################################################################################################################################
+    st.subheader("7. Temps de réponse en fonction des variables quantitatives")  # Sous-titre
     
     st.write(" ")
-    st.write("Analyse des corrélations")
+    st.write("Analyse des corrélations")  
+    
+    # Suppression de la colonne "index"
     df.drop(["index"],axis=1,inplace=True)
     
+    # Création du graphique de corrélation
     fig, ax = plt.subplots(figsize=(12, 6))
     df["MonthOfTheCall"] = df["MonthOfTheCall"].astype(int)
-    # Calcul de la corrélation de 'AttendanceTime' avec toutes les autres colonnes
-    corr = df.corrwith(df['AttendanceTime'], method = "spearman",numeric_only=True)
+    corr = df.corrwith(df['AttendanceTime'], method = "spearman",numeric_only=True)  # Calcul de la corrélation de 'AttendanceTime' avec toutes les autres colonnes
     
+    # Préparation des données pour le graphique
     corr_df = pd.DataFrame(corr, columns=['AttendanceTime'])
     corr_df = corr_df.sort_values(by='AttendanceTime', ascending=False)
+    
+    # Création du heatmap
     sns.heatmap(corr_df, cmap="PiYG", cbar=False,annot=True)
     
+    # Affichage du graphique
     st.pyplot(fig)
     
+    # Explications sur les variables
     with st.expander("Explications"):
         st.write("""
          - AttendanceTime : Temps total pour répondre à un appel (= TurnoutTime + TravelTime)
          - TurnoutTime : Temps de préparation et de départ des pompiers.
          - TravelTime : Temps de trajet jusqu’à l’incident.
         """)
-
-
+    
     st.header(" ")
     
-    ###############################################################################################################################################     
-    st.write("Évolution du temps de réponse en fonction de l'année")
-
+    st.write("Évolution du temps de réponse en fonction de l'année")  
+    
+    # Conversion de la colonne "DateOfCall" en datetime et mise en index
     df["DateOfCall"]=pd.to_datetime(df["DateOfCall"])
     df.set_index("DateOfCall",inplace=True)
-
+    
+    # Création du graphique
     fig,ax=plt.subplots(figsize=(16,6),sharex=True)
     ax.set_title("AttendanceTime en fonction de DateOfCall",fontsize=14)
     
+    # Tracé de la médiane du temps de réponse par mois
     df.loc["2009":"2022"]["AttendanceTime"].resample("M").median().plot(kind="line",label="Median",linewidth=2,marker="o")
     
-    # Calculer les valeurs min et max des médianes
+    # Calcul des valeurs min et max des médianes
     medians = df.loc["2009":"2022"]["AttendanceTime"].resample("M").median()
     min_median = medians.min()
     max_median = medians.max()
     
-    # Ajuster les limites de l'axe des y
+    # Ajustement des limites de l'axe des y
     plt.ylim(min_median - 1, max_median + 1)
     
+    # Ligne de référence pour l'objectif de 6 minutes
     plt.axhline(y=6, color='r', linestyle='--',  linewidth=1,label='Seuil supérieur')
-
+    
+    # Légende
     plt.legend(loc="upper right")
     
+    # Affichage du graphique
     st.pyplot(fig)
     plt.tight_layout()
     
+    # Explications sur l'évolution du temps de réponse
     with st.expander("Explications"):
         st.write("""
         - Janvier 2014 : La LFB ferme dix casernes et retire 14 camions de pompiers.
         """)
-
-    ############################################################################################################################################### 
     
     st.write(" ")
     
-    st.write("Ajout d'une nouvelle variable : Distance entre le lieu de l'incident et la Caserne")
+    st.write("Ajout d'une nouvelle variable : Distance entre le lieu de l'incident et la Caserne")  
     
+    # Échantillonnage des données
     data_dist = data.sample(500)
+    
+    # Création du graphique de régression
     fig, ax = plt.subplots(figsize=(16,6))
     sns.regplot(data=data_dist, x="Distance", y="AttendanceTime", line_kws={"color":"red"})
     
     # Calcul du coefficient de corrélation
     corr, _ = spearmanr(data_dist["Distance"], data_dist["AttendanceTime"])
     ax.set_title("Coefficient de corrélation = {:.2f}".format(corr), fontsize=14)
-    st.pyplot(fig)
     
+    # Affichage du graphique
+    st.pyplot(fig)
+        
 if __name__ == "__main__":
     main()
