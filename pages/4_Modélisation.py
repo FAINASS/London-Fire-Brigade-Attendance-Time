@@ -198,8 +198,6 @@ def main():
             st.markdown("""
                 Les algorithmes de machine learning peuvent nécessiter que toutes les variables soient numériques. Le prétraitement permet de transformer les données pour qu’elles soient compatibles avec ces exigences.
                 
-                ######   
-                
                 ##### Choix d'un type d’encodeur
                 Ordinal Encoder : 
                 - C’est donner un numéro à chaque élément d’une liste. Par exemple, dans une liste de fruits, on pourrait dire que la Pomme est le numéro 1, la Banane le numéro 2.
