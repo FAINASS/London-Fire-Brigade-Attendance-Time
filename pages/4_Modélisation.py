@@ -222,28 +222,6 @@ def main():
                 Imaginez que vous mesurez le poids de plusieurs objets, dont un éléphant. Le poids de l’éléphant est une valeur aberrante et peut fausser vos résultats. Le RobustScaler réduit l’impact de ces valeurs aberrantes en se concentrant sur la majorité des données, ce qui donne une meilleure représentation générale.
               """)
 
-    if model_type == "XGBRegressor" :
-         with st.expander("Aide pour le réglage des hyperparamètres", expanded=False):
-            
-                st.markdown("""
-                    Le réglage des hyperparamètres peut aider à améliorer les performances de votre modèle.
-                  """)
-
-    else :
-        
-        with st.expander("Aide pour le prétraitement des données", expanded=False):
-            
-                st.markdown("""
-                    Le réglage des hyperparamètres peut aider à améliorer les performances de votre modèle.
-                    - Alpha : le paramètre alpha dans le modèle de régression Ridge est un régulateur qui joue un rôle crucial dans le contrôle de la complexité du modèle. 
-                    Un alpha élevé simplifie le modèle, tandis qu’une valeur plus basse le rend plus complexe, risquant ainsi un surapprentissage si elle est trop faible.
-
-                    - Solver : le solver est l’algorithme employé pour réaliser la régression. Selon le type de données, certains solveurs peuvent être plus performants que d’autres. 
-                    Par exemple, en réglant le solver sur "auto", le modèle choisira lui-même le solveur le plus adapté.
-
-                    - fit_intercept : il s’agit du terme constant de la régression linéaire. Si la case fit_intercept est cochée, le modèle essaiera de trouver la meilleure valeur pour l'ordonnée à l'origine. 
-                    En revanche, si la case fit_intercept n'est pas cochée, le modèle présumera que les données sont déjà centrées et n’effectuera pas de calcul pour l'ordonnée à l'origine.
-                  """)
     
 ########################################################################################################################################################################################################################## 
     st.subheader("2. Performances de votre modèle")
@@ -295,8 +273,33 @@ def main():
     'R² Test': [Test_score],
     'Train RMSE': [Train_RMSE],
     'Test RMSE': [Test_RMSE] })
+
     
+    if model_type == "XGBRegressor" :
+         with st.expander("Aide pour le réglage des hyperparamètres", expanded=False):
+            
+                st.markdown("""
+                    Le réglage des hyperparamètres peut aider à améliorer les performances de votre modèle.
+                  """)
+
+    else :
+        
+        with st.expander("Aide pour le prétraitement des données", expanded=False):
+            
+                st.markdown("""
+                    Le réglage des hyperparamètres peut aider à améliorer les performances de votre modèle.
+                    - Alpha : le paramètre alpha dans le modèle de régression Ridge est un régulateur qui joue un rôle crucial dans le contrôle de la complexité du modèle. 
+                    Un alpha élevé simplifie le modèle, tandis qu’une valeur plus basse le rend plus complexe, risquant ainsi un surapprentissage si elle est trop faible.
+
+                    - Solver : le solver est l’algorithme employé pour réaliser la régression. Selon le type de données, certains solveurs peuvent être plus performants que d’autres. 
+                    Par exemple, en réglant le solver sur "auto", le modèle choisira lui-même le solveur le plus adapté.
+
+                    - fit_intercept : il s’agit du terme constant de la régression linéaire. Si la case fit_intercept est cochée, le modèle essaiera de trouver la meilleure valeur pour l'ordonnée à l'origine. 
+                    En revanche, si la case fit_intercept n'est pas cochée, le modèle présumera que les données sont déjà centrées et n’effectuera pas de calcul pour l'ordonnée à l'origine.
+                  """)
+            
     st.write(data_score_after)
+    
     
     with st.expander("Explications", expanded=False):
         st.markdown("""
