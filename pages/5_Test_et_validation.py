@@ -149,9 +149,28 @@ def main():
     st.markdown("Légende : 🔴 Lieu de l'incident 🔵 Caserne déployée")
 
     df_filtered = df[df['DeployedFromStationName'].isin(station)]
-
+    distances = df_filtered.apply(lambda row: haversine_distance(lat_ward, lon_ward, row['LatitudeStation'], row['LongitudeStation']), axis=1)
+    min_distance_index = distances.idxmin()
     
-
+    nearest_station = df_filtered.loc[min_distance_index, 'DeployedFromStationName']
+    
+    m = folium.Map(location=[lat_ward, lon_ward], zoom_start=10,zoom_control=False,scrollWheelZoom=False,dragging=False)
+    
+    folium.Marker(
+        location=[lat_ward, lon_ward],
+        icon=folium.Icon(color="red"),
+    ).add_to(m)
+    
+    folium.Marker(
+        location=[lat_station, lon_station],
+        icon=folium.Icon(color="blue"),
+    ).add_to(m)
+    
+    html = branca.element.Figure()
+    html.add_child(m)
+    
+    st.components.v1.html(html.render(), width=950, height=410)
+    
     
 if __name__ == "__main__":
     main()
