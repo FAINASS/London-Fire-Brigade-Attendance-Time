@@ -89,7 +89,8 @@ def main():
     selected_columns = df[["IncidentGroupType", "PropertyType", "BoroughName", "WardName", "DeployedFromStationName","Distance",
                            "HourOfCall", "NumStationsWithPumpsAttending","SecondPumpArrivingDeployedFromStation", "AttendanceTime"]]
     
-    df = df.drop(df[(df['NumStationsWithPumpsAttending'] > 1) & (df['SecondPumpArrivingDeployedFromStation'] != "No Second pump deployed")].index)
+    selected_columns = selected_columns.drop(selected_columns[(selected_columns['NumStationsWithPumpsAttending'] > 1) & (selected_columns['SecondPumpArrivingDeployedFromStation'] != "No Second pump deployed")].index)
+    selected_columns.drop(24754,inplace=True)
     
     placeholder = st.empty()
     
