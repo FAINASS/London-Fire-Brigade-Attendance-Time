@@ -426,7 +426,7 @@ def main():
     
              Voici ce que nous pouvons déduire de notre modèle :
               -  Distance : Plus la distance est courte, plus le temps de réponse est rapide.
-              - Variable "SecondPumpArrivingDeployedFromStation" : Lorsque cette variable a la valeur "No Second pump deployed", le temps de réponse est plus long que s’il y avait un second camion de pompiers déployé.      
+              - SecondPumpArrivingDeployedFromStation : Lorsque cette variable a la valeur "No Second pump deployed", le temps de réponse est plus long que s’il y avait un second camion de pompiers déployé.      
         """)  
         
 if __name__ == "__main__":
