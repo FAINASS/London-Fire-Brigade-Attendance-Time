@@ -5,17 +5,18 @@ Spyder Editor
 This is a temporary script file.
 """
 
+# Importation des bibliothèques nécessaires
 import streamlit as st
 import pandas as pd
 
-
-#Configurer l'affichage en mode Wide
+# Configuration de la page de l'application Streamlit
 st.set_page_config(
-    layout="wide",
-    initial_sidebar_state="expanded",
-    page_title = "Temps de Réponse de la Brigade des Pompiers de Londres")
+    layout="wide",  # Layout en mode large
+    initial_sidebar_state="expanded",  # Barre latérale initialement déployée
+    page_title = "Temps de Réponse de la Brigade des Pompiers de Londres"  # Titre de la page
+)
 
-## Supprimer l'espace vide en haut de la page
+# Suppression de l'espace vide en haut de la page
 st.markdown("""
         <style>
                .block-container {
@@ -27,8 +28,9 @@ st.markdown("""
         </style>
         """, unsafe_allow_html=True)
 
-
+# Fonction pour ajouter le logo
 def add_logo():
+    # Utilisation de HTML et CSS pour ajouter une image de fond à la barre latérale
     st.markdown(
         """
         <style>
@@ -39,7 +41,6 @@ def add_logo():
                 padding-top: 80px;
                 background-position: 40px 20px;
                 margin-top: 4px;
-
             }
         """,
         unsafe_allow_html=True,
@@ -47,40 +48,45 @@ def add_logo():
 
 def main():
     
-    add_logo() 
+    add_logo()  # Ajout du logo à la barre latérale
     
-    st.header("🚒 La London Fire Brigade")
+    st.header("🚒 La London Fire Brigade")  # Titre de la section
 
-    st.write(" ")
+    st.write(" ")  # Espace vide pour la mise en page
     
-    st.markdown("""
-    ##### La LFB en quelques chiffres
-    """)
+    st.markdown(""" ##### La LFB en quelques chiffres""")  # Sous-titre de la section
     
+    # Création d'un DataFrame avec des statistiques sur la London Fire Brigade
     df1 = pd.DataFrame({
         'Statistiques': ['Rang mondial', 'Nombre total d\'employés', 'Nombre de sapeurs-pompiers professionnels', 'Nombre de casernes de pompiers'],
         'Valeurs': ['5ème', '5 992', '5 096', '103']
     })
-    st.dataframe(df1)
-    st.write("")
+    st.dataframe(df1)  # Affichage du DataFrame
+    st.write("")  # Espace vide pour la mise en page
     
-    st.write("La LFB s’est fixée deux objectifs majeurs :")
+    st.write("La LFB s’est fixée deux objectifs majeurs :")  # Introduction des objectifs
     
+    # Création d'un DataFrame avec les objectifs de la London Fire Brigade
     df2 = pd.DataFrame({
         'Objectifs': ['Arriver sur un lieu d\'un incident', 'Envoyer une seconde équipe en assistance'],
         'Temps': ['6 minutes (360 sec) en moyenne', '8 minutes (480 sec) après le signalement']
     })
     
-    st.dataframe(df2)
+    st.dataframe(df2)  # Affichage du DataFrame
     
-    st.write(" ")
-    st.header("🎯 Enjeux du projet")
+    st.write(" ") 
+    
+    ###################################################################################################################################################################################################################
+    st.header("🎯 Enjeux du projet")  # Titre de la section
 
-    st.write(" ")
+    st.write(" ")  
+    
+    # Description des enjeux du projet
     st.markdown("""
     Notre objectif est de prédire le temps de réponse des sapeurs-pompiers de Londres à partir des données de 2009 à 2023. 
     Nous visons un coefficient de détermination (R²) > à 70% et nous cherchons à obtenir une erreur quadratique moyenne (RMSE) < à 1 minute.
     """, unsafe_allow_html=True)
 
+# Exécution de la fonction principale
 if __name__ == "__main__":
     main()
