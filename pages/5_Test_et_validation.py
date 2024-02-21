@@ -121,6 +121,8 @@ def main():
     
     
     st.subheader(" ")
+    
+########################################################################################################################################################################################################################## 
     st.subheader("2. Géolocalisation")
     col3, col4,col5 = st.columns(3) 
     
@@ -135,8 +137,6 @@ def main():
     station = sorted(df_filtreWards['DeployedFromStationName'].unique().tolist())
     selected_station= col5.selectbox("Première caserne déployée:", station, index=station.index(st.session_state['incident']['DeployedFromStationName']))
  
-    ###############################################################################################################################################
-
     station_data = df[df['DeployedFromStationName'] == selected_station]
     lat_station = station_data['LatitudeStation'].median()
     lon_station = station_data['LongitudeStation'].median()
@@ -177,9 +177,9 @@ def main():
         st.write(f"La station la plus proche est {nearest_station}.")
         
  
-    ###############################################################################################################################################
-    
     st.write(" ")
+
+########################################################################################################################################################################################################################## 
     st.subheader("3. Intervention")
     
     col6,col7,col8 = st.columns(3)
@@ -193,7 +193,6 @@ def main():
     secondPump = sorted(df['SecondPumpArrivingDeployedFromStation'].unique().tolist())
     selected_secondPump = col8.selectbox("Deuxième caserne déployée:", secondPump, index=secondPump.index(st.session_state['incident']['SecondPumpArrivingDeployedFromStation']),disabled=True)
     
-    ###############################################################################################################################################
 
     st.write(" ")
     
