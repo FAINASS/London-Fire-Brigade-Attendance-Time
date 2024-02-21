@@ -201,11 +201,11 @@ def main():
                 
                 ##### Type d'encodeur : 
                 Ordinal Encoder : 
-                    - C’est donner un numéro à chaque élément d’une liste. Par exemple, dans une liste de fruits, on pourrait dire que la Pomme est le numéro 1, la Banane le numéro 2.
+                - C’est donner un numéro à chaque élément d’une liste. Par exemple, dans une liste de fruits, on pourrait dire que la Pomme est le numéro 1, la Banane le numéro 2.
                     
                 One-Hot Encoder :
-                    - Avec ce type d'encodeur on crée une colonne pour chaque fruit. Si le fruit est présent, on met un 1 dans cette colonne, s'il n’est pas présent, on met un 0. 
-                    - Par exemple, si vous avez "pomme", on aurait : Pomme (1) Banane (0) soit 10.
+                - Avec ce type d'encodeur on crée une colonne pour chaque fruit. Si le fruit est présent, on met un 1 dans cette colonne, s'il n’est pas présent, on met un 0. 
+                - Par exemple, si vous avez "Pomme", on aurait : Pomme (1) Banane (0) soit 10.
               """)
     
 ########################################################################################################################################################################################################################## 
