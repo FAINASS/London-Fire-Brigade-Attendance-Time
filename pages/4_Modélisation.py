@@ -472,8 +472,8 @@ def main():
     with st.expander("Explications",expanded=True):
          st.write("""
                 Quelques points clés :
-                - Distance : C’est la variable qui a le plus grand impact sur le modèle.
-                - DeployedFromStationName et WardName : Ces deux variables ont également un impact significatif sur le modèle, bien que moins que "Distance".
+                - la variable qui a le plus grand impact sur le modèle est "Distance".
+                - DeployedFromStationName et WardName ont également un impact significatif, bien que moins que "Distance".
                 - Les autres variables comme LongitudeIncident, LatitudeIncident, HourOfCall, etc., ont un impact moindre sur le modèle.
                 """)
     st.header("")
@@ -498,8 +498,8 @@ def main():
              Les points rouges correspondent à des valeurs élevées de la variable, tandis que les points bleus correspondent à des valeurs basses. 
     
              Voici ce que nous pouvons déduire de notre modèle :
-              -  Distance : Plus la distance est courte, plus le temps de réponse est rapide.
-              - SecondPumpArrivingDeployedFromStation : Lorsque cette variable a la valeur "No Second pump deployed", le temps de réponse est plus long que s’il y avait un second camion de pompiers déployé.      
+              -  Plus la distance est courte, plus le temps de réponse est rapide.
+              -  Lorsque cette variable SecondPumpArrivingDeployedFromStation a la valeur "No Second pump deployed", le temps de réponse est plus long que s’il y avait un second camion de pompiers déployé.      
         """)  
         
 if __name__ == "__main__":
