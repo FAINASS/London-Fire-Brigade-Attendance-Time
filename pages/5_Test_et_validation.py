@@ -90,7 +90,8 @@ def main():
                            "HourOfCall", "NumStationsWithPumpsAttending","SecondPumpArrivingDeployedFromStation", "AttendanceTime"]]
     
     selected_columns = selected_columns.drop(selected_columns[(selected_columns['NumStationsWithPumpsAttending'] > 1) & (selected_columns['SecondPumpArrivingDeployedFromStation'] != "No Second pump deployed")].index)
-   
+    index_to_drop = df.iloc[24754].name
+    selected_columns = selected_columns.drop(index_to_drop)
     placeholder = st.empty()
     
     # Vérifier si 'incident' est déjà dans session_state
