@@ -140,7 +140,7 @@ def main():
     lat_station = station_data['LatitudeStation'].median()
     lon_station = station_data['LongitudeStation'].median()
     
-    ward_data = df[(df['WardName'] == selected_wards) & (df['DeployedFromStationName'] == selected_station)]
+    ward_data = df[(df['WardName'] == selected_wards)]
     lat_ward = ward_data['LatitudeIncident'].median()
     lon_ward = ward_data['LongitudeIncident'].median()
     
