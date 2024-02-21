@@ -100,20 +100,32 @@ def main():
     if model_type == "XGBRegressor" :
         df = df[["IncidentGroupType", "BoroughName","WardName","HourOfCall","PropertyType","DeployedFromStationName","Distance","NumStationsWithPumpsAttending",
                  "LatitudeIncident","LongitudeIncident","LatitudeStation","LongitudeStation","SecondPumpArrivingDeployedFromStation","AttendanceTime"]]
-    
+
+        with st.expander("Explications", expanded=True):
+                st.markdown("""
+                    Le XGBRegressor est une méthode de prédiction basée sur le principe du **gradient boosting**. 
+                    
+                    C'est comme si vous aviez une équipe de chercheurs (les arbres de décision) qui travaillent ensemble pour résoudre un problème complexe (la prédiction). Chaque chercheur apporte sa propre expertise et ses propres idées, et ensemble, ils arrivent à une solution plus précise et plus robuste qu'un seul chercheur ne pourrait le faire.
+                    
+                    Dans le cas du XGBRegressor, chaque "chercheur" est un arbre de décision. Le modèle commence par un seul arbre, puis ajoute progressivement d'autres arbres pour corriger les erreurs faites par les arbres précédents. C'est ce qu'on appelle le gradient boosting.
+                    
+                    Le XGBRegressor est particulièrement efficace lorsque vous avez beaucoup de données et de nombreuses variables. Cependant, il faut noter que son temps de traitement est généralement plus long comparé au modèle Ridge.
+                    """)
+                        
     else :
+        
         df = df[["Distance","DeployedFromStationName","WardName","LongitudeStation","LongitudeIncident","ResourceCode","BoroughName","WeekOfTheCall","MonthOfTheCall",
     "Region","MomentOfTheDay","PropertyType","AttendanceTime"]]
 
         with st.expander("Explications", expanded=True):
             st.markdown("""
-            La régression Ridge est une méthode utilisée en statistiques pour prédire des données. 
-            
-            Elle fonctionne un peu comme une recette de cuisine : on a plusieurs ingrédients (les données d'entrée) et on veut obtenir un plat délicieux (la prédiction). 
-            
-            Cependant, parfois, certains ingrédients peuvent prendre le dessus et gâcher le plat. Pour éviter cela, la régression Ridge pénalise les ingrédients trop dominants, c'est-à-dire qu'elle réduit leur importance dans la recette. 
-            
-            Le but est d'obtenir un plat (une prédiction) qui est un bon équilibre de tous les ingrédients (données d'entrée), plutôt que d'être dominé par un ou deux ingrédients. """)
+                La régression Ridge est une méthode utilisée en statistiques pour prédire des données. 
+                
+                Elle fonctionne un peu comme une recette de cuisine : on a plusieurs ingrédients (les données d'entrée) et on veut obtenir un plat délicieux (la prédiction). 
+                
+                Cependant, parfois, certains ingrédients peuvent prendre le dessus et gâcher le plat. Pour éviter cela, la régression Ridge pénalise les ingrédients trop dominants, c'est-à-dire qu'elle réduit leur importance dans la recette. 
+                
+                Le but est d'obtenir un plat (une prédiction) qui est un bon équilibre de tous les ingrédients (données d'entrée), plutôt que d'être dominé par un ou deux ingrédients. """)
  
 
     # Séparation des features (X) et de la variable cible (y)
