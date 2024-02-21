@@ -90,8 +90,7 @@ def main():
                            "HourOfCall", "NumStationsWithPumpsAttending","SecondPumpArrivingDeployedFromStation", "AttendanceTime"]]
     
     selected_columns = selected_columns.drop(selected_columns[(selected_columns['NumStationsWithPumpsAttending'] > 1) & (selected_columns['SecondPumpArrivingDeployedFromStation'] != "No Second pump deployed")].index)
-    selected_columns.drop(24754,inplace=True)
-    
+   
     placeholder = st.empty()
     
     # Vérifier si 'incident' est déjà dans session_state
