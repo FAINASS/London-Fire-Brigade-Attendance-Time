@@ -200,11 +200,11 @@ def main():
                 Par exemple, ils peuvent nécessiter que toutes les variables soient numériques. Le prétraitement permet de transformer les données pour qu’elles soient compatibles avec ces exigences.
                 
                 ##### Type d'encodeur : 
-                - Ordinal Encoder : 
+                Ordinal Encoder : 
                     - C’est donner un numéro à chaque élément d’une liste. Par exemple, dans une liste de fruits, on pourrait dire que la Pomme est le numéro 1, la Banane le numéro 2.
                     
-                - One-Hot Encoder :
-                    - Avec ce type d'encodeur, pour chaque fruit, on crée une colonne. Si le fruit est présent, il met un 1 dans cette colonne. S'il n’est pas présent, il met un 0. 
+                One-Hot Encoder :
+                    - Avec ce type d'encodeur on crée une colonne pour chaque fruit. Si le fruit est présent, on met un 1 dans cette colonne, s'il n’est pas présent, on met un 0. 
                     - Par exemple, si vous avez "pomme", on aurait : Pomme (1) Banane (0) soit 10.
               """)
     
