@@ -364,49 +364,34 @@ def main():
     st.write("---")
     
 ########################################################################################################################################################################################################################## 
-    import matplotlib.pyplot as plt
-    import numpy as np
-    
     st.subheader("5. [Modèle retenu] - XGBRegressor ")
     st.write("Entraînement sur les données de 2015 à 2022")
     
     st.write(" ")
     st.write("Pré-traitement des données : ")
     preprocessing= {
-        "Type d'encoder": "OneHotEncoder",
-        'Type de normalisateur': "StandardScaler"}
-    
-    fig, ax = plt.subplots()
-    ax.barh(list(preprocessing.keys()), list(preprocessing.values()))
-    plt.xlabel('Valeurs')
-    plt.title('Pré-traitement des données')
-    st.pyplot(fig)
+    "Type d'encoder": "OneHotEncoder",
+    'Type de normalisateur': "StandardScaler"}
+    df_preprocessing = pd.DataFrame(list(preprocessing.items()), columns=['Paramètres', 'Valeurs'])
+    st.dataframe(df_preprocessing)
     
     st.write(" ")
     st.write("Réglage des hyperparamètres :")
     hyperparameters = {
-        'colsample_bytree': 0.7746831999163204,
-        'learning_rate': 0.0624207548570334,
-        'max_depth': 6,
-        'min_child_weight': 1,
-        'n_estimators': 685}
+    'colsample_bytree': 0.7746831999163204,
+    'learning_rate': 0.0624207548570334,
+    'max_depth': 6,
+    'min_child_weight': 1,
+    'n_estimators': 685}
     
-    fig, ax = plt.subplots()
-    ax.barh(list(hyperparameters.keys()), list(hyperparameters.values()))
-    plt.xlabel('Valeurs')
-    plt.title('Réglage des hyperparamètres')
-    st.pyplot(fig)
+    df_hyperparameters = pd.DataFrame(list(hyperparameters.items()), columns=['Hyperparamètres', 'Valeurs'])
+    st.dataframe(df_hyperparameters)
     
     st.write("")
     st.write("Performances de notre modèle : ")
-    score = [ 0.53, 0.5, 1.27, 1.32]
-    labels = ['R² Train','R² Test', 'RMSE Train', 'RMSE Test']
-    
-    fig, ax = plt.subplots()
-    ax.barh(labels, score)
-    plt.xlabel('Valeurs')
-    plt.title('Performances de notre modèle')
-    st.pyplot(fig)
+    score = pd.DataFrame([ 0.53, 0.5, 1.27, 1.32], index=['R² Train','R² Test', 'RMSE Train', 'RMSE Test']).T
+    st.dataframe(score)
+    st.write("")
     
     st.write("Features Importances :")
     image_features = Image.open('model_featuresImportances.png')
