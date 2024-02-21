@@ -171,7 +171,7 @@ def main():
     html = branca.element.Figure()
     html.add_child(m)
     
-    st.components.v1.html(html.render(), width=100%, height=410)
+    st.components.v1.html(html.render(), width='100%', height=410)
     
     if selected_station != nearest_station:
         st.write(f"La station la plus proche est {nearest_station}.")
