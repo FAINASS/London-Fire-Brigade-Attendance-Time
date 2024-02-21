@@ -103,13 +103,15 @@ def main():
 
         with st.expander("Explications", expanded=True):
                 st.markdown("""
-                    Le XGBRegressor est une méthode de prédiction basée sur le principe du **gradient boosting**. 
+                    Le XGBRegressor est une méthode de prédiction basée sur le principe du gradient boosting. 
                     
                     C'est comme si vous aviez une équipe de chercheurs (les arbres de décision) qui travaillent ensemble pour résoudre un problème complexe (la prédiction). Chaque chercheur apporte sa propre expertise et ses propres idées, et ensemble, ils arrivent à une solution plus précise et plus robuste qu'un seul chercheur ne pourrait le faire.
                     
                     Dans le cas du XGBRegressor, chaque "chercheur" est un arbre de décision. Le modèle commence par un seul arbre, puis ajoute progressivement d'autres arbres pour corriger les erreurs faites par les arbres précédents. C'est ce qu'on appelle le gradient boosting.
                     
-                    Le XGBRegressor est particulièrement efficace lorsque vous avez beaucoup de données et de nombreuses variables. Cependant, il faut noter que son temps de traitement est généralement plus long comparé au modèle Ridge.
+                    Le XGBRegressor est particulièrement efficace lorsque vous avez beaucoup de données et de nombreuses variables. 
+                    
+                    Cependant, il faut noter que son temps de traitement est généralement plus long comparé au modèle Ridge.
                     """)
                         
     else :
