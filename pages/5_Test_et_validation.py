@@ -77,8 +77,6 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 
 def main():
     
-    def main():
-    
     add_logo()
     
     st.header("✅ Test et validation")
