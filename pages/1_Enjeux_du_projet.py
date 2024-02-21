@@ -52,19 +52,19 @@ def main():
     
     st.header("🚒 La London Fire Brigade")  # Titre de la section
 
-    st.write(" ")  # Espace vide pour la mise en page
+    st.write(" ")  
     
-    st.markdown(""" ##### La LFB en quelques chiffres""")  # Sous-titre de la section
+    st.markdown(""" ##### La LFB en quelques chiffres""")  
     
     # Création d'un DataFrame avec des statistiques sur la London Fire Brigade
     df1 = pd.DataFrame({
         'Statistiques': ['Rang mondial', 'Nombre total d\'employés', 'Nombre de sapeurs-pompiers professionnels', 'Nombre de casernes de pompiers'],
         'Valeurs': ['5ème', '5 992', '5 096', '103']
     })
-    st.dataframe(df1)  # Affichage du DataFrame
-    st.write("")  # Espace vide pour la mise en page
+    st.dataframe(df1) 
+    st.write("")  
     
-    st.write("La LFB s’est fixée deux objectifs majeurs :")  # Introduction des objectifs
+    st.write("La LFB s’est fixée deux objectifs majeurs :")  
     
     # Création d'un DataFrame avec les objectifs de la London Fire Brigade
     df2 = pd.DataFrame({
@@ -72,12 +72,12 @@ def main():
         'Temps': ['6 minutes (360 sec) en moyenne', '8 minutes (480 sec) après le signalement']
     })
     
-    st.dataframe(df2)  # Affichage du DataFrame
+    st.dataframe(df2) 
     
     st.write(" ") 
     
     ###################################################################################################################################################################################################################
-    st.header("🎯 Enjeux du projet")  # Titre de la section
+    st.header("🎯 Enjeux du projet")  
 
     st.write(" ")  
     
