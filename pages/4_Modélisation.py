@@ -245,7 +245,7 @@ def main():
             
                 st.markdown("""
                     Le réglage des hyperparamètres peut aider à améliorer les performances de votre modèle.
-                    - Colsample_bytree : pensez à cela comme à un tirage au sort parmi vos caractéristiques (taille, poids, âge, etc.) 
+                    - **Colsample_bytree** : pensez à cela comme à un tirage au sort parmi vos caractéristiques (taille, poids, âge, etc.) 
                     pour faire une prédiction. Ce paramètre détermine combien de ces caractéristiques sont sélectionnées pour le tirage.
 
                     - Learning_rate : c’est la vitesse à laquelle votre modèle apprend. Un rythme d’apprentissage plus lent signifie 
