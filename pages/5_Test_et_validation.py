@@ -149,6 +149,7 @@ def main():
     st.markdown("Légende : 🔴 Lieu de l'incident 🔵 Caserne déployée")
 
     df_filtered = df[df['DeployedFromStationName'].isin(station)]
+    st.write(df_filtered)
     
     
 if __name__ == "__main__":
