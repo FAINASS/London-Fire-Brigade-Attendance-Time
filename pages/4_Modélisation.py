@@ -196,7 +196,7 @@ def main():
     
     st.dataframe(df_transformed.head(7))
 
-    with st.expander("Aide pour le prétraitement des données", expanded=False):
+    with st.expander("Comprendre le prétraitement des données", expanded=False):
         
             st.markdown("""
                 Les algorithmes de machine learning peuvent nécessiter que toutes les variables soient numériques. Le prétraitement permet de transformer les données pour qu’elles soient compatibles avec ces exigences.
@@ -241,25 +241,26 @@ def main():
        n_estimators = n_estimators, 
        random_state=0)
         
-       with st.expander("Aide pour le réglage des hyperparamètres", expanded=False):
+       with st.expander("Comprendre le réglage des hyperparamètres", expanded=False):
             
                 st.markdown("""
                     Le réglage des hyperparamètres peut aider à améliorer les performances de votre modèle.
-                    - Colsample_bytree : imaginez que vous ayez une grande liste de caractéristiques (comme la taille, le poids, l’âge, etc.) pour prédire quelque chose. 
-                    Ce paramètre détermine combien de ces caractéristiques sont prises en compte.
+                    - Colsample_bytree : pensez à cela comme à un tirage au sort parmi vos caractéristiques (taille, poids, âge, etc.) 
+                    pour faire une prédiction. Ce paramètre détermine combien de ces caractéristiques sont sélectionnées pour le tirage.
 
-                    - Learning_rate : c’est comme le rythme d’apprentissage. Un rythme plus lent signifie que le modèle apprend plus lentement, mais il est plus prudent et fait moins d’erreurs. 
-                    Un rythme plus rapide signifie que le modèle apprend plus vite, mais il peut faire plus d’erreurs.
+                    - Learning_rate : c’est la vitesse à laquelle votre modèle apprend. Un rythme d’apprentissage plus lent signifie 
+                    que votre modèle prend son temps pour apprendre, ce qui peut réduire les erreurs. 
+                    Un rythme plus rapide signifie que votre modèle apprend rapidement, mais il peut être plus sujet aux erreurs.
 
-                    - Max_depth : c’est comme déterminer combien de questions vous voulez poser avant de faire une prédiction. 
-                    Plus vous posez de questions, plus vous pouvez obtenir de détails, mais vous risquez aussi de vous perdre dans les détails.
+                    - Max_depth : c’est comme choisir le nombre de questions que vous voulez poser avant de faire une prédiction. 
+                    Plus vous posez de questions, plus vous obtenez de détails, mais il y a aussi un risque de se perdre dans les détails.
 
-                    - Min_child_weight : c’est comme déterminer combien d’informations vous avez besoin avant de poser une nouvelle question. 
-                    Plus vous avez besoin d’informations, moins vous posez de questions, ce qui peut rendre votre modèle plus simple et plus facile à comprendre.
+                    - Min_child_weight : c’est comme décider combien d’informations vous avez besoin avant de poser une nouvelle question. 
+                    Plus vous avez besoin d’informations, moins vous posez de questions, ce qui peut rendre votre modèle plus simple et 
+                    plus facile à comprendre.
 
-                    - N_estimators : c’est le nombre de fois que vous voulez répéter le processus d’apprentissage. 
-                    Plus vous répétez, plus vous pouvez apprendre de choses, mais cela peut aussi prendre plus de temps et être plus compliqué.
-
+                    - N_estimators : C’est le nombre de fois que vous voulez répéter le processus d’apprentissage. 
+                    Plus vous répétez, plus vous pouvez apprendre, mais cela peut aussi prendre plus de temps et rendre le processus plus complexe.
                   """)
     
     else:
