@@ -193,6 +193,16 @@ def main():
         df_transformed = pd.DataFrame(array_transformed, columns=feature_names)
     
     st.dataframe(df_transformed.head(7))
+
+    with st.expander("Explications", expanded=True):
+            st.markdown("""
+                Les algorithmes de machine learning ont souvent des exigences spécifiques sur le format des données. 
+                Par exemple, ils peuvent nécessiter que toutes les variables soient numériques. Le prétraitement permet de transformer les données pour qu’elles soient compatibles avec ces exigences.
+                
+                ## Type d'encodeur : 
+                - Ordinal Encoder : C’est comme donner un numéro à chaque élément d’une liste. Par exemple, dans une liste de fruits, on pourrait dire que la pomme est le numéro 1, la banane le numéro 2, et ainsi de suite.
+                - Avec le  One-Hot Encoder, pour chaque fruit, on crée une colonne. Si le fruit est présent, il met un 1 dans cette colonne. S'il n’est pas présent, il met un 0. Par exemple, si vous avez "pomme", on aurait : Pomme (1) Banane (0) soit 10.
+              """)
     
 ########################################################################################################################################################################################################################## 
     st.subheader("2. Performances du modèle")
