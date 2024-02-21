@@ -201,7 +201,7 @@ def main():
             st.markdown("""
                 Les algorithmes de machine learning peuvent nécessiter que toutes les variables soient numériques. Le prétraitement permet de transformer les données pour qu’elles soient compatibles avec ces exigences.
                 ######   
-                ##### Choix d'un encodeur
+                ##### Choix d’un encodeur (pour les variables catégorielles)
                 - Ordinal Encoder : 
                 c’est donner un numéro à chaque élément d’une liste. Par exemple, dans une liste d’interventions, l’incendie serait le numéro 1, le sauvetage le numéro 2.
                     
@@ -211,7 +211,7 @@ def main():
 
                 ######   
                 
-                ##### Choix d'un normalisateur
+                ##### Choix d'un normalisateur (pour les variables numériques)
                 - MinMaxScaler :
                 imaginez que vous avez une échelle de 1 à 100, mais vos données sont comprises entre 200 et 300. Le MinMaxScaler va simplement "recalibrer" vos données pour qu’elles soient comprises entre 1 et 100.
                 
