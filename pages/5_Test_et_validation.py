@@ -90,13 +90,12 @@ def main():
                            "HourOfCall", "NumStationsWithPumpsAttending","SecondPumpArrivingDeployedFromStation", "AttendanceTime"]]
     
     df = df.drop(df[(df['NumStationsWithPumpsAttending'] > 1) & (df['SecondPumpArrivingDeployedFromStation'] != "No Second pump deployed")].index)
-    df.drop(24754, inplace=True)
     
     placeholder = st.empty()
     
     # Vérifier si 'incident' est déjà dans session_state
     if 'incident' not in st.session_state:
-        st.session_state['incident'] = selected_columns.iloc[88530]
+        st.session_state['incident'] = selected_columns.iloc[24754]
     
     placeholder.table(st.session_state['incident'].to_frame())
     
