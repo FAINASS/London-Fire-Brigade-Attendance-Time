@@ -19,7 +19,6 @@ from scipy.stats import spearmanr
 from PIL import Image
 
 
-#Configurer l'affichage en mode Wide
 st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded",
@@ -77,9 +76,6 @@ def main():
     
     st.write(" ")
     
-   
-    ############################################################################################################################################### 
-
     df = load_data("df_NettoyageOK.csv")
     
 
@@ -100,13 +96,11 @@ def main():
     
     start_year, end_year = my_expander.slider("Date Of Call", min_year, max_year, (2021, 2022))
     
-
     if selected_boroughs == "Tous":
         df = df[(df['DateOfCall'].dt.year >= start_year) & (df['DateOfCall'].dt.year <= end_year)]
     else:
         df = df[(df['BoroughName'] == selected_boroughs) & (df['DateOfCall'].dt.year >= start_year) & (df['DateOfCall'].dt.year <= end_year)]
-    
-    
+       
     st.subheader("0. Préparation des données")
     
     st.write("Après avoir fusionné et réorganisé les deux jeux de données, nous avons obtenu le jeu de données suivant.")
@@ -125,7 +119,7 @@ def main():
 
     st.subheader(" ")
     
-    ############################################################################################################################################### 
+########################################################################################################################################################################################################################## 
     st.subheader("1. Informations générales")
     
     nombre_de_lignes = df.shape[0]
@@ -151,8 +145,7 @@ def main():
     st.title(" ")
     st.write(" ")
     
-   ############################################################################################################################################### 
-    
+########################################################################################################################################################################################################################## 
     st.subheader("2. Distribution des variables qualitatives (TOP 5)")
     
     def split_int_cat (data):
@@ -188,7 +181,6 @@ def main():
     
     st.header(" ")
     
-    
     # Calcul de la fréquence des retards par catégorie
     x = df.DelayCodeDescription.value_counts(normalize=True).drop(["No Delay"]).index
     y = df.DelayCodeDescription.value_counts(normalize=True).drop(["No Delay"]).values
@@ -218,8 +210,8 @@ def main():
         """)
         
     st.subheader(" ")
-    ############################################################################################################################################### 
     
+########################################################################################################################################################################################################################## 
     st.subheader("3. Distribution des variables quantitatives")
     col_int = int_var.columns
     
@@ -232,8 +224,6 @@ def main():
     st.write("La moyenne de la variable {} est {}".format(col,df[col].mean().round(2)))
         
     st.header(" ")
-    
-    ###############################################################################################################################################
     
     # Calcul Q1 et Q3
     Q1 = df["AttendanceTime"].quantile(0.25)
@@ -254,10 +244,10 @@ def main():
     
     st.title(" ")
     st.write("")
-    
-    ############################################################################################################################################### 
+
     st.markdown("<h5>L’objectif de la LFB est d’assurer l’arrivée des premiers secours en moins de <span style='color: red; font-weight: bold;'>6 minutes</span>. Les graphiques suivants nous permettront de contrôler si cet objectif est atteint.</h5>", unsafe_allow_html=True)
-    
+
+########################################################################################################################################################################################################################## 
     st.write("--------------------------------------------------------------------------------------------------------------")
     st.subheader("4. Répartition des valeurs de la variable cible")
     
@@ -294,8 +284,8 @@ def main():
     st.write(f"Dans près de {red_percentage/total_percentage*100:.2f} % des interventions, la LFB ne parvient pas à respecter son objectif d’une arrivée en moins de 6 minutes.")
 
     st.subheader(" ")
-    ############################################################################################################################################### 
     
+########################################################################################################################################################################################################################## 
     st.subheader("5. Temps de réponse en fonction des variables qualitatives")
     columns = cat_var.drop(["DateOfCall"],axis=1).columns
     
@@ -329,8 +319,6 @@ def main():
         ax2.text(x= 0.25, y=2.5, s="No More data",fontdict=font)
     
     st.pyplot(plt)
-    
-    ############################################################################################################################################### 
     
     st.header(" ")
     st.write ("Ajout d'une nouvelle variable : SAISON")
@@ -385,8 +373,6 @@ def main():
     st.pyplot(plt)
     plt.tight_layout()
     
-    ############################################################################################################################################### 
-    
     st.header(" ")
     st.write("Ajout d'une nouvelle variable : Moment de la journée")
     
@@ -424,8 +410,7 @@ def main():
         
     st.header(" ")
     
-    ############################################################################################################################################### 
-    
+########################################################################################################################################################################################################################## 
     st.subheader("6. Temps de réponse en fonction de la zone géographique")
     
     st.write(" ")
@@ -495,8 +480,6 @@ def main():
 
     st.plotly_chart(fig, use_container_width=True)
     
-    ###############################################################################################################################################   
-    
     if selected_boroughs == "Tous" : 
         st.write(" ")
         st.write ("Ajout d'une nouvelle variable : RÉGION")
@@ -545,8 +528,7 @@ def main():
          
     st.header(" ")
     
-    ############################################################################################################################################### 
-    
+########################################################################################################################################################################################################################## 
     st.subheader("7. Temps de réponse en fonction des variables quantitatives ")
     
     st.write(" ")
@@ -574,7 +556,6 @@ def main():
 
     st.header(" ")
     
-    ###############################################################################################################################################     
     st.write("Évolution du temps de réponse en fonction de l'année")
 
     df["DateOfCall"]=pd.to_datetime(df["DateOfCall"])
@@ -604,8 +585,6 @@ def main():
         st.write("""
         - Janvier 2014 : La LFB ferme dix casernes et retire 14 camions de pompiers.
         """)
-
-    ############################################################################################################################################### 
     
     st.write(" ")
     
