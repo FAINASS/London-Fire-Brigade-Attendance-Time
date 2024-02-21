@@ -219,7 +219,7 @@ def main():
                 imaginez que vous mesurez la taille de personnes en centimètres et en pouces. Il serait difficile de les comparer directement car elles sont sur des échelles différentes. Le StandardScaler convertit toutes les mesures dans une "langue commune" (comme convertir toutes les mesures en centimètres), ce qui rend la comparaison plus facile.
 
                 - RobustScaler :
-                maginez que vous mesurez le poids de plusieurs objets, dont un éléphant. Le poids de l’éléphant est une valeur aberrante et peut fausser vos résultats. Le RobustScaler réduit l’impact de ces valeurs aberrantes en se concentrant sur la majorité des données, ce qui donne une meilleure représentation générale.
+                imaginez que vous mesurez le poids de plusieurs objets, dont un éléphant. Le poids de l’éléphant est une valeur aberrante et peut fausser vos résultats. Le RobustScaler réduit l’impact de ces valeurs aberrantes en se concentrant sur la majorité des données, ce qui donne une meilleure représentation générale.
               """)
 
     
