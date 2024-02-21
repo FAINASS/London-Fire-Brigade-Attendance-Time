@@ -148,7 +148,7 @@ def main():
     st.title(" ")
     st.markdown("Légende : 🔴 Lieu de l'incident 🔵 Caserne déployée")
 
-    df_filtered = df[df['DeployedFromStationName']==selected_station]
+    df_filtered = df[df['DeployedFromStationName'].isin(boroughs)]
     
     distances = df_filtered.apply(lambda row: haversine_distance(lat_ward, lon_ward, row['LatitudeStation'], row['LongitudeStation']), axis=1)
     min_distance_index = distances.idxmin()
