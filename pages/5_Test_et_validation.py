@@ -11,7 +11,7 @@ import numpy as np
 from joblib import load
 import folium
 import branca
-import time
+import random
 
 
 pd.set_option('display.max_colwidth', None)
