@@ -232,7 +232,7 @@ def main():
             st.write(" ")
             
     except UnboundLocalError:
-        st.write('')
+        st.markdown(f"<h3 style='text-align: center; font-size: 20px;'><i>Vous avez modifié les paramètres de l'incident à prédire.</i></h3>", unsafe_allow_html=True)
         
         
 if __name__ == "__main__":
