@@ -233,6 +233,8 @@ def main():
                     
         except UnboundLocalError:
             st.write("")
+    else
+        st.write("")
 
 if __name__ == "__main__":
     main()
