@@ -304,7 +304,8 @@ def main():
     columns = cat_var.drop(["DateOfCall"],axis=1).columns
     
     selected_col = st.selectbox('Sélectionnez une variable',columns,index=11)
-    
+
+    # font sera utilisé pour écrire que le graphique " No more data"
     font = {
             'color':  'k',
             'weight': 'bold',
@@ -312,7 +313,8 @@ def main():
             }
     
     fig,(ax1,ax2)=plt.subplots(1,2,figsize=(16,6),sharey=True)
-    
+
+    # Affichage que le Top 3 de chaque variable
     if len(df.groupby(selected_col)["AttendanceTime"].median().sort_values()) > 3 :
     
         df.groupby(selected_col)["AttendanceTime"].median().sort_values()[:3].plot(kind="bar",ax=ax1,title= str(selected_col) + " : Plus RAPIDE",rot=5,color=["yellowgreen","lightgreen","palegreen"])
@@ -330,7 +332,7 @@ def main():
         df.groupby(selected_col)["AttendanceTime"].median().sort_values()[:3].plot(kind="bar",ax=ax1,title= str(selected_col) + " : Plus RAPIDE",rot=5,color=["yellowgreen","lightgreen","palegreen"])
         ax1.bar_label(ax1.containers[0],fmt='%.2f', padding=3)
     
-        ax2.text(x= 0.25, y=2.5, s="No More data",fontdict=font)
+        ax2.text(x= 0.2, y=2.5, s="No More data",fontdict=font)
     
     st.pyplot(plt)
     
