@@ -113,7 +113,7 @@ def main():
     selected_incidents = col1.selectbox("Catégorie d'incident:", IncidentGroupType, index=IncidentGroupType.index(st.session_state['incident']['IncidentGroupType']), disabled=True)
 
     propertyType = sorted(df['PropertyType'].unique().tolist())
-    selected_property = col2.selectbox("Type d'emplacement:", propertyType, index=propertyType.index(st.session_state['incident']['PropertyType']))
+    selected_property = col2.selectbox("Type d'emplacement:", propertyType, index=propertyType.index(st.session_state['incident']['PropertyType']),dragging=False)
 
     st.subheader(" ")
     
@@ -121,14 +121,14 @@ def main():
     col3, col4, col5 = st.columns(3)
         
     boroughs = sorted(df['BoroughName'].unique().tolist())
-    selected_boroughs = col3.selectbox("Arrondissement:", boroughs, index=boroughs.index(st.session_state['incident']['BoroughName']), disabled=True)
+    selected_boroughs = col3.selectbox("Arrondissement:", boroughs, index=boroughs.index(st.session_state['incident']['BoroughName']),disabled=True)
     df_filtreBoroughs = df[df['BoroughName'] == selected_boroughs]
         
     wards = sorted(df_filtreBoroughs['WardName'].unique().tolist())
-    selected_wards = col4.selectbox("Quartier:", wards, index=wards.index(st.session_state['incident']['WardName']))
+    selected_wards = col4.selectbox("Quartier:", wards, index=wards.index(st.session_state['incident']['WardName']),disabled=True)
         
     station = sorted(df_filtreBoroughs['DeployedFromStationName'].unique().tolist())
-    selected_station = col5.selectbox("Première caserne déployée:", station, index=station.index(st.session_state['incident']['DeployedFromStationName']))
+    selected_station = col5.selectbox("Première caserne déployée:", station, index=station.index(st.session_state['incident']['DeployedFromStationName']),disabled=True)
 
 ###############################################################################################################################################
             
@@ -166,14 +166,14 @@ def main():
     col6,col7,col8 = st.columns(3)
             
     Hour = list(np.arange(0.0, 24.0, 1.0))
-    selectedHour = col6.selectbox("Heure de l'appel:", Hour, index=Hour.index(st.session_state['incident']['HourOfCall']))
+    selectedHour = col6.selectbox("Heure de l'appel:", Hour, index=Hour.index(st.session_state['incident']['HourOfCall']),disabled=True)
              
     NumPump = list(np.arange(1.0,21.0,1.0))
-    selected_NumPump = col7.selectbox("Nombre de caserne engagée:", NumPump, index=NumPump.index(st.session_state['incident']['NumStationsWithPumpsAttending']))
+    selected_NumPump = col7.selectbox("Nombre de caserne engagée:", NumPump, index=NumPump.index(st.session_state['incident']['NumStationsWithPumpsAttending']),disabled=True)
             
     secondPump = sorted(df['DeployedFromStationName'].unique().tolist())
     secondPump.append("No Second pump deloyed")
-    selected_secondPump = col8.selectbox("Deuxième caserne déployée:", secondPump, index=secondPump.index(st.session_state['incident']['SecondPumpArrivingDeployedFromStation']))
+    selected_secondPump = col8.selectbox("Deuxième caserne déployée:", secondPump, index=secondPump.index(st.session_state['incident']['SecondPumpArrivingDeployedFromStation']),disabled=True)
         
     st.subheader (" ")
 
