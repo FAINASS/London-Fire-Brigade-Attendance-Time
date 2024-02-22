@@ -105,136 +105,137 @@ def main():
         placeholder.table(st.session_state['incident'].to_frame())
 
         
-    st.write ("")
-    st.write ("Pour obtenir la prédiction, il suffit de cliquer sur le bouton 'Prédire' en bas de la page.")
-    st.markdown("---")
-    
-    st.subheader("1. Type d'incident")
-    col1, col2 = st.columns(2) 
-    
-    IncidentGroupType = sorted(df['IncidentGroupType'].unique().tolist())
-    selected_incidents = col1.selectbox("Catégorie d'incident:", IncidentGroupType, index=IncidentGroupType.index(st.session_state['incident']['IncidentGroupType']),disabled=True)
-    
-    
-    propertyType = sorted(df['PropertyType'].unique().tolist())
-    selected_property = col2.selectbox("Type d'emplacement:", propertyType, index=propertyType.index(st.session_state['incident']['PropertyType']))
-    
-    
-    st.subheader(" ")
-    st.subheader("2. Géolocalisation")
-    col3, col4,col5 = st.columns(3) 
-    
-    boroughs = sorted(df['BoroughName'].unique().tolist())
-    selected_boroughs = col3.selectbox("Arrondissement:", boroughs, index=boroughs.index(st.session_state['incident']['BoroughName']),disabled=True)
-    df_filtreBoroughs = df[df['BoroughName'] == selected_boroughs]
-    
-    wards = sorted(df_filtreBoroughs['WardName'].unique().tolist())
-    selected_wards= col4.selectbox("Quartier:", wards, index=wards.index(st.session_state['incident']['WardName']))
-    
-    station = sorted(df_filtreBoroughs['DeployedFromStationName'].unique().tolist())
-    selected_station= col5.selectbox("Première caserne déployée:", station, index=station.index(st.session_state['incident']['DeployedFromStationName']))
-    
-    ###############################################################################################################################################
-    
-    dfStation = df[df['DeployedFromStationName'] == selected_station]
-    lat_station = dfStation['LatitudeStation'].median()
-    lon_station = dfStation['LongitudeStation'].median()
-    
-    dfWard = df[df['WardName'] == selected_wards]
-    lat_ward = dfWard['LatitudeIncident'].median()
-    lon_ward = dfWard['LongitudeIncident'].median()
-    
-    st.title(" ")
-    st.markdown("Légende : 🔴 Lieu de l'incident 🔵 Caserne déployée")
-    
-    m = folium.Map(location=[lat_ward, lon_ward], zoom_start=10,zoom_control=False,scrollWheelZoom=False,dragging=False)
-
-    folium.Marker(
-        location=[lat_ward, lon_ward],
-        icon=folium.Icon(color="red"),
-    ).add_to(m)
-    
-    folium.Marker(
-        location=[lat_station, lon_station],
-        icon=folium.Icon(color="blue"),
-    ).add_to(m)
-    
-    html = branca.element.Figure()
-    html.add_child(m)
-    
-    st.components.v1.html(html.render(), width=950, height=310)
-    
-    st.write(" ")
-    st.subheader("3. Intervention")
-    
-    col6,col7,col8 = st.columns(3)
-    
-    Hour = list(np.arange(0.0, 24.0, 1.0))
-    selectedHour = col6.selectbox("Heure de l'appel:", Hour, index=Hour.index(st.session_state['incident']['HourOfCall']))
-     
-    NumPump = list(np.arange(1.0,21.0,1.0))
-    selected_NumPump = col7.selectbox("Nombre de caserne engagée:", NumPump, index=NumPump.index(st.session_state['incident']['NumStationsWithPumpsAttending']))
-    
-    secondPump = sorted(df['DeployedFromStationName'].unique().tolist())
-    secondPump.append("No Second pump deloyed")
-    selected_secondPump = col8.selectbox("Deuxième caserne déployée:", secondPump, index=secondPump.index(st.session_state['incident']['SecondPumpArrivingDeployedFromStation']))
-
-    st.write(" ")
-    
-    if st.button('Prédire'):
+        st.write ("")
+        st.write ("Pour obtenir la prédiction, il suffit de cliquer sur le bouton 'Prédire' en bas de la page.")
+        st.markdown("---")
         
-        # Charger le modèle
-        model = load_model()
+        st.subheader("1. Type d'incident")
+        col1, col2 = st.columns(2) 
         
-        # Créer un DataFrame avec les données d'entrée
+        IncidentGroupType = sorted(df['IncidentGroupType'].unique().tolist())
+        selected_incidents = col1.selectbox("Catégorie d'incident:", IncidentGroupType, index=IncidentGroupType.index(st.session_state['incident']['IncidentGroupType']),disabled=True)
+        
+        
+        propertyType = sorted(df['PropertyType'].unique().tolist())
+        selected_property = col2.selectbox("Type d'emplacement:", propertyType, index=propertyType.index(st.session_state['incident']['PropertyType']))
+        
+        
+        st.subheader(" ")
+        st.subheader("2. Géolocalisation")
+        col3, col4,col5 = st.columns(3) 
+        
+        boroughs = sorted(df['BoroughName'].unique().tolist())
+        selected_boroughs = col3.selectbox("Arrondissement:", boroughs, index=boroughs.index(st.session_state['incident']['BoroughName']),disabled=True)
+        df_filtreBoroughs = df[df['BoroughName'] == selected_boroughs]
+        
+        wards = sorted(df_filtreBoroughs['WardName'].unique().tolist())
+        selected_wards= col4.selectbox("Quartier:", wards, index=wards.index(st.session_state['incident']['WardName']))
+        
+        station = sorted(df_filtreBoroughs['DeployedFromStationName'].unique().tolist())
+        selected_station= col5.selectbox("Première caserne déployée:", station, index=station.index(st.session_state['incident']['DeployedFromStationName']))
+        
+        ###############################################################################################################################################
+        
+        dfStation = df[df['DeployedFromStationName'] == selected_station]
+        lat_station = dfStation['LatitudeStation'].median()
+        lon_station = dfStation['LongitudeStation'].median()
+        
+        dfWard = df[df['WardName'] == selected_wards]
+        lat_ward = dfWard['LatitudeIncident'].median()
+        lon_ward = dfWard['LongitudeIncident'].median()
+        
+        st.title(" ")
+        st.markdown("Légende : 🔴 Lieu de l'incident 🔵 Caserne déployée")
+        
+        m = folium.Map(location=[lat_ward, lon_ward], zoom_start=10,zoom_control=False,scrollWheelZoom=False,dragging=False)
+    
+        folium.Marker(
+            location=[lat_ward, lon_ward],
+            icon=folium.Icon(color="red"),
+        ).add_to(m)
+        
+        folium.Marker(
+            location=[lat_station, lon_station],
+            icon=folium.Icon(color="blue"),
+        ).add_to(m)
+        
+        html = branca.element.Figure()
+        html.add_child(m)
+        
+        st.components.v1.html(html.render(), width=950, height=310)
+        
+        st.write(" ")
+        st.subheader("3. Intervention")
+        
+        col6,col7,col8 = st.columns(3)
+        
+        Hour = list(np.arange(0.0, 24.0, 1.0))
+        selectedHour = col6.selectbox("Heure de l'appel:", Hour, index=Hour.index(st.session_state['incident']['HourOfCall']))
          
-        X = pd.DataFrame({
-            "IncidentGroupType" : [selected_incidents],
-            "BoroughName": [selected_boroughs],
-            "WardName" : [selected_wards],
-            "HourOfCall": [selectedHour],
-            "PropertyType": [selected_property],
-            "DeployedFromStationName": [selected_station],
-            "NumStationsWithPumpsAttending": [selected_NumPump],
-            "LatitudeIncident": [lat_ward],
-            "LatitudeStation" : [lat_station],
-            "LongitudeIncident": [lon_ward],
-            "LongitudeStation" : [lon_station],
-            'SecondPumpArrivingDeployedFromStation' : [selected_secondPump]
-        })
+        NumPump = list(np.arange(1.0,21.0,1.0))
+        selected_NumPump = col7.selectbox("Nombre de caserne engagée:", NumPump, index=NumPump.index(st.session_state['incident']['NumStationsWithPumpsAttending']))
         
-        X['HourOfCall'] = X['HourOfCall'].astype(float)
-        X['NumStationsWithPumpsAttending'] = X['NumStationsWithPumpsAttending'].astype(float)
+        secondPump = sorted(df['DeployedFromStationName'].unique().tolist())
+        secondPump.append("No Second pump deloyed")
+        selected_secondPump = col8.selectbox("Deuxième caserne déployée:", secondPump, index=secondPump.index(st.session_state['incident']['SecondPumpArrivingDeployedFromStation']))
+    
+        st.write(" ")
         
-        # Ajout de la colonne 'Distance'
-        X["Distance"] = X.apply(lambda row: haversine_distance(lat_ward, lon_ward, lat_station,lon_station), axis=1)
-        
-
-    try:
-        st.header(" ")
-        prediction = model.predict(X)[0]
-        secondes = abs(prediction) * 60
-        minutes, secondes = divmod(secondes, 60)
-        st.markdown(f"<h3 style='text-align: center; color: White;'>Le temps de réponse estimé est {prediction:.2f} soit : <span style='color: Orange;'>{int(minutes)}</span> minute(s) et <span style='color: Orange;'>{int(secondes)}</span> seconde(s).</h3>", unsafe_allow_html=True)
-
-        if (st.session_state['incident']['IncidentGroupType'] == selected_incidents) and \
-    (st.session_state['incident']['BoroughName'] == selected_boroughs) and \
-    (st.session_state['incident']['WardName'] == selected_wards) and \
-    (st.session_state['incident']['HourOfCall'] == selectedHour) and \
-    (st.session_state['incident']['PropertyType'] == selected_property) and \
-    (st.session_state['incident']['DeployedFromStationName'] == selected_station) and \
-    (st.session_state['incident']['NumStationsWithPumpsAttending'] == selected_NumPump) and \
-    (st.session_state['incident']['SecondPumpArrivingDeployedFromStation'] == selected_secondPump) : 
-            difference = prediction - st.session_state['incident']['AttendanceTime'] 
-            secondes = abs(difference) * 60
-            minutes, secondes = divmod(secondes, 60)
-            st.markdown(f"<h3 style='text-align: center; font-size: 20px;'><i>Nous avons une erreur de prédiction de : {minutes:.0f} minute(s) et {secondes:.0f} seconde(s)</i></h3>", unsafe_allow_html=True)
-        else:
-            st.write(" ")
+        if st.button('Prédire'):
             
-    except UnboundLocalError:
-        st.write("")
+            # Charger le modèle
+            model = load_model()
+            
+            # Créer un DataFrame avec les données d'entrée
+             
+            X = pd.DataFrame({
+                "IncidentGroupType" : [selected_incidents],
+                "BoroughName": [selected_boroughs],
+                "WardName" : [selected_wards],
+                "HourOfCall": [selectedHour],
+                "PropertyType": [selected_property],
+                "DeployedFromStationName": [selected_station],
+                "NumStationsWithPumpsAttending": [selected_NumPump],
+                "LatitudeIncident": [lat_ward],
+                "LatitudeStation" : [lat_station],
+                "LongitudeIncident": [lon_ward],
+                "LongitudeStation" : [lon_station],
+                'SecondPumpArrivingDeployedFromStation' : [selected_secondPump]
+            })
+            
+            X['HourOfCall'] = X['HourOfCall'].astype(float)
+            X['NumStationsWithPumpsAttending'] = X['NumStationsWithPumpsAttending'].astype(float)
+            
+            # Ajout de la colonne 'Distance'
+            X["Distance"] = X.apply(lambda row: haversine_distance(lat_ward, lon_ward, lat_station,lon_station), axis=1)
+            
+    
+        try:
+            st.header(" ")
+            prediction = model.predict(X)[0]
+            secondes = abs(prediction) * 60
+            minutes, secondes = divmod(secondes, 60)
+            st.markdown(f"<h3 style='text-align: center; color: White;'>Le temps de réponse estimé est {prediction:.2f} soit : <span style='color: Orange;'>{int(minutes)}</span> minute(s) et <span style='color: Orange;'>{int(secondes)}</span> seconde(s).</h3>", unsafe_allow_html=True)
+    
+            if (st.session_state['incident']['IncidentGroupType'] == selected_incidents) and \
+        (st.session_state['incident']['BoroughName'] == selected_boroughs) and \
+        (st.session_state['incident']['WardName'] == selected_wards) and \
+        (st.session_state['incident']['HourOfCall'] == selectedHour) and \
+        (st.session_state['incident']['PropertyType'] == selected_property) and \
+        (st.session_state['incident']['DeployedFromStationName'] == selected_station) and \
+        (st.session_state['incident']['NumStationsWithPumpsAttending'] == selected_NumPump) and \
+        (st.session_state['incident']['SecondPumpArrivingDeployedFromStation'] == selected_secondPump) : 
+                difference = prediction - st.session_state['incident']['AttendanceTime'] 
+                secondes = abs(difference) * 60
+                minutes, secondes = divmod(secondes, 60)
+                st.markdown(f"<h3 style='text-align: center; font-size: 20px;'><i>Nous avons une erreur de prédiction de : {minutes:.0f} minute(s) et {secondes:.0f} seconde(s)</i></h3>", unsafe_allow_html=True)
+            else:
+                st.write(" ")
+                
+        except UnboundLocalError:
+            st.write("")
         
-        
+    else :
+        st.write(" ") 
 if __name__ == "__main__":
     main()
