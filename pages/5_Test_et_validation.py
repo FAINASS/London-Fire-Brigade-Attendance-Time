@@ -112,7 +112,7 @@ def main():
     station = sorted(df_filtreBoroughs['DeployedFromStationName'].unique().tolist())
     selected_station= col5.selectbox("Première caserne déployée:", station, index=station.index(0))
 
-     Hour = list(np.arange(0.0, 24.0, 1.0))
+    Hour = list(np.arange(0.0, 24.0, 1.0))
     selectedHour = col6.selectbox("Heure de l'appel:", Hour, index=Hour.index(0))
      
     NumPump = list(np.arange(1.0,21.0,1.0))
