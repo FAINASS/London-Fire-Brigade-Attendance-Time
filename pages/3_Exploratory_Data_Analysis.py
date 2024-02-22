@@ -382,16 +382,13 @@ def main():
     min_median = medians.min()
     max_median = medians.max()
     plt.ylim(min_median - 2, max_median + 2)
-    ax.axhline(y=6, color='r', linestyle='--',  linewidth=1,label='Seuil supérieur')
+    plt.axhline(y=6, color='r', linestyle='--',  linewidth=1,label='Seuil supérieur')
     
     plt.title("AttendanceTime en fonction du JOUR ET SAISON",fontsize=14)
     plt.xticks([0,1,2,3,4,5,6], ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'])
     plt.legend(fontsize=12)
     st.pyplot(plt)
     plt.tight_layout()
-
-
-
 
     
     st.header(" ")
@@ -593,7 +590,7 @@ def main():
     max_median = medians.max()
     
     # Ajuster les limites de l'axe des y
-    plt.ylim(min_median - 1, max_median + 1)
+    plt.ylim(min_median - 2, max_median + 2)
     
     plt.axhline(y=6, color='r', linestyle='--',  linewidth=1,label='Seuil supérieur')
 
