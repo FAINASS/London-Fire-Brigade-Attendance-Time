@@ -94,7 +94,7 @@ def main():
     
     # Vérifier si 'incident' est déjà dans session_state
     if 'incident' not in st.session_state:
-        st.session_state['incident'] = selected_columns.iloc[14]
+        st.session_state['incident'] = selected_columns.iloc[8656]
 
     placeholder.table(st.session_state['incident'].to_frame())
 
