@@ -175,7 +175,7 @@ def main():
     secondPump.append("No Second pump deloyed")
     selected_secondPump = col8.selectbox("Deuxième caserne déployée:", secondPump, index=secondPump.index(st.session_state['incident']['SecondPumpArrivingDeployedFromStation']))
         
-    st.write(" ")
+    st.subheader (" ")
 
     if st.button('Prédire'):
         
