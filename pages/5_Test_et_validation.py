@@ -246,54 +246,54 @@ def main():
             st.subheader("1. Type d'incident")
             col1, col2 = st.columns(2)
                 
-            IncidentGroupType = sorted(df['IncidentGroupType'].unique().tolist())
-            selected_incidents = col1.selectbox("Catégorie d'incident:", IncidentGroupType)
+            IncidentGroupType2 = sorted(df['IncidentGroupType'].unique().tolist())
+            selected_incidents2 = col1.selectbox("Catégorie d'incident:", IncidentGroupType2)
         
-            propertyType = sorted(df['PropertyType'].unique().tolist())
-            selected_property = col2.selectbox("Type d'emplacement:", propertyType)
+            propertyType2 = sorted(df['PropertyType'].unique().tolist())
+            selected_property2 = col2.selectbox("Type d'emplacement:", propertyType2)
         
             st.subheader(" ")
             
             st.subheader("2. Géolocalisation")
             col3, col4, col5 = st.columns(3)
                 
-            boroughs = sorted(df['BoroughName'].unique().tolist())
-            selected_boroughs = col3.selectbox("Arrondissement:", boroughs)
-            df_filtreBoroughs = df[df['BoroughName'] == selected_boroughs]
+            boroughs2 = sorted(df['BoroughName'].unique().tolist())
+            selected_boroughs2 = col3.selectbox("Arrondissement:", boroughs2)
+            df_filtreBoroughs2 = df[df['BoroughName'] == selected_boroughs2]
                 
-            wards = sorted(df_filtreBoroughs['WardName'].unique().tolist())
-            selected_wards = col4.selectbox("Quartier:", wards)
+            wards2 = sorted(df_filtreBoroughs2['WardName'].unique().tolist())
+            selected_wards2 = col4.selectbox("Quartier:", wards2)
                 
-            station = sorted(df_filtreBoroughs['DeployedFromStationName'].unique().tolist())
-            selected_station = col5.selectbox("Première caserne déployée:", station)
+            station2 = sorted(df_filtreBoroughs['DeployedFromStationName'].unique().tolist())
+            selected_station2 = col5.selectbox("Première caserne déployée:", station2)
         
         ###############################################################################################################################################
                     
-            dfStation = df[df['DeployedFromStationName'] == selected_station]
-            lat_station = dfStation['LatitudeStation'].median()
-            lon_station = dfStation['LongitudeStation'].median()
+            dfStation2 = df[df['DeployedFromStationName'] == selected_station2]
+            lat_station2 = dfStation2['LatitudeStation'].median()
+            lon_station2 = dfStation2['LongitudeStation'].median()
                     
-            dfWard = df[df['WardName'] == selected_wards]
-            lat_ward = dfWard['LatitudeIncident'].median()
-            lon_ward = dfWard['LongitudeIncident'].median()
+            dfWard2 = df[df['WardName'] == selected_wards2]
+            lat_ward2 = dfWard2['LatitudeIncident'].median()
+            lon_ward2 = dfWard2['LongitudeIncident'].median()
                     
             st.title(" ")
             st.markdown("Légende : 🔴 Lieu de l'incident 🔵 Caserne déployée")
                     
-            m = folium.Map(location=[lat_ward, lon_ward], zoom_start=10,zoom_control=False,scrollWheelZoom=False,dragging=False)
+            p = folium.Map(location=[lat_ward2, lon_ward2], zoom_start=10,zoom_control=False,scrollWheelZoom=False,dragging=False)
                 
             folium.Marker(
-            location=[lat_ward, lon_ward],
+            location=[lat_ward2, lon_ward2],
                 icon=folium.Icon(color="red"),
-                    ).add_to(m)
+                    ).add_to(p)
                     
             folium.Marker(
-                    location=[lat_station, lon_station],
+                    location=[lat_station2, lon_station2],
                      icon=folium.Icon(color="blue"),
-                    ).add_to(m)
+                    ).add_to(p)
                     
             html = branca.element.Figure()
-            html.add_child(m)
+            html.add_child(p)
                     
             st.components.v1.html(html.render(), width=950, height=310)
                     
@@ -302,54 +302,54 @@ def main():
                     
             col6,col7,col8 = st.columns(3)
                     
-            Hour = list(np.arange(0.0, 24.0, 1.0))
-            selectedHour = col6.selectbox("Heure de l'appel:", Hour)
+            Hour2 = list(np.arange(0.0, 24.0, 1.0))
+            selectedHour2 = col6.selectbox("Heure de l'appel:", Hour2)
                      
-            NumPump = list(np.arange(1.0,21.0,1.0))
-            selected_NumPump = col7.selectbox("Nombre de caserne engagée:", NumPump)
+            NumPump2 = list(np.arange(1.0,21.0,1.0))
+            selected_NumPump2 = col7.selectbox("Nombre de caserne engagée:", NumPump2)
                     
-            secondPump = sorted(df['DeployedFromStationName'].unique().tolist())
-            secondPump.append("No Second pump deloyed")
-            selected_secondPump = col8.selectbox("Deuxième caserne déployée:", secondPump)
+            secondPump2 = sorted(df['DeployedFromStationName'].unique().tolist())
+            secondPump2.append("No Second pump deloyed")
+            selected_secondPump2 = col8.selectbox("Deuxième caserne déployée:", secondPump2)
                 
             st.subheader (" ")
         
             if st.button('Prédire'):
                 
                 # Charger le modèle
-                model = load_model()
+                model2 = load_model()
                         
                 # Créer un DataFrame avec les données d'entrée
                          
-                X = pd.DataFrame({
-                    "IncidentGroupType" : [selected_incidents],
-                    "BoroughName": [selected_boroughs],
-                    "WardName" : [selected_wards],
-                    "HourOfCall": [selectedHour],
-                    "PropertyType": [selected_property],
-                    "DeployedFromStationName": [selected_station],
-                    "NumStationsWithPumpsAttending": [selected_NumPump],
-                    "LatitudeIncident": [lat_ward],
-                    "LatitudeStation" : [lat_station],
-                    "LongitudeIncident": [lon_ward],
-                    "LongitudeStation" : [lon_station],
-                    'SecondPumpArrivingDeployedFromStation' : [selected_secondPump]
+                X2 = pd.DataFrame({
+                    "IncidentGroupType" : [selected_incidents2],
+                    "BoroughName": [selected_boroughs2],
+                    "WardName" : [selected_wards2],
+                    "HourOfCall": [selectedHour2],
+                    "PropertyType": [selected_property2],
+                    "DeployedFromStationName": [selected_station2],
+                    "NumStationsWithPumpsAttending": [selected_NumPump2],
+                    "LatitudeIncident": [lat_ward2],
+                    "LatitudeStation" : [lat_station2],
+                    "LongitudeIncident": [lon_ward2],
+                    "LongitudeStation" : [lon_station2],
+                    'SecondPumpArrivingDeployedFromStation' : [selected_secondPump2]
                 })
                         
-                X['HourOfCall'] = X['HourOfCall'].astype(float)
-                X['NumStationsWithPumpsAttending'] = X['NumStationsWithPumpsAttending'].astype(float)
+                X2['HourOfCall'] = X2['HourOfCall'].astype(float)
+                X2['NumStationsWithPumpsAttending'] = X2['NumStationsWithPumpsAttending'].astype(float)
                         
                 # Ajout de la colonne 'Distance'
-                X["Distance"] = X.apply(lambda row: haversine_distance(lat_ward, lon_ward, lat_station,lon_station), axis=1)
+                X2["Distance"] = X.apply(lambda row: haversine_distance(lat_ward2, lon_ward2, lat_station2,lon_station2), axis=1)
                         
                 
                 try:
                     
                     st.write(" ")
-                    prediction = model.predict(X)[0]
-                    secondes = abs(prediction) * 60
-                    minutes, secondes = divmod(secondes, 60)
-                    st.markdown(f"<h3 style='text-align: center; color: White;'>Le temps de réponse estimé est {prediction:.2f} soit : <span style='color: Orange;'>{int(minutes)}</span> minute(s) et <span style='color: Orange;'>{int(secondes)}</span> seconde(s).</h3>", unsafe_allow_html=True)
+                    prediction2 = model2.predict(X)[0]
+                    secondes2 = abs(prediction2) * 60
+                    minutes2, secondes2 = divmod(secondes2, 60)
+                    st.markdown(f"<h3 style='text-align: center; color: White;'>Le temps de réponse estimé est {prediction2:.2f} soit : <span style='color: Orange;'>{int(minutes2)}</span> minute(s) et <span style='color: Orange;'>{int(secondes2)}</span> seconde(s).</h3>", unsafe_allow_html=True)
                         
                 except UnboundLocalError:
                     st.write("")
