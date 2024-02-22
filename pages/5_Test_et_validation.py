@@ -279,7 +279,7 @@ def main():
         st.title(" ")
         st.markdown("Légende : 🔴 Lieu de l'incident 🔵 Caserne déployée")
                 
-        p = folium.Map(location=[lat_ward2, lon_ward2], zoom_start=10,zoom_control=False,scrollWheelZoom=False,dragging=False)
+        p = folium.Map(location=[lat_ward2, lon_ward2], zoom_start=5,zoom_control=False,scrollWheelZoom=False,dragging=False)
             
         folium.Marker(
         location=[lat_ward2, lon_ward2],
