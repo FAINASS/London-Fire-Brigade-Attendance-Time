@@ -292,7 +292,7 @@ def main():
                 ).add_to(p)
                 
         html2 = branca.element.Figure()
-        html2.add_child(m)
+        html2.add_child(p)
                 
         st.components.v1.html(html2.render(), width=950, height=310)
                 
