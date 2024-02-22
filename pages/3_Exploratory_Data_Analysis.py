@@ -332,7 +332,7 @@ def main():
         df.groupby(selected_col)["AttendanceTime"].median().sort_values()[:3].plot(kind="bar",ax=ax1,title= str(selected_col) + " : Plus RAPIDE",rot=5,color=["yellowgreen","lightgreen","palegreen"])
         ax1.bar_label(ax1.containers[0],fmt='%.2f', padding=3)
     
-        ax2.text(x= 0.2, y=2.5, s="No More data",fontdict=font)
+        ax2.text(x= 0.23, y=2.5, s="No More data",fontdict=font)
     
     st.pyplot(plt)
     
