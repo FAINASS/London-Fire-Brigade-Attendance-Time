@@ -89,9 +89,10 @@ def main():
     titres_onglets = ["Historique des Incidents", 'Nouvel Incident']
     onglet1, onglet2 = st.tabs(titres_onglets)
       
-    # Configuration de chaque onglets
+
+    
     with onglet1:
-        
+        st.write(" ")
         st.subheader("0. Incident à prédire")
         selected_columns = df[["IncidentGroupType", "PropertyType", "BoroughName", "WardName", "DeployedFromStationName","Distance",
                                "HourOfCall", "NumStationsWithPumpsAttending","SecondPumpArrivingDeployedFromStation", "AttendanceTime"]]
