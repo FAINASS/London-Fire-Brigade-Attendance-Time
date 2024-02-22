@@ -97,8 +97,6 @@ def main():
     if 'incident' not in st.session_state:
         st.session_state['incident'] = selected_columns.iloc[88530]
 
-    placeholder.table(st.session_state['incident'].to_frame())
-
     st.session_state['incident'] = selected_columns.iloc[88530]
 
     if st.button('Générer un autre incident'):
