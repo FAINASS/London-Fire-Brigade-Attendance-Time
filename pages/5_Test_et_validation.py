@@ -104,6 +104,8 @@ def main():
 
     placeholder.table(st.session_state['incident'].to_frame())
 
+    st.subheader(" ")
+
     st.subheader("1. Type d'incident")
     col1, col2 = st.columns(2)
         
