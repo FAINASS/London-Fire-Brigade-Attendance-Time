@@ -100,18 +100,11 @@ def main():
     placeholder.table(st.session_state['incident'].to_frame())
     
     if st.button('Générer un autre incident'):
+        st.session_state.clear()
         random_index = selected_columns.sample(n=1).index[0]
         st.session_state['incident'] = selected_columns.iloc[random_index]
         placeholder.table(st.session_state['incident'].to_frame())
-        selected_incidents = col1.selectbox("Catégorie d'incident:", IncidentGroupType, index=IncidentGroupType.index(st.session_state['incident']['IncidentGroupType']),disabled=True)
-        selected_property = col2.selectbox("Type d'emplacement:", propertyType, index=propertyType.index(st.session_state['incident']['PropertyType']))
-        selected_boroughs = col3.selectbox("Arrondissement:", boroughs, index=boroughs.index(st.session_state['incident']['BoroughName']),disabled=True)
-        selected_wards= col4.selectbox("Quartier:", wards, index=wards.index(st.session_state['incident']['WardName']))
-        selected_station= col5.selectbox("Première caserne déployée:", station, index=station.index(st.session_state['incident']['DeployedFromStationName']))
-        selectedHour = col6.selectbox("Heure de l'appel:", Hour, index=Hour.index(st.session_state['incident']['HourOfCall']))
-        selected_NumPump = col7.selectbox("Nombre de caserne engagée:", NumPump, index=NumPump.index(st.session_state['incident']['NumStationsWithPumpsAttending']))
-        selected_secondPump = col8.selectbox("Deuxième caserne déployée:", secondPump, index=secondPump.index(st.session_state['incident']['SecondPumpArrivingDeployedFromStation']))
-
+        
     st.write ("")
     st.write ("Pour obtenir la prédiction, il suffit de cliquer sur le bouton 'Prédire' en bas de la page.")
     st.markdown("---")
