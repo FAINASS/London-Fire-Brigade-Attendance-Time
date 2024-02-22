@@ -298,7 +298,7 @@ def main():
         html2.add_child(p)
                 
         st.components.v1.html(html2.render(), width=950, height=310)
-        st.write(f"(La distance entre le lieu de l'incident et la caserne déployée est de {distance:.2f} km.")
+        st.write(f"La distance entre le lieu de l'incident et la caserne déployée est de {distance:.2f} km.")
                 
         st.subheader(" ")
         st.write(" ")
