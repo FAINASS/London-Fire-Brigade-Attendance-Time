@@ -295,7 +295,7 @@ def main():
     st.pyplot(fig)
 
     # Affichage du pourcentage des barres de couleur ‘lightcoral’ par rapport à toutes les barres
-    st.write(f"Dans près de {red_percentage*100:.2f} % des interventions, la LFB ne parvient pas à respecter son objectif d’une arrivée en moins de 6 minutes.")
+    st.write(f"Dans près de {red_percentage :.2f} % des interventions, la LFB ne parvient pas à respecter son objectif d’une arrivée en moins de 6 minutes.")
 
     st.subheader(" ")
     
