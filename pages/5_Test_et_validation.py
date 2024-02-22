@@ -276,7 +276,9 @@ def main():
         dfWard2 = df[df['WardName'] == selected_wards2]
         lat_ward2 = dfWard2['LatitudeIncident'].median()
         lon_ward2 = dfWard2['LongitudeIncident'].median()
-                
+
+        distance = haversine_distance(lat_ward2, lon_ward2, lat_station2,lon_station2)
+        
         st.title(" ")
         st.markdown("Légende : 🔴 Lieu de l'incident 🔵 Caserne déployée")
                 
@@ -296,6 +298,7 @@ def main():
         html2.add_child(p)
                 
         st.components.v1.html(html2.render(), width=950, height=310)
+        st.write(f"(La distance entre le lieu de l'incident et la caserne déployée est de {distance:.2f} km.")
                 
         st.subheader(" ")
         st.write(" ")
@@ -335,15 +338,12 @@ def main():
                 "LatitudeStation" : [lat_station2],
                 "LongitudeIncident": [lon_ward2],
                 "LongitudeStation" : [lon_station2],
-                'SecondPumpArrivingDeployedFromStation' : [selected_secondPump2]
+                'SecondPumpArrivingDeployedFromStation' : [selected_secondPump2],
+                'Distance' : [distance]
             })
                     
             X2['HourOfCall'] = X2['HourOfCall'].astype(float)
             X2['NumStationsWithPumpsAttending'] = X2['NumStationsWithPumpsAttending'].astype(float)
-                    
-            # Ajout de la colonne 'Distance'
-            X2["Distance"] = X2.apply(lambda row: haversine_distance(lat_ward2, lon_ward2, lat_station2,lon_station2), axis=1)
-            st.write(f"(La distance entre le lieu de l'incident et la caserne déployée est de {X2['Distance'].mean():.2f} km.")
             
             try:
                 st.write(" ")
