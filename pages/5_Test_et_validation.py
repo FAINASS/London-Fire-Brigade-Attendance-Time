@@ -92,11 +92,15 @@ def main():
     
     placeholder = st.empty()
     
-    # Vérifier si 'incident' est déjà dans session_state
+    # Vérifie si 'incident' est déjà dans session_state
     if 'incident' not in st.session_state:
         st.session_state['incident'] = selected_columns.iloc[8656]
-    
-    st.session_state['incident'] = selected_columns.iloc[2022]
+
+    random_row_index = random.randint(0, len(selected_columns) - 1)
+    # Bouton pour générer un autre incident
+    if st.button("Générer un autre incident"):
+        st.session_state['incident'] = selected_columns.iloc[random_row_index]
+
     placeholder.table(st.session_state['incident'].to_frame())
 
     st.subheader("1. Type d'incident")
