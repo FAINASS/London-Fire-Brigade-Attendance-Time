@@ -24,7 +24,6 @@ st.set_page_config(
     initial_sidebar_state="expanded",
     page_title = "Temps de Réponse de la Brigade des Pompiers de Londres")
 
-## Supprimer l'espace vide en haut de la page
 st.markdown("""
 <style>
 
@@ -77,36 +76,41 @@ def main():
     st.write(" ")
     
     df = load_data("df_NettoyageOK.csv")
-    
 
+    # Standardisation des noms des arrondissements
     df["BoroughName"].replace(to_replace =["Kingston upon thames","Waltham forest","Richmond upon thames" ,"Hammersmith and fulham","Kensington and chelsea",
                                                  "Tower hamlets","Barking and dagenham","City of london"],value=["Kingston upon Thames","Waltham Forest",
                                                                                                                  "Richmond upon Thames","Hammersmith and Fulham",
                                                                                                                  "Kensington and Chelsea","Tower Hamlets","Barking and Dagenham","City of London"],inplace=True)
+    
+    
+    
+    # Configuration du filtrage des arrondissements
     my_expander = st.sidebar.expander("**FILTRER LES DONNÉES**",expanded=True)
-    
     borough = ["Tous"] + sorted(df["BoroughName"].unique().tolist())
-    
     selected_boroughs = my_expander.selectbox('Borough Name', borough, index=borough.index("Tous"))
-    
+
+    # Configuration du filitrage par dates
     df['DateOfCall'] = pd.to_datetime(df['DateOfCall'])
-    
     min_year = df['DateOfCall'].dt.year.min()
     max_year = df['DateOfCall'].dt.year.max()
-    
     start_year, end_year = my_expander.slider("Date Of Call", min_year, max_year, (2021, 2022))
-    
+
+    # Association du filitrage par arrondissements et par dates
     if selected_boroughs == "Tous":
         df = df[(df['DateOfCall'].dt.year >= start_year) & (df['DateOfCall'].dt.year <= end_year)]
     else:
         df = df[(df['BoroughName'] == selected_boroughs) & (df['DateOfCall'].dt.year >= start_year) & (df['DateOfCall'].dt.year <= end_year)]
-       
+
+
+##########################################################################################################################################################################################################################    
     st.subheader("0. Préparation des données")
     
     st.write("Après avoir fusionné et réorganisé les deux jeux de données, nous avons obtenu le jeu de données suivant.")
     
     st.write(" ")
-    
+
+    # Affichage d’un message pour notifier l’utilisateur du filtrage en cours des données
     if selected_boroughs == "Tous":
         st.markdown(f"<div style='text-align: left; color: black; background-color: #ff9800; padding: 10px; border-radius: 5px;'>⚠️ Vous avez appliqué un filtre sur tous les arrondissements. Les données affichées couvrent la période de {start_year} à {end_year}.</div>", unsafe_allow_html=True)
     else:
@@ -116,19 +120,19 @@ def main():
     
     df = df.reset_index(drop=True)
     st.write(df.head(10))
-
     st.subheader(" ")
     
 ########################################################################################################################################################################################################################## 
     st.subheader("1. Informations générales")
-    
+
+    # Récupération des données 
     nombre_de_lignes = df.shape[0]
     nombre_de_variables_numeriques = df.select_dtypes(include=[np.number]).shape[1]
     nombre_de_variables_categorielles = df.select_dtypes(include=['object']).shape[1]
     nombre_de_doublons = df.duplicated().sum()
     nombre_de_valeurs_manquantes = df.isna().sum().sum()
     
-    ## Séparateur de milliers avec un espace
+    ## Utilisation d'un séparateur de milliers avec un espace
     nombre_de_lignes = "{:,}".format(nombre_de_lignes).replace(",", " ")
     
     data = {"Nombre d'incidents": [nombre_de_lignes],
@@ -136,7 +140,8 @@ def main():
             'Nombre de variables quantitatives': [nombre_de_variables_numeriques],
             'Nombre de doublons': [nombre_de_doublons],
             'Nombre de valeurs manquantes': [nombre_de_valeurs_manquantes]}
-    
+
+    # Affichage des données
     df_stats = pd.DataFrame(data)
     df_stats = df_stats.style.set_properties(**{'text-align': 'left'})
     df_stats_html = df_stats.to_html()
@@ -147,26 +152,28 @@ def main():
     
 ########################################################################################################################################################################################################################## 
     st.subheader("2. Distribution des variables qualitatives (TOP 5)")
-    
+
+    # Création d'une fonction pour séparer les données numériques et catégorielles
     def split_int_cat (data):
         int_var = data.select_dtypes(include = np.number)
         cat_var = data.select_dtypes(exclude=np.number)
         return int_var, cat_var
 
-    int_var = split_int_cat(df)[0] # Sélectionne les variables numériques
-    cat_var = split_int_cat(df)[1] # Sélectionne les variables catégorielles
-    
-    
+    int_var = split_int_cat(df)[0] 
+    cat_var = split_int_cat(df)[1] 
+
+    # Technique pour placer la variable DateOfCall à la fin de la liste
     col_var = list(cat_var.columns[1:])
     col_var.append("DateOfCall")
-    
+
     selected_col = st.selectbox('Sélectionnez une variable',col_var)
-    
+
+    # Création du graphique
     fig,ax= plt.subplots(figsize=(16,5))
-    
     ax = df[selected_col].value_counts()[:5].plot(kind="bar",color=["skyblue"])
     ax.set_title(selected_col)
-    
+
+    # Formattage de l'affichage du graphique 
     if selected_col =="PropertyType" or selected_col =="AddressQualifier" :
         plt.xticks(rotation=25)
     
@@ -178,10 +185,12 @@ def main():
         ax.bar_label(c,labels=labels, label_type='edge')
     
     st.pyplot(fig)
+
+    ## Création du piechart des retards
     
     st.header(" ")
     
-    # Calcul de la fréquence des retards par catégorie
+    # Calcul de la fréquence des retards par catégorie en éliminant la catégorie "No Delay"
     x = df.DelayCodeDescription.value_counts(normalize=True).drop(["No Delay"]).index
     y = df.DelayCodeDescription.value_counts(normalize=True).drop(["No Delay"]).values
     
@@ -217,15 +226,18 @@ def main():
     
     col = st.selectbox('Sélectionnez une variable', col_int,index=0)
     plt.figure(figsize=(16,4))
+
+    # Ajout d'un marqueur pour la moyenne
     meanprops={"marker":"x","markerfacecolor":"red", "markeredgecolor":"black"}
     sns.boxplot(x=df[col], showmeans=True, meanprops=meanprops, color="skyblue")
-    
     st.pyplot(plt)
+
+    # Affichage de la valeur de la moyenne
     st.write("La moyenne de la variable {} est {}".format(col,df[col].mean().round(2)))
         
     st.header(" ")
     
-    # Calcul Q1 et Q3
+    # Calcul de Q1 et Q3
     Q1 = df["AttendanceTime"].quantile(0.25)
     Q3 = df["AttendanceTime"].quantile(0.75)
     
@@ -240,12 +252,14 @@ def main():
     df = df[(df["AttendanceTime"] >= borne_inf) & (df["AttendanceTime"] <= borne_sup)]   
     
     variable = "AttendanceTime"
-    st.markdown(f"<div style='text-align: center; color: black; background-color: antiquewhite; padding: 10px; border-radius: 5px;'>⚠️ Avant de procéder aux analyses suivantes, nous avons éliminé les valeurs aberrantes de la variable {variable}.</div>", unsafe_allow_html=True)    
+    st.markdown(f"<div style='text-align: center; color: black; background-color: antiquewhite; padding: 10px; border-radius: 5px;'>⚠️ Avant de procéder aux analyses suivantes, 
+    nous avons éliminé les valeurs aberrantes de la variable {variable}.</div>", unsafe_allow_html=True)    
     
     st.title(" ")
     st.write("")
 
-    st.markdown("<h5>L’objectif de la LFB est d’assurer l’arrivée des premiers secours en moins de <span style='color: red; font-weight: bold;'>6 minutes</span>. Les graphiques suivants nous permettront de contrôler si cet objectif est atteint.</h5>", unsafe_allow_html=True)
+    st.markdown("<h5>L’objectif de la LFB est d’assurer l’arrivée des premiers secours en moins de <span style='color: red; font-weight: bold;'>6 minutes</span>. 
+    Les graphiques suivants nous permettront de contrôler si cet objectif est atteint.</h5>", unsafe_allow_html=True)
 
 ########################################################################################################################################################################################################################## 
     st.write("--------------------------------------------------------------------------------------------------------------")
