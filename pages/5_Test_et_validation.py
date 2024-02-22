@@ -250,8 +250,9 @@ def main():
         
         IncidentGroupType2 = sorted(df['IncidentGroupType'].unique().tolist())
         selected_incidents2 = col1.selectbox("Catégorie incident:", IncidentGroupType2)
+        df_IncidentGroupType2 = df[df['IncidentGroupType'] == selected_incidents2]
 
-        propertyType2 = sorted(df['PropertyType'].unique().tolist())
+        propertyType2 = sorted(df_IncidentGroupType2['PropertyType'].unique().tolist())
         selected_property2 = col2.selectbox("Type emplacement:", propertyType2)
 
         st.subheader(" ")
