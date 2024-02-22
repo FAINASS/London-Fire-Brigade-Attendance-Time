@@ -132,52 +132,7 @@ def main():
     station = sorted(df_filtreBoroughs['DeployedFromStationName'].unique().tolist())
     selected_station = col5.selectbox("Première caserne déployée:", station, index=station.index(st.session_state['incident']['DeployedFromStationName']))
             
-    ###############################################################################################################################################
-            
-    dfStation = df[df['DeployedFromStationName'] == selected_station]
-    lat_station = dfStation['LatitudeStation'].median()
-    lon_station = dfStation['LongitudeStation'].median()
-            
-    dfWard = df[df['WardName'] == selected_wards]
-    lat_ward = dfWard['LatitudeIncident'].median()
-    lon_ward = dfWard['LongitudeIncident'].median()
-            
-    st.title(" ")
-    st.markdown("Légende : 🔴 Lieu de l'incident 🔵 Caserne déployée")
-            
-    m = folium.Map(location=[lat_ward, lon_ward], zoom_start=10,zoom_control=False,scrollWheelZoom=False,dragging=False)
-        
-    folium.Marker(
-    location=[lat_ward, lon_ward],
-        icon=folium.Icon(color="red"),
-            ).add_to(m)
-            
-    folium.Marker(
-            location=[lat_station, lon_station],
-             icon=folium.Icon(color="blue"),
-            ).add_to(m)
-            
-    html = branca.element.Figure()
-    html.add_child(m)
-            
-    st.components.v1.html(html.render(), width=950, height=310)
-            
-    st.write(" ")
-    st.subheader("3. Intervention")
-            
-    col6,col7,col8 = st.columns(3)
-            
-    Hour = list(np.arange(0.0, 24.0, 1.0))
-    selectedHour = col6.selectbox("Heure de l'appel:", Hour, index=Hour.index(st.session_state['incident']['HourOfCall']))
-             
-    NumPump = list(np.arange(1.0,21.0,1.0))
-    selected_NumPump = col7.selectbox("Nombre de caserne engagée:", NumPump, index=NumPump.index(st.session_state['incident']['NumStationsWithPumpsAttending']))
-            
-    secondPump = sorted(df['DeployedFromStationName'].unique().tolist())
-    secondPump.append("No Second pump deloyed")
-    selected_secondPump = col8.selectbox("Deuxième caserne déployée:", secondPump, index=secondPump.index(st.session_state['incident']['SecondPumpArrivingDeployedFromStation']))
-        
-    st.write(" ")
+
 
 if __name__ == "__main__":
     main()
