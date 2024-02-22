@@ -54,26 +54,7 @@ def main():
 
     st.write(" ")
     
-    st.markdown("""
-    ##### La LFB en quelques chiffres
-    """)
 
-    # Création des 2 dataframes statistiques et objectifs
-    df1 = pd.DataFrame({
-        'Statistiques': ['Rang mondial', 'Nombre total d\'employés', 'Nombre de sapeurs-pompiers professionnels', 'Nombre de casernes de pompiers'],
-        'Valeurs': ['5ème', '5 992', '5 096', '103']
-    })
-    st.dataframe(df1)
-    st.write("")
-    
-    st.write("La LFB s’est fixée deux objectifs majeurs :")
-    
-    df2 = pd.DataFrame({
-        'Objectifs': ['Arriver sur un lieu d\'un incident', 'Envoyer une seconde équipe en assistance'],
-        'Temps': ['6 minutes (360 sec) en moyenne', '8 minutes (480 sec) après le signalement']
-    })
-    
-    st.dataframe(df2)
     
 #################################################################################################################################################################################################################
     st.write(" ")
