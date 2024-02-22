@@ -92,11 +92,8 @@ def main():
     
     placeholder = st.empty()
     
-    # Vérifie si 'incident' est déjà dans session_state
-    if 'incident' not in st.session_state:
-        st.session_state['incident'] = selected_columns.iloc[8656]
-
     random_row_index = random.randint(0, len(selected_columns) - 1)
+    
     # Bouton pour générer un autre incident
     if st.button("Générer un autre incident"):
         st.session_state['incident'] = selected_columns.iloc[random_row_index]
