@@ -100,9 +100,20 @@ def main():
     placeholder.table(st.session_state['incident'].to_frame())
 
     if st.button('Générer un autre incident'):
+    while True:
         random_index = selected_columns.sample(n=1).index[0]
         st.session_state['incident'] = selected_columns.iloc[random_index]
         placeholder.table(st.session_state['incident'].to_frame())
+        
+        if (st.session_state['incident']['IncidentGroupType'] == selected_incidents) and \
+            (st.session_state['incident']['BoroughName'] == selected_boroughs) and \
+            (st.session_state['incident']['WardName'] == selected_wards) and \
+            (st.session_state['incident']['HourOfCall'] == selectedHour) and \
+            (st.session_state['incident']['PropertyType'] == selected_property) and \
+            (st.session_state['incident']['DeployedFromStationName'] == selected_station) and \
+            (st.session_state['incident']['NumStationsWithPumpsAttending'] == selected_NumPump) and \
+            (st.session_state['incident']['SecondPumpArrivingDeployedFromStation'] == selected_secondPump):
+            break
         
     st.write ("")
     st.write ("Pour obtenir la prédiction, il suffit de cliquer sur le bouton 'Prédire' en bas de la page.")
