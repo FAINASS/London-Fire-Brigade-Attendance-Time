@@ -314,7 +314,7 @@ def main():
         secondPump2.append("No Second pump deloyed")
         selected_secondPump2 = col8.selectbox("2ième caserne déployée:", secondPump2)
             
-        sst.subheader (" ")
+        st.subheader (" ")
     
         if st.button('Prédiction'):
             
