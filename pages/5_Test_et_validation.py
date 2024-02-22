@@ -314,7 +314,47 @@ def main():
         secondPump2.append("No Second pump deloyed")
         selected_secondPump2 = col8.selectbox("2ième caserne déployée:", secondPump2)
             
-        st.subheader (" ")
+        sst.subheader (" ")
+    
+        if st.button('Prédiction'):
+            
+            # Charger le modèle
+            model = load_model()
+                    
+            # Créer un DataFrame avec les données d'entrée
+                     
+            X2 = pd.DataFrame({
+                "IncidentGroupType" : [selected_incidents2],
+                "BoroughName": [selected_boroughs2],
+                "WardName" : [selected_wards2],
+                "HourOfCall": [selectedHour2],
+                "PropertyType": [selected_property2],
+                "DeployedFromStationName": [selected_station2],
+                "NumStationsWithPumpsAttending": [selected_NumPump2],
+                "LatitudeIncident": [lat_ward2],
+                "LatitudeStation" : [lat_station2],
+                "LongitudeIncident": [lon_ward2],
+                "LongitudeStation" : [lon_station2],
+                'SecondPumpArrivingDeployedFromStation' : [selected_secondPump2
+            })
+                    
+            X2['HourOfCall'] = X2['HourOfCall'].astype(float)
+            X2['NumStationsWithPumpsAttending'] = X2['NumStationsWithPumpsAttending'].astype(float)
+                    
+            # Ajout de la colonne 'Distance'
+            X2["Distance"] = X.apply(lambda row: haversine_distance(lat_ward2, lon_ward2, lat_station2,lon_station2), axis=1)
+                    
+            
+            try:
+                
+                st.write(" ")
+                prediction2 = model.predict(X)[0]
+                secondes2 = abs(prediction2) * 60
+                minutes2, secondes2 = divmod(secondes, 60)
+                st.markdown(f"<h3 style='text-align: center; color: White;'>Le temps de réponse estimé est {prediction2:.2f} soit : <span style='color: Orange;'>{int(minutes2)}</span> minute(s) et <span style='color: Orange;'>{int(secondes2)}</span> seconde(s).</h3>", unsafe_allow_html=True)
+            
+            except UnboundLocalError:
+                st.write("")
         
    
 if __name__ == "__main__":
