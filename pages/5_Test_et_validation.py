@@ -239,6 +239,120 @@ def main():
                     
             except UnboundLocalError:
                 st.write("")
+##############################################################################################################################################################################################################################################################################################
+        
+        with onglet2:
+            
+            st.subheader("1. Type d'incident")
+            col1, col2 = st.columns(2)
+                
+            IncidentGroupType = sorted(df['IncidentGroupType'].unique().tolist())
+            selected_incidents = col1.selectbox("Catégorie d'incident:", IncidentGroupType)
+        
+            propertyType = sorted(df['PropertyType'].unique().tolist())
+            selected_property = col2.selectbox("Type d'emplacement:", propertyType)
+        
+            st.subheader(" ")
+            
+            st.subheader("2. Géolocalisation")
+            col3, col4, col5 = st.columns(3)
+                
+            boroughs = sorted(df['BoroughName'].unique().tolist())
+            selected_boroughs = col3.selectbox("Arrondissement:", boroughs)
+            df_filtreBoroughs = df[df['BoroughName'] == selected_boroughs]
+                
+            wards = sorted(df_filtreBoroughs['WardName'].unique().tolist())
+            selected_wards = col4.selectbox("Quartier:", wards)
+                
+            station = sorted(df_filtreBoroughs['DeployedFromStationName'].unique().tolist())
+            selected_station = col5.selectbox("Première caserne déployée:", station)
+        
+        ###############################################################################################################################################
+                    
+            dfStation = df[df['DeployedFromStationName'] == selected_station]
+            lat_station = dfStation['LatitudeStation'].median()
+            lon_station = dfStation['LongitudeStation'].median()
+                    
+            dfWard = df[df['WardName'] == selected_wards]
+            lat_ward = dfWard['LatitudeIncident'].median()
+            lon_ward = dfWard['LongitudeIncident'].median()
+                    
+            st.title(" ")
+            st.markdown("Légende : 🔴 Lieu de l'incident 🔵 Caserne déployée")
+                    
+            m = folium.Map(location=[lat_ward, lon_ward], zoom_start=10,zoom_control=False,scrollWheelZoom=False,dragging=False)
+                
+            folium.Marker(
+            location=[lat_ward, lon_ward],
+                icon=folium.Icon(color="red"),
+                    ).add_to(m)
+                    
+            folium.Marker(
+                    location=[lat_station, lon_station],
+                     icon=folium.Icon(color="blue"),
+                    ).add_to(m)
+                    
+            html = branca.element.Figure()
+            html.add_child(m)
+                    
+            st.components.v1.html(html.render(), width=950, height=310)
+                    
+            st.write(" ")
+            st.subheader("3. Intervention")
+                    
+            col6,col7,col8 = st.columns(3)
+                    
+            Hour = list(np.arange(0.0, 24.0, 1.0))
+            selectedHour = col6.selectbox("Heure de l'appel:", Hour)
+                     
+            NumPump = list(np.arange(1.0,21.0,1.0))
+            selected_NumPump = col7.selectbox("Nombre de caserne engagée:", NumPump)
+                    
+            secondPump = sorted(df['DeployedFromStationName'].unique().tolist())
+            secondPump.append("No Second pump deloyed")
+            selected_secondPump = col8.selectbox("Deuxième caserne déployée:", secondPump)
+                
+            st.subheader (" ")
+        
+            if st.button('Prédire'):
+                
+                # Charger le modèle
+                model = load_model()
+                        
+                # Créer un DataFrame avec les données d'entrée
+                         
+                X = pd.DataFrame({
+                    "IncidentGroupType" : [selected_incidents],
+                    "BoroughName": [selected_boroughs],
+                    "WardName" : [selected_wards],
+                    "HourOfCall": [selectedHour],
+                    "PropertyType": [selected_property],
+                    "DeployedFromStationName": [selected_station],
+                    "NumStationsWithPumpsAttending": [selected_NumPump],
+                    "LatitudeIncident": [lat_ward],
+                    "LatitudeStation" : [lat_station],
+                    "LongitudeIncident": [lon_ward],
+                    "LongitudeStation" : [lon_station],
+                    'SecondPumpArrivingDeployedFromStation' : [selected_secondPump]
+                })
+                        
+                X['HourOfCall'] = X['HourOfCall'].astype(float)
+                X['NumStationsWithPumpsAttending'] = X['NumStationsWithPumpsAttending'].astype(float)
+                        
+                # Ajout de la colonne 'Distance'
+                X["Distance"] = X.apply(lambda row: haversine_distance(lat_ward, lon_ward, lat_station,lon_station), axis=1)
+                        
+                
+                try:
+                    
+                    st.write(" ")
+                    prediction = model.predict(X)[0]
+                    secondes = abs(prediction) * 60
+                    minutes, secondes = divmod(secondes, 60)
+                    st.markdown(f"<h3 style='text-align: center; color: White;'>Le temps de réponse estimé est {prediction:.2f} soit : <span style='color: Orange;'>{int(minutes)}</span> minute(s) et <span style='color: Orange;'>{int(secondes)}</span> seconde(s).</h3>", unsafe_allow_html=True)
+                        
+                except UnboundLocalError:
+                    st.write("")
 
 if __name__ == "__main__":
     main()
