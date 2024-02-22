@@ -107,6 +107,8 @@ def main():
     propertyType = sorted(df['PropertyType'].unique().tolist())
     selected_property = col2.selectbox("Type d'emplacement:", propertyType, index=propertyType.index(st.session_state['incident']['PropertyType']))
 
+    st.write(" ")
+    
     st.subheader("2. Géolocalisation")
     col3, col4, col5 = st.columns(3)
         
