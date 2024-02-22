@@ -53,7 +53,7 @@ def main():
     
     st.header("🚒 La London Fire Brigade")
 
-    st.write(" ")
+    st.subheader(" ")
 
     image_shap = Image.open('LFB_Chiffres.png')
     st.image(image_shap,use_column_width=True)
