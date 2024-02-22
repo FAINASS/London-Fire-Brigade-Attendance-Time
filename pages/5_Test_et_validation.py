@@ -316,7 +316,7 @@ def main():
                 
         secondPump2 = sorted(df['DeployedFromStationName'].unique().tolist())
         secondPump2.append("No Second pump deloyed")
-        selected_secondPump2 = col8.selectbox("2ième caserne déployée:", secondPump2)
+        selected_secondPump2 = col8.selectbox("2ième caserne déployée:", secondPump2,index=-1)
             
         st.subheader (" ")
     
