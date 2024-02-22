@@ -335,7 +335,8 @@ def main():
         ax2.text(x= 0.23, y=2.5, s="No More data",fontdict=font)
     
     st.pyplot(plt)
-    
+
+
     st.header(" ")
     st.write ("Ajout d'une nouvelle variable : SAISON")
     
@@ -378,10 +379,9 @@ def main():
         else:
             sns.lineplot(data=subset, x="DayOfTheCall", y="AttendanceTime", hue="Saison", errorbar=None, marker=".", estimator=np.median, palette=palette)
     
-    #plt.axhline(y=6, color='r', linestyle='--',  linewidth=1,label='Seuil supérieur')
     min_median = medians.min()
     max_median = medians.max()
-    plt.ylim(min_median - 1, max_median + 1)
+    plt.ylim(min_median - 2, max_median + 2)
     
     plt.title("AttendanceTime en fonction du JOUR ET SAISON",fontsize=14)
     plt.xticks([0,1,2,3,4,5,6], ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'])
