@@ -100,6 +100,7 @@ def main():
     placeholder.table(st.session_state['incident'].to_frame())
 
     if st.button('Générer un autre incident'):
+        st.session_state['incident'] = selected_columns.iloc[88530]
         random_index = selected_columns.sample(n=1).index[0]
         st.session_state['incident'] = selected_columns.iloc[random_index]
         placeholder.table(st.session_state['incident'].to_frame())
