@@ -211,7 +211,7 @@ def main():
             
     
         try:
-            st.header(" ")
+            st.write(" ")
             prediction = model.predict(X)[0]
             secondes = abs(prediction) * 60
             minutes, secondes = divmod(secondes, 60)
