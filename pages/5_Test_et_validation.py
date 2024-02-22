@@ -232,7 +232,7 @@ def main():
             st.write(" ")
             
     except UnboundLocalError:
-        st.writze("")
+        st.write("")
         
         
 if __name__ == "__main__":
