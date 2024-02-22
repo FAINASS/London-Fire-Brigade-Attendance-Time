@@ -254,6 +254,7 @@ def main():
         selected_property2 = col2.selectbox("Type emplacement:", propertyType2)
 
         st.subheader(" ")
+        st.write(" ")
         
         st.subheader("2. Géolocalisation")
         col3, col4, col5 = st.columns(3)
@@ -296,6 +297,7 @@ def main():
                 
         st.components.v1.html(html2.render(), width=950, height=310)
                 
+        st.subheader(" ")
         st.write(" ")
         
         st.subheader("3. Intervention")
