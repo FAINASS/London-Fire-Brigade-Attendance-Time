@@ -252,14 +252,12 @@ def main():
     df = df[(df["AttendanceTime"] >= borne_inf) & (df["AttendanceTime"] <= borne_sup)]   
     
     variable = "AttendanceTime"
-    st.markdown(f"<div style='text-align: center; color: black; background-color: antiquewhite; padding: 10px; border-radius: 5px;'>⚠️ Avant de procéder aux analyses suivantes, 
-    nous avons éliminé les valeurs aberrantes de la variable {variable}.</div>", unsafe_allow_html=True)    
+    st.markdown(f"<div style='text-align: center; color: black; background-color: antiquewhite; padding: 10px; border-radius: 5px;'>⚠️ Avant de procéder aux analyses suivantes, nous avons éliminé les valeurs aberrantes de la variable {variable}.</div>", unsafe_allow_html=True)    
     
     st.title(" ")
     st.write("")
 
-    st.markdown("<h5>L’objectif de la LFB est d’assurer l’arrivée des premiers secours en moins de <span style='color: red; font-weight: bold;'>6 minutes</span>. 
-    Les graphiques suivants nous permettront de contrôler si cet objectif est atteint.</h5>", unsafe_allow_html=True)
+    st.markdown("<h5>L’objectif de la LFB est d’assurer l’arrivée des premiers secours en moins de <span style='color: red; font-weight: bold;'>6 minutes</span>. Les graphiques suivants nous permettront de contrôler si cet objectif est atteint.</h5>", unsafe_allow_html=True)
 
 ########################################################################################################################################################################################################################## 
     st.write("--------------------------------------------------------------------------------------------------------------")
