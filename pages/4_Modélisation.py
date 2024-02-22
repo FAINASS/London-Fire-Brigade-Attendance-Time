@@ -27,14 +27,12 @@ from sklearn.inspection import permutation_importance
 from PIL import Image
 
 
-#Configurer l'affichage en mode Wide
 st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded",
     page_title = "Temps de Réponse de la Brigade des Pompiers de Londres")
 
 
-## Supprimer l'espace vide en haut de la page
 st.markdown("""
 <style>
 
@@ -80,20 +78,20 @@ def main():
     st.header("🏋️ Modélisation")
     st.write("L'objectif de cette étape est de développer un modèle de Machine Learning pour répondre à l'objectif initial.")
     
-    
     df = load_data("df_EnrichiModelisation.csv")
 
+    # Filitrage de la période
     all_years = df["YearOfTheCall"].unique().tolist()
-    
     min_year = min(all_years)
     max_year = max(all_years)
     
     expander = st.sidebar.expander("**CHOISIR UNE PÉRIODE**",expanded=False)
     start_year, end_year = expander.slider("Date of Call", min_year, max_year, (2022, 2022))
-    
     df = df[(df['YearOfTheCall'] >= start_year) & (df['YearOfTheCall'] <= end_year)]
 
     st.subheader(" ")
+
+    # Sélection du modèle et affichage de la description du modèle
     st.subheader("0. Choix d'un modèle")
     model_type = st.selectbox("Choisir un modèle :", ['Ridge','XGBRegressor'])
     
@@ -152,16 +150,17 @@ def main():
     st.markdown(f"<div style='text-align: left; color: black; background-color: #ff9800; padding: 10px; border-radius: 5px;'>⚠️ Sur la période de {start_year} à {end_year}, vous avez pré-traité les données avec un {encoder_type} et un {scaler_type}.</div>", unsafe_allow_html=True)
     st.subheader(" ")
     
-    
+    # Sélection des variables numériques et catégorielles
     numeric_features = make_column_selector(dtype_include=np.number)
     categorical_features = make_column_selector(dtype_exclude=np.number)
-    
+
+    # Pipeline de transformation des variables numériques
     numeric_transformer = Pipeline(steps=[
         ('imputer', SimpleImputer(missing_values=np.nan, strategy='median')),
         ('scaler', eval(scaler_type)())
     ])
     
-
+    # Pipeline de transformation des variables catégorielles
     if encoder_type == 'OneHotEncoder':
         categorical_transformer = Pipeline(steps=[
             ('imputer', SimpleImputer(missing_values=np.nan, strategy='constant',fill_value='missing')),
@@ -174,24 +173,20 @@ def main():
             ('encoder', eval(encoder_type)(handle_unknown='use_encoded_value', unknown_value=-1))
         ])
     
-
+    # Pipeline de preprocessing
     preprocessor = ColumnTransformer(
         transformers=[
             ('categorical', categorical_transformer, categorical_features),
             ('numeric', numeric_transformer, numeric_features) 
         ])
-    
 
+    # Application de la pipeline 
     array_transformed = preprocessor.fit_transform(X)
-
     feature_names = preprocessor.get_feature_names_out()
-
-    if hasattr(array_transformed, "toarray"):
-
-        df_transformed = pd.DataFrame(array_transformed.toarray(), columns=feature_names)
     
+    if hasattr(array_transformed, "toarray"):
+        df_transformed = pd.DataFrame(array_transformed.toarray(), columns=feature_names)
     else:
-
         df_transformed = pd.DataFrame(array_transformed, columns=feature_names)
     
     st.dataframe(df_transformed.head(7))
@@ -226,6 +221,8 @@ def main():
 ########################################################################################################################################################################################################################## 
     st.subheader("2. Performances de votre modèle")
     st.subheader(" ")
+
+    # Paramétrage, initialisations et explications des variables des modèles
     
     if model_type == 'XGBRegressor':
        colsample_bytree = my_expander2.slider('Colsample bytree', min_value=0.1, max_value=1.0, value=0.7746831999163204)
@@ -285,12 +282,12 @@ def main():
                   """)
 
 
+    # Pipeline de modélisation
     model_pipeline = Pipeline(steps=[
         ('preprocessor', preprocessor),
         ('estimator', model)
     ])
 
-    
     # Entraînement du modèle sur les données d'entraînement
     model_pipeline.fit(X_train, y_train)
     
@@ -303,7 +300,8 @@ def main():
     Train_RMSE= round(mean_squared_error(y_train, y_train_pred, squared=False), 3)
     Test_score= round(model_pipeline .score(X_test, y_test), 2)
     Test_RMSE= round(mean_squared_error(y_test, y_test_pred, squared=False), 3)
-    
+
+    # Affichage des scores
     data_score_after = pd.DataFrame({
     'Model': [str(model_pipeline["estimator"]).split("(")[0]],
     'R² Train': [Train_score],
@@ -312,7 +310,6 @@ def main():
     'Test RMSE': [Test_RMSE] })
             
     st.write(data_score_after)
-    
     
     with st.expander("Explications", expanded=False):
         st.markdown("""
@@ -347,7 +344,6 @@ def main():
 ########################################################################################################################################################################################################################## 
     st.subheader("3. Visualisation graphique des prédictions")
     
-    
     # Sélection de la plage de données
     début, fin = st.slider('Sélectionnez une plage de données', min_value=0, max_value=500, value=(0, 50))
     x_ax = range(len(y_test))[début:fin]
@@ -362,9 +358,9 @@ def main():
     ax.legend(loc='best')
     
     ax.grid(visible=True, linewidth=0.5)
-    
     st.pyplot(fig)
 
+    # Convertion des minutes en minuntes/secondes
     def convert_to_min_sec(value):
         minutes = int(abs(value))
         seconds = int((abs(value) - minutes) * 60)
@@ -415,11 +411,10 @@ def main():
     st.subheader("5. Interprétabilité de votre modèle - Features importances")
     st.write(" ")
     
-    
     # Calcul des importances des variables explicatives à l'aide de la permutation
     feature_importances = permutation_importance(model_pipeline, X_test, y_test, n_repeats=1, random_state=42,scoring="r2")
     
-    # Création d'un DataFrame avec les noms des variables explicatives et leurs importances
+    # Création d'un dataFrame avec les noms des variables explicatives et leurs importances
     importances_df = pd.DataFrame({
         "Features": X.columns,
         "Importance": feature_importances.importances_mean
@@ -477,7 +472,8 @@ def main():
                 - Les autres variables comme LongitudeIncident, LatitudeIncident, HourOfCall, etc., ont un impact moindre sur le modèle.
                 """)
     st.header("")
-    
+
+    #######################################################################
     st.write("Analyse des résidus :")
     image_residus = Image.open('Analyse_résidus.png')
     st.image(image_residus,use_column_width=True)
