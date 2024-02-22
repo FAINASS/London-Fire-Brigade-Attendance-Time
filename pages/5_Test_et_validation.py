@@ -153,8 +153,78 @@ def main():
     st.components.v1.html(html.render(), width=950, height=310)
             
     st.write(" ")
+    st.subheader("3. Intervention")
+            
+    col6,col7,col8 = st.columns(3)
+            
+    Hour = list(np.arange(0.0, 24.0, 1.0))
+    selectedHour = col6.selectbox("Heure de l'appel:", Hour, index=Hour.index(st.session_state['incident']['HourOfCall']))
+             
+    NumPump = list(np.arange(1.0,21.0,1.0))
+    selected_NumPump = col7.selectbox("Nombre de caserne engagée:", NumPump, index=NumPump.index(st.session_state['incident']['NumStationsWithPumpsAttending']))
+            
+    secondPump = sorted(df['DeployedFromStationName'].unique().tolist())
+    secondPump.append("No Second pump deloyed")
+    selected_secondPump = col8.selectbox("Deuxième caserne déployée:", secondPump, index=secondPump.index(st.session_state['incident']['SecondPumpArrivingDeployedFromStation']))
+        
+    st.write(" ")
 
-
+    if st.button('Prédire'):
+                
+            # Charger le modèle
+            model = load_model()
+                
+            # Créer un DataFrame avec les données d'entrée
+                 
+            X = pd.DataFrame({
+                    "IncidentGroupType" : [selected_incidents],
+                    "BoroughName": [selected_boroughs],
+                    "WardName" : [selected_wards],
+                    "HourOfCall": [selectedHour],
+                    "PropertyType": [selected_property],
+                    "DeployedFromStationName": [selected_station],
+                    "NumStationsWithPumpsAttending": [selected_NumPump],
+                    "LatitudeIncident": [lat_ward],
+                    "LatitudeStation" : [lat_station],
+                    "LongitudeIncident": [lon_ward],
+                    "LongitudeStation" : [lon_station],
+                    'SecondPumpArrivingDeployedFromStation' : [selected_secondPump]
+                })
+                
+            X['HourOfCall'] = X['HourOfCall'].astype(float)
+            X['NumStationsWithPumpsAttending'] = X['NumStationsWithPumpsAttending'].astype(float)
+                
+            # Ajout de la colonne 'Distance'
+            X["Distance"] = X.apply(lambda row: haversine_distance(lat_ward, lon_ward, lat_station,lon_station), axis=1)
+                
+        
+            try:
+                st.write(" ")
+                prediction = model.predict(X)[0]
+                secondes = abs(prediction) * 60
+                minutes, secondes = divmod(secondes, 60)
+                st.markdown(f"<h3 style='text-align: center; color: White;'>Le temps de réponse estimé est {prediction:.2f} soit : <span style='color: Orange;'>{int(minutes)}</span> minute(s) et <span style='color: Orange;'>{int(secondes)}</span> seconde(s).</h3>", unsafe_allow_html=True)
+            
+                if (st.session_state['incident']['IncidentGroupType'] == selected_incidents) and \
+                    (st.session_state['incident']['BoroughName'] == selected_boroughs) and \
+                    (st.session_state['incident']['WardName'] == selected_wards) and \
+                    (st.session_state['incident']['HourOfCall'] == selectedHour) and \
+                    (st.session_state['incident']['PropertyType'] == selected_property) and \
+                    (st.session_state['incident']['DeployedFromStationName'] == selected_station) and \
+                    (st.session_state['incident']['NumStationsWithPumpsAttending'] == selected_NumPump) and \
+                    (st.session_state['incident']['SecondPumpArrivingDeployedFromStation'] == selected_secondPump) : 
+                    difference = prediction - st.session_state['incident']['AttendanceTime'] 
+                    secondes = abs(difference) * 60
+                    minutes, secondes = divmod(secondes, 60)
+                    st.markdown(f"<h3 style='text-align: center; font-size: 20px;'><i>Nous avons une erreur de prédiction de : {minutes:.0f} minute(s) et {secondes:.0f} seconde(s)</i></h3>", unsafe_allow_html=True)
+                else:
+                    st.write(" ")
+                        
+            except UnboundLocalError:
+                st.write("")
+        else :
+            st.write("")
+            
 
 if __name__ == "__main__":
     main()
