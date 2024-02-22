@@ -7,6 +7,7 @@ This is a temporary script file.
 
 import streamlit as st
 import pandas as pd
+from PIL import Image
 
 
 # Configuration de l'affichage en mode Wide
