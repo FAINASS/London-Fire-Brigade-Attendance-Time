@@ -84,7 +84,7 @@ def main():
     st.write(" ")
 
     df = load_data("df_Predictions.csv")
-    df.drop(df[(df['NumStationsWithPumpsAttending'] > 1) & (df['SecondPumpArrivingDeployedFromStation'] != "No Second pump deployed").index],axis=1,inplace=True)
+    st.write(df[(df['NumStationsWithPumpsAttending'] > 1) & (df['SecondPumpArrivingDeployedFromStation'] != "No Second pump deployed")])
     
     st.subheader("0. Incident à prédire")
     selected_columns = df[["IncidentGroupType", "PropertyType", "BoroughName", "WardName", "DeployedFromStationName","Distance",
