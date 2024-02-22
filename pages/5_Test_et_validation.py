@@ -84,7 +84,8 @@ def main():
     st.write(" ")
 
     df = load_data("df_Predictions.csv")
-    st.write(df[(df['NumStationsWithPumpsAttending'] > 1) & (df['SecondPumpArrivingDeployedFromStation'] == "No Second pump deployed")])
+    
+    # st.write(df[(df['NumStationsWithPumpsAttending'] > 1) & (df['SecondPumpArrivingDeployedFromStation'] == "No Second pump deployed")])
     
     st.subheader("0. Incident à prédire")
     selected_columns = df[["IncidentGroupType", "PropertyType", "BoroughName", "WardName", "DeployedFromStationName","Distance",
@@ -97,8 +98,6 @@ def main():
     # Vérifier si 'incident' est déjà dans session_state
     if 'incident' not in st.session_state:
         st.session_state['incident'] = selected_columns.iloc[88530]
-
-    st.session_state['incident'] = selected_columns.iloc[88530]
 
     if st.button('Générer un autre incident'):
         random_index = selected_columns.sample(n=1).index[0]
