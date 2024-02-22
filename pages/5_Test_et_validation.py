@@ -176,7 +176,7 @@ def main():
         selectedHour = col6.selectbox("Heure de l'appel:", Hour, index=Hour.index(st.session_state['incident']['HourOfCall']),disabled=True)
                  
         NumPump = list(np.arange(1.0,21.0,1.0))
-        selected_NumPump = col7.selectbox("Nombre de caserne engagée:", NumPump, index=NumPump.index(st.session_state['incident']['NumStationsWithPumpsAttending']),disabled=True)
+        selected_NumPump = col7.selectbox("Nombre de casernes engagées:", NumPump, index=NumPump.index(st.session_state['incident']['NumStationsWithPumpsAttending']),disabled=True)
                 
         secondPump = sorted(df['DeployedFromStationName'].unique().tolist())
         secondPump.append("No Second pump deloyed")
@@ -297,7 +297,22 @@ def main():
         st.components.v1.html(html2.render(), width=950, height=310)
                 
         st.write(" ")
+        
         st.subheader("3. Intervention")
+        
+        col6,col7,col8 = st.columns(3)
+                
+        Hour2 = list(np.arange(0.0, 24.0, 1.0))
+        selectedHour2 = col6.selectbox("Heure appel:", Hour2)
+                 
+        NumPump2 = list(np.arange(1.0,21.0,1.0))
+        selected_NumPump2 = col7.selectbox("Nombre de casernes :", NumPump2)
+                
+        secondPump2 = sorted(df['DeployedFromStationName'].unique().tolist())
+        secondPump2.append("No Second pump deloyed")
+        selected_secondPump2 = col8.selectbox("2ième caserne déployée:", secondPump2)
+            
+        st.subheader (" ")
         
    
 if __name__ == "__main__":
