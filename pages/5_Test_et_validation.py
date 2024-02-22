@@ -242,14 +242,16 @@ def main():
 ##############################################################################################################################################################################################################################################################################################
          
     with onglet2:
+
+        df2 = load_data("df_Predictions.csv")
         
         st.subheader("1. Type d'incident")
         col1, col2 = st.columns(2)
             
-        IncidentGroupType_ = sorted(df['IncidentGroupType'].unique().tolist())
+        IncidentGroupType_ = sorted(df2['IncidentGroupType'].unique().tolist())
         selected_incidents_ = col1.selectbox("Catégorie d'incident:", IncidentGroupType_)
     
-        propertyType_ = sorted(df['PropertyType'].unique().tolist())
+        propertyType_ = sorted(df2['PropertyType'].unique().tolist())
         selected_property_ = col2.selectbox("Type d'emplacement:", propertyType_)
     
         st.subheader(" ")
