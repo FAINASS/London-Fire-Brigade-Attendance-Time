@@ -113,7 +113,7 @@ def main():
     selected_incidents = col1.selectbox("Catégorie d'incident:", IncidentGroupType, index=IncidentGroupType.index(st.session_state['incident']['IncidentGroupType']), disabled=True)
 
     propertyType = sorted(df['PropertyType'].unique().tolist())
-    selected_property = col2.selectbox("Type d'emplacement:", propertyType, index=propertyType.index(st.session_state['incident']['PropertyType']),disabled=False)
+    selected_property = col2.selectbox("Type d'emplacement:", propertyType, index=propertyType.index(st.session_state['incident']['PropertyType']),disabled=True)
 
     st.subheader(" ")
     
@@ -214,21 +214,7 @@ def main():
             minutes, secondes = divmod(secondes, 60)
             st.markdown(f"<h3 style='text-align: center; color: White;'>Le temps de réponse estimé est {prediction:.2f} soit : <span style='color: Orange;'>{int(minutes)}</span> minute(s) et <span style='color: Orange;'>{int(secondes)}</span> seconde(s).</h3>", unsafe_allow_html=True)
             
-            if (st.session_state['incident']['IncidentGroupType'] == selected_incidents) and \
-                    (st.session_state['incident']['BoroughName'] == selected_boroughs) and \
-                    (st.session_state['incident']['WardName'] == selected_wards) and \
-                    (st.session_state['incident']['HourOfCall'] == selectedHour) and \
-                    (st.session_state['incident']['PropertyType'] == selected_property) and \
-                    (st.session_state['incident']['DeployedFromStationName'] == selected_station) and \
-                    (st.session_state['incident']['NumStationsWithPumpsAttending'] == selected_NumPump) and \
-                    (st.session_state['incident']['SecondPumpArrivingDeployedFromStation'] == selected_secondPump) : 
-                    difference = prediction - st.session_state['incident']['AttendanceTime'] 
-                    secondes = abs(difference) * 60
-                    minutes, secondes = divmod(secondes, 60)
-                    st.markdown(f"<h3 style='text-align: center; font-size: 20px;'><i>Nous avons une erreur de prédiction de : {minutes:.0f} minute(s) et {secondes:.0f} seconde(s)</i></h3>", unsafe_allow_html=True)
-            else:
-                    st.write(" ")
-                        
+        
         except UnboundLocalError:
             st.write("")
         
