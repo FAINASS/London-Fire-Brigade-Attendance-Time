@@ -86,7 +86,7 @@ def main():
     df = load_data("df_Predictions.csv")
 
      # Création des 2 onglets
-    titres_onglets = ['Incidents', 'Mobilisations']
+    titres_onglets = ['Utiliser la base de données des incidents', 'Créer mon propre incident']
     onglet1, onglet2 = st.tabs(titres_onglets)
       
     # Configuration de chaque onglets
