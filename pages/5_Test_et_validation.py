@@ -349,7 +349,7 @@ def main():
                 st.write(" ")
                 prediction2 = model.predict(X2)[0]
                 secondes2 = abs(prediction2) * 60
-                minutes2, secondes2 = divmod(secondes, 60)
+                minutes2, secondes2 = divmod(secondes2, 60)
                 st.markdown(f"<h3 style='text-align: center; color: White;'>Le temps de réponse estimé est {prediction2:.2f} soit : <span style='color: Orange;'>{int(minutes2)}</span> minute(s) et <span style='color: Orange;'>{int(secondes2)}</span> seconde(s).</h3>", unsafe_allow_html=True)
             
             except UnboundLocalError:
