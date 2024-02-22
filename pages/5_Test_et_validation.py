@@ -207,6 +207,7 @@ def main():
                 
         
         try:
+            
             st.write(" ")
             prediction = model.predict(X)[0]
             secondes = abs(prediction) * 60
