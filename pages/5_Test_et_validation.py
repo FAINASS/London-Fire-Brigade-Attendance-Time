@@ -113,11 +113,10 @@ def main():
     
     IncidentGroupType = sorted(df['IncidentGroupType'].unique().tolist())
     selected_incidents = col1.selectbox("Catégorie d'incident:", IncidentGroupType, index=IncidentGroupType.index(st.session_state['incident']['IncidentGroupType']),disabled=True)
-    df_filtreIncidents = df[df['IncidentGroupType'] == selected_incidents]
     
     
     propertyType = sorted(df['PropertyType'].unique().tolist())
-    selected_property = col2.selectbox("Type d'emplacement:", propertyType, index=propertyType.index(st.session_state['incident']['PropertyType']),disabled=True)
+    selected_property = col2.selectbox("Type d'emplacement:", propertyType, index=propertyType.index(st.session_state['incident']['PropertyType']))
     
     
     st.subheader(" ")
@@ -129,35 +128,26 @@ def main():
     df_filtreBoroughs = df[df['BoroughName'] == selected_boroughs]
     
     wards = sorted(df_filtreBoroughs['WardName'].unique().tolist())
-    selected_wards= col4.selectbox("Quartier:", wards, index=wards.index(st.session_state['incident']['WardName']),disabled=True)
-    df_filtreWards = df_filtreBoroughs[df_filtreBoroughs['WardName'] == selected_wards]
+    selected_wards= col4.selectbox("Quartier:", wards, index=wards.index(st.session_state['incident']['WardName']))
     
-    station = sorted(df_filtreWards['DeployedFromStationName'].unique().tolist())
+    station = sorted(df_filtreBoroughs['DeployedFromStationName'].unique().tolist())
     selected_station= col5.selectbox("Première caserne déployée:", station, index=station.index(st.session_state['incident']['DeployedFromStationName']))
- 
+    
     ###############################################################################################################################################
-
-    station_data = df[df['DeployedFromStationName'] == selected_station]
-    lat_station = station_data['LatitudeStation'].median()
-    lon_station = station_data['LongitudeStation'].median()
     
-    ward_data = df[(df['WardName'] == selected_wards) & (df['DeployedFromStationName'] == selected_station)]
-    lat_ward = ward_data['LatitudeIncident'].median()
-    lon_ward = ward_data['LongitudeIncident'].median()
+    dfStation = df[df['DeployedFromStationName'] == selected_station]
+    lat_station = dfStation['LatitudeStation'].median()
+    lon_station = dfStation['LongitudeStation'].median()
     
+    dfWard = df[df['WardName'] == selected_wards]
+    lat_ward = dfWard['LatitudeIncident'].median()
+    lon_ward = dfWard['LongitudeIncident'].median()
     
     st.title(" ")
     st.markdown("Légende : 🔴 Lieu de l'incident 🔵 Caserne déployée")
-
-    df_filtered = df[df['DeployedFromStationName'].isin(station)]
-
-    distances = df_filtered.apply(lambda row: haversine_distance(lat_ward, lon_ward, row['LatitudeStation'], row['LongitudeStation']), axis=1)
-    min_distance_index = distances.idxmin()
-    
-    nearest_station = df_filtered.loc[min_distance_index, 'DeployedFromStationName']
     
     m = folium.Map(location=[lat_ward, lon_ward], zoom_start=10,zoom_control=False,scrollWheelZoom=False,dragging=False)
-    
+
     folium.Marker(
         location=[lat_ward, lon_ward],
         icon=folium.Icon(color="red"),
@@ -173,27 +163,20 @@ def main():
     
     st.components.v1.html(html.render(), width=950, height=310)
     
-    if selected_station != nearest_station:
-        st.write(f"La station la plus proche est {nearest_station}.")
-        
- 
-    ###############################################################################################################################################
-    
     st.write(" ")
     st.subheader("3. Intervention")
     
     col6,col7,col8 = st.columns(3)
-
+    
     Hour = list(np.arange(0.0, 24.0, 1.0))
-    selectedHour = col6.selectbox("Heure de l'appel:", Hour, index=Hour.index(st.session_state['incident']['HourOfCall']),disabled=True)
+    selectedHour = col6.selectbox("Heure de l'appel:", Hour, index=Hour.index(st.session_state['incident']['HourOfCall']))
      
     NumPump = list(np.arange(1.0,21.0,1.0))
-    selected_NumPump = col7.selectbox("Nombre de caserne engagée:", NumPump, index=NumPump.index(st.session_state['incident']['NumStationsWithPumpsAttending']),disabled=True)
+    selected_NumPump = col7.selectbox("Nombre de caserne engagée:", NumPump, index=NumPump.index(st.session_state['incident']['NumStationsWithPumpsAttending']))
     
-    secondPump = sorted(df['SecondPumpArrivingDeployedFromStation'].unique().tolist())
-    selected_secondPump = col8.selectbox("Deuxième caserne déployée:", secondPump, index=secondPump.index(st.session_state['incident']['SecondPumpArrivingDeployedFromStation']),disabled=True)
-    
-    ###############################################################################################################################################
+    secondPump = sorted(df['DeployedFromStationName'].unique().tolist())
+    secondPump.append("No Second pump deloyed")
+    selected_secondPump = col8.selectbox("Deuxième caserne déployée:", secondPump, index=secondPump.index(st.session_state['incident']['SecondPumpArrivingDeployedFromStation']))
 
     st.write(" ")
     
@@ -233,16 +216,15 @@ def main():
         minutes, secondes = divmod(secondes, 60)
         st.markdown(f"<h3 style='text-align: center; color: White;'>Le temps de réponse estimé est {prediction:.2f} soit : <span style='color: Orange;'>{int(minutes)}</span> minute(s) et <span style='color: Orange;'>{int(secondes)}</span> seconde(s).</h3>", unsafe_allow_html=True)
 
-         
-        if st.session_state['incident']['DeployedFromStationName'] == selected_station :
-            difference = prediction - st.session_state['incident']['AttendanceTime'] 
-            secondes = abs(difference) * 60
-            minutes, secondes = divmod(secondes, 60)
-            st.markdown(f"<h3 style='text-align: center; font-size: 20px;'><i>Nous avons une erreur de prédiction de : {minutes:.0f} minute(s) et {secondes:.0f} seconde(s)</i></h3>", unsafe_allow_html=True)
+            
+        difference = prediction - st.session_state['incident']['AttendanceTime'] 
+        secondes = abs(difference) * 60
+        minutes, secondes = divmod(secondes, 60)
+        st.markdown(f"<h3 style='text-align: center; font-size: 20px;'><i>Nous avons une erreur de prédiction de : {minutes:.0f} minute(s) et {secondes:.0f} seconde(s)</i></h3>", unsafe_allow_html=True)
     
     except UnboundLocalError:
         st.write('')
-    
-    
+        
+        
 if __name__ == "__main__":
     main()
