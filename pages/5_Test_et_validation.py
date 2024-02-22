@@ -99,6 +99,8 @@ def main():
 
     placeholder.table(st.session_state['incident'].to_frame())
 
+    st.session_state['incident'] = selected_columns.iloc[88530]
+
     if st.button('Générer un autre incident'):
         random_index = selected_columns.sample(n=1).index[0]
         st.session_state['incident'] = selected_columns.iloc[random_index]
@@ -231,7 +233,6 @@ def main():
                 st.markdown(f"<h3 style='text-align: center; font-size: 20px;'><i>Nous avons une erreur de prédiction de : {minutes:.0f} minute(s) et {secondes:.0f} seconde(s)</i></h3>", unsafe_allow_html=True)
             else:
                 st.write(" ")
-                st.session_state['incident'] = selected_columns.iloc[88530]
                 
         except UnboundLocalError:
             st.write("")
