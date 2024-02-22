@@ -223,6 +223,8 @@ def main():
             minutes, secondes = divmod(secondes, 60)
             st.markdown(f"<h3 style='text-align: center; font-size: 20px;'><i>Nous avons une erreur de prédiction de : {minutes:.0f} minute(s) et {secondes:.0f} seconde(s)</i></h3>", unsafe_allow_html=True)
 
+        else :
+            st.write(" ")
             
     except UnboundLocalError:
         st.write('')
