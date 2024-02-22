@@ -96,7 +96,32 @@ def main():
     # Vérifier si 'incident' est déjà dans session_state
     if 'incident' not in st.session_state:
         st.session_state['incident'] = selected_columns.iloc[88530]
+
+    IncidentGroupType = sorted(df['IncidentGroupType'].unique().tolist())
+    selected_incidents = col1.selectbox("Catégorie d'incident:", IncidentGroupType, index=IncidentGroupType.index(0),disabled=True)
     
+    propertyType = sorted(df['PropertyType'].unique().tolist())
+    selected_property = col2.selectbox("Type d'emplacement:", propertyType, index=propertyType.index(0))
+    
+    boroughs = sorted(df['BoroughName'].unique().tolist())
+    selected_boroughs = col3.selectbox("Arrondissement:", boroughs, index=boroughs.index(0),disabled=True)
+    
+    wards = sorted(df_filtreBoroughs['WardName'].unique().tolist())
+    selected_wards= col4.selectbox("Quartier:", wards, index=wards.index(0))
+    
+    station = sorted(df_filtreBoroughs['DeployedFromStationName'].unique().tolist())
+    selected_station= col5.selectbox("Première caserne déployée:", station, index=station.index(0))
+
+     Hour = list(np.arange(0.0, 24.0, 1.0))
+    selectedHour = col6.selectbox("Heure de l'appel:", Hour, index=Hour.index(0))
+     
+    NumPump = list(np.arange(1.0,21.0,1.0))
+    selected_NumPump = col7.selectbox("Nombre de caserne engagée:", NumPump, index=NumPump.index(0))
+    
+    secondPump = sorted(df['DeployedFromStationName'].unique().tolist())
+    secondPump.append("No Second pump deloyed")
+    selected_secondPump = col8.selectbox("Deuxième caserne déployée:", secondPump, index=secondPump.index(0))
+
     placeholder.table(st.session_state['incident'].to_frame())
 
     if st.button('Générer un autre incident'):
