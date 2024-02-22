@@ -242,10 +242,10 @@ def main():
 ##############################################################################################################################################################################################################################################################################################
     
     with onglet2:
-    
+        
+        st.subheader(" ")
         st.subheader("1. Type d'incident")
         col1, col2 = st.columns(2)
-        st.subheader(" ")
         
         IncidentGroupType2 = sorted(df['IncidentGroupType'].unique().tolist())
         selected_incidents2 = col1.selectbox("Catégorie incident:", IncidentGroupType2)
