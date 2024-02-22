@@ -382,12 +382,17 @@ def main():
     min_median = medians.min()
     max_median = medians.max()
     plt.ylim(min_median - 2, max_median + 2)
+    ax.axhline(y=6, color='r', linestyle='--',  linewidth=1,label='Seuil supérieur')
     
     plt.title("AttendanceTime en fonction du JOUR ET SAISON",fontsize=14)
     plt.xticks([0,1,2,3,4,5,6], ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'])
     plt.legend(fontsize=12)
     st.pyplot(plt)
     plt.tight_layout()
+
+
+
+
     
     st.header(" ")
     st.write("Ajout d'une nouvelle variable : Moment de la journée")
