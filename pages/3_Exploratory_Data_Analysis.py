@@ -186,6 +186,7 @@ def main():
     
     st.pyplot(fig)
 
+    ####################################################################################
     ## Création du piechart des retards
     
     st.header(" ")
@@ -336,6 +337,7 @@ def main():
     
     st.pyplot(plt)
 
+    ####################################################################################
 
     st.header(" ")
     st.write ("Ajout d'une nouvelle variable : SAISON")
@@ -383,15 +385,15 @@ def main():
     max_median = medians.max()
     plt.ylim(min_median - 2, max_median + 2)
     plt.axhline(y=6, color='r', linestyle='--',  linewidth=1,label='Seuil supérieur')
-    
+
     plt.title("AttendanceTime en fonction du JOUR ET SAISON",fontsize=14)
     plt.xticks([0,1,2,3,4,5,6], ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'])
     plt.legend(fontsize=12)
     st.pyplot(plt)
     plt.tight_layout()
-
-    
     st.header(" ")
+    
+    ####################################################################################
     st.write("Ajout d'une nouvelle variable : Moment de la journée")
     
     labels = ["Late Night", "Early Morning", "Morning", "Afternoon", "Early Evening", "Late Evening"]
@@ -497,12 +499,11 @@ def main():
     
 
     st.plotly_chart(fig, use_container_width=True)
-    
+
     if selected_boroughs == "Tous" : 
         st.write(" ")
         st.write ("Ajout d'une nouvelle variable : RÉGION")
         
-     
         Region = {
             "Center": ["Camden","Islington","Westminster","Lambeth","Southwark","Kensington and Chelsea","City of London"],
             "East" : ["Hackney","Waltham Forest","Redbridge","Tower Hamlets","Lewisham","Greenwich","Bexley","Barking and Dagenham","Havering","Newham"],
@@ -555,6 +556,7 @@ def main():
     
     fig, ax = plt.subplots(figsize=(12, 6))
     df["MonthOfTheCall"] = df["MonthOfTheCall"].astype(int)
+    
     # Calcul de la corrélation de 'AttendanceTime' avec toutes les autres colonnes
     corr = df.corrwith(df['AttendanceTime'], method = "spearman",numeric_only=True)
     
@@ -570,10 +572,9 @@ def main():
          - TurnoutTime : Temps de préparation et de départ des pompiers.
          - TravelTime : Temps de trajet jusqu’à l’incident.
         """)
+   st.header(" ")
 
-
-    st.header(" ")
-    
+####################################################################################
     st.write("Évolution du temps de réponse en fonction de l'année")
 
     df["DateOfCall"]=pd.to_datetime(df["DateOfCall"])
@@ -584,12 +585,12 @@ def main():
     
     df.loc["2009":"2022"]["AttendanceTime"].resample("M").median().plot(kind="line",label="Median",linewidth=2,marker="o")
     
-    # Calculer les valeurs min et max des médianes
+    # Calcul des valeurs min et max des médianes
     medians = df.loc["2009":"2022"]["AttendanceTime"].resample("M").median()
     min_median = medians.min()
     max_median = medians.max()
     
-    # Ajuster les limites de l'axe des y
+    # Ajout des limites de l'axe des y
     plt.ylim(min_median - 2, max_median + 2)
     
     plt.axhline(y=6, color='r', linestyle='--',  linewidth=1,label='Seuil supérieur')
@@ -605,7 +606,8 @@ def main():
         """)
     
     st.write(" ")
-    
+
+####################################################################################
     st.write("Ajout d'une nouvelle variable : Distance entre le lieu de l'incident et la Caserne")
     
     data_dist = data.sample(500)
