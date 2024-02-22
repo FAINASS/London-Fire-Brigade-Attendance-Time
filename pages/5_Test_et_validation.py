@@ -90,7 +90,6 @@ def main():
                            "HourOfCall", "NumStationsWithPumpsAttending","SecondPumpArrivingDeployedFromStation", "AttendanceTime"]]
     
     
-
     placeholder = st.empty()
     
     # Vérifier si 'incident' est déjà dans session_state
@@ -99,28 +98,15 @@ def main():
 
     placeholder.table(st.session_state['incident'].to_frame())
 
-    if st.button('Générer un autre incident'):
-        random_index = selected_columns.sample(n=1).index[0]
-        st.session_state['incident'] = selected_columns.iloc[random_index]
-    else :
-        st.write(" ")
-    
-    
-    st.write ("")
-    st.write ("Pour obtenir la prédiction, il suffit de cliquer sur le bouton 'Prédire' en bas de la page.")
-        
-    st.markdown("---")
-        
     st.subheader("1. Type d'incident")
     col1, col2 = st.columns(2)
         
     IncidentGroupType = sorted(df['IncidentGroupType'].unique().tolist())
     selected_incidents = col1.selectbox("Catégorie d'incident:", IncidentGroupType, index=IncidentGroupType.index(st.session_state['incident']['IncidentGroupType']), disabled=True)
-        
+
     propertyType = sorted(df['PropertyType'].unique().tolist())
     selected_property = col2.selectbox("Type d'emplacement:", propertyType, index=propertyType.index(st.session_state['incident']['PropertyType']))
-        
-    st.subheader(" ")
+
     st.subheader("2. Géolocalisation")
     col3, col4, col5 = st.columns(3)
         
@@ -133,7 +119,6 @@ def main():
         
     station = sorted(df_filtreBoroughs['DeployedFromStationName'].unique().tolist())
     selected_station = col5.selectbox("Première caserne déployée:", station, index=station.index(st.session_state['incident']['DeployedFromStationName']))
-            
 
 
 if __name__ == "__main__":
