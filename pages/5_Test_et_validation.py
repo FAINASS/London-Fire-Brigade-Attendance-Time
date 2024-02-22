@@ -181,14 +181,14 @@ def main():
     
     st.write(" ")
     
-       if st.button('Prédire'):
+    if st.button('Prédire'):
             
-            # Charger le modèle
-            model = load_model()
+        # Charger le modèle
+        model = load_model()
             
-            # Créer un DataFrame avec les données d'entrée
+        # Créer un DataFrame avec les données d'entrée
              
-            X = pd.DataFrame({
+        X = pd.DataFrame({
                 "IncidentGroupType" : [selected_incidents],
                 "BoroughName": [selected_boroughs],
                 "WardName" : [selected_wards],
@@ -203,11 +203,11 @@ def main():
                 'SecondPumpArrivingDeployedFromStation' : [selected_secondPump]
             })
             
-            X['HourOfCall'] = X['HourOfCall'].astype(float)
-            X['NumStationsWithPumpsAttending'] = X['NumStationsWithPumpsAttending'].astype(float)
+        X['HourOfCall'] = X['HourOfCall'].astype(float)
+        X['NumStationsWithPumpsAttending'] = X['NumStationsWithPumpsAttending'].astype(float)
             
-            # Ajout de la colonne 'Distance'
-            X["Distance"] = X.apply(lambda row: haversine_distance(lat_ward, lon_ward, lat_station,lon_station), axis=1)
+        # Ajout de la colonne 'Distance'
+        X["Distance"] = X.apply(lambda row: haversine_distance(lat_ward, lon_ward, lat_station,lon_station), axis=1)
             
     
         try:
