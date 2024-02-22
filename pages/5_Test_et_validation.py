@@ -342,7 +342,7 @@ def main():
             X2['NumStationsWithPumpsAttending'] = X2['NumStationsWithPumpsAttending'].astype(float)
                     
             # Ajout de la colonne 'Distance'
-            X2["Distance"] = X.apply(lambda row: haversine_distance(lat_ward2, lon_ward2, lat_station2,lon_station2), axis=1)
+            X2["Distance"] = X2.apply(lambda row: haversine_distance(lat_ward2, lon_ward2, lat_station2,lon_station2), axis=1)
                     
             
             try:
