@@ -243,7 +243,7 @@ def main():
     
     with onglet2:
         
-        st.subheader(" ")
+        st.write(" ")
         st.subheader("1. Type d'incident")
         col1, col2 = st.columns(2)
         
