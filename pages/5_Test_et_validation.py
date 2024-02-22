@@ -243,7 +243,7 @@ def main():
     
     with onglet2:
         df2 = load_data("df_Predictions.csv")
-        st2.subheader("1. Type d'incident")
+        st.subheader("1. Type d'incident")
         col9, col10 = st.columns(2)
         
         IncidentGroupType2 = sorted(df2['IncidentGroupType'].unique().tolist())
