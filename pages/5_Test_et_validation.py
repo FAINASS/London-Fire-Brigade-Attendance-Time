@@ -245,6 +245,8 @@ def main():
         df2 = load_data("df_Predictions.csv")
         st.subheader("1. Type d'incident")
         col9, col10 = st.columns(2)
+        IncidentGroupType2 = sorted(df['IncidentGroupType'].unique().tolist())
+        
    
 if __name__ == "__main__":
     main()
