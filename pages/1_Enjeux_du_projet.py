@@ -9,13 +9,13 @@ import streamlit as st
 import pandas as pd
 
 
-#Configurer l'affichage en mode Wide
+# Configuration de l'affichage en mode Wide
 st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded",
     page_title = "Temps de Réponse de la Brigade des Pompiers de Londres")
 
-## Supprimer l'espace vide en haut de la page
+# Suppression de l'espace vide en haut de la page
 st.markdown("""
         <style>
                .block-container {
@@ -29,6 +29,7 @@ st.markdown("""
 
 
 def add_logo():
+
     st.markdown(
         """
         <style>
@@ -56,7 +57,8 @@ def main():
     st.markdown("""
     ##### La LFB en quelques chiffres
     """)
-    
+
+    # Création des 2 dataframes statistiques et objectifs
     df1 = pd.DataFrame({
         'Statistiques': ['Rang mondial', 'Nombre total d\'employés', 'Nombre de sapeurs-pompiers professionnels', 'Nombre de casernes de pompiers'],
         'Valeurs': ['5ème', '5 992', '5 096', '103']
@@ -73,6 +75,7 @@ def main():
     
     st.dataframe(df2)
     
+#################################################################################################################################################################################################################
     st.write(" ")
     st.header("🎯 Enjeux du projet")
 
