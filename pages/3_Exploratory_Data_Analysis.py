@@ -263,23 +263,23 @@ def main():
     st.write("--------------------------------------------------------------------------------------------------------------")
     st.subheader("4. Répartition des valeurs de la variable cible")
     
-   # Création des intervalles
+   # Création des intervalles et des catégories de couleurs
     bins = pd.cut(df["AttendanceTime"], 10)
-    
     colors = ['lightcoral' if (interval.right > 6) else 'skyblue' for interval in bins.cat.categories]
     
     fig, ax = plt.subplots(figsize=(16,6))
     ax = bins.value_counts(sort=False).plot(kind='bar', color=colors)
-    
-    total_percentage = 0
-    red_percentage = 0
+
+    total_percentage = 0 
+    red_percentage = 0 
     
     for c in ax.containers:
         heights = [v.get_height() for v in c]
         percentages = [h/df["AttendanceTime"].count()*100 for h in heights]
-        total_percentage += sum(percentages)
-        red_percentage += sum(p for p, color in zip(percentages, colors) if color == 'lightcoral')
-    
+        total_percentage += sum(percentages) # total_percentage est la somme des pourcentages de toutes les barres
+        red_percentage += sum(p for p, color in zip(percentages, colors) if color == 'lightcoral') # red_bar_percentage est la somme des pourcentages des barres de couleur ‘lightcoral’
+
+    # Affichage des étiquettes 
     for c in ax.containers:
         labels = [f'{p:0.1f}%' if (p := h/df["AttendanceTime"].count()*100) > 0 else '' for h in heights]
         ax.bar_label(c, labels=labels, label_type='edge')
@@ -288,12 +288,14 @@ def main():
 
     plt.title("Répartition des valeurs de la variable AttendanceTime", fontsize=14)
 
+    # Ajout d'une légende
     red_patch = mpatches.Patch(color='lightcoral', label='Valeurs au-delà des objectifs de la LFB')
     plt.legend(handles=[red_patch])
     
     st.pyplot(fig)
-    
-    st.write(f"Dans près de {red_percentage/total_percentage*100:.2f} % des interventions, la LFB ne parvient pas à respecter son objectif d’une arrivée en moins de 6 minutes.")
+
+    # Affichage du pourcentage des barres de couleur ‘lightcoral’ par rapport à toutes les barres
+    st.write(f"Dans près de {red_percentage*100:.2f} % des interventions, la LFB ne parvient pas à respecter son objectif d’une arrivée en moins de 6 minutes.")
 
     st.subheader(" ")
     
