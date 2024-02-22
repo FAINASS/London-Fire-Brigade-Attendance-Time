@@ -242,14 +242,32 @@ def main():
 ##############################################################################################################################################################################################################################################################################################
     
     with onglet2:
-
+    
         st.subheader("1. Type d'incident")
         col1, col2 = st.columns(2)
+        st.subheader(" ")
+        
         IncidentGroupType2 = sorted(df['IncidentGroupType'].unique().tolist())
         selected_incidents2 = col1.selectbox("Catégorie incident:", IncidentGroupType2)
 
         propertyType2 = sorted(df['PropertyType'].unique().tolist())
-        selected_property2 = col2.selectbox("Type emplacement:", propertyType)
+        selected_property2 = col2.selectbox("Type emplacement:", propertyType2)
+
+        st.subheader(" ")
+        
+        st.subheader("2. Géolocalisation")
+        col3, col4, col5 = st.columns(3)
+            
+        boroughs2 = sorted(df['BoroughName'].unique().tolist())
+        selected_boroughs2 = col3.selectbox(" Lieu - Arrondissement:", boroughs2)
+        df_filtreBoroughs2 = df[df['BoroughName'] == selected_boroughs2]
+            
+        wards2 = sorted(df_filtreBoroughs['WardName'].unique().tolist())
+        selected_wards2 = col4.selectbox("Lieu - Quartier:", wards2)
+            
+        station2 = sorted(df_filtreBoroughs2['DeployedFromStationName'].unique().tolist())
+        selected_station2 = col5.selectbox("1ière caserne déployée:", station2)
+    
         
    
 if __name__ == "__main__":
