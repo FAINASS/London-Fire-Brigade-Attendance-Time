@@ -343,7 +343,7 @@ def main():
                     
             # Ajout de la colonne 'Distance'
             X2["Distance"] = X2.apply(lambda row: haversine_distance(lat_ward2, lon_ward2, lat_station2,lon_station2), axis=1)
-                    
+            st.write(f"(La distance entre le lieu de l'incident et la caserne déployée est de {X2['Distance'].mean():.2f} km.")
             
             try:
                 st.write(" ")
