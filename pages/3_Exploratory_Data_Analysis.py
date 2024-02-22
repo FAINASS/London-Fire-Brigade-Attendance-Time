@@ -396,7 +396,7 @@ def main():
     df["MomentOfTheDay"] = pd.cut(df["HourOfCall"], bins = [-1, 3, 6, 12, 18, 21, 24], labels = labels,right=True)
     
     medians = df.groupby('MomentOfTheDay')['AttendanceTime'].median()
-    
+    ax.axhline(y=6, color='r', linestyle='--',  linewidth=1,label='Seuil supérieur')
     highest_Hour= medians.idxmax()
     lowest_Hour = medians.idxmin()
     
