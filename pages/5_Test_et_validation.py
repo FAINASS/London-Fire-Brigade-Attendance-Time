@@ -216,14 +216,12 @@ def main():
         minutes, secondes = divmod(secondes, 60)
         st.markdown(f"<h3 style='text-align: center; color: White;'>Le temps de réponse estimé est {prediction:.2f} soit : <span style='color: Orange;'>{int(minutes)}</span> minute(s) et <span style='color: Orange;'>{int(secondes)}</span> seconde(s).</h3>", unsafe_allow_html=True)
 
-        if (st.session_state['incident']['NumStationsWithPumpsAttending'] == selected_NumPump) and \
-   (st.session_state['incident']['SecondPumpArrivingDeployedFromStation'] == selected_secondPump): 
+        if all(st.session_state['incident'][col] == X[col][0] for col in X.columns):
             difference = prediction - st.session_state['incident']['AttendanceTime'] 
             secondes = abs(difference) * 60
             minutes, secondes = divmod(secondes, 60)
             st.markdown(f"<h3 style='text-align: center; font-size: 20px;'><i>Nous avons une erreur de prédiction de : {minutes:.0f} minute(s) et {secondes:.0f} seconde(s)</i></h3>", unsafe_allow_html=True)
-
-        else :
+        else:
             st.write(" ")
             
     except UnboundLocalError:
