@@ -122,20 +122,6 @@ def main():
     station = sorted(df_filtreBoroughs['DeployedFromStationName'].unique().tolist())
     selected_station = col5.selectbox("Première caserne déployée:", station, index=station.index(st.session_state['incident']['DeployedFromStationName']))
 
-    st.subheader("2. Géolocalisation")
-    col3, col4, col5 = st.columns(3)
-        
-    boroughs = sorted(df['BoroughName'].unique().tolist())
-    selected_boroughs = col3.selectbox("Arrondissement:", boroughs, index=boroughs.index(st.session_state['incident']['BoroughName']), disabled=True)
-    df_filtreBoroughs = df[df['BoroughName'] == selected_boroughs]
-        
-    wards = sorted(df_filtreBoroughs['WardName'].unique().tolist())
-    selected_wards = col4.selectbox("Quartier:", wards, index=wards.index(st.session_state['incident']['WardName']))
-        
-    station = sorted(df_filtreBoroughs['DeployedFromStationName'].unique().tolist())
-    selected_station = col5.selectbox("Première caserne déployée:", station, index=station.index(st.session_state['incident']['DeployedFromStationName']))
-
-
 ###############################################################################################################################################
             
     dfStation = df[df['DeployedFromStationName'] == selected_station]
