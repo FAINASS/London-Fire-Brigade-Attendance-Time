@@ -248,7 +248,7 @@ def main():
         
         IncidentGroupType2 = sorted(df2['IncidentGroupType'].unique().tolist())
         selected_incidents2 = col9.selectbox("Catégorie d'incident:", IncidentGroupType2)
-        
+                
         
         st.subheader(" ")
    
