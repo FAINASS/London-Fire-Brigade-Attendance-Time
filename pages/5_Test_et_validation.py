@@ -268,6 +268,36 @@ def main():
         station2 = sorted(df_filtreBoroughs2['DeployedFromStationName'].unique().tolist())
         selected_station2 = col5.selectbox("1ière caserne déployée:", station2)
     
+        dfStation2 = df[df['DeployedFromStationName'] == selected_station2]
+        lat_station2 = dfStation2['LatitudeStation'].median()
+        lon_station2 = dfStation2['LongitudeStation'].median()
+                
+        dfWard2 = df[df['WardName'] == selected_wards2]
+        lat_ward2 = dfWard2['LatitudeIncident'].median()
+        lon_ward2 = dfWard2['LongitudeIncident'].median()
+                
+        st.title(" ")
+        st.markdown("Légende : 🔴 Lieu de l'incident 🔵 Caserne déployée")
+                
+        p = folium.Map(location=[lat_ward2, lon_ward2], zoom_start=10,zoom_control=False,scrollWheelZoom=False,dragging=False)
+            
+        folium.Marker(
+        location=[lat_ward2, lon_ward2],
+            icon=folium.Icon(color="red"),
+                ).add_to(p)
+                
+        folium.Marker(
+                location=[lat_station2, lon_station2],
+                 icon=folium.Icon(color="blue"),
+                ).add_to(p)
+                
+        html2 = branca.element.Figure()
+        html2.add_child(m)
+                
+        st.components.v1.html(html2.render(), width=950, height=310)
+                
+        st.write(" ")
+        st.subheader("3. Intervention")
         
    
 if __name__ == "__main__":
