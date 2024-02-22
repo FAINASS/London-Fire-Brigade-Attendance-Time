@@ -335,7 +335,7 @@ def main():
                 "LatitudeStation" : [lat_station2],
                 "LongitudeIncident": [lon_ward2],
                 "LongitudeStation" : [lon_station2],
-                'SecondPumpArrivingDeployedFromStation' : [selected_secondPump2
+                'SecondPumpArrivingDeployedFromStation' : [selected_secondPump2]
             })
                     
             X2['HourOfCall'] = X2['HourOfCall'].astype(float)
