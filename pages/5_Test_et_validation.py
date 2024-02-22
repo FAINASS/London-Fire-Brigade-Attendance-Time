@@ -246,11 +246,8 @@ def main():
         st.subheader("1. Type d'incident")
         col9, col10 = st.columns(2)
             
-        IncidentGroupType_ = sorted(df['IncidentGroupType'].unique().tolist())
-        selected_incidents_ = col9.selectbox("Catégorie d'incident:", IncidentGroupType_)
-    
-        propertyType_ = sorted(df['PropertyType'].unique().tolist())
-        selected_property_ = col10.selectbox("Type d'emplacement:", propertyType_)
+        IncidentGroupType2 = sorted(df['IncidentGroupType'].unique().tolist())
+        selected_incidents2 = col9.selectbox("Catégorie d'incident:", IncidentGroupType2)
     
         st.subheader(" ")
    
