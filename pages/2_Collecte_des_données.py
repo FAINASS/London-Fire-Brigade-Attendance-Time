@@ -4,11 +4,11 @@ Spyder Editor
 
 This is a temporary script file.
 """
+
 import streamlit as st
 import pandas as pd
 pd.set_option('display.max_colwidth', None)
 
-#Configurer l'affichage en mode Wide
 st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded",
@@ -37,7 +37,6 @@ def add_logo():
         unsafe_allow_html=True,
     )
 
-## Supprimer l'espace vide en haut de la page
 st.markdown("""
         <style>
                .block-container {
@@ -53,10 +52,12 @@ def main():
     
     add_logo()
     st.header("📥 Collecte des données")
+
+    # Création des 2 onglets
     titres_onglets = ['Incidents', 'Mobilisations']
     onglet1, onglet2 = st.tabs(titres_onglets)
       
-    
+    # Configuration de chaque onglets
     with onglet1:
         st.markdown("""
         Le premier jeu de données fourni contient les détails de chaque incident traité depuis janvier 2009. Des informations sont fournies sur la date et le lieu de l'incident ainsi que sur le type d'incident traité.    
