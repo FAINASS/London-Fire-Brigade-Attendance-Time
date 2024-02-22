@@ -86,7 +86,7 @@ def main():
     df = load_data("df_Predictions.csv")
 
      # Création des 2 onglets
-    titres_onglets = ["En utilisant l'historique des incidents", 'En créant un nouvel incident']
+    titres_onglets = ["Historique des Incidents", 'Nouvel Incident']
     onglet1, onglet2 = st.tabs(titres_onglets)
       
     # Configuration de chaque onglets
