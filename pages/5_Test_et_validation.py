@@ -242,10 +242,14 @@ def main():
 ##############################################################################################################################################################################################################################################################################################
          
     with onglet2:
-        
+        df2 = load_data("df_Predictions.csv")
         st.subheader("1. Type d'incident")
         col9, col10 = st.columns(2)
-            
+        
+        IncidentGroupType2 = sorted(df2['IncidentGroupType'].unique().tolist())
+        selected_incidents2 = col1.selectbox("Catégorie d'incident:", IncidentGroupType2)
+        
+        
         st.subheader(" ")
    
 if __name__ == "__main__":
