@@ -96,7 +96,7 @@ def main():
     if 'incident' not in st.session_state:
         st.session_state['incident'] = selected_columns.iloc[8656]
     
-    st.session_state['incident'] = selected_columns.iloc[145]
+    st.session_state['incident'] = selected_columns.iloc[2022]
     placeholder.table(st.session_state['incident'].to_frame())
 
     st.subheader("1. Type d'incident")
