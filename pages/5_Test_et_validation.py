@@ -100,8 +100,8 @@ def main():
     if st.button('Générer un autre incident'):
         random_index = selected_columns.sample(n=1).index[0]
         st.session_state['incident'] = selected_columns.iloc[random_index]
-        placeholder.table(st.session_state['incident'].to_frame())
-
+    
+    placeholder.table(st.session_state['incident'].to_frame())
     st.write ("")
     st.write ("Pour obtenir la prédiction, il suffit de cliquer sur le bouton 'Prédire' en bas de la page.")
  
