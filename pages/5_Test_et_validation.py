@@ -94,7 +94,7 @@ def main():
     
     with onglet1:
         st.write(" ")
-        st.subheader("0. Incident à prédire")
+        st.subheader("0. Prédiction du temps d'interventions des incidents survenus entre le 20 et le 31 janvier 2024")
         selected_columns = df[["IncidentNumber","IncidentGroupType", "PropertyType", "BoroughName", "WardName", "DeployedFromStationName","Distance",
                                "HourOfCall", "NumStationsWithPumpsAttending","SecondPumpArrivingDeployedFromStation", "AttendanceTime"]]
         
