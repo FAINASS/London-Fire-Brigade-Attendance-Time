@@ -85,6 +85,7 @@ def main():
 
     #df = load_data("df_Predictions.csv")
     df = load_data("ToPred.csv")
+    st.write(df.head(1))
 
      # Création des 2 onglets
     titres_onglets = ["A partir de l'historique des Incidents", "A partir d'un Nouvel Incident"]
