@@ -608,7 +608,7 @@ def main():
     st.write(" ")
 
 ####################################################################################
-    st.write("Ajout d'une nouvelle variable : Distance entre le lieu de l'incident et la Caserne")
+    st.write("Ajout d'une nouvelle variable : Distance (à vol d'oiseau) entre le lieu de l'incident et la Caserne")
     
     data_dist = data.sample(500)
     fig, ax = plt.subplots(figsize=(16,6))
