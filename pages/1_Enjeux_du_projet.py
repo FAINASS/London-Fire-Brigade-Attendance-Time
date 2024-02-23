@@ -64,7 +64,7 @@ def main():
 
     st.write(" ")
     st.markdown("""
-    Notre objectif est de prédire le temps de réponse des sapeurs-pompiers de Londres à partir des données de 2019 à 2023.
+    Notre objectif est de prédire le temps de réponse des sapeurs-pompiers de Londres à partir des données de 2009 à 2023.
 
     - Nous visons un coefficient de détermination (R²) supérieur à 70%. Cela signifie que notre modèle expliquerait plus de 70% de la variabilité dans les temps de réponse.
     - Nous cherchons à obtenir une erreur quadratique moyenne (RMSE) inférieure à 1 minute. Cela signifie que notre modèle prédit les temps de réponse avec une précision moyenne d'une minute.
