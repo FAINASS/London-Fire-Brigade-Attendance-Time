@@ -1,38 +1,32 @@
-AttendanceTime,IncidentGroupType,PropertyType,BoroughName,WardName,DeployedFromStationName,HourOfCall,NumStationsWithPumpsAttending,SecondPumpArrivingDeployedFromStation
-5.45,False alarm - Good intent,Non Residential - Retail,Wandsworth,Shaftesbury & Queenstown,Clapham,0,3.0,Wandsworth
-3.82,False Alarm - Automatic Fire Alarm,Residential - Hostel (e.g. for homeless people),Lewisham,Hither Green,Lewisham,0,2.0,Lee Green
-4.28,Fire - Primary Fire,Vehicle - Car,Bromley,Chislehurst,Sidcup,2,2.0,Eltham
-4.08,False Alarm - Automatic Fire Alarm,Residential - Other Residential Home,Lambeth,Kennington,Lambeth,4,1.0,Lambeth
-7.0,Special Service - Road Traffic Collision,Vehicle - Car,Lewisham,Grove Park,Eltham,5,2.0,Lee Green
-5.3,False alarm - Good intent,Non Residential - Retail,Southwark,Rotherhithe,Old Kent Road,9,2.0,Dockhead
-2.93,False Alarm - Automatic Fire Alarm,Non Residential - Retail,Barnet,Hendon,Hendon,9,2.0,Finchley
-5.58,Special Service - Advice,Vehicle - Car,Wandsworth,Thamesfield,Fulham,11,2.0,Hammersmith
-11.57,False Alarm - Automatic Fire Alarm,Non Residential - Public,Wandsworth,West Putney,Hammersmith,12,3.0,Fulham
-2.53,False alarm - Good intent,Non Residential - Medical,Lewisham,Ladywell,Lewisham,13,4.0,Greenwich
-5.67,False Alarm - Automatic Fire Alarm,Residential - Hotel/motel,Kensington and Chelsea,Earl's Court,Fulham,13,2.0,Hammersmith
-4.75,False Alarm - Automatic Fire Alarm,Non Residential - Public,Westminster,West End,Soho,14,1.0,Soho
-7.1,False Alarm - Automatic Fire Alarm,Non Residential - Public,Westminster,West End,Chelsea,15,2.0,Euston
-6.97,Fire - Secondary Fire,Outdoor - Small refuse/rubbish container,Redbridge,Valentines,Ilford,15,2.0,Stratford
-5.48,Fire - Primary Fire,Non Residential - Public,Harrow,Centenary,Stanmore,15,2.0,Mill Hill
-5.75,Fire - Primary Fire,Residential - Retirement/Old Persons Home,Barnet,Colindale North,Hendon,15,1.0,Hendon
-5.08,False alarm - Good intent,Outdoor - Railway,Newham,Forest Gate North,Leytonstone,15,1.0,Stratford
-3.17,Special Service - Assistance,Outdoor - Railway trackside vegetation,Enfield,Cockfosters,Southgate,15,2.0,Barnet
-5.75,False alarm - Good intent,Non Residential - Retail,Kingston upon Thames,Kingston Town,Kingston,15,1.0,Kingston
-3.38,Fire - Secondary Fire,Outdoor - Small refuse/rubbish container,Tower Hamlets,Blackwall & Cubitt Town,Millwall,16,2.0,Poplar
-3.9,False Alarm - Automatic Fire Alarm,Residential - Children's Home,Islington,Tollington,Holloway,17,2.0,Kentish Town
-5.27,Fire - Primary Fire,Vehicle - Car,Brent,Northwick Park,Wembley,18,1.0,Wembley
-6.02,Special Service - Advice,Vehicle - Other road vehicle,Richmond upon Thames,South Richmond,Richmond,18,2.0,Kingston
-7.02,False Alarm - Automatic Fire Alarm,Residential - Retirement/Old Persons Home,Bromley,West Wickham,Addington,18,2.0,Woodside
-4.63,False Alarm - Automatic Fire Alarm,Non Residential - Entertainment,Kensington and Chelsea,Earl's Court,Kensington,18,2.0,Fulham
-5.13,Special Service - Advice,Vehicle - Multiple Vehicles,Hackney,Springfield,Stoke Newington,19,2.0,Homerton
-4.65,Special Service - Advice,Vehicle - Train on Tube network,Richmond upon Thames,South Richmond,Richmond,19,2.0,Chiswick
-3.15,Fire - Primary Fire,Non Residential - Entertainment,Ealing,Southall West,Southall,19,1.0,Southall
-4.65,False Alarm - Automatic Fire Alarm,Residential - Retirement/Old Persons Home,Camden,Camden Square,Holloway,20,2.0,Stoke Newington
-7.32,Special Service - Road Traffic Collision,Vehicle - Multiple Vehicles,Ealing,Hanger Hill,Acton,21,2.0,Park Royal
-3.83,Special Service - Road Traffic Collision,Vehicle - Car,Barking and Dagenham,Eastbury,Barking,21,2.0,Ilford
-3.68,False alarm - Good intent,Non Residential - Transport,Haringey,Seven Sisters,Tottenham,21,2.0,Stoke Newington
-3.05,False alarm - Good intent,Non Residential - Entertainment,Ealing,Southall West,Southall,21,2.0,Southall
-6.02,Fire - Secondary Fire,Outdoor - Small refuse/rubbish container,Westminster,Pimlico South,Lambeth,21,3.0,Lambeth
-7.67,False Alarm - Automatic Fire Alarm,Non Residential - Public,Camden,Regent's Park,Holloway,22,2.0,Islington
-4.08,False alarm - Good intent,Non Residential - Transport,Tower Hamlets,Canary Wharf,Millwall,22,2.0,Poplar
-2.57,Fire - Primary Fire,Non Residential - Retail,Southwark,Camberwell Green,Peckham,23,2.0,New Cross
+AttendanceTime,IncidentGroupType,PropertyType,BoroughName,WardName,DeployedFromStationName,HourOfCall,NumStationsWithPumpsAttending,SecondPumpArrivingDeployedFromStation,LatitudeIncident,LongitudeIncident,LatitudeStation,LongitudeStation,Distance
+5.45,False alarm - Good intent,Non Residential - Retail,Wandsworth,Shaftesbury & Queenstown,Clapham,0.0,3.0,Wandsworth,51.465461,-0.164905,51.464929850000004,-0.14087929374831965,1.67
+3.82,False Alarm - Automatic Fire Alarm,Residential - Hostel (e.g. for homeless people),Lewisham,Hither Green,Lewisham,0.0,2.0,Lee Green,51.4524727,-0.0045834,51.45703075,-0.01311455830130065,0.78
+4.28,Fire - Primary Fire,Vehicle - Car,Bromley,Chislehurst,Sidcup,2.0,2.0,Eltham,51.4176018076,0.0919737034,51.4278223,0.0929119,1.14
+4.08,False Alarm - Automatic Fire Alarm,Residential - Other Residential Home,Lambeth,Kennington,Lambeth,4.0,1.0,Lambeth,51.4910760955,-0.1056747315,51.49281255,-0.12127607532912271,1.1
+6.02,Fire - Secondary Fire,Outdoor - Small refuse/rubbish container,Westminster,Pimlico South,Lambeth,21.0,3.0,Lambeth,51.486816912,-0.1422497713,51.49281255,-0.12127607532912271,1.6
+7.0,Special Service - Road Traffic Collision,Vehicle - Car,Lewisham,Grove Park,Eltham,5.0,2.0,Lee Green,51.42878769,0.0368660464,51.450696300000004,0.05940406450054428,2.89
+5.3,False alarm - Good intent,Non Residential - Retail,Southwark,Rotherhithe,Old Kent Road,9.0,2.0,Dockhead,51.4919002863,-0.0451896746,51.4874989,-0.0755241,2.16
+2.93,False Alarm - Automatic Fire Alarm,Non Residential - Retail,Barnet,Hendon,Hendon,9.0,2.0,Finchley,51.5862355161,-0.220665252,51.5863721,-0.2303106,0.67
+5.75,Fire - Primary Fire,Residential - Retirement/Old Persons Home,Barnet,Colindale North,Hendon,15.0,1.0,Hendon,51.6008403212,-0.2485021267,51.5863721,-0.2303106,2.04
+5.58,Special Service - Advice,Vehicle - Car,Wandsworth,Thamesfield,Fulham,11.0,2.0,Hammersmith,51.4647120834,-0.2146033266,51.47793005,-0.2009033004266302,1.75
+5.67,False Alarm - Automatic Fire Alarm,Residential - Hotel/motel,Kensington and Chelsea,Earl's Court,Fulham,13.0,2.0,Hammersmith,51.4902868,-0.1989418,51.47793005,-0.2009033004266302,1.38
+11.57,False Alarm - Automatic Fire Alarm,Non Residential - Public,Wandsworth,West Putney,Hammersmith,12.0,3.0,Fulham,51.4538552986,-0.2285407678,51.4960866,-0.2242808144811847,4.71
+6.97,Fire - Secondary Fire,Outdoor - Small refuse/rubbish container,Redbridge,Valentines,Ilford,15.0,2.0,Stratford,51.5595540428,0.0606597094,51.5606734,0.081563,1.45
+5.48,Fire - Primary Fire,Non Residential - Public,Harrow,Centenary,Stanmore,15.0,2.0,Mill Hill,51.5990783722,-0.3034812949,51.60365405,-0.29758725154755805,0.65
+5.08,False alarm - Good intent,Outdoor - Railway,Newham,Forest Gate North,Leytonstone,15.0,1.0,Stratford,51.5514169408,0.0344252825,51.5737161,-0.0094496,3.92
+3.17,Special Service - Assistance,Outdoor - Railway trackside vegetation,Enfield,Cockfosters,Southgate,15.0,2.0,Barnet,51.6510001376,-0.147643222,51.631254,-0.127368,2.6
+5.75,False alarm - Good intent,Non Residential - Retail,Kingston upon Thames,Kingston Town,Kingston,15.0,1.0,Kingston,51.4116976,-0.3047503,51.4294937,-0.3065991861142533,1.98
+3.38,Fire - Secondary Fire,Outdoor - Small refuse/rubbish container,Tower Hamlets,Blackwall & Cubitt Town,Millwall,16.0,2.0,Poplar,51.5003808495,-0.0094038668,51.4977805,-0.0258476,1.17
+4.08,False alarm - Good intent,Non Residential - Transport,Tower Hamlets,Canary Wharf,Millwall,22.0,2.0,Poplar,51.5035917861,-0.0194894478,51.4977805,-0.0258476,0.78
+3.9,False Alarm - Automatic Fire Alarm,Residential - Children's Home,Islington,Tollington,Holloway,17.0,2.0,Kentish Town,51.5675286454,-0.1171200756,51.5670586,-0.1220408,0.34
+4.65,False Alarm - Automatic Fire Alarm,Residential - Retirement/Old Persons Home,Camden,Camden Square,Holloway,20.0,2.0,Stoke Newington,51.5475560711,-0.1304230689,51.5670586,-0.1220408,2.24
+7.67,False Alarm - Automatic Fire Alarm,Non Residential - Public,Camden,Regent's Park,Holloway,22.0,2.0,Islington,51.5344879,-0.1397229,51.5670586,-0.1220408,3.82
+5.27,Fire - Primary Fire,Vehicle - Car,Brent,Northwick Park,Wembley,18.0,1.0,Wembley,51.563365424,-0.3280438143,51.55169655,-0.3040197283283985,2.11
+6.02,Special Service - Advice,Vehicle - Other road vehicle,Richmond upon Thames,South Richmond,Richmond,18.0,2.0,Kingston,51.461477566,-0.2939151184,51.4688208,-0.2702411,1.83
+4.65,Special Service - Advice,Vehicle - Train on Tube network,Richmond upon Thames,South Richmond,Richmond,19.0,2.0,Chiswick,51.4633750114,-0.3012504062,51.4688208,-0.2702411,2.23
+7.02,False Alarm - Automatic Fire Alarm,Residential - Retirement/Old Persons Home,Bromley,West Wickham,Addington,18.0,2.0,Woodside,51.3751811373,-0.0147369988,51.3568869,-0.0316809,2.35
+3.15,Fire - Primary Fire,Non Residential - Entertainment,Ealing,Southall West,Southall,19.0,1.0,Southall,51.5121922464,-0.3842478386,51.511274099999994,-0.3744259889421966,0.69
+3.05,False alarm - Good intent,Non Residential - Entertainment,Ealing,Southall West,Southall,21.0,2.0,Southall,51.5122679205,-0.3848240555,51.511274099999994,-0.3744259889421966,0.73
+7.32,Special Service - Road Traffic Collision,Vehicle - Multiple Vehicles,Ealing,Hanger Hill,Acton,21.0,2.0,Park Royal,51.5274147734,-0.2923662305,51.507054,-0.27692030618844476,2.5
+3.83,Special Service - Road Traffic Collision,Vehicle - Car,Barking and Dagenham,Eastbury,Barking,21.0,2.0,Ilford,51.5357015949,0.1024211358,51.52982,0.088809,1.15
+2.57,Fire - Primary Fire,Non Residential - Retail,Southwark,Camberwell Green,Peckham,23.0,2.0,New Cross,51.473981283,-0.0916683306,51.4737063,-0.0836684,0.55
