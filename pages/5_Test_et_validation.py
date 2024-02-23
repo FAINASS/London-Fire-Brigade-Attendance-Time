@@ -111,7 +111,7 @@ def main():
         if st.button("Générer un autre incident"):
             st.session_state['incident'] = selected_columns.iloc[random_row_index]
         
-        st.write(st.session_state['incident']['IncidentNumber']
+        st.write(st.session_state['incident']['IncidentNumber'])
         placeholder.table(st.session_state['incident'].to_frame())
     
         st.subheader(" ")
