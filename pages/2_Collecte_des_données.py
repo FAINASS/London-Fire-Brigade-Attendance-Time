@@ -53,6 +53,7 @@ def main():
     add_logo()
     st.header("📥 Collecte des données")
     st.write("L'objectif de cette étape est de réunir des données en fonction des objectifs définis à l’étape précédente.")
+    st.subheader(" ")
 
     # Création des 2 onglets
     titres_onglets = ['Incidents', 'Mobilisations']
@@ -60,6 +61,7 @@ def main():
       
     # Configuration de chaque onglets
     with onglet1:
+        st.subheader("1. London Fire Brigade Incident Records")
         st.markdown("""
         Le premier jeu de données fourni contient les détails de chaque incident traité depuis janvier 2009. Des informations sont fournies sur la date et le lieu de l'incident ainsi que sur le type d'incident traité.    
         """, unsafe_allow_html=True)
@@ -73,6 +75,8 @@ def main():
        
         
     with onglet2:
+        st.subheader("1. London Fire Brigade Mobilisation Records")
+        st.write(" ")
         st.markdown("""
         Le second jeu de données contient les détails de chaque camion de pompiers envoyé sur les lieux d'un incident depuis janvier 2009. Des informations sont fournies sur l'appareil mobilisé, son lieu de déploiement et les heures d'arrivée sur les lieux de l'incident.             
         """, unsafe_allow_html=True)
