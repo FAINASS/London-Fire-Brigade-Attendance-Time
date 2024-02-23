@@ -85,7 +85,6 @@ def main():
 
     #df = load_data("df_Predictions.csv")
     df = load_data("ToPred.csv")
-    st.write(df.head(1))
 
      # Création des 2 onglets
     titres_onglets = ["A partir de l'historique des Incidents", "A partir d'un Nouvel Incident"]
@@ -96,7 +95,7 @@ def main():
     with onglet1:
         st.write(" ")
         st.subheader("0. Incident à prédire")
-        selected_columns = df[["IncidentGroupType", "PropertyType", "BoroughName", "WardName", "DeployedFromStationName","Distance",
+        selected_columns = df[["IncidentNumber","IncidentGroupType", "PropertyType", "BoroughName", "WardName", "DeployedFromStationName","Distance",
                                "HourOfCall", "NumStationsWithPumpsAttending","SecondPumpArrivingDeployedFromStation", "AttendanceTime"]]
         
         
@@ -112,7 +111,7 @@ def main():
         if st.button("Générer un autre incident"):
             st.session_state['incident'] = selected_columns.iloc[random_row_index]
         
-        
+        st.write(st.session_state['incident']['IncidentNumber']
         placeholder.table(st.session_state['incident'].to_frame())
     
         st.subheader(" ")
