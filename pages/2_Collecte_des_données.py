@@ -62,6 +62,7 @@ def main():
     # Configuration de chaque onglets
     with onglet1:
         st.subheader("1. London Fire Brigade Incident Records")
+        st.write(" ")
         st.markdown("""
         Le premier jeu de données fourni contient les détails de chaque incident traité depuis janvier 2009. Des informations sont fournies sur la date et le lieu de l'incident ainsi que sur le type d'incident traité.    
         """, unsafe_allow_html=True)
