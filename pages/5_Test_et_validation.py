@@ -96,7 +96,9 @@ def main():
         st.write(" ")
         st.subheader("0. Incidents survenus entre le 20 et le 31 janvier 2024")
         st.write (" ")
-        st.markdown(f"<div style='text-align: left; color: black; background-color: #ff9800; padding: 10px; border-radius: 5px;'>⚠️ Le modèle va analyser ces données pour la toute première fois. Elles n’ont jamais été utilisées lors de son apprentissage ou de ses tests.</div>", unsafe_allow_html=True)
+        st.markdown(f"<div style='text-align: left; color: black; background-color: #ff9800; padding: 10px; border-radius: 5px;'>⚠️ Le modèle n’a jamais été exposé à ces données, ni en entraînement ni en test, elles sont entièrement nouvelles.</div>", unsafe_allow_html=True)
+        st.write(" ")
+        
         selected_columns = df[["IncidentNumber","IncidentGroupType", "PropertyType", "BoroughName", "WardName", "DeployedFromStationName","Distance",
                                "HourOfCall", "NumStationsWithPumpsAttending","SecondPumpArrivingDeployedFromStation", "AttendanceTime"]]
         
