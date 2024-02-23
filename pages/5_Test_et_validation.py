@@ -118,7 +118,7 @@ def main():
         #st.write(st.session_state['incident']['IncidentNumber'])
         placeholder.table(st.session_state['incident'].to_frame())
 
-        st.write(f"Les pompiers ont mis {st.session_state['incident']['AttendanceTime]} pour intervenir. Cliquez sur le bouton en bas de la page pour voir notre prédiction")
+        st.write(f"Les pompiers ont mis {st.session_state['incident']['AttendanceTime']} pour intervenir. Cliquez sur le bouton en bas de la page pour voir notre prédiction")
     
         st.subheader(" ")
     
