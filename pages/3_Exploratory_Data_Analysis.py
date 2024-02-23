@@ -106,7 +106,7 @@ def main():
 ##########################################################################################################################################################################################################################    
     st.subheader("0. Préparation des données")
     
-    st.write("Après avoir fusionné et réorganisé les deux jeux de données, nous avons obtenu le jeu de données suivant.")
+    st.write("Seules les données de 2021 à 2022 sont incluses dans la version Cloud de ce projet.")
     
     st.write(" ")
 
