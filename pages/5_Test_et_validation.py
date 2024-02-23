@@ -83,8 +83,8 @@ def main():
     st.write("L'objectif de cette étape est d'utiliser notre modèle pour prédire le temps de réponse de la Brigade des Pompiers de Londres.")
     st.write(" ")
 
-    df = load_data("df_Predictions.csv")
-    #df = load_data("ToPred.csv")
+    #df = load_data("df_Predictions.csv")
+    df = load_data("ToPred.csv")
 
      # Création des 2 onglets
     titres_onglets = ["A partir de l'historique des Incidents", "A partir d'un Nouvel Incident"]
