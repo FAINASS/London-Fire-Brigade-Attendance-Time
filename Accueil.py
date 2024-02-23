@@ -16,6 +16,13 @@ st.set_page_config(
     page_title = "Temps de Réponse de la Brigade des Pompiers de Londres"  # Titre de la page
 )
 
+hide_menu_style = """
+        <style>
+        #MainMenu {visibility: hidden;}
+        </style>
+        """
+st.markdown(hide_menu_style, unsafe_allow_html=True)
+
 # Fonction pour ajouter le logo
 def add_logo():
     # Utilisation de HTML et CSS pour ajouter une image de fond à la barre latérale
