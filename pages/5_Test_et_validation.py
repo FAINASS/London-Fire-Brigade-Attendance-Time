@@ -262,7 +262,7 @@ def main():
         col3, col4, col5 = st.columns(3)
             
         boroughs2 = sorted(df['BoroughName'].unique().tolist())
-        selected_boroughs2 = col3.selectbox(" Lieu - Arrondissement:", boroughs2,index=6)
+        selected_boroughs2 = col3.selectbox(" Lieu - Arrondissement:", boroughs2,index=2)
         df_filtreBoroughs2 = df[df['BoroughName'] == selected_boroughs2]
             
         wards2 = sorted(df_filtreBoroughs2['WardName'].unique().tolist())
