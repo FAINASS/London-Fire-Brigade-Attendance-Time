@@ -1,32 +1,322 @@
-AttendanceTime,IncidentGroupType,PropertyType,BoroughName,WardName,DeployedFromStationName,HourOfCall,NumStationsWithPumpsAttending,SecondPumpArrivingDeployedFromStation,LatitudeIncident,LongitudeIncident,LatitudeStation,LongitudeStation,Distance
-5.45,False alarm - Good intent,Non Residential - Retail,Wandsworth,Shaftesbury & Queenstown,Clapham,0.0,3.0,Wandsworth,51.465461,-0.164905,51.464929850000004,-0.14087929374831965,1.67
-3.82,False Alarm - Automatic Fire Alarm,Residential - Hostel (e.g. for homeless people),Lewisham,Hither Green,Lewisham,0.0,2.0,Lee Green,51.4524727,-0.0045834,51.45703075,-0.01311455830130065,0.78
-4.28,Fire - Primary Fire,Vehicle - Car,Bromley,Chislehurst,Sidcup,2.0,2.0,Eltham,51.4176018076,0.0919737034,51.4278223,0.0929119,1.14
-4.08,False Alarm - Automatic Fire Alarm,Residential - Other Residential Home,Lambeth,Kennington,Lambeth,4.0,1.0,Lambeth,51.4910760955,-0.1056747315,51.49281255,-0.12127607532912271,1.1
-6.02,Fire - Secondary Fire,Outdoor - Small refuse/rubbish container,Westminster,Pimlico South,Lambeth,21.0,3.0,Lambeth,51.486816912,-0.1422497713,51.49281255,-0.12127607532912271,1.6
-7.0,Special Service - Road Traffic Collision,Vehicle - Car,Lewisham,Grove Park,Eltham,5.0,2.0,Lee Green,51.42878769,0.0368660464,51.450696300000004,0.05940406450054428,2.89
-5.3,False alarm - Good intent,Non Residential - Retail,Southwark,Rotherhithe,Old Kent Road,9.0,2.0,Dockhead,51.4919002863,-0.0451896746,51.4874989,-0.0755241,2.16
-2.93,False Alarm - Automatic Fire Alarm,Non Residential - Retail,Barnet,Hendon,Hendon,9.0,2.0,Finchley,51.5862355161,-0.220665252,51.5863721,-0.2303106,0.67
-5.75,Fire - Primary Fire,Residential - Retirement/Old Persons Home,Barnet,Colindale North,Hendon,15.0,1.0,Hendon,51.6008403212,-0.2485021267,51.5863721,-0.2303106,2.04
-5.58,Special Service - Advice,Vehicle - Car,Wandsworth,Thamesfield,Fulham,11.0,2.0,Hammersmith,51.4647120834,-0.2146033266,51.47793005,-0.2009033004266302,1.75
-5.67,False Alarm - Automatic Fire Alarm,Residential - Hotel/motel,Kensington and Chelsea,Earl's Court,Fulham,13.0,2.0,Hammersmith,51.4902868,-0.1989418,51.47793005,-0.2009033004266302,1.38
-11.57,False Alarm - Automatic Fire Alarm,Non Residential - Public,Wandsworth,West Putney,Hammersmith,12.0,3.0,Fulham,51.4538552986,-0.2285407678,51.4960866,-0.2242808144811847,4.71
-6.97,Fire - Secondary Fire,Outdoor - Small refuse/rubbish container,Redbridge,Valentines,Ilford,15.0,2.0,Stratford,51.5595540428,0.0606597094,51.5606734,0.081563,1.45
-5.48,Fire - Primary Fire,Non Residential - Public,Harrow,Centenary,Stanmore,15.0,2.0,Mill Hill,51.5990783722,-0.3034812949,51.60365405,-0.29758725154755805,0.65
-5.08,False alarm - Good intent,Outdoor - Railway,Newham,Forest Gate North,Leytonstone,15.0,1.0,Stratford,51.5514169408,0.0344252825,51.5737161,-0.0094496,3.92
-3.17,Special Service - Assistance,Outdoor - Railway trackside vegetation,Enfield,Cockfosters,Southgate,15.0,2.0,Barnet,51.6510001376,-0.147643222,51.631254,-0.127368,2.6
-5.75,False alarm - Good intent,Non Residential - Retail,Kingston upon Thames,Kingston Town,Kingston,15.0,1.0,Kingston,51.4116976,-0.3047503,51.4294937,-0.3065991861142533,1.98
-3.38,Fire - Secondary Fire,Outdoor - Small refuse/rubbish container,Tower Hamlets,Blackwall & Cubitt Town,Millwall,16.0,2.0,Poplar,51.5003808495,-0.0094038668,51.4977805,-0.0258476,1.17
-4.08,False alarm - Good intent,Non Residential - Transport,Tower Hamlets,Canary Wharf,Millwall,22.0,2.0,Poplar,51.5035917861,-0.0194894478,51.4977805,-0.0258476,0.78
-3.9,False Alarm - Automatic Fire Alarm,Residential - Children's Home,Islington,Tollington,Holloway,17.0,2.0,Kentish Town,51.5675286454,-0.1171200756,51.5670586,-0.1220408,0.34
-4.65,False Alarm - Automatic Fire Alarm,Residential - Retirement/Old Persons Home,Camden,Camden Square,Holloway,20.0,2.0,Stoke Newington,51.5475560711,-0.1304230689,51.5670586,-0.1220408,2.24
-7.67,False Alarm - Automatic Fire Alarm,Non Residential - Public,Camden,Regent's Park,Holloway,22.0,2.0,Islington,51.5344879,-0.1397229,51.5670586,-0.1220408,3.82
-5.27,Fire - Primary Fire,Vehicle - Car,Brent,Northwick Park,Wembley,18.0,1.0,Wembley,51.563365424,-0.3280438143,51.55169655,-0.3040197283283985,2.11
-6.02,Special Service - Advice,Vehicle - Other road vehicle,Richmond upon Thames,South Richmond,Richmond,18.0,2.0,Kingston,51.461477566,-0.2939151184,51.4688208,-0.2702411,1.83
-4.65,Special Service - Advice,Vehicle - Train on Tube network,Richmond upon Thames,South Richmond,Richmond,19.0,2.0,Chiswick,51.4633750114,-0.3012504062,51.4688208,-0.2702411,2.23
-7.02,False Alarm - Automatic Fire Alarm,Residential - Retirement/Old Persons Home,Bromley,West Wickham,Addington,18.0,2.0,Woodside,51.3751811373,-0.0147369988,51.3568869,-0.0316809,2.35
-3.15,Fire - Primary Fire,Non Residential - Entertainment,Ealing,Southall West,Southall,19.0,1.0,Southall,51.5121922464,-0.3842478386,51.511274099999994,-0.3744259889421966,0.69
-3.05,False alarm - Good intent,Non Residential - Entertainment,Ealing,Southall West,Southall,21.0,2.0,Southall,51.5122679205,-0.3848240555,51.511274099999994,-0.3744259889421966,0.73
-7.32,Special Service - Road Traffic Collision,Vehicle - Multiple Vehicles,Ealing,Hanger Hill,Acton,21.0,2.0,Park Royal,51.5274147734,-0.2923662305,51.507054,-0.27692030618844476,2.5
-3.83,Special Service - Road Traffic Collision,Vehicle - Car,Barking and Dagenham,Eastbury,Barking,21.0,2.0,Ilford,51.5357015949,0.1024211358,51.52982,0.088809,1.15
-2.57,Fire - Primary Fire,Non Residential - Retail,Southwark,Camberwell Green,Peckham,23.0,2.0,New Cross,51.473981283,-0.0916683306,51.4737063,-0.0836684,0.55
+IncidentNumber,AttendanceTime,IncidentGroupType,PropertyType,BoroughName,WardName,DeployedFromStationName,HourOfCall,NumStationsWithPumpsAttending,SecondPumpArrivingDeployedFromStation,LatitudeIncident,LongitudeIncident,LatitudeStation,LongitudeStation,Distance
+011614-20012024,5.45,False alarm - Good intent,Non Residential - Retail,Wandsworth,Shaftesbury & Queenstown,Clapham,0.0,3.0,Wandsworth,51.465461,-0.164905,51.464929850000004,-0.14087929374831965,1.67
+015026-25012024,5.97,False Alarm - Automatic Fire Alarm,Residential - Retirement/Old Persons Home,Wandsworth,Falconbrook,Clapham,15.0,3.0,Wandsworth,51.4678411,-0.1727716,51.464929850000004,-0.14087929374831965,2.23
+015909-27012024,3.78,Special Service - Road Traffic Collision,Vehicle - Multiple Vehicles,Lambeth,Clapham Common & Abbeville,Clapham,4.0,2.0,Brixton,51.4563079568,-0.1397059989,51.464929850000004,-0.14087929374831965,0.96
+018504-31012024,3.13,Special Service - Environment,Outdoor - Animal harm outdoors,Lambeth,Clapham Common & Abbeville,Clapham,19.0,2.0,Battersea,51.4548930643,-0.1446420241,51.464929850000004,-0.14087929374831965,1.15
+011623-20012024,3.82,False Alarm - Automatic Fire Alarm,Residential - Hostel (e.g. for homeless people),Lewisham,Hither Green,Lewisham,0.0,2.0,Lee Green,51.4524727,-0.0045834,51.45703075,-0.01311455830130065,0.78
+012303-21012024,5.48,False Alarm - Automatic Fire Alarm,Residential - Boarding House/B&B for homeless/asylum seekers,Lewisham,Hither Green,Lewisham,4.0,2.0,Lee Green,51.4436968119,0.0053663867,51.45703075,-0.01311455830130065,1.96
+014501-24012024,2.75,Special Service - Road Traffic Collision,Vehicle - Motorcycle,Lewisham,Rushey Green,Lewisham,15.0,2.0,Lee Green,51.448139244,-0.0177594303,51.45703075,-0.01311455830130065,1.04
+016932-29012024,5.55,False Alarm - Automatic Fire Alarm,Non Residential - Retail,Lewisham,Bellingham,Lewisham,0.0,2.0,Forest Hill,51.4325037574,-0.0212536898,51.45703075,-0.01311455830130065,2.78
+017661-30012024,3.08,False Alarm - Automatic Fire Alarm,Residential - Retirement/Old Persons Home,Lewisham,Hither Green,Lewisham,10.0,2.0,Greenwich,51.4547242,-0.0079541,51.45703075,-0.01311455830130065,0.44
+011647-20012024,4.28,Fire - Primary Fire,Vehicle - Car,Bromley,Chislehurst,Sidcup,2.0,2.0,Eltham,51.4176018076,0.0919737034,51.43076,0.081552,1.63
+012949-21012024,3.92,Special Service - Road Traffic Collision,Vehicle - Car,Bromley,Chislehurst,Sidcup,23.0,1.0,Sidcup,51.4189106228,0.0973117986,51.43076,0.081552,1.71
+011679-20012024,4.08,False Alarm - Automatic Fire Alarm,Residential - Other Residential Home,Lambeth,Kennington,Lambeth,4.0,1.0,Lambeth,51.4910760955,-0.1056747315,51.49281255,-0.12127607532912271,1.1
+012181-20012024,6.02,Fire - Secondary Fire,Outdoor - Small refuse/rubbish container,Westminster,Pimlico South,Lambeth,21.0,3.0,Lambeth,51.486816912,-0.1422497713,51.49281255,-0.12127607532912271,1.6
+012339-21012024,4.22,False Alarm - Automatic Fire Alarm,Non Residential - Medical,Westminster,Pimlico North,Lambeth,7.0,1.0,Lambeth,51.488370654,-0.1379186611,51.49281255,-0.12127607532912271,1.25
+013011-22012024,4.57,False alarm - Good intent,Non Residential - Public,Wandsworth,Nine Elms,Lambeth,1.0,5.0,Clapham,51.4808394052,-0.1382144228,51.49281255,-0.12127607532912271,1.77
+013673-23012024,4.9,Fire - Primary Fire,Non Residential - Medical,Westminster,Vincent Square,Lambeth,2.0,1.0,Lambeth,51.4931781829,-0.1385037569,51.49281255,-0.12127607532912271,1.19
+014485-24012024,5.3,False Alarm - Automatic Fire Alarm,Non Residential - Public,Southwark,Borough & Bankside,Lambeth,15.0,2.0,Dowgate,51.5024191,-0.1009587,51.49281255,-0.12127607532912271,1.77
+015453-26012024,11.1,False alarm - Good intent,Non Residential - Entertainment,Westminster,West End,Lambeth,11.0,2.0,Lambeth,51.5123407,-0.1387089,51.49281255,-0.12127607532912271,2.48
+015786-26012024,3.03,Special Service - Rescue,Outdoor - Bridge,Lambeth,Waterloo & South Bank,Lambeth,21.0,2.0,Lambeth,51.5008633081,-0.1217480958,51.49281255,-0.12127607532912271,0.9
+015957-27012024,4.35,False Alarm - Automatic Fire Alarm,Non Residential - Retail,Westminster,Pimlico North,Lambeth,8.0,1.0,Lambeth,51.4884065995,-0.1380652796,51.49281255,-0.12127607532912271,1.26
+016601-28012024,8.25,False Alarm - Automatic Fire Alarm,Residential - Student Hall of Residence,Camden,Regent's Park,Lambeth,11.0,2.0,Shoreditch,51.5265021585,-0.1402315399,51.49281255,-0.12127607532912271,3.97
+017048-29012024,4.72,Special Service - Road Traffic Collision,Vehicle - Bus/coach,Westminster,Pimlico North,Lambeth,9.0,1.0,Lambeth,51.4960633983,-0.1440495412,51.49281255,-0.12127607532912271,1.62
+017520-29012024,0.65,Special Service - Road Traffic Collision,Vehicle - Car,Lambeth,Vauxhall,Lambeth,23.0,1.0,Lambeth,51.4922359871,-0.1210299907,51.49281255,-0.12127607532912271,0.07
+017759-30012024,6.08,Fire - Primary Fire,Non Residential - Entertainment,Westminster,West End,Lambeth,14.0,2.0,Soho,51.5119459968,-0.138239475,51.49281255,-0.12127607532912271,2.43
+011686-20012024,7.0,Special Service - Road Traffic Collision,Vehicle - Car,Lewisham,Grove Park,Eltham,5.0,2.0,Lee Green,51.42878769,0.0368660464,51.450696300000004,0.05940406450054428,2.89
+012774-21012024,4.85,Fire - Primary Fire,Vehicle - Towing caravan (not on tow or on site),Lewisham,Grove Park,Eltham,20.0,2.0,Lewisham,51.4426542927,0.0113423742,51.450696300000004,0.05940406450054428,3.45
+014468-24012024,8.35,False alarm - Good intent,Non Residential - Medical,Greenwich,Kidbrooke Park,Eltham,14.0,2.0,Plumstead,51.4713221369,0.0378226969,51.450696300000004,0.05940406450054428,2.74
+014972-25012024,4.3,Fire - Secondary Fire,Outdoor - Tree scrub,Bromley,Mottingham,Eltham,13.0,2.0,Lewisham,51.4418673615,0.0313783896,51.450696300000004,0.05940406450054428,2.18
+011727-20012024,5.3,False alarm - Good intent,Non Residential - Retail,Southwark,Rotherhithe,Old Kent Road,9.0,2.0,Dockhead,51.4919002863,-0.0451896746,51.4919315,-0.0825598,2.59
+015383-26012024,2.82,Special Service - Road Traffic Collision,Vehicle - Car,Southwark,South Bermondsey,Old Kent Road,7.0,2.0,Dockhead,51.4876007874,-0.066970996,51.4919315,-0.0825598,1.18
+011735-20012024,2.93,False Alarm - Automatic Fire Alarm,Non Residential - Retail,Barnet,Hendon,Hendon,9.0,2.0,Finchley,51.5862355161,-0.220665252,51.5865664,-0.2301847,0.66
+011916-20012024,5.75,Fire - Primary Fire,Residential - Retirement/Old Persons Home,Barnet,Colindale North,Hendon,15.0,1.0,Hendon,51.6008403212,-0.2485021267,51.5865664,-0.2301847,2.03
+013699-23012024,4.88,False Alarm - Automatic Fire Alarm,Non Residential - Retail,Barnet,Colindale South,Hendon,4.0,1.0,Hendon,51.5946778972,-0.2504921913,51.5865664,-0.2301847,1.67
+013863-23012024,5.95,Special Service - Road Traffic Collision,Vehicle - Car,Brent,Kingsbury,Hendon,13.0,1.0,Hendon,51.5834630459,-0.2638255256,51.5865664,-0.2301847,2.35
+014015-23012024,6.17,False Alarm - Automatic Fire Alarm,Residential - Retirement/Old Persons Home,Barnet,Golders Green,Hendon,18.0,1.0,Hendon,51.5766244811,-0.2078980605,51.5865664,-0.2301847,1.9
+015283-26012024,4.72,False Alarm - Automatic Fire Alarm,Non Residential - Retail,Barnet,Colindale South,Hendon,0.0,1.0,Hendon,51.5955548932,-0.2402052646,51.5865664,-0.2301847,1.22
+011813-20012024,5.58,Special Service - Advice,Vehicle - Car,Wandsworth,Thamesfield,Fulham,11.0,2.0,Hammersmith,51.4647120834,-0.2146033266,51.47793005,-0.2009033004266302,1.75
+011878-20012024,5.67,False Alarm - Automatic Fire Alarm,Residential - Hotel/motel,Kensington and Chelsea,Earl's Court,Fulham,13.0,2.0,Hammersmith,51.4902868,-0.1989418,51.47793005,-0.2009033004266302,1.38
+014246-24012024,3.45,False Alarm - Automatic Fire Alarm,Non Residential - Industry,Hammersmith and Fulham,Fulham Town,Fulham,5.0,2.0,Wandsworth,51.473354,-0.205397,51.47793005,-0.2009033004266302,0.6
+014667-24012024,4.37,False Alarm - Automatic Fire Alarm,Residential - Student Hall of Residence,Hammersmith and Fulham,Sands End,Fulham,21.0,4.0,Wandsworth,51.4742706884,-0.1842626036,51.47793005,-0.2009033004266302,1.22
+016930-29012024,6.35,Special Service - Road Traffic Collision,Vehicle - Multiple Vehicles,Wandsworth,Roehampton,Fulham,0.0,2.0,Wandsworth,51.4440638592,-0.2364939198,51.47793005,-0.2009033004266302,4.5
+017224-29012024,4.97,False Alarm - Automatic Fire Alarm,Non Residential - Retail,Kensington and Chelsea,Redcliffe,Fulham,14.0,2.0,Fulham,51.4866481871,-0.1800757221,51.47793005,-0.2009033004266302,1.74
+011842-20012024,11.57,False Alarm - Automatic Fire Alarm,Non Residential - Public,Wandsworth,West Putney,Hammersmith,12.0,3.0,Fulham,51.4538552986,-0.2285407678,51.4963441,-0.2244384,4.73
+014598-24012024,6.72,Special Service - Road Traffic Collision,Vehicle - Motorcycle,Kensington and Chelsea,Notting Dale,Hammersmith,19.0,1.0,Hammersmith,51.5151825868,-0.2214686928,51.4963441,-0.2244384,2.1
+014708-24012024,3.73,Special Service - Assistance,Outdoor - River/canal,Hammersmith and Fulham,Fulham Reach,Hammersmith,22.0,5.0,Hammersmith,51.4810574213,-0.2254093359,51.4963441,-0.2244384,1.7
+011912-20012024,6.97,Fire - Secondary Fire,Outdoor - Small refuse/rubbish container,Redbridge,Valentines,Ilford,15.0,2.0,Stratford,51.5595540428,0.0606597094,51.5584122,0.0705834,0.7
+013526-22012024,5.63,Special Service - Advice,Vehicle - Multiple Vehicles,Barking and Dagenham,Whalebone,Ilford,19.0,2.0,Dagenham,51.5722415981,0.1419959672,51.5584122,0.0705834,5.17
+014363-24012024,4.55,False Alarm - Automatic Fire Alarm,Residential - Nursing/Care Home/Hospice,Barking and Dagenham,Longbridge,Ilford,11.0,2.0,Barking,51.5393336859,0.0981405328,51.5584122,0.0705834,2.85
+015483-26012024,3.62,Special Service - Road Traffic Collision,Vehicle - Multiple Vehicles,Redbridge,Valentines,Ilford,12.0,2.0,Ilford,51.5657629766,0.0640859046,51.5584122,0.0705834,0.93
+016835-28012024,5.45,False Alarm - Automatic Fire Alarm,Residential - Retirement/Old Persons Home,Redbridge,Loxford,Ilford,19.0,1.0,Ilford,51.5447823035,0.0787543234,51.5584122,0.0705834,1.62
+011914-20012024,5.48,Fire - Primary Fire,Non Residential - Public,Harrow,Centenary,Stanmore,15.0,2.0,Mill Hill,51.5990783722,-0.3034812949,51.60365405,-0.29758725154755805,0.65
+016447-28012024,4.6,False alarm - Good intent,Non Residential - Transport,Harrow,Edgware,Stanmore,1.0,1.0,Stanmore,51.6098107291,-0.2817625448,51.60365405,-0.29758725154755805,1.29
+011939-20012024,5.08,False alarm - Good intent,Outdoor - Railway,Newham,Forest Gate North,Leytonstone,15.0,1.0,Stratford,51.5514169408,0.0344252825,51.5740144,-0.0101239,3.97
+014861-25012024,6.07,False alarm - Good intent,Outdoor - Straw/stubble burning,Waltham Forest,Leyton,Leytonstone,9.0,2.0,Leyton,51.5669889708,-0.0158906568,51.5740144,-0.0101239,0.88
+015294-26012024,4.15,Special Service - Road Traffic Collision,Vehicle - Car,Redbridge,Wanstead Village,Leytonstone,0.0,2.0,Leyton,51.5776166773,0.0175262292,51.5740144,-0.0101239,1.95
+016609-28012024,1.83,False Alarm - Automatic Fire Alarm,Residential - Retirement/Old Persons Home,Waltham Forest,Cathall,Leytonstone,12.0,2.0,Leyton,51.5595104418,0.0042991817,51.5740144,-0.0101239,1.9
+018306-31012024,7.63,False Alarm - Automatic Fire Alarm,Residential - Retirement/Old Persons Home,Redbridge,South Woodford,Leytonstone,13.0,2.0,Walthamstow,51.5951777707,0.0274198471,51.5740144,-0.0101239,3.5
+011949-20012024,3.17,Special Service - Assistance,Outdoor - Railway trackside vegetation,Enfield,Cockfosters,Southgate,15.0,2.0,Barnet,51.6510001376,-0.147643222,51.631254,-0.127368,2.6
+015168-25012024,4.3,False Alarm - Automatic Fire Alarm,Residential - Hostel (e.g. for homeless people),Barnet,Brunswick Park,Southgate,19.0,2.0,Finchley,51.6163277,-0.1425442,51.631254,-0.127368,1.96
+015939-27012024,5.78,False Alarm - Automatic Fire Alarm,Residential - Hostel (e.g. for homeless people),Barnet,Brunswick Park,Southgate,7.0,2.0,Finchley,51.6163255391,-0.1425231792,51.631254,-0.127368,1.96
+011952-20012024,5.75,False alarm - Good intent,Non Residential - Retail,Kingston upon Thames,Kingston Town,Kingston,15.0,1.0,Kingston,51.4116976,-0.3047503,51.4294937,-0.3065991861142533,1.98
+013766-23012024,4.82,False Alarm - Automatic Fire Alarm,Non Residential - Retail,Kingston upon Thames,Kingston Town,Kingston,9.0,1.0,Kingston,51.4117237367,-0.3070571089,51.4294937,-0.3065991861142533,1.98
+015159-25012024,3.58,Special Service - Environment,Outdoor - River/canal,Richmond upon Thames,Teddington,Kingston,19.0,6.0,Heston,51.4297500748,-0.3223175519,51.4294937,-0.3065991861142533,1.09
+016359-27012024,4.62,Fire - Primary Fire,Non Residential - Parking,Kingston upon Thames,Kingston Town,Kingston,21.0,3.0,Kingston,51.4128965929,-0.3061348647,51.4294937,-0.3065991861142533,1.85
+016784-28012024,6.85,False Alarm - Automatic Fire Alarm,Residential - Nursing/Care Home/Hospice,Richmond upon Thames,Hampton Wick & South Teddington,Kingston,18.0,1.0,Kingston,51.4157095955,-0.3167022855,51.4294937,-0.3065991861142533,1.69
+011982-20012024,3.38,Fire - Secondary Fire,Outdoor - Small refuse/rubbish container,Tower Hamlets,Blackwall & Cubitt Town,Millwall,16.0,2.0,Poplar,51.5003808495,-0.0094038668,51.4928936,-0.0248792,1.36
+012195-20012024,4.08,False alarm - Good intent,Non Residential - Transport,Tower Hamlets,Canary Wharf,Millwall,22.0,2.0,Poplar,51.5035917861,-0.0194894478,51.4928936,-0.0248792,1.25
+012026-20012024,3.9,False Alarm - Automatic Fire Alarm,Residential - Children's Home,Islington,Tollington,Holloway,17.0,2.0,Kentish Town,51.5675286454,-0.1171200756,51.5541528,-0.110637,1.55
+012137-20012024,4.65,False Alarm - Automatic Fire Alarm,Residential - Retirement/Old Persons Home,Camden,Camden Square,Holloway,20.0,2.0,Stoke Newington,51.5475560711,-0.1304230689,51.5541528,-0.110637,1.55
+012192-20012024,7.67,False Alarm - Automatic Fire Alarm,Non Residential - Public,Camden,Regent's Park,Holloway,22.0,2.0,Islington,51.5344879,-0.1397229,51.5541528,-0.110637,2.97
+013190-22012024,7.4,False Alarm - Automatic Fire Alarm,Residential - Retirement/Old Persons Home,Haringey,Hornsey,Holloway,10.0,2.0,Finchley,51.5872842391,-0.1303374815,51.5541528,-0.110637,3.93
+014052-23012024,5.32,False Alarm - Automatic Fire Alarm,Residential - Retirement/Old Persons Home,Islington,Laycock,Holloway,19.0,2.0,Islington,51.54639674,-0.1151257419,51.5541528,-0.110637,0.92
+012045-20012024,5.27,Fire - Primary Fire,Vehicle - Car,Brent,Northwick Park,Wembley,18.0,1.0,Wembley,51.563365424,-0.3280438143,51.55169655,-0.3040197283283985,2.11
+013948-23012024,10.62,Fire - Secondary Fire,Outdoor - Loose refuse,Brent,Alperton,Wembley,16.0,2.0,Acton,51.5410976342,-0.2922703656,51.55169655,-0.3040197283283985,1.43
+015787-26012024,3.53,Fire - Primary Fire,Non Residential - Entertainment,Brent,Sudbury,Wembley,21.0,1.0,Wembley,51.5549234448,-0.315834301,51.55169655,-0.3040197283283985,0.89
+016051-27012024,6.68,False alarm - Good intent,Non Residential - Transport,Ealing,Perivale,Wembley,12.0,2.0,Ealing,51.5362974367,-0.3185019646,51.55169655,-0.3040197283283985,1.98
+017055-29012024,7.1,Fire - Primary Fire,Residential - Hostel (e.g. for homeless people),Ealing,Perivale,Wembley,9.0,3.0,Park Royal,51.5405359962,-0.310430706,51.55169655,-0.3040197283283985,1.32
+012070-20012024,7.02,False Alarm - Automatic Fire Alarm,Residential - Retirement/Old Persons Home,Bromley,West Wickham,Addington,18.0,2.0,Woodside,51.3751811373,-0.0147369988,51.3580434,-0.0322224,2.26
+014116-23012024,7.38,Special Service - Road Traffic Collision,Vehicle - Multiple Vehicles,Bromley,Hayes & Coney Hall,Addington,22.0,2.0,Bromley,51.3676603015,0.0247068882,51.3580434,-0.0322224,4.09
+012128-20012024,3.15,Fire - Primary Fire,Non Residential - Entertainment,Ealing,Southall West,Southall,19.0,1.0,Southall,51.5121922464,-0.3842478386,51.511274099999994,-0.3744259889421966,0.69
+012179-20012024,3.05,False alarm - Good intent,Non Residential - Entertainment,Ealing,Southall West,Southall,21.0,2.0,Southall,51.5122679205,-0.3848240555,51.511274099999994,-0.3744259889421966,0.73
+012647-21012024,4.03,False Alarm - Automatic Fire Alarm,Residential - Retirement/Old Persons Home,Ealing,Dormers Wells,Southall,17.0,1.0,Southall,51.5179013686,-0.3558159715,51.511274099999994,-0.3744259889421966,1.48
+013279-22012024,4.12,False alarm - Good intent,Outdoor - Domestic garden (vegetation not equipment),Ealing,Dormers Wells,Southall,12.0,1.0,Southall,51.5217959575,-0.3545483378,51.511274099999994,-0.3744259889421966,1.81
+016792-28012024,3.35,False Alarm - Automatic Fire Alarm,Non Residential - Education,Ealing,Dormers Wells,Southall,18.0,1.0,Southall,51.5128306741,-0.373787879,51.511274099999994,-0.3744259889421966,0.18
+017199-29012024,4.23,False Alarm - Automatic Fire Alarm,Residential - Retirement/Old Persons Home,Ealing,Southall West,Southall,13.0,2.0,Hillingdon,51.5163223967,-0.3842651427,51.511274099999994,-0.3744259889421966,0.88
+018398-31012024,5.15,Fire - Secondary Fire,Outdoor - Fence,Ealing,Greenford Broadway,Southall,16.0,2.0,Northolt,51.5343008677,-0.3761792223,51.511274099999994,-0.3744259889421966,2.56
+012171-20012024,7.32,Special Service - Road Traffic Collision,Vehicle - Multiple Vehicles,Ealing,Hanger Hill,Acton,21.0,2.0,Park Royal,51.5274147734,-0.2923662305,51.507054,-0.27692030618844476,2.5
+014366-24012024,6.0,Special Service - Road Traffic Collision,Vehicle - Multiple Vehicles,Hammersmith and Fulham,College Park & Old Oak,Acton,11.0,2.0,Hammersmith,51.5152324838,-0.2486009272,51.507054,-0.27692030618844476,2.16
+014686-24012024,2.03,False Alarm - Automatic Fire Alarm,Residential - Student Hall of Residence,Ealing,South Acton,Acton,21.0,3.0,Chiswick,51.503597,-0.2792948,51.507054,-0.27692030618844476,0.42
+015209-25012024,2.4,False Alarm - Automatic Fire Alarm,Residential - Retirement/Old Persons Home,Ealing,South Acton,Acton,21.0,2.0,Chiswick,51.507117,-0.2734414,51.507054,-0.27692030618844476,0.24
+015728-26012024,3.22,False Alarm - Automatic Fire Alarm,Non Residential - Retail,Ealing,South Acton,Acton,19.0,2.0,Chiswick,51.5073523437,-0.27083422,51.507054,-0.27692030618844476,0.42
+016632-28012024,10.05,False Alarm - Automatic Fire Alarm,Non Residential - Public,Ealing,East Acton,Acton,13.0,2.0,Ealing,51.5172105046,-0.2528805589,51.507054,-0.27692030618844476,2.01
+017817-30012024,6.33,False Alarm - Automatic Fire Alarm,Residential - Retirement/Old Persons Home,Hammersmith and Fulham,Coningham,Acton,16.0,2.0,Chiswick,51.5036035,-0.2421193,51.507054,-0.27692030618844476,2.44
+017867-30012024,6.35,False alarm - Good intent,Non Residential - Industry,Ealing,North Acton,Acton,17.0,2.0,Willesden,51.5297361,-0.2626664,51.507054,-0.27692030618844476,2.71
+018383-31012024,4.8,False Alarm - Automatic Fire Alarm,Residential - Retirement/Old Persons Home,Ealing,South Acton,Acton,16.0,2.0,Chiswick,51.5080801,-0.2643552,51.507054,-0.27692030618844476,0.88
+012172-20012024,3.83,Special Service - Road Traffic Collision,Vehicle - Car,Barking and Dagenham,Eastbury,Barking,21.0,2.0,Ilford,51.5357015949,0.1024211358,51.52982,0.088809,1.15
+015331-26012024,5.23,Special Service - Road Traffic Collision,Vehicle - Car,Barking and Dagenham,Mayesbrook,Barking,4.0,1.0,Barking,51.5457097381,0.1134038887,51.52982,0.088809,2.45
+015506-26012024,3.97,False Alarm - Automatic Fire Alarm,Non Residential - Public,Barking and Dagenham,Abbey,Barking,12.0,4.0,Barking,51.5362356486,0.0794652377,51.52982,0.088809,0.96
+016905-28012024,5.07,Fire - Primary Fire,Non Residential - Public,Barking and Dagenham,Barking Riverside,Barking,22.0,1.0,Barking,51.527356568,0.1419320756,51.52982,0.088809,3.69
+012222-20012024,2.57,Fire - Primary Fire,Non Residential - Retail,Southwark,Camberwell Green,Peckham,23.0,2.0,New Cross,51.473981283,-0.0916683306,51.4739143,-0.0738015,1.24
+014718-24012024,3.93,False Alarm - Automatic Fire Alarm,Residential - Hostel (e.g. for homeless people),Southwark,Camberwell Green,Peckham,23.0,2.0,Old Kent Road,51.4826619,-0.094852,51.4739143,-0.0738015,1.75
+014795-25012024,4.15,False Alarm - Automatic Fire Alarm,Residential - Retirement/Old Persons Home,Southwark,Camberwell Green,Peckham,3.0,2.0,Brixton,51.4762359,-0.0917643,51.4739143,-0.0738015,1.27
+016069-27012024,8.17,False Alarm - Automatic Fire Alarm,Residential - Retirement/Old Persons Home,Southwark,Dulwich Hill,Peckham,12.0,2.0,Old Kent Road,51.4533837173,-0.0668330563,51.4739143,-0.0738015,2.33
+016674-28012024,3.7,Fire - Secondary Fire,Outdoor - Park,Southwark,Faraday,Peckham,14.0,2.0,Old Kent Road,51.4821579637,-0.0879421396,51.4739143,-0.0738015,1.34
+017634-30012024,5.4,False Alarm - Automatic Fire Alarm,Residential - Nursing/Care Home/Hospice,Southwark,Goose Green,Peckham,9.0,2.0,New Cross,51.4586771507,-0.0714470523,51.4739143,-0.0738015,1.7
+017887-30012024,3.73,False Alarm - Automatic Fire Alarm,Residential - Nursing/Care Home/Hospice,Southwark,Camberwell Green,Peckham,18.0,2.0,Brixton,51.4762297065,-0.0917747677,51.4739143,-0.0738015,1.27
+018257-31012024,7.57,Fire - Primary Fire,Vehicle - Lorry/HGV,Lewisham,Forest Hill,Peckham,11.0,2.0,New Cross,51.4492118103,-0.0589220671,51.4739143,-0.0738015,2.93
+012250-21012024,4.13,False Alarm - Automatic Fire Alarm,Non Residential - Education,Islington,Mildmay,Islington,0.0,2.0,Holloway,51.5497249631,-0.0958808045,51.5402671,-0.1023069299975422,1.14
+012254-21012024,2.6,False Alarm - Automatic Fire Alarm,Residential - Nursing/Care Home/Hospice,Lewisham,Crofton Park,Forest Hill,1.0,2.0,Lewisham,51.4431365227,-0.0432136693,51.44239,0.043444,6.01
+012257-21012024,3.23,False Alarm - Automatic Fire Alarm,Residential - Retirement/Old Persons Home,Islington,Bunhill,Shoreditch,1.0,2.0,Whitechapel,51.5261077,-0.0916401,51.52621095,-0.08600324965207193,0.39
+012597-21012024,5.82,False Alarm - Automatic Fire Alarm,Residential - Retirement/Old Persons Home,Hackney,London Fields,Shoreditch,16.0,2.0,Bethnal Green,51.5384525887,-0.0652508958,51.52621095,-0.08600324965207193,1.98
+014307-24012024,3.43,Fire - Primary Fire,Non Residential - Public,Islington,Bunhill,Shoreditch,8.0,5.0,Whitechapel,51.5222840618,-0.0851993333,51.52621095,-0.08600324965207193,0.44
+015600-26012024,4.4,False Alarm - Automatic Fire Alarm,Residential - Hostel (e.g. for homeless people),Tower Hamlets,Weavers,Shoreditch,16.0,2.0,Bethnal Green,51.5309591,-0.0677626,51.52621095,-0.08600324965207193,1.37
+016411-27012024,3.32,Fire - Secondary Fire,Outdoor - Large refuse/rubbish container (eg skip/ paladin),Hackney,Hoxton East & Shoreditch,Shoreditch,23.0,2.0,Whitechapel,51.5242895058,-0.0813705228,51.52621095,-0.08600324965207193,0.39
+016820-28012024,4.18,False Alarm - Automatic Fire Alarm,Non Residential - Retail,City of London,Farringdon Without,Shoreditch,19.0,2.0,Dowgate,51.5182294031,-0.1012777736,51.52621095,-0.08600324965207193,1.38
+016941-29012024,4.32,False Alarm - Automatic Fire Alarm,Residential - Student Hall of Residence,Islington,Bunhill,Shoreditch,0.0,3.0,Islington,51.5248457,-0.0980936,51.52621095,-0.08600324965207193,0.85
+017369-29012024,8.0,False Alarm - Automatic Fire Alarm,Non Residential - Public,Camden,Holborn & Covent Garden,Shoreditch,18.0,2.0,Paddington,51.5163395462,-0.1226870821,51.52621095,-0.08600324965207193,2.77
+012271-21012024,4.13,False Alarm - Automatic Fire Alarm,Residential - Boarding House/B&B for homeless/asylum seekers,Kensington and Chelsea,Colville,North Kensington,2.0,3.0,Paddington,51.5173147,-0.205155,51.5218253,-0.2122033165181962,0.7
+013702-23012024,3.23,False Alarm - Automatic Fire Alarm,Residential - Nursing/Care Home/Hospice,Kensington and Chelsea,Dalgarno,North Kensington,4.0,1.0,North Kensington,51.5197272805,-0.2211636722,51.5218253,-0.2122033165181962,0.66
+014811-25012024,3.17,False Alarm - Automatic Fire Alarm,Residential - Hostel (e.g. for homeless people),Kensington and Chelsea,Colville,North Kensington,5.0,2.0,North Kensington,51.5171144294,-0.2093462502,51.5218253,-0.2122033165181962,0.56
+015760-26012024,8.13,False Alarm - Automatic Fire Alarm,Residential - Youth hostel,Kensington and Chelsea,Earl's Court,North Kensington,20.0,1.0,North Kensington,51.4942003,-0.1914547,51.5218253,-0.2122033165181962,3.39
+016600-28012024,7.1,False Alarm - Automatic Fire Alarm,Non Residential - Public,Kensington and Chelsea,Abingdon,North Kensington,11.0,3.0,Battersea,51.4988365542,-0.1927730372,51.5218253,-0.2122033165181962,2.89
+012340-21012024,2.88,False Alarm - Automatic Fire Alarm,Non Residential - Entertainment,Hackney,Hackney Central,Homerton,7.0,1.0,Homerton,51.5495249738,-0.0544745297,51.5480566,-0.0477655,0.49
+014044-23012024,5.27,Fire - Secondary Fire,Outdoor - Large refuse/rubbish container (eg skip/ paladin),Hackney,King's Park,Homerton,18.0,2.0,Leyton,51.5528579346,-0.0335630916,51.5480566,-0.0477655,1.12
+017145-29012024,4.17,False Alarm - Automatic Fire Alarm,Residential - Nurses'/Doctors' accommodation,Hackney,Homerton,Homerton,11.0,1.0,Homerton,51.5513709,-0.047598,51.5480566,-0.0477655,0.37
+017834-30012024,4.95,False alarm - Good intent,Non Residential - Medical,Hackney,Hackney Wick,Homerton,16.0,3.0,Whitechapel,51.5445466502,-0.0463722333,51.5480566,-0.0477655,0.4
+017885-30012024,5.27,False Alarm - Automatic Fire Alarm,Residential - Retirement/Old Persons Home,Hackney,London Fields,Homerton,18.0,2.0,Bethnal Green,51.5435223117,-0.0629439072,51.5480566,-0.0477655,1.16
+012347-21012024,3.32,Special Service - Environment,Vehicle - Passenger plane,Hillingdon,Heathrow Villages,Heathrow,8.0,3.0,Hayes,51.4792373858,-0.4519564111,51.480183,-0.45863,0.47
+012392-21012024,5.28,False alarm - Good intent,Non Residential - Transport,Hillingdon,Heathrow Villages,Heathrow,10.0,3.0,Hayes,51.4701300632,-0.4590122393,51.480183,-0.45863,1.12
+012987-22012024,4.83,False Alarm - Automatic Fire Alarm,Residential - Hotel/motel,Hillingdon,Heathrow Villages,Heathrow,0.0,4.0,Feltham,51.4699011,-0.4535861,51.480183,-0.45863,1.2
+014103-23012024,4.97,Special Service - Road Traffic Collision,Vehicle - Car,Hillingdon,Heathrow Villages,Heathrow,21.0,2.0,Hayes,51.4799761293,-0.4678406687,51.480183,-0.45863,0.64
+014522-24012024,5.95,False alarm - Good intent,Non Residential - Transport,Hillingdon,Heathrow Villages,Heathrow,16.0,2.0,Hayes,51.4717232881,-0.4877638912,51.480183,-0.45863,2.23
+015385-26012024,4.73,False Alarm - Automatic Fire Alarm,Non Residential - Transport,Hillingdon,Heathrow Villages,Heathrow,8.0,2.0,Hayes,51.4708443215,-0.4502246858,51.480183,-0.45863,1.19
+015554-26012024,6.7,Special Service - Road Traffic Collision,Outdoor - Road surface/pavement,Hillingdon,Heathrow Villages,Heathrow,14.0,2.0,Southall,51.4805740272,-0.4335442073,51.480183,-0.45863,1.74
+017643-30012024,5.8,Special Service - Advice,Outdoor - Airfield/runway,Hillingdon,Heathrow Villages,Heathrow,9.0,2.0,Feltham,51.4674540141,-0.4902124377,51.480183,-0.45863,2.61
+018192-31012024,6.05,Special Service - Assistance,Vehicle - Passenger plane,Hillingdon,Heathrow Villages,Heathrow,9.0,3.0,Hayes,51.4674519139,-0.490212507,51.480183,-0.45863,2.61
+012431-21012024,3.8,Fire - Primary Fire,Non Residential - Entertainment,Merton,Raynes Park,New Malden,11.0,2.0,Wimbledon,51.4098032435,-0.2336652762,51.399191,-0.2471157,1.5
+013725-23012024,7.5,Special Service - Road Traffic Collision,Non Residential - Religious Building,Kingston upon Thames,Coombe Vale,New Malden,7.0,2.0,Surbiton,51.4083533036,-0.2751906226,51.399191,-0.2471157,2.2
+012439-21012024,3.62,False Alarm - Automatic Fire Alarm,Residential - Retirement/Old Persons Home,Redbridge,Churchfields,Woodford,11.0,3.0,Walthamstow,51.5972947045,0.0208610831,51.606148250000004,0.04654351731059136,2.03
+014099-23012024,3.92,False Alarm - Automatic Fire Alarm,Residential - Retirement/Old Persons Home,Redbridge,Churchfields,Woodford,21.0,2.0,Chingford,51.6039062718,0.0266066638,51.606148250000004,0.04654351731059136,1.4
+014655-24012024,6.08,Special Service - Road Traffic Collision,Vehicle - Motorcycle,Redbridge,Churchfields,Woodford,20.0,2.0,Leytonstone,51.5940632996,0.0376266562,51.606148250000004,0.04654351731059136,1.48
+017143-29012024,6.3,False Alarm - Automatic Fire Alarm,Residential - Retirement/Old Persons Home,Redbridge,Monkhams,Woodford,11.0,2.0,Chingford,51.608932799,0.0344274385,51.606148250000004,0.04654351731059136,0.89
+018360-31012024,4.12,Special Service - Road Traffic Collision,Vehicle - Car,Waltham Forest,Chingford Green,Woodford,15.0,2.0,Enfield,51.6296010243,0.0076247962,51.606148250000004,0.04654351731059136,3.74
+012453-21012024,6.6,Special Service - Environment,Outdoor - Roadside furniture (eg lamp posts/ road signs/ telegraph poles/ speed cameras),Haringey,Bounds Green,Hornsey,12.0,2.0,Southgate,51.6068649141,-0.1195562509,51.5862852,-0.1276485,2.36
+014610-24012024,10.72,False alarm - Good intent,Outdoor - Park,Haringey,Northumberland Park,Hornsey,19.0,2.0,Edmonton,51.5990050534,-0.0679012218,51.5862852,-0.1276485,4.36
+016483-28012024,3.28,False alarm - Malicious,Non Residential - Retail,Haringey,Hornsey,Hornsey,3.0,2.0,Holloway,51.5870833703,-0.1181130254,51.5862852,-0.1276485,0.66
+017760-30012024,4.88,False Alarm - Automatic Fire Alarm,Residential - Retirement/Old Persons Home,Haringey,Harringay,Hornsey,14.0,2.0,Holloway,51.5760052707,-0.1039117653,51.5862852,-0.1276485,2.0
+012540-21012024,2.73,Special Service - Environment,Vehicle - Car,Hounslow,Chiswick Gunnersbury,Chiswick,15.0,2.0,Hammersmith,51.4926625215,-0.2628125708,51.49046405,-0.26910959932111345,0.5
+015878-27012024,5.4,False Alarm - Automatic Fire Alarm,Residential - Nursing/Care Home/Hospice,Hammersmith and Fulham,Ravenscourt,Chiswick,2.0,2.0,Hammersmith,51.497419679,-0.2429374129,51.49046405,-0.26910959932111345,1.97
+016630-28012024,6.57,False Alarm - Automatic Fire Alarm,Residential - Nursing/Care Home/Hospice,Hammersmith and Fulham,Wendell Park,Chiswick,13.0,2.0,Hammersmith,51.4991066038,-0.2429420283,51.49046405,-0.26910959932111345,2.05
+017128-29012024,12.82,Special Service - Environment,Non Residential - Industry,Brent,Stonebridge,Chiswick,11.0,2.0,Hammersmith,51.5308781581,-0.273311353,51.49046405,-0.26910959932111345,4.5
+012558-21012024,5.22,Fire - Primary Fire,Vehicle - Car,Merton,Graveney,Mitcham,15.0,2.0,Tooting,51.4161891489,-0.1537314455,51.4182035,-0.1619689,0.61
+013674-23012024,6.62,False Alarm - Automatic Fire Alarm,Residential - Boarding School accommodation,Merton,Figge's Marsh,Mitcham,2.0,2.0,Wimbledon,51.4095643451,-0.1655219322,51.4182035,-0.1619689,0.99
+015680-26012024,6.37,Fire - Primary Fire,Non Residential - Parking,Merton,Merton Park,Mitcham,18.0,2.0,Wimbledon,51.402982197,-0.1944143513,51.4182035,-0.1619689,2.82
+017068-29012024,11.43,False alarm - Good intent,Vehicle - Car,Merton,Lavender Fields,Mitcham,9.0,2.0,Wimbledon,51.4139510542,-0.1685466211,51.4182035,-0.1619689,0.66
+017275-29012024,5.07,Special Service - Road Traffic Collision,Vehicle - Multiple Vehicles,Sutton,Sutton Central,Mitcham,16.0,1.0,Sutton,51.3685192608,-0.1828569909,51.4182035,-0.1619689,5.71
+017794-30012024,7.33,Fire - Secondary Fire,Outdoor - Loose refuse,Sutton,Sutton Central,Mitcham,15.0,2.0,Wimbledon,51.365802445,-0.1940933475,51.4182035,-0.1619689,6.24
+012582-21012024,11.0,False Alarm - Automatic Fire Alarm,Residential - Retirement/Old Persons Home,Bromley,Farnborough & Crofton,Orpington,16.0,1.0,Orpington,51.3592894515,0.0740013603,51.3713592,0.1131182,3.03
+016420-27012024,4.37,False alarm - Good intent,Non Residential - Retail,Bromley,Orpington,Orpington,23.0,2.0,Sidcup,51.374141157,0.0965464929,51.3713592,0.1131182,1.19
+017956-30012024,6.45,False Alarm - Automatic Fire Alarm,Non Residential - Medical,Bromley,Farnborough & Crofton,Orpington,21.0,1.0,Orpington,51.3662546665,0.0591840586,51.3713592,0.1131182,3.79
+012670-21012024,6.07,Special Service - Environment,Outdoor - Road surface/pavement,Brent,Cricklewood & Mapesbury,Willesden,18.0,2.0,West Hampstead,51.5595075251,-0.2196153485,51.5443512,-0.23674369773889314,2.06
+012714-21012024,7.27,Fire - Primary Fire,Vehicle - Motorcycle,Ealing,Hanger Hill,Park Royal,19.0,2.0,Wembley,51.5367639965,-0.2854921504,51.5348347,-0.2587427,1.86
+016985-29012024,5.1,Special Service - Road Traffic Collision,Vehicle - Car,Ealing,North Acton,Park Royal,3.0,2.0,Acton,51.5280995958,-0.2773638998,51.5348347,-0.2587427,1.49
+012735-21012024,5.35,False Alarm - Automatic Fire Alarm,Residential - Retirement/Old Persons Home,Greenwich,Blackheath Westcombe,Lee Green,19.0,2.0,Greenwich,51.4694947747,0.0189872594,51.4564873,0.0117646,1.53
+013495-22012024,7.13,Fire - Secondary Fire,Outdoor - Wasteland,Lewisham,Grove Park,Lee Green,18.0,2.0,Eltham,51.4423506524,0.0114035596,51.4564873,0.0117646,1.57
+014195-24012024,5.72,Fire - Primary Fire,Vehicle - Van,Greenwich,Middle Park & Horn Park,Lee Green,1.0,2.0,Eltham,51.4456035229,0.0245019475,51.4564873,0.0117646,1.5
+014456-24012024,5.58,Fire - Primary Fire,Non Residential - Public,Lewisham,Hither Green,Lee Green,14.0,2.0,Lewisham,51.4487923256,-0.0014439831,51.4564873,0.0117646,1.25
+015817-26012024,3.08,Fire - Secondary Fire,Outdoor - Domestic garden (vegetation not equipment),Greenwich,Kidbrooke Village & Sutcliffe,Lee Green,22.0,2.0,Lewisham,51.4572711968,0.0185643458,51.4564873,0.0117646,0.48
+016387-27012024,5.38,Special Service - Road Traffic Collision,Vehicle - Van,Greenwich,Eltham Town & Avery Hill,Lee Green,22.0,2.0,Sidcup,51.4501157492,0.0581358799,51.4564873,0.0117646,3.29
+018159-31012024,6.47,Special Service - Road Traffic Collision,Vehicle - Lorry/HGV,Greenwich,Middle Park & Horn Park,Lee Green,7.0,2.0,Eltham,51.4448350075,0.0314180319,51.4564873,0.0117646,1.88
+012736-21012024,5.32,False Alarm - Automatic Fire Alarm,Residential - Nursing/Care Home/Hospice,Camden,Kilburn,West Hampstead,19.0,1.0,West Hampstead,51.5399597,-0.1805439,51.552368,-0.1908108,1.55
+013152-22012024,5.2,False Alarm - Automatic Fire Alarm,Residential - Student Hall of Residence,Barnet,Cricklewood,West Hampstead,8.0,2.0,Hendon,51.5589763,-0.2106632,51.552368,-0.1908108,1.56
+013669-23012024,5.68,Fire - Primary Fire,Non Residential - Medical,Camden,Gospel Oak,West Hampstead,2.0,1.0,West Hampstead,51.5532367783,-0.1652809441,51.552368,-0.1908108,1.77
+016386-27012024,4.85,Fire - Primary Fire,Residential - Other Residential Home,Camden,Frognal,West Hampstead,22.0,1.0,West Hampstead,51.5594095071,-0.1831762563,51.552368,-0.1908108,0.94
+017111-29012024,4.4,Fire - Primary Fire,Non Residential - Public,Brent,Kilburn,West Hampstead,10.0,1.0,West Hampstead,51.5403732,-0.1964304,51.552368,-0.1908108,1.39
+017303-29012024,2.9,False Alarm - Automatic Fire Alarm,Residential - Hostel (e.g. for homeless people),Camden,South Hampstead,West Hampstead,16.0,2.0,Paddington,51.545962,-0.190873,51.552368,-0.1908108,0.71
+017516-29012024,3.95,False Alarm - Automatic Fire Alarm,Residential - Retirement/Old Persons Home,Camden,Hampstead Town,West Hampstead,23.0,2.0,Kentish Town,51.5542065801,-0.1768667174,51.552368,-0.1908108,0.99
+017733-30012024,4.22,Fire - Secondary Fire,Outdoor - Domestic garden (vegetation not equipment),Barnet,Childs Hill,West Hampstead,13.0,1.0,West Hampstead,51.5593105446,-0.1999520289,51.552368,-0.1908108,1.0
+017841-30012024,2.62,Fire - Secondary Fire,Outdoor - Large refuse/rubbish container (eg skip/ paladin),Barnet,Finchley Church End,West Hampstead,17.0,3.0,Finchley,51.5931185215,-0.2028468181,51.552368,-0.1908108,4.61
+018221-31012024,7.95,Fire - Secondary Fire,Outdoor - Domestic garden (vegetation not equipment),Camden,Primrose Hill,West Hampstead,10.0,1.0,West Hampstead,51.5423507046,-0.1655032992,51.552368,-0.1908108,2.07
+012843-21012024,4.47,False Alarm - Automatic Fire Alarm,Non Residential - Public,Westminster,Marylebone,Paddington,21.0,2.0,Euston,51.520358277,-0.1569512718,51.52002575,-0.18308729022904663,1.81
+012926-21012024,3.15,False Alarm - Automatic Fire Alarm,Residential - Hostel (e.g. for homeless people),Westminster,Little Venice,Paddington,22.0,1.0,Paddington,51.5249295589,-0.1884926315,51.52002575,-0.18308729022904663,0.66
+012985-22012024,2.8,False alarm - Good intent,Residential - Hostel (e.g. for homeless people),Westminster,Church Street,Paddington,0.0,1.0,Paddington,51.5210212531,-0.1652638622,51.52002575,-0.18308729022904663,1.24
+013069-22012024,6.48,False Alarm - Automatic Fire Alarm,Non Residential - Public,Westminster,West End,Paddington,4.0,2.0,Soho,51.5111102761,-0.1540388865,51.52002575,-0.18308729022904663,2.24
+013080-22012024,4.42,False Alarm - Automatic Fire Alarm,Residential - Youth hostel,Westminster,Maida Vale,Paddington,5.0,1.0,Paddington,51.525791798,-0.1914747318,51.52002575,-0.18308729022904663,0.86
+013235-22012024,4.12,Fire - Primary Fire,Residential - Nursing/Care Home/Hospice,Westminster,Harrow Road,Paddington,11.0,3.0,West Hampstead,51.5263246631,-0.198851478,51.52002575,-0.18308729022904663,1.3
+014104-23012024,2.6,Fire - Primary Fire,Outdoor - Other tent/marquee,Westminster,Little Venice,Paddington,21.0,1.0,Paddington,51.5199835664,-0.1732392715,51.52002575,-0.18308729022904663,0.68
+014222-24012024,3.67,Fire - Secondary Fire,Outdoor - Loose refuse,Westminster,Little Venice,Paddington,3.0,1.0,Paddington,51.5232073451,-0.1752814835,51.52002575,-0.18308729022904663,0.65
+015612-26012024,9.1,False Alarm - Automatic Fire Alarm,Residential - Hostel (e.g. for homeless people),Kensington and Chelsea,Courtfield,Paddington,16.0,2.0,North Kensington,51.4943088744,-0.1880396893,51.52002575,-0.18308729022904663,2.88
+015854-27012024,3.6,False Alarm - Automatic Fire Alarm,Residential - Youth hostel,Westminster,Little Venice,Paddington,0.0,2.0,North Kensington,51.5253406,-0.187294,51.52002575,-0.18308729022904663,0.66
+016728-28012024,5.22,Special Service - Road Traffic Collision,Vehicle - Multiple Vehicles,Westminster,Regent's Park,Paddington,16.0,2.0,North Kensington,51.5343685161,-0.1702131284,51.52002575,-0.18308729022904663,1.83
+017574-30012024,4.73,False Alarm - Automatic Fire Alarm,Residential - Hostel (e.g. for homeless people),Westminster,Little Venice,Paddington,4.0,2.0,North Kensington,51.5249296629,-0.1884993638,51.52002575,-0.18308729022904663,0.66
+017728-30012024,6.85,False Alarm - Automatic Fire Alarm,Non Residential - Retail,Westminster,Regent's Park,Paddington,13.0,1.0,Paddington,51.5339864,-0.1718972,51.52002575,-0.18308729022904663,1.73
+012857-21012024,2.45,Special Service - Assistance,Outdoor - Tree scrub,Enfield,Bush Hill Park,Edmonton,21.0,1.0,Edmonton,51.6383536259,-0.0746189641,51.6251161,-0.0607608,1.76
+015965-27012024,2.7,False Alarm - Automatic Fire Alarm,Residential - Retirement/Old Persons Home,Enfield,Bush Hill Park,Edmonton,8.0,1.0,Edmonton,51.6325222457,-0.0797813114,51.6251161,-0.0607608,1.55
+017909-30012024,3.75,False alarm - Malicious,Non Residential - Retail,Enfield,Edmonton Green,Edmonton,19.0,1.0,Edmonton,51.6227986223,-0.0594257987,51.6251161,-0.0607608,0.27
+013015-22012024,5.28,False Alarm - Automatic Fire Alarm,Residential - Student Hall of Residence,Tower Hamlets,Mile End,Bethnal Green,1.0,2.0,Poplar,51.524957537,-0.0327761967,51.5278795,-0.0534503832043004,1.47
+013389-22012024,5.82,False Alarm - Automatic Fire Alarm,Residential - Nursing/Care Home/Hospice,Hackney,London Fields,Bethnal Green,16.0,2.0,Shoreditch,51.5384445,-0.0652679,51.5278795,-0.0534503832043004,1.43
+016211-27012024,4.07,Fire - Primary Fire,Outdoor - Garden equipment,Hackney,Victoria,Bethnal Green,17.0,2.0,Homerton,51.5366983315,-0.0433601326,51.5278795,-0.0534503832043004,1.2
+016799-28012024,5.65,False Alarm - Automatic Fire Alarm,Residential - Retirement/Old Persons Home,Tower Hamlets,Bow East,Bethnal Green,18.0,2.0,Homerton,51.5343032219,-0.0283756745,51.5278795,-0.0534503832043004,1.88
+016898-28012024,7.6,Fire - Secondary Fire,Outdoor - Loose refuse,Tower Hamlets,Bromley North,Bethnal Green,22.0,2.0,Poplar,51.5241404151,-0.0230331304,51.5278795,-0.0534503832043004,2.14
+017121-29012024,3.7,False alarm - Good intent,Non Residential - Public,Newham,Stratford,Bethnal Green,10.0,2.0,Homerton,51.5306379966,-0.0126491091,51.5278795,-0.0534503832043004,2.84
+013025-22012024,7.12,False alarm - Good intent,Non Residential - Public,Sutton,The Wrythe,Wallington,1.0,2.0,Mitcham,51.3752004874,-0.1774612684,51.3624446,-0.1464594,2.58
+016536-28012024,3.12,False Alarm - Automatic Fire Alarm,Residential - Hostel (e.g. for homeless people),Sutton,Wallington North,Wallington,8.0,2.0,Croydon,51.3636371237,-0.147727666,51.3624446,-0.1464594,0.16
+018524-31012024,3.77,Special Service - Assistance,Outdoor - Other outdoor location,Sutton,Carshalton Central,Wallington,20.0,3.0,Mitcham,51.3653914647,-0.1635113494,51.3624446,-0.1464594,1.23
+013079-22012024,4.73,Special Service - Environment,Outdoor - Road surface/pavement,Tower Hamlets,Canary Wharf,Poplar,5.0,3.0,Shadwell,51.507784399,-0.0213701829,51.5113517,-0.0108228,0.83
+013123-22012024,5.63,False alarm - Good intent,Vehicle - Lorry/HGV,Tower Hamlets,Blackwall & Cubitt Town,Poplar,8.0,2.0,Millwall,51.4954513683,-0.0110567953,51.5113517,-0.0108228,1.77
+013919-23012024,4.27,False alarm - Good intent,Non Residential - Public,Tower Hamlets,Canary Wharf,Poplar,15.0,5.0,Plaistow,51.5049236,-0.0143813,51.5113517,-0.0108228,0.76
+015871-27012024,6.7,Fire - Secondary Fire,Outdoor - Large refuse/rubbish container (eg skip/ paladin),Tower Hamlets,Bromley North,Poplar,1.0,2.0,Bethnal Green,51.5258808925,-0.022217325,51.5113517,-0.0108228,1.8
+017257-29012024,5.43,Fire - Secondary Fire,Outdoor - Large refuse/rubbish container (eg skip/ paladin),Newham,Canning Town North,Poplar,15.0,2.0,Plaistow,51.5223118701,-0.0064636231,51.5113517,-0.0108228,1.26
+017422-29012024,6.22,Special Service - Advice,Outdoor - River/canal,Newham,Royal Victoria,Poplar,19.0,3.0,Millwall,51.505361442,0.0234013931,51.5113517,-0.0108228,2.46
+017741-30012024,5.23,False alarm - Good intent,Non Residential - Public,Tower Hamlets,Canary Wharf,Poplar,13.0,2.0,Shadwell,51.5011441873,-0.020340555,51.5113517,-0.0108228,1.31
+018003-30012024,4.35,False alarm - Malicious,Non Residential - Entertainment,Newham,Canning Town North,Poplar,22.0,2.0,Plaistow,51.5177048722,0.0135042084,51.5113517,-0.0108228,1.83
+013155-22012024,4.57,False Alarm - Automatic Fire Alarm,Residential - Retirement/Old Persons Home,Lewisham,Deptford,Deptford,8.0,2.0,Greenwich,51.4803958,-0.0295904,51.4881967,-0.0388604,1.08
+018602-31012024,6.42,Special Service - Road Traffic Collision,Vehicle - Motorcycle,Lewisham,New Cross Gate,Deptford,23.0,2.0,Greenwich,51.4748773789,-0.0404828877,51.4881967,-0.0388604,1.49
+013163-22012024,4.08,False Alarm - Automatic Fire Alarm,Non Residential - Public,Southwark,London Bridge & West Bermondsey,Dockhead,9.0,6.0,Dowgate,51.5044515347,-0.0864821192,51.5177849,-0.0552576,2.62
+014936-25012024,6.6,False Alarm - Automatic Fire Alarm,Residential - Retirement/Old Persons Home,Lewisham,New Cross Gate,Dockhead,12.0,2.0,Deptford,51.4824454216,-0.0513424407,51.5177849,-0.0552576,3.94
+013338-22012024,8.32,Special Service - Road Traffic Collision,Vehicle - Multiple Vehicles,Lewisham,Blackheath,East Greenwich,15.0,2.0,Deptford,51.4669713092,0.0106889512,51.487010299999994,0.022271182837929757,2.37
+014448-24012024,6.05,Special Service - Road Traffic Collision,Vehicle - Car,Greenwich,Greenwich Park,East Greenwich,14.0,1.0,East Greenwich,51.4752731576,-0.0113415105,51.487010299999994,0.022271182837929757,2.67
+015920-27012024,4.47,False Alarm - Automatic Fire Alarm,Residential - Retirement/Old Persons Home,Greenwich,Charlton Hornfair,East Greenwich,5.0,1.0,East Greenwich,51.4798193,0.0289994,51.487010299999994,0.022271182837929757,0.93
+016005-27012024,5.22,False Alarm - Automatic Fire Alarm,Residential - Retirement/Old Persons Home,Greenwich,Charlton Hornfair,East Greenwich,10.0,2.0,Greenwich,51.4798193,0.0289994,51.487010299999994,0.022271182837929757,0.93
+016695-28012024,3.05,False alarm - Good intent,Residential - Hotel/motel,Greenwich,East Greenwich,East Greenwich,15.0,1.0,East Greenwich,51.4920038,0.0082006,51.487010299999994,0.022271182837929757,1.12
+017533-29012024,8.1,False alarm - Good intent,Vehicle - Large passenger vessel,Greenwich,Greenwich Peninsula,East Greenwich,23.0,2.0,Greenwich,51.5019950623,0.0094486508,51.487010299999994,0.022271182837929757,1.89
+013416-22012024,7.23,Fire - Primary Fire,Vehicle - Car,Enfield,Whitewebbs,Enfield,16.0,3.0,Enfield,51.6825659643,-0.0561442933,51.6603185,-0.0504905,2.5
+017720-30012024,5.65,False Alarm - Automatic Fire Alarm,Non Residential - Retail,Enfield,Town,Enfield,13.0,1.0,Enfield,51.6531818586,-0.0803720791,51.6603185,-0.0504905,2.21
+018030-30012024,3.83,Special Service - Road Traffic Collision,Vehicle - Car,Enfield,Enfield Lock,Enfield,23.0,1.0,Enfield,51.6743989265,-0.0378264803,51.6603185,-0.0504905,1.79
+013528-22012024,4.25,Fire - Primary Fire,Non Residential - Public,Greenwich,West Thamesmead,Plumstead,19.0,3.0,Plumstead,51.4934341249,0.0874754083,51.4866926,0.0923038,0.82
+013543-22012024,5.77,Fire - Primary Fire,Non Residential - Public,Greenwich,West Thamesmead,Plumstead,20.0,4.0,East Greenwich,51.4934542205,0.0875268173,51.4866926,0.0923038,0.82
+015907-27012024,5.08,Fire - Primary Fire,Residential - Other Residential Home,Greenwich,West Thamesmead,Plumstead,4.0,2.0,Plumstead,51.493447,0.087529,51.4866926,0.0923038,0.82
+017458-29012024,4.4,Fire - Primary Fire,Non Residential - Public,Greenwich,West Thamesmead,Plumstead,20.0,2.0,Plumstead,51.4934472037,0.0875668887,51.4866926,0.0923038,0.82
+017684-30012024,8.37,Special Service - Road Traffic Collision,Vehicle - Lorry/HGV,Bexley,Belvedere,Plumstead,11.0,2.0,Plumstead,51.5056101028,0.1562767198,51.4866926,0.0923038,4.9
+013559-22012024,5.1,False Alarm - Automatic Fire Alarm,Residential - Retirement/Old Persons Home,Redbridge,Wanstead Village,Walthamstow,20.0,2.0,Walthamstow,51.5838848084,0.0166476524,51.589772249999996,-0.028743188604858,3.2
+013608-22012024,3.8,Fire - Secondary Fire,Outdoor - Large refuse/rubbish container (eg skip/ paladin),Waltham Forest,Upper Walthamstow,Walthamstow,22.0,1.0,Walthamstow,51.5977527495,-0.0008150523,51.589772249999996,-0.028743188604858,2.12
+014600-24012024,4.75,Fire - Primary Fire,Residential - Student Hall of Residence,Haringey,Tottenham Hale,Walthamstow,19.0,3.0,Tottenham,51.5900958288,-0.0590186777,51.589772249999996,-0.028743188604858,2.09
+013574-22012024,2.82,Special Service - Road Traffic Collision,Vehicle - Multiple Vehicles,Havering,Beam Park,Wennington,21.0,1.0,Wennington,51.5228475508,0.1814170948,51.5062688,0.2246813,3.52
+013599-22012024,5.67,Fire - Secondary Fire,Outdoor - Loose refuse,Croydon,Park Hill & Whitgift,Croydon,22.0,1.0,Croydon,51.3643069158,-0.0691304066,51.3701318,-0.1057188,2.62
+013840-23012024,9.25,Fire - Primary Fire,Non Residential - Education,Bromley,Kelsey & Eden Park,Croydon,12.0,2.0,Croydon,51.3945685485,-0.0456190282,51.3701318,-0.1057188,4.98
+016071-27012024,8.12,False alarm - Good intent,Outdoor - Large refuse/rubbish container (eg skip/ paladin),Croydon,Purley Oaks & Riddlesdown,Croydon,12.0,2.0,Purley,51.343684272,-0.106793943,51.3701318,-0.1057188,2.94
+017011-29012024,4.43,False alarm - Good intent,Non Residential - Public,Croydon,Fairfield,Croydon,7.0,4.0,Croydon,51.3771609827,-0.0983161795,51.3701318,-0.1057188,0.94
+018489-31012024,4.62,Fire - Secondary Fire,Outdoor - Road surface/pavement,Croydon,Fairfield,Croydon,19.0,2.0,Woodside,51.3802468113,-0.0973509395,51.3701318,-0.1057188,1.27
+013651-23012024,5.83,Fire - Primary Fire,Non Residential - Industry,Lambeth,Streatham Hill West & Thornton,Battersea,1.0,2.0,Clapham,51.4448074,-0.1434629,51.4671288,-0.1689152,3.04
+016218-27012024,7.6,Fire - Primary Fire,Non Residential - Retail,Wandsworth,Wandsworth Common,Battersea,17.0,2.0,Wandsworth,51.440579,-0.18665,51.4671288,-0.1689152,3.2
+013677-23012024,4.85,False Alarm - Automatic Fire Alarm,Non Residential - Retail,Wandsworth,Wandsworth Town,Wandsworth,2.0,2.0,Tooting,51.454295,-0.193478,51.4565942,-0.2013037,0.6
+014286-24012024,10.53,Fire - Primary Fire,Vehicle - Bus/coach,Wandsworth,Thamesfield,Wandsworth,8.0,2.0,Fulham,51.462829523,-0.2170989761,51.4565942,-0.2013037,1.3
+014898-25012024,10.72,False Alarm - Automatic Fire Alarm,Residential - Nursing/Care Home/Hospice,Lambeth,Clapham Park,Wandsworth,11.0,2.0,Clapham,51.447784518,-0.1419191051,51.4565942,-0.2013037,4.23
+015275-25012024,5.88,False alarm - Good intent,Non Residential - Retail,Merton,Village,Wandsworth,23.0,2.0,Wimbledon,51.4253424041,-0.2192460128,51.4565942,-0.2013037,3.69
+016804-28012024,3.55,False Alarm - Automatic Fire Alarm,Residential - Nursing/Care Home/Hospice,Wandsworth,West Hill,Wandsworth,18.0,2.0,Fulham,51.4522038,-0.2137107,51.4565942,-0.2013037,0.99
+017705-30012024,3.8,False Alarm - Automatic Fire Alarm,Residential - Retirement/Old Persons Home,Wandsworth,Wandsworth Town,Wandsworth,12.0,2.0,Battersea,51.4532731694,-0.1928376966,51.4565942,-0.2013037,0.69
+013713-23012024,4.77,Fire - Secondary Fire,Outdoor - Wheelie bin (domestic size),Newham,Wall End,East Ham,6.0,2.0,Barking,51.5347908422,0.066509325,51.523548,0.056981,1.41
+015094-25012024,6.2,Special Service - Road Traffic Collision,Vehicle - Multiple Vehicles,Barking and Dagenham,Northbury,East Ham,17.0,2.0,Barking,51.5371865256,0.068478406,51.523548,0.056981,1.71
+015718-26012024,6.2,Special Service - Rescue,Outdoor - River/canal,Newham,Royal Albert,East Ham,19.0,3.0,Barking,51.4978028466,0.0613479456,51.523548,0.056981,2.88
+016685-28012024,7.03,False Alarm - Automatic Fire Alarm,Residential - Nursing/Care Home/Hospice,Newham,Plaistow South,East Ham,15.0,2.0,Poplar,51.5230155,0.0256735,51.523548,0.056981,2.17
+018087-31012024,14.2,Special Service - Road Traffic Collision,Vehicle - Multiple Vehicles,Newham,Custom House,East Ham,0.0,3.0,Barking,51.5179590961,0.0366114608,51.523548,0.056981,1.54
+013724-23012024,3.82,False Alarm - Automatic Fire Alarm,Non Residential - Public,Hounslow,Bedfont,Feltham,7.0,1.0,Feltham,51.4534595801,-0.4284665707,51.4606344,-0.41388526341956267,1.29
+015029-25012024,8.72,Fire - Primary Fire,Non Residential - Industry,Hounslow,Feltham North,Feltham,15.0,2.0,Heathrow,51.4564198809,-0.409954171,51.4606344,-0.41388526341956267,0.54
+017175-29012024,6.47,Fire - Secondary Fire,Outdoor - Barbecue,Hounslow,Hanworth Park,Feltham,12.0,1.0,Feltham,51.435094693,-0.3977112932,51.4606344,-0.41388526341956267,3.05
+013960-23012024,3.68,Fire - Primary Fire,Non Residential - Medical,Newham,Green Street West,Stratford,16.0,2.0,Plaistow,51.5432897423,0.0264902565,51.5420735,0.0045705,1.52
+014060-23012024,5.48,Special Service - Rescue,Outdoor - Roadside vegetation,Newham,Stratford Olympic Park,Stratford,19.0,2.0,Poplar,51.5399615566,-0.007790293,51.5420735,0.0045705,0.89
+016515-28012024,5.17,False Alarm - Automatic Fire Alarm,Non Residential - Transport,Newham,Stratford,Stratford,7.0,2.0,Leytonstone,51.5412709513,-0.0033099242,51.5420735,0.0045705,0.55
+017486-29012024,5.12,False Alarm - Automatic Fire Alarm,Non Residential - Education,Newham,Green Street West,Stratford,21.0,2.0,Plaistow,51.5400164197,0.0283429931,51.5420735,0.0045705,1.66
+014086-23012024,3.45,False Alarm - Automatic Fire Alarm,Non Residential - Entertainment,Barnet,Finchley Church End,Finchley,20.0,1.0,Finchley,51.5967497676,-0.1944603834,51.6011736,-0.1836338,0.9
+017521-29012024,5.68,Special Service - Road Traffic Collision,Vehicle - Car,Enfield,New Southgate,Finchley,23.0,2.0,Southgate,51.6154808163,-0.1436896169,51.6011736,-0.1836338,3.18
+018583-31012024,6.45,Fire - Primary Fire,Vehicle - Motorcycle,Barnet,Friern Barnet,Finchley,22.0,2.0,Hornsey,51.6080900443,-0.1440160598,51.6011736,-0.1836338,2.84
+014283-24012024,5.07,False Alarm - Automatic Fire Alarm,Non Residential - Public,Bexley,Crook Log,Bexley,8.0,2.0,Erith,51.4577257,0.133832,51.4850749,0.1559284,3.4
+016308-27012024,2.32,False Alarm - Automatic Fire Alarm,Residential - Retirement/Old Persons Home,Bexley,Bexleyheath,Bexley,20.0,2.0,Erith,51.4590349,0.1521381,51.4850749,0.1559284,2.91
+014673-24012024,7.48,False Alarm - Automatic Fire Alarm,Non Residential - Retail,Hillingdon,Yeading,Hillingdon,21.0,1.0,Hillingdon,51.5303560524,-0.4061500992,51.5319469,-0.4509137,3.1
+015986-27012024,4.33,False alarm - Good intent,Residential - Retirement/Old Persons Home,Hillingdon,Wood End,Hillingdon,10.0,2.0,Southall,51.5240314011,-0.434065144,51.5319469,-0.4509137,1.46
+016467-28012024,4.73,Special Service - Road Traffic Collision,Vehicle - Multiple Vehicles,Hillingdon,Wood End,Hillingdon,2.0,1.0,Hillingdon,51.5228571819,-0.4432525537,51.5319469,-0.4509137,1.14
+016489-28012024,4.83,Special Service - Rescue,Non Residential - Retail,Hillingdon,Uxbridge,Hillingdon,4.0,1.0,Hillingdon,51.5429342425,-0.4813901659,51.5319469,-0.4509137,2.44
+016535-28012024,5.3,Special Service - Assistance,Non Residential - Retail,Hillingdon,Uxbridge,Hillingdon,8.0,2.0,Ruislip,51.5429303796,-0.4814033675,51.5319469,-0.4509137,2.44
+016746-28012024,5.77,Fire - Secondary Fire,Outdoor - Large refuse/rubbish container (eg skip/ paladin),Hillingdon,Uxbridge,Hillingdon,16.0,2.0,Ruislip,51.5469043461,-0.4790476726,51.5319469,-0.4509137,2.56
+018547-31012024,3.97,False Alarm - Automatic Fire Alarm,Non Residential - Education,Hillingdon,Colham & Cowley,Hillingdon,21.0,2.0,Heathrow,51.5333720778,-0.4702038712,51.5319469,-0.4509137,1.34
+014871-25012024,7.35,False alarm - Good intent,Non Residential - Sports,Richmond upon Thames,North Richmond,Heston,9.0,2.0,Chiswick,51.4651750112,-0.3059482941,51.47500505,-0.34320264335787454,2.8
+014943-25012024,3.63,False Alarm - Automatic Fire Alarm,Residential - Hostel (e.g. for homeless people),Ealing,Ealing Common,Ealing,12.0,2.0,Acton,51.5130487416,-0.2950666079,51.512086249999996,-0.31390674199565377,1.31
+015514-26012024,4.22,False Alarm - Automatic Fire Alarm,Residential - Hostel (e.g. for homeless people),Ealing,Ealing Common,Ealing,13.0,2.0,Chiswick,51.5030125509,-0.306701821,51.512086249999996,-0.31390674199565377,1.13
+015555-26012024,4.83,False alarm - Good intent,Non Residential - Entertainment,Ealing,Walpole,Ealing,14.0,2.0,Chiswick,51.5007289514,-0.3154533497,51.512086249999996,-0.31390674199565377,1.27
+014980-25012024,5.02,Special Service - Road Traffic Collision,Vehicle - Car,Kingston upon Thames,Hook & Chessington North,Surbiton,13.0,2.0,New Malden,51.3749423631,-0.3036869668,51.3937691,-0.2987221,2.12
+015664-26012024,10.72,False Alarm - Automatic Fire Alarm,Residential - Retirement/Old Persons Home,Kingston upon Thames,Norbiton,Surbiton,17.0,2.0,Twickenham,51.4123997,-0.2959078,51.3937691,-0.2987221,2.08
+015056-25012024,3.58,False Alarm - Automatic Fire Alarm,Non Residential - Retail,Havering,Marshalls & Rise Park,Romford,15.0,2.0,Hornchurch,51.586670649,0.1737981377,51.5924393,0.1816619,0.84
+018377-31012024,6.12,Fire - Secondary Fire,Outdoor - Domestic garden (vegetation not equipment),Barking and Dagenham,Chadwell Heath,Romford,15.0,2.0,Dagenham,51.5799030786,0.1400940958,51.5924393,0.1816619,3.19
+015058-25012024,7.4,Fire - Secondary Fire,Outdoor - Other outdoor location,Redbridge,Barkingside,Hainault,15.0,3.0,Leytonstone,51.5810196151,0.0687736502,51.6040867,0.0938801,3.1
+015162-25012024,3.73,False Alarm - Automatic Fire Alarm,Residential - Other Residential Home,Tower Hamlets,Whitechapel,Shadwell,19.0,2.0,Whitechapel,51.5167508426,-0.0576907846,51.5110987,-0.0552059,0.65
+017366-29012024,2.02,False alarm - Good intent,Non Residential - Entertainment,Tower Hamlets,Shadwell,Shadwell,18.0,2.0,Whitechapel,51.5109808243,-0.0589492136,51.5110987,-0.0552059,0.26
+017694-30012024,3.83,False Alarm - Automatic Fire Alarm,Residential - Nurses'/Doctors' accommodation,Tower Hamlets,Whitechapel,Shadwell,11.0,2.0,Dowgate,51.5159896808,-0.0595695733,51.5110987,-0.0552059,0.62
+015165-25012024,6.73,False Alarm - Automatic Fire Alarm,Residential - Retirement/Old Persons Home,Hillingdon,Eastcote,Ruislip,19.0,2.0,Harrow,51.5698588786,-0.4026578999,51.5790246,-0.4313611,2.23
+015398-26012024,7.23,False Alarm - Automatic Fire Alarm,Residential - Retirement/Old Persons Home,Richmond upon Thames,Twickenham Riverside,Twickenham,8.0,1.0,Twickenham,51.4487715458,-0.3305546741,51.435525,-0.3483744,1.92
+017318-29012024,5.65,Special Service - Road Traffic Collision,Vehicle - Multiple Vehicles,Richmond upon Thames,Hampton,Twickenham,17.0,2.0,Feltham,51.4151878228,-0.3596843672,51.435525,-0.3483744,2.39
+017987-30012024,4.2,False Alarm - Automatic Fire Alarm,Residential - Nursing/Care Home/Hospice,Richmond upon Thames,Teddington,Twickenham,22.0,1.0,Twickenham,51.4226529,-0.3358145,51.435525,-0.3483744,1.68
+015419-26012024,3.65,Fire - Primary Fire,Non Residential - Education,Ealing,Northolt Mandeville,Northolt,10.0,1.0,Northolt,51.5516953,-0.3750451,51.5546449,-0.3595665275568182,1.12
+017269-29012024,7.02,False alarm - Good intent,Vehicle - Van,Ealing,Northolt Mandeville,Northolt,16.0,1.0,Northolt,51.5403455746,-0.3689195564,51.5546449,-0.3595665275568182,1.72
+015439-26012024,6.45,False Alarm - Automatic Fire Alarm,Residential - Retirement/Old Persons Home,Havering,Hylands & Harrow Lodge,Hornchurch,11.0,3.0,Dagenham,51.5595313897,0.1970278815,51.564511350000004,0.22058029412067592,1.72
+015571-26012024,4.88,Special Service - Road Traffic Collision,Vehicle - Car,Havering,Gooshays,Harold Hill,15.0,2.0,Romford,51.603124514,0.2469258051,51.5946,0.2329,1.36
+016857-28012024,5.98,Fire - Primary Fire,Outdoor - Other outdoor structures,Havering,Gooshays,Harold Hill,20.0,2.0,Romford,51.6172450318,0.2209576269,51.5946,0.2329,2.65
+015814-26012024,3.77,Fire - Primary Fire,Non Residential - Education,Lambeth,Herne Hill & Loughborough Junction,Brixton,22.0,1.0,Brixton,51.4684139056,-0.0960415938,51.4631558,-0.1079193,1.01
+016895-28012024,3.73,False Alarm - Automatic Fire Alarm,Non Residential - Education,Lambeth,Herne Hill & Loughborough Junction,Brixton,22.0,2.0,Peckham,51.4652366,-0.1023026,51.4631558,-0.1079193,0.45
+017027-29012024,4.75,False Alarm - Automatic Fire Alarm,Non Residential - Retail,Lambeth,Brixton Acre Lane,Brixton,7.0,1.0,Brixton,51.462749,-0.115246,51.4631558,-0.1079193,0.51
+017176-29012024,4.82,False Alarm - Automatic Fire Alarm,Non Residential - Medical,Lambeth,Myatt's Fields,Brixton,13.0,1.0,Brixton,51.4757770679,-0.1051860416,51.4631558,-0.1079193,1.42
+017570-30012024,4.27,False Alarm - Automatic Fire Alarm,Residential - Retirement/Old Persons Home,Lambeth,Stockwell East,Brixton,4.0,2.0,Lambeth,51.4782243,-0.1140608,51.4631558,-0.1079193,1.73
+018012-30012024,4.7,False Alarm - Automatic Fire Alarm,Non Residential - Education,Lambeth,Brixton Acre Lane,Brixton,22.0,2.0,Clapham,51.4555267,-0.1286559,51.4631558,-0.1079193,1.67
+015940-27012024,8.18,Special Service - Road Traffic Collision,Vehicle - Car,Harrow,Roxeth,Harrow,7.0,2.0,Wembley,51.555385467,-0.3715026637,51.59080205,-0.3663481969116297,3.95
+016190-27012024,4.8,False alarm - Good intent,Non Residential - Retail,Hillingdon,Eastcote,Harrow,16.0,2.0,Ruislip,51.5785580737,-0.399101065,51.59080205,-0.3663481969116297,2.64
+016639-28012024,6.47,False Alarm - Automatic Fire Alarm,Residential - Retirement/Old Persons Home,Hillingdon,Eastcote,Harrow,13.0,2.0,Northolt,51.5698435032,-0.4026082979,51.59080205,-0.3663481969116297,3.42
+017862-30012024,2.7,False alarm - Malicious,Non Residential - Sports,Harrow,North Harrow,Harrow,17.0,2.0,Northolt,51.5865220676,-0.3611765528,51.59080205,-0.3663481969116297,0.6
+016122-27012024,4.67,Fire - Secondary Fire,Outdoor - Domestic garden (vegetation not equipment),Newham,Canning Town South,Plaistow,14.0,2.0,Poplar,51.5094597483,0.0173508051,51.5167836,0.0320477,1.3
+016503-28012024,8.85,Special Service - Road Traffic Collision,Vehicle - Car,Newham,Beckton,Plaistow,5.0,2.0,East Ham,51.5127536432,0.0620433352,51.5167836,0.0320477,2.12
+017134-29012024,2.22,False Alarm - Automatic Fire Alarm,Non Residential - Medical,Newham,Plaistow South,Plaistow,11.0,2.0,Barking,51.522762676,0.0347436984,51.5167836,0.0320477,0.69
+016199-27012024,8.05,False Alarm - Automatic Fire Alarm,Non Residential - Retail,Lewisham,Bellingham,Beckenham,17.0,2.0,Forest Hill,51.4325121,-0.0212498,51.4149284,-0.027427595568586274,2.0
+016274-27012024,5.22,Fire - Secondary Fire,Outdoor - Domestic garden (vegetation not equipment),Barnet,Burnt Oak,Mill Hill,19.0,2.0,Hendon,51.61127838,-0.267559025,51.6151387,-0.2428269,1.76
+018227-31012024,7.0,False Alarm - Automatic Fire Alarm,Residential - Student Hall of Residence,Barnet,Hendon,Mill Hill,10.0,2.0,Finchley,51.5893852,-0.2272835,51.6151387,-0.2428269,3.06
+016374-27012024,5.78,Fire - Secondary Fire,Outdoor - Large refuse/rubbish container (eg skip/ paladin),Barking and Dagenham,Valence,Dagenham,22.0,2.0,Ilford,51.556074513,0.1283528367,51.5524328,0.1606149,2.27
+016500-28012024,4.05,Special Service - Rescue,Outdoor - Beach,Greenwich,Greenwich Park,Greenwich,5.0,3.0,East Greenwich,51.4830792018,-0.0110182109,51.474642,0.0127,1.89
+017363-29012024,3.12,Fire - Primary Fire,Non Residential - Entertainment,Lewisham,Deptford,Greenwich,18.0,2.0,New Cross,51.4749629259,-0.0255316625,51.474642,0.0127,2.65
+017453-29012024,5.45,False alarm - Good intent,Non Residential - Sports,Hillingdon,Pinkwell,Hayes,20.0,2.0,Heathrow,51.5005205763,-0.4396429666,51.49438,-0.43167364798206276,0.88
+017711-30012024,6.88,False alarm - Good intent,Residential - Nursing/Care Home/Hospice,Waltham Forest,Hoe Street,Leyton,12.0,2.0,Walthamstow,51.58328723,-0.0111703454,51.5651925,-0.020207,2.11
+017717-30012024,2.75,False Alarm - Automatic Fire Alarm,Residential - Retirement/Old Persons Home,Southwark,Old Kent Road,New Cross,12.0,2.0,Old Kent Road,51.478241,-0.059422,51.473601200000004,-0.049242639393940524,0.87
+018277-31012024,6.68,Fire - Primary Fire,Non Residential - Entertainment,Southwark,Dulwich Wood,New Cross,12.0,2.0,West Norwood,51.4434658,-0.0681635,51.473601200000004,-0.049242639393940524,3.6
+017792-30012024,4.93,False alarm - Good intent,Non Residential - Retail,Sutton,Sutton Central,Sutton,15.0,2.0,Wallington,51.3619085,-0.192044,51.369629,-0.210518,1.54
+018472-31012024,2.93,Special Service - Road Traffic Collision,Vehicle - Car,Sutton,Sutton West & East Cheam,Sutton,18.0,1.0,Sutton,51.3677158996,-0.1997372137,51.369629,-0.210518,0.78
+017917-30012024,2.87,False Alarm - Automatic Fire Alarm,Residential - Nurses'/Doctors' accommodation,Tower Hamlets,Whitechapel,Whitechapel,19.0,2.0,Shadwell,51.5159931001,-0.0595222814,51.515304799999996,-0.06918887176114738,0.67
+018208-31012024,3.98,Fire - Primary Fire,Non Residential - Public,Wandsworth,Wandsworth Common,Tooting,9.0,2.0,Tooting,51.4500359241,-0.177636613,51.4395119,-0.1637703,1.51
+018308-31012024,7.15,Fire - Primary Fire,Residential - Nursing/Care Home/Hospice,Lewisham,Forest Hill,West Norwood,13.0,2.0,Beckenham,51.4366024,-0.0642374,51.4226877,-0.1057577,3.27
