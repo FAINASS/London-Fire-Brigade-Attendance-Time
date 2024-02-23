@@ -56,7 +56,7 @@ def main():
     st.subheader(" ")
 
     image_shap = Image.open('LFB_Chiffres.png')
-    st.image(image_shap,use_column_width=True)
+    st.image(image_shap,use_column_width=False)
     
 #################################################################################################################################################################################################################
     st.subheader(" ")
