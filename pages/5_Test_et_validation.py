@@ -95,7 +95,7 @@ def main():
     with onglet1:
         st.write(" ")
         st.subheader("0. Incident à prédire")
-        selected_columns = df[["IncidentNumber","IncidentGroupType", "PropertyType", "BoroughName", "WardName", "DeployedFromStationName","Distance",
+        selected_columns = df[["IncidentGroupType", "PropertyType", "BoroughName", "WardName", "DeployedFromStationName","Distance",
                                "HourOfCall", "NumStationsWithPumpsAttending","SecondPumpArrivingDeployedFromStation", "AttendanceTime"]]
         
         
