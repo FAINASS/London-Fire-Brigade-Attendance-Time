@@ -225,11 +225,11 @@ def main():
     # Paramétrage, initialisations et explications des variables des modèles
     
     if model_type == 'XGBRegressor':
-       colsample_bytree = my_expander2.slider('Colsample bytree', min_value=0.1, max_value=1.0, value=0.7746831999163204)
-       learning_rate = my_expander2.slider('Learning rate', min_value=0.1, max_value=1.0, value=0.0624207548570334)
-       max_depth = my_expander2.slider('Max Depth', min_value=1, max_value=12, value=1)
-       min_child_weight = my_expander2.slider('Min child weight', min_value=1, max_value=5, value=1)
-       n_estimators = my_expander2.slider('N_estimators', min_value=100, max_value=1200, value=300)
+       colsample_bytree = my_expander2.slider('Colsample bytree', min_value=0.1, max_value=1.0, value=0.5)
+       learning_rate = my_expander2.slider('Learning rate', min_value=0.1, max_value=1.0, value=0.5)
+       max_depth = my_expander2.slider('Max Depth', min_value=1, max_value=6, value=3)
+       min_child_weight = my_expander2.slider('Min child weight', min_value=1, max_value=5, value=2.5)
+       n_estimators = my_expander2.slider('N_estimators', min_value=100, max_value=600, value=300)
 
        model = XGBRegressor(colsample_bytree =colsample_bytree,  
        learning_rate = learning_rate,  
@@ -261,9 +261,9 @@ def main():
                   """)
     
     else:
-        alpha = my_expander2.slider('Alpha', min_value=1.0, max_value=50.0, value=9.372353071731432)
+        alpha = my_expander2.slider('Alpha', min_value=1.0, max_value=50.0, value=25.0)
         solver = my_expander2.selectbox('Solver', ['auto', 'lsqr', 'sparse_cg', 'sag'])
-        fit_intercept = my_expander2.checkbox('fit_intercept', value=True)
+        fit_intercept = my_expander2.checkbox('fit_intercept', value=False)
         model = Ridge(alpha=alpha, solver=solver, fit_intercept=fit_intercept)
         
         with st.expander("Comprendre le réglage des hyperparamètres", expanded=False):
