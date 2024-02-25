@@ -228,7 +228,7 @@ def main():
        colsample_bytree = my_expander2.slider('Colsample bytree', min_value=0.1, max_value=1.0, value=0.5)
        learning_rate = my_expander2.slider('Learning rate', min_value=0.1, max_value=1.0, value=0.5)
        max_depth = my_expander2.slider('Max Depth', min_value=1, max_value=6, value=3)
-       min_child_weight = my_expander2.slider('Min child weight', min_value=1, max_value=5, value=2.5)
+       min_child_weight = my_expander2.slider('Min child weight', min_value=1, max_value=5, value=2)
        n_estimators = my_expander2.slider('N_estimators', min_value=100, max_value=600, value=300)
 
        model = XGBRegressor(colsample_bytree =colsample_bytree,  
