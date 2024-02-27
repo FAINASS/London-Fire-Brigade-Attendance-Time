@@ -72,7 +72,7 @@ def main():
     objectif_R = 70
     atteint_R = 50  
     
-    objectif_RMSE = 1
+    objectif_RMSE = 1.5
     atteint_RMSE= 1.32
     
     
@@ -92,7 +92,7 @@ def main():
     ax[0].text(0, objectif_R, f'Objectif: {objectif_R}%', ha='center', va='bottom', color='green')
     
     ax[1].bar(categories, valeurs_RMSE, color='red')
-    ax[1].plot([-0.5, 0.5], [objectif_RMSE, objectif_RMSE], color='salmon')
+    ax[1].plot([-0.5, 0.5], [objectif_RMSE, objectif_RMSE], color='green')
     ax[1].set_title("Erreur quadratique moyenne (RMSE)")
     # Ajout des annotations
     ax[1].text(0, atteint_RMSE/2, str(atteint_RMSE)+" minutes", ha='center', va='bottom', color='white',size=14)
