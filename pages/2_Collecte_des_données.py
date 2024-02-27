@@ -52,7 +52,7 @@ def main():
     
     add_logo()
     st.header("📥 Collecte des données")
-    st.write("L'objectif de cette étape est de réunir des données en fonction des objectifs définis à l’étape précédente.")
+    st.write("L'objectif de cette étape est de collecter des données en fonction des objectifs définis à l’étape précédente.")
     st.subheader(" ")
 
     # Création des 2 onglets
