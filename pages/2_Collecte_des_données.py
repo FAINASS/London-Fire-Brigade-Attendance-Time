@@ -59,7 +59,7 @@ def main():
     titres_onglets = ['Incidents', 'Mobilisations']
     onglet1, onglet2 = st.tabs(titres_onglets)
       
-    # Configuration de chaque onglets
+    # Configuration de chaque onglet
     with onglet1:
         st.subheader("1. London Fire Brigade Incident Records")
         st.write(" ")
