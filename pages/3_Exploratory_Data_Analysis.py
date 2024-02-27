@@ -216,7 +216,7 @@ def main():
     
     with st.expander("Explications",expanded=True):
         st.write("""
-        - En grande partie, les retards sont dus à la circulation routière et aux travaux. 
+        - En grande partie, les retards sont dus à la circulation et aux travaux sur la route. 
         """)
         
     st.subheader(" ")
