@@ -113,7 +113,7 @@ def main():
     st.markdown("#### - Erreur quadratique moyenne (RMSE)")
     st.write("""
       Quand notre modèle commet une erreur, elle est généralement d’environ 1 minute et 19 secondes (1.32 minutes).
-      Donc, si la prédiction du modèle est que les pompiers arriveront en 6 minutes, 
+      Donc, si la prédiction est que les pompiers arriveront en 6 minutes, 
       ils seront sur les lieux au plus tard en 7 minutes et 19 secondes.
     """)
     
