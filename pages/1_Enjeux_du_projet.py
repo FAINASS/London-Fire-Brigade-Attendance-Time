@@ -67,7 +67,7 @@ def main():
     Notre objectif est de prédire le temps de réponse des sapeurs-pompiers de Londres à partir des données de 2009 à 2023.
 
     - Nous visons un coefficient de détermination (R²) supérieur à 70%. Cela signifie que notre modèle expliquerait plus de 70% de la variabilité dans les temps de réponse.
-    - Nous cherchons à obtenir une erreur quadratique moyenne (RMSE) inférieure à 1 minute. Cela signifie que notre modèle prédit les temps de réponse avec une précision moyenne d'une minute.
+    - Nous cherchons à obtenir une erreur quadratique moyenne (RMSE) inférieure à 2 minutes. Cela signifie que notre modèle prédit les temps de réponse avec une précision moyenne de deux minutes.
 
     """, unsafe_allow_html=True)
 
