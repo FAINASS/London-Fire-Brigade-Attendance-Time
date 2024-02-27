@@ -53,7 +53,7 @@ def main():
     
     st.markdown("""
     Notre objectif était de prédire le temps de réponse des sapeurs-pompiers de Londres à partir des données de 2009 à 2023. Nous avons visé un 
-    coefficient de détermination (R²) > à 70% et une erreur quadratique moyenne (RMSE) < à 1 minute.
+    coefficient de détermination (R²) > à 70% et une erreur quadratique moyenne (RMSE) < à 1.5 minutes.
     """)
     
     st.write(" ")
