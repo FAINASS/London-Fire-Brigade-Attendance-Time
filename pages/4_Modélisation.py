@@ -238,7 +238,7 @@ def main():
        n_estimators = n_estimators, 
        random_state=0)
         
-       with st.expander("Comprendre le réglage des hyperparamètres", expanded=False):
+       with st.expander("XGBRegressor : Comprendre le réglage des hyperparamètres", expanded=False):
             
                 st.markdown("""
                     Le réglage des hyperparamètres peut aider à améliorer les performances de votre modèle.
@@ -266,7 +266,7 @@ def main():
         fit_intercept = my_expander2.checkbox('fit_intercept', value=False)
         model = Ridge(alpha=alpha, solver=solver, fit_intercept=fit_intercept)
         
-        with st.expander("Comprendre le réglage des hyperparamètres", expanded=False):
+        with st.expander("Ridge : Comprendre le réglage des hyperparamètres", expanded=False):
             
                 st.markdown("""
                     Le réglage des hyperparamètres peut aider à améliorer les performances de votre modèle.
