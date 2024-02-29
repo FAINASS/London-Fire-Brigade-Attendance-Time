@@ -261,7 +261,7 @@ def main():
                   """)
     
     else:
-        alpha = my_expander2.slider('Alpha', min_value=0.0, max_value=50.0, value=25.0)
+        alpha = my_expander2.slider('Alpha', min_value=1.0, max_value=50.0, value=25.0)
         solver = my_expander2.selectbox('Solver', ['auto', 'lsqr', 'sparse_cg', 'sag'])
         fit_intercept = my_expander2.checkbox('fit_intercept', value=False)
         model = Ridge(alpha=alpha, solver=solver, fit_intercept=fit_intercept)
