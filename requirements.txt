@@ -1,7 +1,7 @@
 streamlit==1.30.0
 pandas
 matplotlib
-plotly
+plotly==5.13.1
 numpy
 seaborn
 scipy
