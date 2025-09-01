@@ -294,11 +294,6 @@ def main():
     # Prédiction sur les données d'entraînement et de test
     y_train_pred = model_pipeline.predict(X_train)
     y_test_pred = model_pipeline.predict(X_test)
-
-    y_train = np.array(y_train).astype(float).ravel()
-    y_train_pred = np.array(y_train_pred).astype(float).ravel()
-    y_test = np.array(y_test).astype(float).ravel()
-    y_test_pred = np.array(y_test_pred).astype(float).ravel()
     
     # Calcul des métriques d'évaluation
     Train_score = round(model_pipeline.score(X_train, y_train), 2)
@@ -505,5 +500,6 @@ def main():
         
 if __name__ == "__main__":
     main()
+
 
 
